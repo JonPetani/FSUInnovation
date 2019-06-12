@@ -1,6 +1,6 @@
 <?php
 
-$con = dbo_mysql_connect("localhost:8080","SiteAdmin","fsuintern495");
+$con = pdo_connect("localhost:8080","SiteAdmin","fsuintern495");
 
 if (!$con)
 
