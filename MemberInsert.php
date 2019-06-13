@@ -1,6 +1,6 @@
 <?php
 
-$con = pdo_connect("localhost:8080","SiteAdmin","fsuintern495");
+$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
 
 if (!$con)
 
@@ -9,18 +9,12 @@ if (!$con)
   die('Connection has failed: ' . mysql_error());
 
   }
-
  
-
-mysql_select_db("SiteAdmin", $con);
-
- 
-
-$sql="INSERT INTO member (ContactName, CompanyName, ContactEmail, CompanyCity, CompanyState, PhoneNumber, CompanyPicture, CompanyDescription)
+$sql= $con -> query("INSERT INTO member (ContactName, CompanyName, ContactEmail, CompanyCity, CompanyState, PhoneNumber, CompanyPicture, CompanyDescription)
 
 VALUES
 
-('$_POST[ContactName]','$_POST[CompanyName]','$_POST[ContactEmail]','$_POST[CompanyCity]','$_POST[CompanyState]','$_POST[PhoneNumber]','$_POST[CompanyPicture]','$_POST[CompanyDescription]')";
+('$_POST[ContactName]','$_POST[CompanyName]','$_POST[ContactEmail]','$_POST[CompanyCity]','$_POST[CompanyState]','$_POST[PhoneNumber]','$_POST[CompanyPicture]','$_POST[CompanyDescription]')");
 
  
 
