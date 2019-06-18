@@ -10,27 +10,27 @@ if (!$con)
 
   }
  
-$sql= $con -> query("INSERT INTO member (ContactName, CompanyName, ContactEmail, CompanyCity, CompanyState, PhoneNumber, CompanyPicture, CompanyDescription)
+$sql= $con -> query("INSERT INTO member (ContactName, CompanyName, ContactEmail, Username, Password, CompanyCity, CompanyState, PhoneNumber, CompanyPicture, CompanyDescription)
 
 VALUES
 
-('$_POST[ContactName]','$_POST[CompanyName]','$_POST[ContactEmail]','$_POST[CompanyCity]','$_POST[CompanyState]','$_POST[PhoneNumber]','$_POST[CompanyPicture]','$_POST[CompanyDescription]')");
+('$_POST[ContactName]','$_POST[CompanyName]','$_POST[ContactEmail]','$_POST[CompanyCity]','$_POST[Username]','$_POST[Password]','$_POST[CompanyState]','$_POST[PhoneNumber]','$_POST[CompanyPicture]','$_POST[CompanyDescription]')");
 
  
-
-if (!mysql_query($sql,$con))
+/*
+if (!query($sql,$con))
 
   {
 
   die('Error: ' . mysql_error());
 
   }
-
+*/
 echo "Success! Welcome to our website. Hope our services will serve you and your company well.";
 
  
 
-mysql_close($con)
+$con = null;
 
 ?>
 

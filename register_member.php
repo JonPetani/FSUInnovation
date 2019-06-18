@@ -58,6 +58,22 @@
 				</div>
 				<div class="row">
 					<div class="col-25">
+						<label for="Username">Username: </label>
+					</div>
+					<div class="col-75">
+						<input type="text" name="Username" autocomplete="off" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-25">
+						<label for="Password">Password: </label>
+					</div>
+					<div class="col-75">
+						<input type="text" name="Password" autocomplete="off" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-25">
 						<label for="CompanyCity">Location (City): </label>
 					</div>
 					<div class="col-75">

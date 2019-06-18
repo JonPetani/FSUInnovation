@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2019 at 10:12 PM
+-- Generation Time: Jun 18, 2019 at 08:40 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -32,6 +32,8 @@ CREATE TABLE `intern` (
   `InternId` int(11) NOT NULL COMMENT 'Id for each entry',
   `InternName` varchar(255) NOT NULL COMMENT 'Intern''s full name',
   `EmailAddress` varchar(255) NOT NULL COMMENT 'Intern''s Email Address',
+  `Username` varchar(255) NOT NULL COMMENT 'UserName for Student Intern account',
+  `Password` varchar(255) NOT NULL COMMENT 'Password for Student Intern account',
   `School` varchar(255) NOT NULL COMMENT 'College/University attending',
   `InternPhoto` longblob NOT NULL COMMENT 'Image of Intern',
   `Major` varchar(255) NOT NULL COMMENT 'Intern''s field of study',
@@ -54,6 +56,8 @@ CREATE TABLE `member` (
   `ContactName` varchar(255) NOT NULL COMMENT 'Contact''s full name',
   `CompanyName` varchar(255) NOT NULL COMMENT 'Company Name',
   `ContactEmail` varchar(255) NOT NULL COMMENT 'Contact Email',
+  `Username` varchar(255) NOT NULL COMMENT 'UserName for Company Contact account',
+  `Password` varchar(255) NOT NULL COMMENT 'Password for Company Contact account',
   `CompanyCity` varchar(255) NOT NULL COMMENT 'Company City',
   `CompanyState` varchar(255) NOT NULL COMMENT 'Company State',
   `PhoneNumber` varchar(20) DEFAULT NULL COMMENT 'Contact Phone Number',
@@ -91,7 +95,7 @@ ALTER TABLE `intern`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `MemberId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry';
+  MODIFY `MemberId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
