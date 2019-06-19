@@ -1,0 +1,47 @@
+.body {
+	display: block;
+	position: relative;
+	width: 75%;
+	margin: 0 auto;
+}
+
+.cover {
+	display: block;
+	position: relative;
+	height: 300px;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.cover img {
+	max-width: 100%;
+	z-index: 1;
+}
+
+.profile {
+	display: block;
+	position: relative;
+	border: #d0eff solid 3px;
+	border-radius: 5px;
+	width: 300px;
+	margin: -100px 0 10px 40px;
+	z-index: 999;
+}
+
+.profile img {
+	max-width: 50%;
+	z-index: 999;
+}
+
+#name {
+	position: relative;
+	margin: -230px 0 50px 230px;
+	z-index: 1050;
+	font-size: 30px;
+}
+
+#school {
+	position: relative;
+	z-index: 1050;
+	margin: -200px 0 50px 200px;
+}
