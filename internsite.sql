@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2019 at 08:40 PM
+-- Generation Time: Jun 19, 2019 at 10:07 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -66,6 +66,14 @@ CREATE TABLE `member` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `member`
+--
+
+INSERT INTO `member` (`MemberId`, `ContactName`, `CompanyName`, `ContactEmail`, `Username`, `Password`, `CompanyCity`, `CompanyState`, `PhoneNumber`, `CompanyPicture`, `CompanyDescription`) VALUES
+(1, 'Mark Hardie', 'Entreprenuership Innovation Center', 'hardie@framingham.edu', 'Framingham', 'HardieHarHar', 'hardie1234', 'Massachusetts', '123-456-7890', 0x6d61726b2d6861726469652d6865616473686f742e6a7067, 'Co-Working Space * Internship Program * Start-up Incubator'),
+(3, 'Mark Hardie', 'Entreprenuership Innovation Center', 'hardie@framingham.edu', 'Framingham', 'HardieHarHar', 'hardie1234', 'Massachusetts', '123-456-7890', 0x6d61726b2d6861726469652d6865616473686f742e6a7067, 'Co-Working Space * Internship Program * Start-up Incubator');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -95,7 +103,7 @@ ALTER TABLE `intern`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `MemberId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=5;
+  MODIFY `MemberId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

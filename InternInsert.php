@@ -1,0 +1,40 @@
+<?php
+
+$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
+
+if (!$con)
+
+  {
+
+  die('Connection has failed: ' . mysql_error());
+
+  }
+ 
+$sql= $con -> query("INSERT INTO member (InternName, EmailAddress, Username, Password, School, InternPhoto, Major, GPA, City, State, PhoneNumber, Resume, SkillsAndExperience)
+
+VALUES
+
+('$_POST[InternName]','$_POST[EmailAddress]','$_POST[Username]','$_POST[Password]','$_POST[School]','$_POST[InternPhoto]','$_POST[Major]','$_POST[GPA]','$_POST[City]','$_POST[State]','$_POST[PhoneNumber]','$_POST[Resume]','$_POST[SkillsAndExperience]')");
+
+ 
+/*
+if (!query($sql,$con))
+
+  {
+
+  die('Error: ' . mysql_error());
+
+  }
+*/
+header("location: Success.php");
+/*echo "*Success! Welcome to our website. Hope our services will serve you and your company well.";*/
+
+ 
+
+$con = null;
+
+?>
+
+</body>
+
+</html>
