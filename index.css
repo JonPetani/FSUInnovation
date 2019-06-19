@@ -1,0 +1,47 @@
+.boxcontainer {
+	padding: 16px;
+}
+
+button {
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	background-color: #c4c811;
+	cursor: pointer;
+	width: 100%
+}
+
+.content {
+	margin: auto; 
+	width: 55%;
+}
+
+form {
+	margin: auto;
+	border: 3px solid #9a9a9a;	
+}
+
+.header {
+	font-size: 30px;
+}
+
+input[type=text], input[type=password] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	box-sizing: border-box;
+}
+
+.intern {
+	width: 49%;
+}
+
+.member {
+	width: 49%;
+	float: right;
+}
+
+.new {
+	text-align: center;
+}
