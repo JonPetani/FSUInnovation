@@ -26,7 +26,8 @@ if (!query($sql,$con))
 
   }
 */
-echo "Success! Welcome to our website. Hope our services will serve you and your company well.";
+header("location: Success.php")
+/*echo "*Success! Welcome to our website. Hope our services will serve you and your company well.";*/
 
  
 
