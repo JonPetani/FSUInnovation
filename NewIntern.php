@@ -22,7 +22,7 @@
 					<label>Username:</label>
 					<input type = "text" name = "Username" autocomplete='off' required>
 					<label>Password:</label>
-					<input type = "text" name = "Password" autocomplete='off' required>
+					<input type = "password" name = "Password" autocomplete='off' required>
 					<label>School/University:</label>
 					<input type = "text" name = "School" autocomplete='off' required>
 					<label>Picture:</label>

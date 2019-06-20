@@ -31,7 +31,7 @@ header("location: Success.php")
 
  
 
-$con = null;
+//$con = null;
 
 ?>
 

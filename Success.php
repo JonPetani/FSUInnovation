@@ -9,7 +9,13 @@
 <div class='txt'>
 <h2 align=center>Login Successful</h2>
 <p>Welcome to our Website. Now that you are now registered, we hope you will find our site useful whether you are a intern or a representative of a company.</p>
-<a href='Login.html'>Try Logging in to your new account</a>
-<a href='Home.html'>Otherwise, Return to Homepage</a>
+<div class='select'>
+<h3>What to do next</h3>
+<ul type=none>
+<li style='margin-left:-8%;float:left;text-align:center;'><a href='Login.html'>Try Logging in to your new account</a></li>
+<li style='margin-left:-3%;float:left;text-align:center;'><a href='Home.html'>Otherwise, Return to Homepage</a></li>
+</ul>
+<br clear=both>
+</div>
 </div>
 </html>

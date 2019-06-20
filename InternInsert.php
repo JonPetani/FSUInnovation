@@ -10,7 +10,7 @@ if (!$con)
 
   }
  
-$sql= $con -> query("INSERT INTO member (InternName, EmailAddress, Username, Password, School, InternPhoto, Major, GPA, City, State, PhoneNumber, Resume, SkillsAndExperience)
+$sql= $con -> query("INSERT INTO intern (InternName, EmailAddress, Username, Password, School, InternPhoto, Major, GPA, City, State, PhoneNumber, Resume, SkillsAndExperience)
 
 VALUES
 
@@ -31,7 +31,7 @@ header("location: Success.php");
 
  
 
-$con = null;
+//$con = null;
 
 ?>
 

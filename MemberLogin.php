@@ -26,7 +26,7 @@
 						<label for="Password">Password: </label>
 					</div>
 					<div class="col-75">
-						<input type="text" name="Password" autocomplete="off" required>
+						<input style='width:100%;height:6.5%;'type="password" name="Password" autocomplete="off" required>
 					</div>
 					<div class="row">
 					<input id="submitButton" type="submit" value="Submit">
