@@ -1,4 +1,6 @@
 <?php
+   ob_start();
+   session_start();
    $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
    if (!$con)
 
@@ -12,17 +14,19 @@
       
       $username = $_POST['username'];
       $password = $_POST['password']; 
-      
       $sql = $con -> query("SELECT MemberId FROM member WHERE Username = '$username' and Password = '$password'");
-	  if (!$sql)
+	  if ($sql)
 	  {
-		  die('User Not Found. Try entering Username and Password again: ' . mysql_error());
-	  }
+		  echo "Correct username and password!";
+		  /*$result = mysqli_query($db,$sql);
+		  $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+		  $active = $row['active'];*/
+	  }/*
       $result = mysqli_query($db,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       $active = $row['active'];
       
-      $count = mysqli_num_rows($result);
+      $count = mysqli_num_rows($result);*/
       
       // If result matched $myusername and $mypassword, table row must be 1 row
 		/*
