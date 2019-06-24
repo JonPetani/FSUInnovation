@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset = "UTF-8">
-		<link rel = "stylesheet" href = "index.css"/>
+		<link rel = "stylesheet" href = "index.css">
 		<title>Intern Sign Up Page</title>
 	</head>
 
