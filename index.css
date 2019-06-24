@@ -33,6 +33,10 @@ input[type=text], input[type=password] {
 	box-sizing: border-box;
 }
 
+input[type=email] {
+	border-color: blue;
+}
+
 .intern {
 	width: 49%;
 }
