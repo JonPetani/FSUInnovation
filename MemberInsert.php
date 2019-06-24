@@ -14,7 +14,7 @@ $sql= $con -> query("INSERT INTO member (ContactName, CompanyName, ContactEmail,
 
 VALUES
 
-('$_POST[ContactName]','$_POST[CompanyName]','$_POST[ContactEmail]','$_POST[CompanyCity]','$_POST[Username]','$_POST[Password]','$_POST[CompanyState]','$_POST[PhoneNumber]','$_POST[CompanyPicture]','$_POST[CompanyDescription]')");
+('$_POST[ContactName]','$_POST[CompanyName]','$_POST[ContactEmail]','$_POST[Username]','$_POST[Password]','$_POST[CompanyCity]','$_POST[CompanyState]','$_POST[PhoneNumber]','$_POST[CompanyPicture]','$_POST[CompanyDescription]')");
 
  
 /*
@@ -26,11 +26,12 @@ if (!query($sql,$con))
 
   }
 */
-echo "Success! Welcome to our website. Hope our services will serve you and your company well.";
+header("location: Success.php")
+/*echo "*Success! Welcome to our website. Hope our services will serve you and your company well.";*/
 
  
 
-$con = null;
+//$con = null;
 
 ?>
 

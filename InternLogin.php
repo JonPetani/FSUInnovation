@@ -10,9 +10,9 @@
 <img src="images/fsu_logo.png" alt="FSU Logo"/>
 <h1>Login</h1>
 <div class='select'>
-<h2 align=center>Log in as a Member Company</h3>
+<h2 align=center>Log in as a Student Intern</h3>
 <div class="container">
-			<form action="MemberCheck.php" method="post">
+			<form action="InternCheck.php" method="post">
 				<div class="row">
 					<div class="col-25">
 						<label for="Username">Username: </label>

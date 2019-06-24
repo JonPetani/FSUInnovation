@@ -69,7 +69,7 @@
 						<label for="Password">Password: </label>
 					</div>
 					<div class="col-75">
-						<input type="text" name="Password" autocomplete="off" required>
+						<input type="password" name="Password" autocomplete="off" required>
 					</div>
 				</div>
 				<div class="row">
