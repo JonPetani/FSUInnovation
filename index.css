@@ -48,4 +48,5 @@ input[type=text], input[type=password], input[type=email], input[type=tel], inpu
 
 textarea {
 	width: 100%;
+	margin: 8px 0;
 }
