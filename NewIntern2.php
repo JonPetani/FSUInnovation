@@ -34,26 +34,18 @@
 			<form action="MemberInsert.php" method="post">
 				<div class="row">
 					<div class="col-25">
-						<label for="ContactName">Contact Name: </label>
+						<label for="InternName">Student Name: </label>
 					</div>
 					<div class="col-75">
-						<input type="text" name="ContactName" autocomplete="off" required autofocus>
+						<input type="text" name="InternName" autocomplete="off" required autofocus>
 					</div>
-				</div>
-				<div class="row">
+					</div>
+					<div class="row">
 					<div class="col-25">
-						<label for="CompanyName">Company Name: </label>
+						<label for="EmailAddress">Email Address: </label>
 					</div>
 					<div class="col-75">
-						<input type="text" name="CompanyName" autocomplete="off" required>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-25">
-						<label for="ContactEmail">Email Address: </label>
-					</div>
-					<div class="col-75">
-						<input type="email" name="ContactEmail" autocomplete="off" required>
+						<input type="email" name="EmailAddress" autocomplete="off" required>
 					</div>
 				</div>
 				<div class="row">
@@ -70,6 +62,30 @@
 					</div>
 					<div class="col-75">
 						<input style='width:100%;height:42.5px;' type="password" name="Password" autocomplete="off" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-25">
+						<label for="School">School/University: </label>
+					</div>
+					<div class="col-75">
+						<input type="text" name="School" autocomplete="off" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-25">
+						<label for="InternPhoto">Profile Picture: </label>
+					</div>
+					<div class="col-75">
+						<input type="file" name="InternPhoto" accept="image/*">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-25">
+						<label for="Major">Major: </label>
+					</div>
+					<div class="col-75">
+						<input type="text" name="Major" autocomplete="off" required>
 					</div>
 				</div>
 				<div class="row">
@@ -94,14 +110,6 @@
 					</div>
 					<div class="col-75">
 						<input type="tel" name="PhoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" autocomplete="off">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-25">
-						<label for="CompanyPicture">Profile Picture: </label>
-					</div>
-					<div class="col-75">
-						<input type="file" name="CompanyPicture" accept="image/*">
 					</div>
 				</div>
 				<div class="row">
