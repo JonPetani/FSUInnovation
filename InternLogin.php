@@ -5,6 +5,7 @@
 <title>Member Login Page</title>
 <link href='Intern.css' rel='stylesheet'/>
 <link href='member_page.css' rel='stylesheet'/>
+<link rel="icon" type="image/png" href="images/icon.png"/>
 </head>
 <body>
 <img src="images/fsu_logo.png" alt="FSU Logo"/>

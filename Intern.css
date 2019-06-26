@@ -16,3 +16,7 @@ div.select > ul > li > a:hover, div.select > a:hover {padding:10px;}
 div.select > ul > li > a:active, div.select > a:active {font-size:145%}
 footer {background-color:#cceeff;height:15%;}
 div.txt {text-align:left;background-color:#99e6ff;padding:10px;}
+dt {font-size:200%;font-family:Arial Black;}
+dd {font-size: 150%;font-family:Noto Sans;}
+dl, dl > dt, dl > dd {background-color: #cce6ff;}
+dl {border-radius: 5%;}

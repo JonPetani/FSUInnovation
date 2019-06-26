@@ -25,7 +25,7 @@ label {
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
-	float: right;
+	font-weight:bold;
 }
 #submitButton:hover {
 	background-color: #f3b201;

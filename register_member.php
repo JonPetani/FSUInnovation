@@ -5,6 +5,10 @@
 		<link rel="icon" type="image/png" href="images/icon.png"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="member_page.css">
+		<link href='intern.css' rel='stylesheet'/>
+		<style>
+		label{font-size:125%;font-family:Arial Narrow;}
+		</style>
 	</head>
 	<body>
 		<!-- Needed for Member Page:
@@ -20,16 +24,17 @@
 				- have a separate page for the project/internships
 		-->
 		<header style="margin-bottom:60px">
-			<img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/>
+			<img src="images/fsu_logo.png" alt="FSU Logo"/>
 			<h1 align="center">Entrepreneur Innovation Center<br/>Member Profile Page</h1>
+			<p>To have your company and it's internship positions seen by students, create a account today.</p>
 		</header>
-		<div id="navMenu" align="center">
+		<!--<div id="navMenu" align="center">
 			<a href='Home.html'><button class="navButton">Home</button></a>
 			<button class="navButton">Interns</button>
 			<button class="navButton">Members</button>
 			<button class="navButton">Discussion Boards</button>
 			<button class="navButton">Newsfeed</button>
-		</div>
+		</div>-->
 		<div class="container">
 			<form action="MemberInsert.php" method="post">
 				<div class="row">
@@ -113,8 +118,27 @@
 					</div>
 				</div>
 				<div class="row">
-					<input id="submitButton" type="submit" value="Submit">
+				<div class="col-25">
 				</div>
+				<div class="col-75">
+				<label style='float:left'>In order to create a account, you must agree to our terms of service <a href='terms.html'>found here</a>: <input name='check' onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" type="checkbox" value="Agree" required></label>
+				<input id="submitButton" type="submit" value="Submit" style='float:left;'>
+				</div>
+				</div>
+				<br clear=both>
+				<script>
+				function checkForm(form)
+  {
+    ...
+    if(!form.check.checked) {
+      alert("You are required to read and accept the Terms of Service before creating a account.");
+      form.check.focus();
+      return false;
+    }
+    return true;
+  }
+
+</script>
 			</form>
 		</div>
 		<footer align="center">
