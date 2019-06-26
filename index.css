@@ -6,7 +6,7 @@ button {
 	padding: 14px 20px;
 	margin: 8px 0;
 	border: none;
-	background-color: #c4c811;
+	background-color: #febe10;
 	cursor: pointer;
 	width: 100%
 }
@@ -25,7 +25,7 @@ form {
 	font-size: 30px;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=email], input[type=tel], input[type=file]{
 	width: 100%;
 	padding: 12px 20px;
 	margin: 8px 0;
@@ -44,4 +44,9 @@ input[type=text], input[type=password] {
 
 .new {
 	text-align: center;
+}
+
+textarea {
+	width: 100%;
+	margin: 8px 0;
 }
