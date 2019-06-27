@@ -18,7 +18,8 @@ button {
 
 form {
 	margin: auto;
-	border: 3px solid #9a9a9a;	
+	border: 3px solid #9a9a9a;
+	border-radius: 10px;	
 }
 
 .header {
