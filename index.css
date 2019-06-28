@@ -13,7 +13,7 @@ button {
 
 .content {
 	margin: auto; 
-	width: 55%;
+	width: 75%;
 }
 
 form {
@@ -38,15 +38,11 @@ input[type=text], input[type=password], input[type=email], input[type=tel], inpu
 	width: 49%;
 }
 
-.member {
-	width: 49%;
-	float: right;
-}
-
 .new {
 	text-align: center;
 }
 
 textarea {
 	width: 100%;
+	height: 180px;
 }
