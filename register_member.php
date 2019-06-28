@@ -6,9 +6,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="member_page.css">
 		<link href='intern.css' rel='stylesheet'/>
-		<style>
-		label{font-size:125%;font-family:Arial Narrow;}
-		</style>
 	</head>
 	<body>
 		<!-- Needed for Member Page:
@@ -121,24 +118,23 @@
 				<div class="col-25">
 				</div>
 				<div class="col-75">
-				<label style='float:left'>In order to create a account, you must agree to our terms of service <a href='terms.html'>found here</a>: <input name='check' onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" type="checkbox" value="Agree" required></label>
+				<label style='float:left'>In order to create a account, you must agree to our terms of service <a href='terms.html' target="_blank">found here</a>: <input name='check' onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" type="checkbox" value="Agree" required></label>
 				<input id="submitButton" type="submit" value="Submit" style='float:left;'>
 				</div>
 				</div>
 				<br clear=both>
 				<script>
-				function checkForm(form)
-  {
-    ...
-    if(!form.check.checked) {
-      alert("You are required to read and accept the Terms of Service before creating a account.");
-      form.check.focus();
-      return false;
-    }
-    return true;
-  }
-
-</script>
+					function checkForm(form)
+					{
+						...
+						if(!form.check.checked) {
+						  alert("You are required to read and accept the Terms of Service before creating a account.");
+						  form.check.focus();
+						  return false;
+						}
+						return true;
+					}
+				</script>
 			</form>
 		</div>
 		<footer align="center">
