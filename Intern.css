@@ -83,3 +83,32 @@ ul#nav > li > a:hover {
 ul#nav > li > a:active {
 	background-color:#3377ff;
 }
+
+dt {
+	font-size:200%;
+	font-family:Trebuchet MS;
+	font-weight:bold;
+}
+
+dd {
+	font-size: 150%;
+	font-family:Georgia;
+}
+
+dl, dl > dt, dl > dd {
+	background-color: #cce6ff;
+
+}
+
+dl {
+	border-radius: 5%;
+}
+
+div#error {
+	display:block;
+	padding: 5 10 5 10;
+}
+img.error {
+	width:10%;
+	height:auto;
+}

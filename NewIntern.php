@@ -11,24 +11,13 @@
 		</style>
 	</head>
 	<body>
-		<!-- Needed for Member Page:
-				- name of contact person
-				- name of company
-				- email address
-				- company description (link to website)
-				- location
-				- phone (optional)
-				- picture (company logo or contact pic)
-				- available projects (internships)
-					- description, requirements, duration
-				- have a separate page for the project/internships
-		-->
+
 		<header style="margin-bottom:60px">
 			<img src="images/fsu_logo.png" alt="FSU Logo"/>
-			<h1 align="center">Entrepreneur Innovation Center<br/>Member Profile Page</h1>
-			<p>To have your company and it's internship positions seen by students, create a account today.</p>
-		</header>
-		<!--<div id="navMenu" align="center">
+			<h1 align="center">Student Intern Registration</h1>
+			<p>To find all the internships you could ever want, make a account here so employers can get to know you better.</p>
+		</header><!--
+		<div id="navMenu" align="center">
 			<a href='Home.html'><button class="navButton">Home</button></a>
 			<button class="navButton">Interns</button>
 			<button class="navButton">Members</button>
@@ -36,29 +25,22 @@
 			<button class="navButton">Newsfeed</button>
 		</div>-->
 		<div class="container">
-			<form action="MemberInsert.php" method="post">
+			<form action="InternInsert.php" method="post">
+			<h2>Registration Form</h2>
 				<div class="row">
 					<div class="col-25">
-						<label for="ContactName">Contact Name: </label>
+						<label class='left-col' for="InternName">Student Name: </label>
 					</div>
 					<div class="col-75">
-						<input type="text" name="ContactName" autocomplete="off" required autofocus>
+						<input type="text" name="InternName" autocomplete="off" required autofocus>
 					</div>
-				</div>
-				<div class="row">
+					</div>
+					<div class="row">
 					<div class="col-25">
-						<label for="CompanyName">Company Name: </label>
+						<label for="EmailAddress">Email Address: </label>
 					</div>
 					<div class="col-75">
-						<input type="text" name="CompanyName" autocomplete="off" required>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-25">
-						<label for="ContactEmail">Email Address: </label>
-					</div>
-					<div class="col-75">
-						<input type="email" name="ContactEmail" autocomplete="off" required>
+						<input type="email" name="EmailAddress" autocomplete="off" required>
 					</div>
 				</div>
 				<div class="row">
@@ -79,18 +61,50 @@
 				</div>
 				<div class="row">
 					<div class="col-25">
-						<label for="CompanyCity">Location (City): </label>
+						<label for="School">School/University: </label>
 					</div>
 					<div class="col-75">
-						<input type="text" name="CompanyCity" autocomplete="off" required>
+						<input type="text" name="School" autocomplete="off" required>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-25">
-						<label for="CompanyState">Location (State): </label>
+						<label for="InternPhoto">Profile Picture: </label>
 					</div>
 					<div class="col-75">
-						<input type="text" name="CompanyState" autocomplete="off" required>
+						<input type="file" name="InternPhoto" accept="image/*">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-25">
+						<label for="Major">Major: </label>
+					</div>
+					<div class="col-75">
+						<input type="text" name="Major" autocomplete="off" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-25">
+						<label for="GPA">GPA: </label>
+					</div>
+					<div class="col-75">
+						<input type="text" name="GPA" autocomplete="off" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-25">
+						<label for="City">Location (City): </label>
+					</div>
+					<div class="col-75">
+						<input type="text" name="City" autocomplete="off" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-25">
+						<label for="State">Location (State): </label>
+					</div>
+					<div class="col-75">
+						<input type="text" name="State" autocomplete="off" required>
 					</div>
 				</div>
 				<div class="row">
@@ -103,18 +117,18 @@
 				</div>
 				<div class="row">
 					<div class="col-25">
-						<label for="CompanyPicture">Profile Picture: </label>
-					</div>
+				<label for="Resume">Resume: </label>
+				</div>
 					<div class="col-75">
-						<input type="file" name="CompanyPicture" accept="image/*">
+					<input type="file" name="Resume" accept='application/octet-stream' autocomplete="off">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-25">
-						<label for="CompanyDescription">Company Description: </label>
+						<label for="CompanyDescription">List of Skills/Experiences (in lieu of Resume): </label>
 					</div>
 					<div class="col-75">
-						<textarea name="CompanyDescription" style="height:100px" autocomplete="off" required></textarea>
+						<textarea name="SkillsAndExperience" style="height:100px" autocomplete="off" required></textarea>
 					</div>
 				</div>
 				<div class="row">
@@ -127,7 +141,7 @@
 				</div>
 				<br clear=both>
 				<script>
-				function checkForm(form)
+function checkForm(form)
   {
     ...
     if(!form.check.checked) {
@@ -139,6 +153,7 @@
   }
 
 </script>
+  
 			</form>
 		</div>
 		<footer align="center">
