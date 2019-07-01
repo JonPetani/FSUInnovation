@@ -22,8 +22,7 @@
 		-->
 		<header style="margin-bottom:60px">
 			<img src="images/fsu_logo.png" alt="FSU Logo"/>
-			<h1 align="center">Entrepreneur Innovation Center<br/>Member Profile Page</h1>
-			<p>To have your company and it's internship positions seen by students, create a account today.</p>
+			<h1 align="center">Create New Member Account</h1>
 		</header>
 		<!--<div id="navMenu" align="center">
 			<a href='Home.html'><button class="navButton">Home</button></a>
