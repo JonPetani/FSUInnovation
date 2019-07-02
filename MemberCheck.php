@@ -1,29 +1,31 @@
 <?php
    ob_start();
    session_start();
-   $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
-   if (!$con)
-
-   {
-
-      die('Connection has failed: ' . mysql_error());
-
-   }
-   
-   if($_SERVER["REQUEST_METHOD"] == "POST") {
-      
-      $username = $_POST['Username'];
-      $password = $_POST['Password']; 
-      $sql = $con -> query("SELECT MemberId FROM member WHERE Username = '$username' and Password = '$password'");
-	  if ($sql)
-	  {
-		  $_SESSION['valid'] = true;
-		  $_SESSION['timeout'] = time();
-		  $_SESSION['username'] = $username;
-		  echo "Correct username and password!";
-	  }
-	  else {
-		  header("location: FailedLoginMember.html");
-	  }
-   }
+   if ( ! empty( $_POST ) ) {
+    if ( isset( $_POST['Username'] ) && isset( $_POST['Password'] ) ) {
+        // Getting submitted user data from database
+        $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
+        $stmt = $con->prepare("SELECT * FROM member WHERE Username = ?");
+        $stmt->bind_param('s', $_POST['Username']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    	$user = $result->fetch_object();
+    		
+    	// Verify user password and set $_SESSION
+    	if ( password_verify( $_POST['Password'], $user->password ) ) {
+    		$_SESSION['MemberId'] = $user->ID;
+			
+    	}
+		else {
+			header ("location: FailedLoginMember.html");
+		}
+    }
+		else {
+			header ("location: FailedLoginMember.html");
+		}
+}
+else {
+		header ("location: FailedLoginMember.html");
+	 }
+?>
 ?>

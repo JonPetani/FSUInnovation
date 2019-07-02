@@ -102,7 +102,7 @@
 						<label for="CompanyPicture">Profile Picture: </label>
 					</div>
 					<div class="col-75">
-						<input type="file" name="CompanyPicture" accept="image/*">
+						<input type="file" name="CompanyPicture" accept="image/*" required>
 					</div>
 				</div>
 				<div class="row">
