@@ -1,12 +1,15 @@
 /*Simone McHugh's stylesheet*/
+
 * {
 	box-sizing: border-box;
 }
+
 #fsu_logo {
 	width: 13%;
 	height: 13%;
 	float: initial;
 }
+
 input[type=text], input[type=email], input[type=tel], input[type=password], textarea {
 	width: 100%;
 	padding: 12px;
@@ -14,12 +17,14 @@ input[type=text], input[type=email], input[type=tel], input[type=password], text
 	border-radius: 4px;
 	resize: vertical;
 }
+
 label {
 	padding: 12px 12px 12px 0;
 	display: inline-block;
 	font-size: 115%;
 	font-family: Georgia;
 }
+
 #submitButton {
 	background-color: #febe10;
 	color: black;
@@ -29,64 +34,46 @@ label {
 	cursor: pointer;
 	font-weight: bold;
 }
+
 #submitButton:hover {
 	background-color: #f3b201;
 }
+
 .container {
 	border-radius: 5px;
 	background-color: #f2f2f2;
 	padding: 20px;
 }
+
 .col-25 {
 	float: left;
 	width: 25%;
 	margin-top: 6px;
 }
+
 .col-75 {
 	float: left;
 	width: 75%;
 	margin-top: 6px;
 }
+
 .row:after {
 	content: "";
 	display: table;
 	clear: both;
 }
+
 @media screen and (max-width: 600px) {
 	.col-25, .col-75, #submitButton {
 		width: 100%;
 		margin-top: 0;
 	}
 }
-#member_pics {
-	position: relative;
-	background-size: 100% 100%;
-	box-sizing: border-box;
-	width: 100%;
-	margin-bottom: 40px;
-}
-#background_pic {
-	width: 700px;
-}
-#profile_pic {
-	position: absolute;
-	top: 60%;
-	left: 25%;
-	width: 17%;
-}
-.memberName {
-	margin-left: 380px;
-}
-.memberInfo {
-	font-weight: bold;	
-}
-#companyInfo {
-	background-color: #f2f2f2;
-	padding: 20px;
-}
+
 footer {
 	height: 15%;
 }
+
 .navButton {
 	padding: 13px 30px;
 	margin-right: 10px;
@@ -95,9 +82,44 @@ footer {
 	color: black;
 	text-align: center;
 	text-decoration: none;
+	cursor: pointer;
 	display: inline-block;
 	font-size: 16px;
+	font-family: Arial;
 }
+
 #navMenu {
 	margin-bottom: 60px;
+}
+
+#profilePage {
+	border-radius: 5px;
+	background-color: #d8d8d8;
+	padding: 20px 20px 50px 20px;
+}
+
+#profile {
+	width: 75%;
+}
+
+#left {
+	float: left;
+	margin-left: 80px;
+	padding: 20px 20px 20px 20px;
+	background-color: #f2f2f2;
+	font-family: Arial;
+}
+
+#right {
+	float: absolute;
+	margin-right: 80px;
+	margin-left: 580px;
+	padding: 30px 30px 40px 30px;
+	background-color: #f2f2f2;
+	font-family: Arial;
+}
+
+.descriptionMember {
+	text-indent: 50px;
+	line-height: 24px;
 }

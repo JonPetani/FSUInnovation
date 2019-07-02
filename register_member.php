@@ -24,13 +24,13 @@
 			<img src="images/fsu_logo.png" alt="FSU Logo"/>
 			<h1 align="center">Create New Member Account</h1>
 		</header>
-		<!--<div id="navMenu" align="center">
-			<a href='Home.html'><button class="navButton">Home</button></a>
-			<button class="navButton">Interns</button>
-			<button class="navButton">Members</button>
-			<button class="navButton">Discussion Boards</button>
-			<button class="navButton">Newsfeed</button>
-		</div>-->
+		<div id="navMenu" align="center">
+			<a href="Home.html"><button class="navButton">Home</button></a>
+			<a href=""><button class="navButton">Interns</button></a>
+			<a href=""><button class="navButton">Members</button></a>
+			<a href=""><button class="navButton">Discussion Boards</button></a>
+			<a href=""><button class="navButton">Newsfeed</button></a>
+		</div>
 		<div class="container">
 			<form action="MemberInsert.php" method="post">
 				<div class="row">
