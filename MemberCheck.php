@@ -6,9 +6,8 @@
         // Getting submitted user data from database
         $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
         $stmt = $con->prepare("SELECT * FROM member WHERE Username = ?");
-        $stmt->bind_param('s', $_POST['Username']);
         $stmt->execute();
-        $result = $stmt->get_result();
+        $result = $stmt->fetchColumn();
     	$user = $result->fetch_object();
     		
     	// Verify user password and set $_SESSION

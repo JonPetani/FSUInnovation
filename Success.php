@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Home Page</title>
+<title>Successful Register</title>
 <link rel="icon" type="image/png" href="images/icon.png"/>
 <link href='Intern.css' rel='stylesheet'/>
 </head>
