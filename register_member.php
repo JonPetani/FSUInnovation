@@ -1,5 +1,6 @@
 <!--The Member Register Page. New members and/or companies can make their profiles here.-->
 <!DOCTYPE html>
+<html>
 	<head>
 		<title>Member Sign Up Page</title>
 		<link rel="icon" type="image/png" href="images/icon.png"/>

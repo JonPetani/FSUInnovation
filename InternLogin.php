@@ -1,5 +1,6 @@
 <!--Member Login Page, enter username + password>
 <!--Main Developer: Jonathan Petani, Co-Collaborators: Jessica Grady, Simone McHugh-->
+<!DOCTYPE html>
 <html>
 <head>
 <title>Member Login Page</title>

@@ -1,5 +1,6 @@
 <!--The layout for the member profile page (once an account has been made and signed into successfully).-->
 <!DOCTYPE html>
+<html>
 	<head>
 		<title>Member Profile</title>
 		<link rel="icon" type="image/png" href="images/icon.png"/>
