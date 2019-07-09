@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2019 at 10:07 PM
+-- Generation Time: Jul 09, 2019 at 10:25 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -45,6 +45,25 @@ CREATE TABLE `intern` (
   `SkillsAndExperience` longtext COMMENT 'Past Jobs/Skills that Intern has'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='This table is for applying interns.';
 
+--
+-- Dumping data for table `intern`
+--
+
+INSERT INTO `intern` (`InternId`, `InternName`, `EmailAddress`, `Username`, `Password`, `School`, `InternPhoto`, `Major`, `GPA`, `City`, `State`, `PhoneNumber`, `Resume`, `SkillsAndExperience`) VALUES
+(1, 'James Dean', 'Dean@student.framingham.edu', 'JDean', 'eaglerock32', 'Framingham State University', 0x686f6f706361742e676966, 'Liberal Arts', '3.40', 'Sudbury', 'Massachusetts', '234-332-1221', 0x4166726963616e5265776f726b732e727466, 'Reworking African civs');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `keywords`
+--
+
+CREATE TABLE `keywords` (
+  `MatchId` int(11) NOT NULL COMMENT 'Identifier for this Company/Keyword Match',
+  `CompanyName` varchar(255) NOT NULL COMMENT 'Company''s Name',
+  `Keyword` varchar(255) NOT NULL COMMENT 'Keyword from Input'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 -- --------------------------------------------------------
 
 --
@@ -70,8 +89,9 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`MemberId`, `ContactName`, `CompanyName`, `ContactEmail`, `Username`, `Password`, `CompanyCity`, `CompanyState`, `PhoneNumber`, `CompanyPicture`, `CompanyDescription`) VALUES
-(1, 'Mark Hardie', 'Entreprenuership Innovation Center', 'hardie@framingham.edu', 'Framingham', 'HardieHarHar', 'hardie1234', 'Massachusetts', '123-456-7890', 0x6d61726b2d6861726469652d6865616473686f742e6a7067, 'Co-Working Space * Internship Program * Start-up Incubator'),
-(3, 'Mark Hardie', 'Entreprenuership Innovation Center', 'hardie@framingham.edu', 'Framingham', 'HardieHarHar', 'hardie1234', 'Massachusetts', '123-456-7890', 0x6d61726b2d6861726469652d6865616473686f742e6a7067, 'Co-Working Space * Internship Program * Start-up Incubator');
+(1, 'Mark Marty', 'FSU', 'FSU@FSU.org', 'MarkyMark', 'm123', 'Framingham', 'Massachusetts', '234-344-5554', 0x436f726f6e656c49636f6e2e504e47, 'We are a school of sorts.'),
+(2, 'Mark Hardie', 'Entreprenuership Innovation Center', 'mhardie@framingham.edu', 'mark2', 'hardieharhar', 'Framingham', 'Massachusetts', '508-432-1212', 0x6d61726b2d6861726469652d6865616473686f742e6a7067, 'Co-Working Space * Internship Program * Start-up Incubator'),
+(3, 'Simone McHugh', 'FSU Innovation Center', 'smchugh@student.framingham.edu', 'SMcHugh', 'newpassword1', 'Framingham', 'Massachusetts', '504-332-1223', 0x436f726f6e656c49636f6e2e504e47, 'We innovate new solutions to existing problems for companies. We make databases for a living as well.');
 
 --
 -- Indexes for dumped tables
@@ -82,6 +102,12 @@ INSERT INTO `member` (`MemberId`, `ContactName`, `CompanyName`, `ContactEmail`, 
 --
 ALTER TABLE `intern`
   ADD PRIMARY KEY (`InternId`);
+
+--
+-- Indexes for table `keywords`
+--
+ALTER TABLE `keywords`
+  ADD PRIMARY KEY (`MatchId`);
 
 --
 -- Indexes for table `member`
@@ -97,7 +123,13 @@ ALTER TABLE `member`
 -- AUTO_INCREMENT for table `intern`
 --
 ALTER TABLE `intern`
-  MODIFY `InternId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry';
+  MODIFY `InternId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `keywords`
+--
+ALTER TABLE `keywords`
+  MODIFY `MatchId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identifier for this Company/Keyword Match';
 
 --
 -- AUTO_INCREMENT for table `member`
