@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Navigation</title>
+<title>Company Search</title>
 <link rel="icon" type="image/png" href="images/icon.png"/>
 <link href='member_page.css' rel='stylesheet'/>
 <link href='Intern.css' rel='stylesheet'/>
@@ -14,7 +14,7 @@
 <div class="txt">
 <h3>Search for Company by Name</h3>
 <form method='post' action="CompanyResults.php" id='search'>
-<input type="text" name="CompanyName">
+<input type="text" name="comp">
 <input type="submit" name="submit" value="Search">
 </form>
 <h3>Search by Keyword(s)</h3>

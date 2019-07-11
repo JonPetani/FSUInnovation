@@ -9,10 +9,10 @@
 <body>
 <?php
 	$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
-    $query = $_GET['CompanyName']; 
+    $query = $_GET['comp']; 
     // gets value sent over search form
      
-    $min_length = 3;
+    $min_length = 0;
     // you can set minimum length of the query if you want
      
     if(strlen($query) >= $min_length){ // if query length is more or equal minimum length then
@@ -20,11 +20,11 @@
         $query = htmlspecialchars($query); 
         // changes characters used in html to their equivalents, for example: < to &gt;
          
-        $query = mysql_real_escape_string($query);
+        //$query = mysql_real_escape_string($query);
         // makes sure nobody uses SQL injection
          
-        $raw_results = mysql_query("SELECT * FROM articles
-            WHERE (`title` LIKE '%".$query."%') OR (`text` LIKE '%".$query."%')") or die(mysql_error());
+        $raw_results = $con -> query("SELECT * FROM articles
+            WHERE (`title` LIKE '%".$query."%') OR (`text` LIKE '%".$query."%')");
              
         // * means that it selects all fields, you can also write: `id`, `title`, `text`
         // articles is the name of our table
@@ -33,7 +33,7 @@
         // it will match "hello", "Hello man", "gogohello", if you want exact match use `title`='$query'
         // or if you want to match just full word so "gogohello" is out use '% $query %' ...OR ... '$query %' ... OR ... '% $query'
          
-        if(mysql_num_rows($raw_results) > 0){ // if one or more rows are returned do following
+        if($raw_results > 0){ // if one or more rows are returned do following
              
             while($results = mysql_fetch_array($raw_results)){
             // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
