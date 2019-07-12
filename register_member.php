@@ -22,7 +22,7 @@
 				- have a separate page for the project/internships
 		-->
 		<header style="margin-bottom:60px">
-			<img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/>
+			<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 			<h1 align="center">Create New Member Account</h1>
 		</header>
 		<div id="navMenu" align="center">

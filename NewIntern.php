@@ -6,7 +6,7 @@
 		<link rel = "stylesheet" href = "index.css"/>
 		<title>Intern Sign Up Page</title>
 		<link rel="icon" type="image/png" href="images/icon.png"/>
-		<img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/>
+		<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 
 	</head>
 

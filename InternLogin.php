@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" href="images/icon.png"/>
 </head>
 <body>
-<img src="images/fsu_logo.png" alt="FSU Logo"/>
+<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 <h1>Login</h1>
 <div class='select'>
 <h2 align=center>Log in as a Student Intern</h3>
