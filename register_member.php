@@ -6,7 +6,7 @@
 		<link rel="icon" type="image/png" href="images/icon.png"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="member_page.css">
-		<link href='intern.css' rel='stylesheet'/>
+		<!--<link href='intern.css' rel='stylesheet'/>-->
 	</head>
 	<body>
 		<!-- Needed for Member Page:
@@ -22,7 +22,7 @@
 				- have a separate page for the project/internships
 		-->
 		<header style="margin-bottom:60px">
-			<img src="images/fsu_logo.png" alt="FSU Logo"/>
+			<img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/>
 			<h1 align="center">Create New Member Account</h1>
 		</header>
 		<div id="navMenu" align="center">
