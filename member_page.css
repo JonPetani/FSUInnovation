@@ -35,7 +35,7 @@ label {
 	font-weight: bold;
 }
 
-#submitButton:hover {
+#submitButton:hover, .navButton:hover, #logoutButton:hover {
 	background-color: #f3b201;
 }
 
@@ -85,6 +85,20 @@ footer {
 	cursor: pointer;
 	display: inline-block;
 	font-size: 16px;
+	font-family: Arial;
+}
+
+#logoutButton {
+	padding: 10px 20px;
+	margin-right: 10px;
+	background-color: #febe10;
+	border: none;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 14px;
 	font-family: Arial;
 }
 

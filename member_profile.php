@@ -11,7 +11,7 @@
 	<body>
 		<header style="margin-bottom:60px">
 			<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
-			<p style="float:right;">Welcome Simone! <a href="">Logout</a></p>
+			<p style="float:right;">Welcome Simone! <a href=""><button id="logoutButton">Logout</button></a></p>
 			<h1 align="center">Your Profile<br/>(Member)</h1>
 		</header>
 		<div id="navMenu" align="center">
