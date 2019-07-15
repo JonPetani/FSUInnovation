@@ -9,7 +9,7 @@
 <body>
 <?php
 	$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
-    $query = $_GET['comp']; 
+    $query = $_GET['CompanyName']; 
     // gets value sent over search form
      
     $min_length = 0;
