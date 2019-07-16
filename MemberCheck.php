@@ -1,6 +1,7 @@
 <?php
    ob_start();
    session_start();
+   $file = fopen("C:/Users/Public/login.txt", "w") or die("Didn't Open.");
    $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
    $con ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
@@ -60,14 +61,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             header("location: LoggedInMember.php");
                         } else{
                             // Display an error message if password is not valid
-                           header("location: FailedLoginMember.html");
+						   $e = new Exception();
+						   fwrite($e -> getTraceAsString());
+						   fclose($file);
+                           //header("location: FailedLoginMember.html");
                         }
                     }
                 } else{
-                    header("location: FailedLoginMember.html");
+					$e = new Exception();
+					fwrite($e -> getTraceAsString());
+					fclose($file);
+                    //header("location: FailedLoginMember.html");
                 }
             } else{
-                header("location: FailedLoginMember.html");
+				$e = new Exception();
+				fwrite($e -> getTraceAsString());
+				fclose($file);
+                //header("location: FailedLoginMember.html");
             }
         }
         
@@ -78,4 +88,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Close connection
     unset($con);
 }
+fclose($file);
 ?>
