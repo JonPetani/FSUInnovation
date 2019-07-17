@@ -11,10 +11,10 @@
 		}
 		}
 		else {
-			echo "Of the results, 0 were found."
+			header("location: NoResults.html");
 		}
 	}
 	else {
-		echo "No Results Found Using the Keywords you Provided. You should try a different set of keywords to help find relevant companies.";
+		header("location: NoResults.html");
 	}
 ?>

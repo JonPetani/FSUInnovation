@@ -9,7 +9,7 @@
 <body>
 <?php
 	$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
-    $query = $_GET['CompanyName']; 
+    $query = $_POST['CompanyName']; 
     // gets value sent over search form
      
     $min_length = 0;
@@ -44,12 +44,12 @@
              
         }
         else{ // if there is no matching rows do following
-            echo "No results";
+            header("location: NoResults.html");
         }
          
     }
     else{ // if query length is less than minimum
-        echo "Minimum length is ".$min_length;
+        header("location: NoResults.html");
     }
 ?>
 </body>
