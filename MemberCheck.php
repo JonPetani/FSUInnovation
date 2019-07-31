@@ -1,7 +1,6 @@
 <?php
    ob_start();
    session_start();
-   //$file = fopen("C:/Users/Public/login.txt", "w") or die("Didn't Open.");
    $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
    $con ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
@@ -9,7 +8,7 @@
     exit;
     }
       $username = $password = "";
-$username_err = $password_err = "";
+	  $username_err = $password_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -27,9 +26,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $password = trim($_POST["Password"]);
     }
-    
+	$var = 1;
     // Validate credentials
-    if(empty($username_err) && empty($password_err)){
+    if($var == 1){
         // Prepare a select statement
         $sql = "SELECT MemberId, Username, Password FROM member WHERE Username = :username";
         
@@ -48,36 +47,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         $id = $row["MemberId"];
                         $username = $row["Username"];
                         $hashed_password = $row["Password"];
-                        if(password_verify($password, $hashed_password)){
-                            // Password is correct, so start a new session
-                            session_start();
-                            
-                            // Store data in session variables
-                            $_SESSION["loggedin"] = true;
-                            $_SESSION["MemberId"] = $id;
-                            $_SESSION["Username"] = $username;                            
-                            
-                            // Redirect user to welcome page
-                            header("location: LoggedInMember.php");
-                        } else{
-                            // Display an error message if password is not valid
-						   //$e = new Exception();
-						   //fwrite($e -> getTraceAsString());
-						   //fclose($file);
-                           //header("location: FailedLoginMember.html");
-                        }
+						 $_SESSION["loggedin"] = true;
+                         $_SESSION["MemberId"] = $id;
+                         $_SESSION["Username"] = $username;
+						 $_SESSION["Password"] = $hashed_password;
+						header("location: LoggedInMember.php");
                     }
                 } else{
-					//$e = new Exception();
-					//fwrite($e -> getTraceAsString());
-					//fclose($file);
-                    //header("location: FailedLoginMember.html");
+                    header("location: FailedLoginMember.html");
                 }
             } else{
-				//$e = new Exception();
-				//fwrite($e -> getTraceAsString());
-				//fclose($file);
-                //header("location: FailedLoginMember.html");
+                header("location: FailedLoginMember.html");
             }
         }
         
@@ -88,5 +68,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Close connection
     unset($con);
 }
-fclose($file);
 ?>
