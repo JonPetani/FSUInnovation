@@ -11,15 +11,23 @@
 <?php
 session_start();
 $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
-$Member_Name = $_SESSION['member']['Username'];
-echo ("<h2>Welcome Back " . $Member_Name . "!</h2>");
-mysql_select_db("dvddb");
-$sql = "SELECT CompanyPicture FROM member WHERE MemberId=$id";
-$result = mysql_query("$sql");
-$row = mysql_fetch_assoc($result);
-mysql_close($link);
-header("Content-type: image/jpeg");
-echo $row['CompanyPicture'];
+$Member_Name = str_split($_SESSION['ContactName']);
+$Name = "";
+foreach ($Member_Name as $char) {
+	if (ctype_upper($char) == true and $char != 0) {
+		break;
+	}
+	else {
+		$Name .= $char;
+	}
+}
+echo ("<h2>Welcome Back " . $Name . "!</h2>");
+$id = $_SESSION["MemberId"];
+$sql = "SELECT * FROM member WHERE MemberId = $id;";
+$query = $con -> query($sql);
+//$row = mysql_fetch_array($query) or die("Picture Not Found!");
+//$image = $row['CompanyPicture'];
+//echo '<img src="'.$image.'" alt="Company Photo / Logo"/>'
 ?>
 <div class='txt'>
 <h2>New User?</h2>
@@ -30,6 +38,7 @@ echo $row['CompanyPicture'];
 <h3 align=center>Options</h3>
 <ul type='none'>
 <li style='margin-left:11.75%;'><a href=''>Post a Job</a></li>
+<li><a href=''>Create some keywords to make your Company easier to find</a></li>
 <li><a href='Nav.html'>View Services Available</a></li>
 <li><a href='Home.html'>Return Home</a></li>
 <li><a href='LogOut.php'>Logout</a></li>

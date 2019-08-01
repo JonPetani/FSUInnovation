@@ -9,6 +9,16 @@
 <link rel="icon" type="image/png" href="images/icon.png"/>
 </head>
 <body>
+<?php
+session_start();
+   $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
+   $con ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    header("location: LoggedInMember.php");
+    exit;
+    }
+	unset($con);
+?>
 <a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 <h1>Login</h1>
 <div class='select'>

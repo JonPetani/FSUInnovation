@@ -42,17 +42,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if($stmt->execute() == True){
                 // Check if username exists, if yes then verify password
-                if($stmt->rowCount() == 1){
+                if($stmt->rowCount() == 1) {
                     if($row = $stmt->fetch()){
                         $id = $row["MemberId"];
                         $username = $row["Username"];
                         $hashed_password = $row["Password"];
-						 $_SESSION["loggedin"] = true;
-                         $_SESSION["MemberId"] = $id;
-                         $_SESSION["Username"] = $username;
-						 $_SESSION["Password"] = $hashed_password;
+						$image = $row["CompanyPicture"];
+						$name = $row["ContactName"];
+						$_SESSION["loggedin"] = true;
+						$_SESSION["ContactName"] = $name;
+                        $_SESSION["MemberId"] = $id;
+                        $_SESSION["Username"] = $username;
+						$_SESSION["Password"] = $hashed_password;
+						$_SESSION["CompanyPicture"] = $image;
 						header("location: LoggedInMember.php");
-                    }
+                        }
                 } else{
                     header("location: FailedLoginMember.html");
                 }
