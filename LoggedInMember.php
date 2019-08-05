@@ -12,22 +12,10 @@
 session_start();
 $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
 $Member_Name = str_split($_SESSION['ContactName']);
-$Name = "";
-foreach ($Member_Name as $char) {
-	if (ctype_upper($char) == true and $char != 0) {
-		break;
-	}
-	else {
-		$Name .= $char;
-	}
-}
+$Name = $_SESSION['ContactName'];
 echo ("<h2>Welcome Back " . $Name . "!</h2>");
-$id = $_SESSION["MemberId"];
-$sql = "SELECT * FROM member WHERE MemberId = $id;";
-$query = $con -> query($sql);
-//$row = mysql_fetch_array($query) or die("Picture Not Found!");
-//$image = $row['CompanyPicture'];
-//echo '<img src="'.$image.'" alt="Company Photo / Logo"/>'
+$image = $_SESSION['CompanyPicture'];
+echo $image;
 ?>
 <div class='txt'>
 <h2>New User?</h2>
