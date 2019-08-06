@@ -15,14 +15,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Check if username is empty
     if(empty(trim($_POST["Username"]))){
-        $username_err = "Please enter username.";
+        echo "Please enter username.";
     } else{
         $username = trim($_POST["Username"]);
     }
     
     // Check if password is empty
     if(empty(trim($_POST["Password"]))){
-        $password_err = "Please enter your password.";
+        echo "Please enter your password.";
     } else{
         $password = trim($_POST["Password"]);
     }
@@ -30,7 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if($var == 1){
         // Prepare a select statement
-        $sql = "SELECT MemberId, Username, Password FROM member WHERE Username = :username";
+        $sql = "SELECT * FROM member WHERE Username = :username";
         
         if($stmt = $con->prepare($sql)){
             // Bind variables to the prepared statement as parameters
@@ -45,13 +45,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 if($stmt->rowCount() == 1) {
                     if($row = $stmt->fetch()){
                         $id = $row["MemberId"];
+						$name = $row["ContactName"];
+						$company = $row["CompanyName"];
+					    $email = $row["ContactEmail"];
                         $username = $row["Username"];
                         $hashed_password = $row["Password"];
 						$image = $row["CompanyPicture"];
-						$name = $row["ContactName"];
 						$_SESSION["loggedin"] = true;
+						$_SESSION["UserType"] = "Member";
+						$_SESSION["MemberId"] = $id;
 						$_SESSION["ContactName"] = $name;
-                        $_SESSION["MemberId"] = $id;
+                        $_SESSION["CompanyName"] = $company;
+						$_SESSION["ContactEmail"] = $email;
                         $_SESSION["Username"] = $username;
 						$_SESSION["Password"] = $hashed_password;
 						$_SESSION["CompanyPicture"] = $image;

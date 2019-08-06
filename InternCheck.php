@@ -15,14 +15,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Check if username is empty
     if(empty(trim($_POST["Username"]))){
-        $username_err = "Please enter username.";
+        echo = "Please enter username.";
     } else{
         $username = trim($_POST["Username"]);
     }
     
     // Check if password is empty
     if(empty(trim($_POST["Password"]))){
-        $password_err = "Please enter your password.";
+        echo "Please enter your password.";
     } else{
         $password = trim($_POST["Password"]);
     }
@@ -30,7 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if($var == 1){
         // Prepare a select statement
-        $sql = "SELECT InternId, Username, Password FROM intern WHERE Username = :username";
+        $sql = "SELECT * FROM intern WHERE Username = :username";
         
         if($stmt = $con->prepare($sql)){
             // Bind variables to the prepared statement as parameters
@@ -45,8 +45,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 if($stmt->rowCount() == 1){
                     if($row = $stmt->fetch()){
                         $id = $row["InternId"];
+						$name = $row["InternName"];
+					    $email = $row["EmailAddress"];
                         $username = $row["Username"];
                         $hashed_password = $row["Password"];
+						$image = $row["InternPhoto"];
+						$_SESSION["loggedin"] = true;
+						$_SESSION["UserType"] = "Intern";
+						$_SESSION["InternId"] = $id;
+						$_SESSION["InternName"] = $name;
+						$_SESSION["EmailAddress"] = $email;
+                        $_SESSION["Username"] = $username;
+						$_SESSION["Password"] = $hashed_password;
+						$_SESSION["InternPhoto"] = $image;
 						header("location: LoggedInIntern.php");
                     }
                 } else{

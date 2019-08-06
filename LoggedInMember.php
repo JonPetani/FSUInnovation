@@ -11,11 +11,11 @@
 <?php
 session_start();
 $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
-$Member_Name = str_split($_SESSION['ContactName']);
-$Name = $_SESSION['ContactName'];
+$FName = explode(' ',trim($_SESSION['ContactName']));
+$Name = $FName[0];
 echo ("<h2>Welcome Back " . $Name . "!</h2>");
-$image = $_SESSION['CompanyPicture'];
-echo $image;
+header ("Content-typeL image/jpg");
+echo $_SESSION['CompanyPicture'];
 ?>
 <div class='txt'>
 <h2>New User?</h2>

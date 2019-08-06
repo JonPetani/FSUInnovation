@@ -13,7 +13,7 @@ div.select{
 div.select > ul > li > a {
 	text-decoration:none;font-family:"Lucida Console", Monaco, monospace;float:left;display:block;font-size:150%;
 	background-color:#ccccff;
-	margin-left:6.5%;
+	/*margin-left:6.5%;*/
 	padding:15px;
 	border-radius:225%;
 }

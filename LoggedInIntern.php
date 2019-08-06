@@ -11,25 +11,22 @@
 <?php
 session_start();
 $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
-$Member_Name = $_SESSION['member']['Username'];
-echo ("<h2>Welcome Back " . $Member_Name . "!</h2>");
-mysql_select_db("dvddb");
-$sql = "SELECT CompanyPicture FROM member WHERE MemberId=$id";
-$result = mysql_query("$sql");
-$row = mysql_fetch_assoc($result);
-mysql_close($link);
-header("Content-type: image/jpeg");
-echo $row['CompanyPicture'];
+$FName = explode(' ',trim($_SESSION['ContactName']));
+$Name = $FName[0];
+echo ("<h2>Welcome Back " . $Name . "!</h2>");
+header ("Content-typeL image/jpg");
+echo $_SESSION['CompanyPicture'];
 ?>
 <div class='txt'>
 <h2>New User?</h2>
-<p>If you are new, we suggest you look around our site to familiarize yourself with how we help students find your positions.</p>
-<p>In general, the first thing you should do is start posting your jobs so that students can find what you have to offer and if it applies to their skill set.</p>
+<p>As a Intern, your main usage of this platform will be to find Members who are working on projects that both interest you and are related to your field of study/career.</p>
+<p>To help you find the Members that best suite you, we offer a search service that lets you search for a given Member company based on key words that you input.</p>
+<p>Additionally, you should keep your information up to date such as updating your resume to the latest version where possible so the Members know what skills you have.</p>
 <h2 align=center>What to do with your account</h2>
 <div class='select'>
 <h3 align=center>Options</h3>
 <ul type='none'>
-<li style='margin-left:11.75%;'><a href=''>Post a Job</a></li>
+<li><a href='CompanyFind.php'>Search for Member Company</a></li>
 <li><a href='Nav.html'>View Services Available</a></li>
 <li><a href='Home.html'>Return Home</a></li>
 <li><a href='LogOut.php'>Logout</a></li>
