@@ -18,7 +18,7 @@
 <input type="submit" name="submit" value="Search">
 </form>
 <h3>Search by Keyword(s)</h3>
-<form method='post' action='KeywordResults.php' id='search'>
+<form method='post' action='Keywords.php' id='search'>
 <input type="text" name="Keyword">
 <input type="submit" name="submit" value="Search">
 </form>

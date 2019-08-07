@@ -17,22 +17,18 @@ echo ("<h2>Welcome Back " . $Name . "!</h2>");
 header ("Content-typeL image/jpg");
 echo $_SESSION['CompanyPicture'];
 ?>
-<div class='txt'>
 <h2>New User?</h2>
 <p>If you are new, we suggest you look around our site to familiarize yourself with how we help students find your positions.</p>
 <p>In general, the first thing you should do is start posting your jobs so that students can find what you have to offer and if it applies to their skill set.</p>
 <h2 align=center>What to do with your account</h2>
-<div class='select'>
 <h3 align=center>Options</h3>
 <ul type='none'>
 <li style='margin-left:11.75%;'><a href=''>Post a Job</a></li>
-<li><a href=''>Create some keywords to make your Company easier to find</a></li>
+<li><a href='AddKeywords.php'>Create some keywords to make your Company easier to find</a></li>
 <li><a href='Nav.html'>View Services Available</a></li>
 <li><a href='Home.html'>Return Home</a></li>
 <li><a href='LogOut.php'>Logout</a></li>
 </ul>
 <br clear=both>
-</div>
-</div>
 </body>
 </html>
