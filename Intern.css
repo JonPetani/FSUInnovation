@@ -10,7 +10,7 @@ div.select{
 	padding:10px;margin-left:12.5%;
 }
 
-div.select > ul > li > a {
+div.select > ul > li > a, table > tr > td > a.ComPage {
 	text-decoration:none;font-family:"Lucida Console", Monaco, monospace;float:left;display:block;font-size:150%;
 	background-color:#ccccff;
 	/*margin-left:6.5%;*/
@@ -18,15 +18,15 @@ div.select > ul > li > a {
 	border-radius:225%;
 }
 
-div.select > ul > li > a:hover, div.select > a:hover {
+div.select > ul > li > a:hover, div.select > a:hover, table > tr > td > a.ComPage:hover {
 	padding:10px;
 }
 
-div.select > ul > li > a:active, div.select > a:active {
+div.select > ul > li > a:active, div.select > a:active, a:active, table > tr > td > a.ComPage:active {
 	font-size:145%
 }
 
-div.select > a {
+div.select > a, table > tr > td > a.ComPage {
 	text-decoration:none;
 	font-family:"Lucida Console", Monaco, monospace;display:block;font-size:150%;
 	background-color:#ccccff;float:left;margin-left:39%;padding:15px;border-radius:225%;
