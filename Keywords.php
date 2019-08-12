@@ -31,7 +31,7 @@
 		echo'<td>' . $CompanyInfo[0]['ContactName'] . '</td>';
 		echo'<td>' . $CompanyInfo[0]['CompanyCity'] . ", " . $CompanyInfo[0]['CompanyState'] . '</td>';
 		echo'<td>' . '&#9990;: '. $CompanyInfo[0]['PhoneNumber'] . '<br>&#9993;: ' . $CompanyInfo[0]['ContactEmail'] . '</td>';
-		echo'<td><a href=""><img src="data:image/jpeg;base64,<?php echo base64_encode($imagedata);?>" class="TableImg" alt="To Next Page"/></a></td>';
+		echo'<td><a href=""><img src="images/ToPage.jpg" class="TableImg" alt="To Next Page"/></a></td>';
 		echo'</tr>';
 		}
 		echo"</table>";
