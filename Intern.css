@@ -10,7 +10,7 @@ div.select{
 	padding:10px;margin-left:12.5%;
 }
 
-div.select > ul > li > a, table > tr > td > a.ComPage {
+div.select > ul > li > a{
 	text-decoration:none;font-family:"Lucida Console", Monaco, monospace;float:left;display:block;font-size:150%;
 	background-color:#ccccff;
 	/*margin-left:6.5%;*/
@@ -18,15 +18,15 @@ div.select > ul > li > a, table > tr > td > a.ComPage {
 	border-radius:225%;
 }
 
-div.select > ul > li > a:hover, div.select > a:hover, table > tr > td > a.ComPage:hover {
+div.select > ul > li > a:hover, div.select > a:hover{
 	padding:10px;
 }
 
-div.select > ul > li > a:active, div.select > a:active, a:active, table > tr > td > a.ComPage:active {
+div.select > ul > li > a:active, div.select > a:active, a:active{
 	font-size:145%
 }
 
-div.select > a, table > tr > td > a.ComPage {
+div.select > a{
 	text-decoration:none;
 	font-family:"Lucida Console", Monaco, monospace;display:block;font-size:150%;
 	background-color:#ccccff;float:left;margin-left:39%;padding:15px;border-radius:225%;
@@ -111,4 +111,32 @@ div#error {
 img.error {
 	width:10%;
 	height:auto;
+}
+table, td, th, tr {
+	border: black 2px solid;
+}
+th {
+	font-family: Courier;
+	padding:10px;
+	background-color: #ccccff;
+	text-align:center;
+	font-size:150%;
+}
+td {
+	text-align:center;
+	font-family: Sans-Serif;
+	padding:20px;
+	font-size:125%;
+	background-color:#e6e6ff;
+}
+tr {
+	background-color: #e6e6ff;
+}
+table {
+	background-color:#f2e6ff;
+}
+
+img.TableImg {
+	width:50%;
+	height:50%;
 }

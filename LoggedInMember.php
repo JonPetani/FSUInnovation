@@ -14,8 +14,8 @@ $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','Si
 $FName = explode(' ',trim($_SESSION['ContactName']));
 $Name = $FName[0];
 echo ("<h2>Welcome Back " . $Name . "!</h2>");
-header ("Content-typeL image/jpg");
-echo $_SESSION['CompanyPicture'];
+$imagedata = $_SESSION['CompanyPicture'];
+echo "<img src='data:image/jpeg;base64,<?php echo base64_encode($imagedata);?>' alt='profile image'/>"
 ?>
 <h2>New User?</h2>
 <p>If you are new, we suggest you look around our site to familiarize yourself with how we help students find your positions.</p>
