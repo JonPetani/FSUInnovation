@@ -13,7 +13,7 @@
 <h2>Search for a Member Company in the Field Below</h2>
 <div class="txt">
 <h3>Search for Company by Name</h3>
-<form method='post' action="CompanyResults.php?go" id='search'>
+<form method='post' action="CompanyResults.php" id='search'>
 <input type="text" name='CompanyName'>
 <input type="submit" name="submit" value="Search">
 </form>

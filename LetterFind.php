@@ -34,6 +34,7 @@
 		}
 		echo"</table>";
 ?>
+</div>
 <br>
 <div class='select'>
 <h3 align=center>Didn't find what you were looking for?</h3>
