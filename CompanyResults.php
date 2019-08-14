@@ -17,19 +17,24 @@
 	$CompanyName = $_POST['CompanyName'];
 	$sql = $con -> query("SELECT * FROM member WHERE CompanyName = '$_POST[CompanyName]'");
     $result = $sql -> fetchAll(PDO::FETCH_ASSOC);
-	if (empty($result) == false) {
-		$LinkStr = "location: CompanyFound.php?comp=";
-		$LinkStr .= $result[0]['CompanyName'];
-		header($LinkStr);
+	if (sizeof($result) == 1) {
+		header("location: CompanyFound.php?comp='$_POST[CompanyName]'");
+		//$LinkStr = "location: CompanyFound.php?comp=";
+		//$LinkStr .= $result[0]['CompanyName'];
+		//header($LinkStr);
 	}
 	$FullName = explode(' ',trim($_POST['CompanyName']));
-	$results = array();
-	for ($i = 0; $i < sizeof($FullName) - 1; $i++) {
-		$sql2 = $con -> query("SELECT * FROM member WHERE CompanyName LIKE '%" . $FullName[$i] . "%'");
-		$companies = $sql2 -> fetchAll(PDO::FETCH_ASSOC);
-		array_push($results, $companies);
+	$i = 0;
+	$str = "SELECT * FROM member WHERE";
+	foreach($FullName as $word) {
+		$i++;
+		if ($i == 1)
+			$str .= " CompanyName LIKE '%$word%'";
+		else
+			$str .= " AND CompanyName LIKE '%$word%'";
 	}
-	array_unique($results, SORT_REGULAR);
+	$sql3 = $con -> query($str);
+	$results = $sql3 -> fetchAll(PDO::FETCH_ASSOC);
 	if (sizeof($results) == 0) {
 		header("location: NoResults.html");
 	}
