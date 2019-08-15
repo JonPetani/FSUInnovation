@@ -47,7 +47,7 @@
 		echo'<td>' . $results[$i]['ContactName'] . '</td>';
 		echo'<td>' . $results[$i]['CompanyCity'] . ", " . $results[$i]['CompanyState'] . '</td>';
 		echo'<td>' . '&#9990;: '. $results[$i]['PhoneNumber'] . '<br>&#9993;: ' . $results[$i]['ContactEmail'] . '</td>';
-		echo'<td><a href=""><img src="images/ToPage.jpg" class="TableImg" alt="To Next Page"/></a></td>';
+		echo'<td><a href="CompanyPage.php?comp=\'$results[$i][CompanyName]\'"><img src="images/ToPage.jpg" class="TableImg" alt="To Next Page"/></a></td>';
 		echo'</tr>';
 		}
 	echo"</table>";

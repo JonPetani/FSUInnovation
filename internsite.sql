@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2019 at 10:25 PM
+-- Generation Time: Aug 15, 2019 at 09:52 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -50,7 +50,38 @@ CREATE TABLE `intern` (
 --
 
 INSERT INTO `intern` (`InternId`, `InternName`, `EmailAddress`, `Username`, `Password`, `School`, `InternPhoto`, `Major`, `GPA`, `City`, `State`, `PhoneNumber`, `Resume`, `SkillsAndExperience`) VALUES
-(1, 'James Dean', 'Dean@student.framingham.edu', 'JDean', 'eaglerock32', 'Framingham State University', 0x686f6f706361742e676966, 'Liberal Arts', '3.40', 'Sudbury', 'Massachusetts', '234-332-1221', 0x4166726963616e5265776f726b732e727466, 'Reworking African civs');
+(1, 'James Dean', 'Dean@student.framingham.edu', 'JDean', 'eaglerock32', 'Framingham State University', 0x686f6f706361742e676966, 'Liberal Arts', '3.40', 'Sudbury', 'Massachusetts', '234-332-1221', 0x4166726963616e5265776f726b732e727466, 'Reworking African civs'),
+(2, 'Alex Jones', 'AJ@student.framingham.edu', 'Ajones', 'jones123', 'Framingham State University', 0x506973746f6c65726f2e706e67, 'Wildlife Biology', '2.90', 'Wilmington', 'Massachusetts', '508-425-9302', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `internstasks`
+--
+
+CREATE TABLE `internstasks` (
+  `TaskId` int(11) NOT NULL COMMENT 'Id of Task for Intern',
+  `InternName` varchar(255) NOT NULL COMMENT 'Intern working on the Task',
+  `JobName` varchar(255) NOT NULL COMMENT 'Task the Intern is Working on',
+  `JobId` int(11) NOT NULL COMMENT 'Id of Job',
+  `InternId` int(11) NOT NULL COMMENT 'Id of Intern'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tasks a Student is Working on';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jobs`
+--
+
+CREATE TABLE `jobs` (
+  `JobId` int(11) NOT NULL COMMENT 'Job Id',
+  `JobName` varchar(255) NOT NULL COMMENT 'Name of Task',
+  `JobDesc` text NOT NULL COMMENT 'Description of Task',
+  `CompanyName` varchar(255) NOT NULL COMMENT 'Company the Task is needed for',
+  `JobType` enum('CS','IT','SENG','WEB','COMM','AD','NUT','BIOT','BIO','CHEM','ENG','ENGL','MED','MATH','FIN','MARK','AC','MAN','WRI','RE','GD') NOT NULL COMMENT 'Category/Field Study pertaining to',
+  `InternsNeeded` int(11) NOT NULL COMMENT 'Number of Interns the Contact needs to do the task',
+  `JobRequirements` text NOT NULL COMMENT 'requirements/skills/experience intern will need to do the task correctly'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Listing of All Tasks needed for Members';
 
 -- --------------------------------------------------------
 
@@ -63,6 +94,40 @@ CREATE TABLE `keywords` (
   `CompanyName` varchar(255) NOT NULL COMMENT 'Company''s Name',
   `Keyword` varchar(255) NOT NULL COMMENT 'Keyword from Input'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `keywords`
+--
+
+INSERT INTO `keywords` (`MatchId`, `CompanyName`, `Keyword`) VALUES
+(10, 'Entreprenuership Innovation Center', 'Communications'),
+(11, 'Entreprenuership Innovation Center', 'Computer Science'),
+(12, 'Entreprenuership Innovation Center', 'Programming'),
+(13, 'Entreprenuership Innovation Center', 'Web Development'),
+(14, 'Entreprenuership Innovation Center', 'Entrepreneurship'),
+(15, 'Entreprenuership Innovation Center', 'Entrepreneur'),
+(16, 'Entreprenuership Innovation Center', 'Nutrition'),
+(17, 'Entreprenuership Innovation Center', 'FSU'),
+(18, 'Entreprenuership Innovation Center', 'Start-Up'),
+(19, 'CompStomp', 'Computer Science'),
+(20, 'CompStomp', 'Programming'),
+(21, 'CompStomp', 'IT'),
+(22, 'CompStomp', 'Technology'),
+(23, 'CompStomp', 'Internship'),
+(24, 'CompStomp', 'Intern'),
+(25, 'CompStomp', 'Innovation'),
+(26, 'CompStomp', 'Software'),
+(27, 'CompStomp', 'QA'),
+(28, 'CompStomp', 'FSU'),
+(29, 'CompStomp', 'Web'),
+(30, 'Entemanns', 'FSU'),
+(31, 'Entemanns', 'Technology'),
+(32, 'Entemanns', 'Web'),
+(33, 'Entemanns', 'Food'),
+(34, 'Entemanns', 'Food Science'),
+(35, 'Entemanns', 'Intern'),
+(36, 'Entemanns', 'Baking'),
+(37, 'Entemanns', 'Cooking');
 
 -- --------------------------------------------------------
 
@@ -89,9 +154,11 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`MemberId`, `ContactName`, `CompanyName`, `ContactEmail`, `Username`, `Password`, `CompanyCity`, `CompanyState`, `PhoneNumber`, `CompanyPicture`, `CompanyDescription`) VALUES
-(1, 'Mark Marty', 'FSU', 'FSU@FSU.org', 'MarkyMark', 'm123', 'Framingham', 'Massachusetts', '234-344-5554', 0x436f726f6e656c49636f6e2e504e47, 'We are a school of sorts.'),
-(2, 'Mark Hardie', 'Entreprenuership Innovation Center', 'mhardie@framingham.edu', 'mark2', 'hardieharhar', 'Framingham', 'Massachusetts', '508-432-1212', 0x6d61726b2d6861726469652d6865616473686f742e6a7067, 'Co-Working Space * Internship Program * Start-up Incubator'),
-(3, 'Simone McHugh', 'FSU Innovation Center', 'smchugh@student.framingham.edu', 'SMcHugh', 'newpassword1', 'Framingham', 'Massachusetts', '504-332-1223', 0x436f726f6e656c49636f6e2e504e47, 'We innovate new solutions to existing problems for companies. We make databases for a living as well.');
+(6, 'Mark Hardie', 'Entreprenuership Innovation Center', 'mhardie@framingham.edu', 'Mark123', 'h121', 'Framingham', 'Massachusetts', '508-215-5921', 0x6d61726b2d6861726469652d6865616473686f742e6a7067, 'Co-Working Space * Internship Program * Start-up Incubator'),
+(7, 'Jon Petni', 'CompStomp', 'cpa@mailboxes.com', 'csjp', '1234321', 'Natick', 'Massachusetts', '595-443-2212', 0x436f726f6e656c49636f6e2e504e47, 'We code and do IT work. We innovate software to make it more efficient towards our clients.'),
+(8, 'Ed Edwardson', 'Entemanns', 'EEdwards@mail.com', 'EdEd', 'ed124', 'Seabrook', 'New Hampshire', '594-332-4343', 0x5665726d6f6e74666c61672e706e67, 'We bake cakes and cookies. We take pride in making people happy at the cost of their health. We teach students how to make sugary treats that are so good they are to die for literally from coronary heart disease.'),
+(9, 'Collard Sansik', 'Company Compensation', 'fwre43rw3@mail.com', '3wrw4frref', '344433', 'Norfolk', 'Boston', '494-332-2234', 0x31373070782d50726f645061636b2d48616d6275726765722d48656c7065722d4368656573654d61632d536d616c6c2e6a7067, 'A Company'),
+(10, 'Fred Leiberman', 'In Good Company', 'FLeiber@mail.com', 'Companyman', 'iuhwf3rw3huir3hui', 'Brattleboro', 'Vermont', '394-233-2343', 0x776f6c6c2e6a7067, 'We are developing a social media app that makes sure people are always in good company even without any friends.');
 
 --
 -- Indexes for dumped tables
@@ -102,6 +169,18 @@ INSERT INTO `member` (`MemberId`, `ContactName`, `CompanyName`, `ContactEmail`, 
 --
 ALTER TABLE `intern`
   ADD PRIMARY KEY (`InternId`);
+
+--
+-- Indexes for table `internstasks`
+--
+ALTER TABLE `internstasks`
+  ADD PRIMARY KEY (`TaskId`);
+
+--
+-- Indexes for table `jobs`
+--
+ALTER TABLE `jobs`
+  ADD PRIMARY KEY (`JobId`);
 
 --
 -- Indexes for table `keywords`
@@ -123,19 +202,31 @@ ALTER TABLE `member`
 -- AUTO_INCREMENT for table `intern`
 --
 ALTER TABLE `intern`
-  MODIFY `InternId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=2;
+  MODIFY `InternId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `internstasks`
+--
+ALTER TABLE `internstasks`
+  MODIFY `TaskId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id of Task for Intern';
+
+--
+-- AUTO_INCREMENT for table `jobs`
+--
+ALTER TABLE `jobs`
+  MODIFY `JobId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Job Id';
 
 --
 -- AUTO_INCREMENT for table `keywords`
 --
 ALTER TABLE `keywords`
-  MODIFY `MatchId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identifier for this Company/Keyword Match';
+  MODIFY `MatchId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identifier for this Company/Keyword Match', AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `MemberId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=4;
+  MODIFY `MemberId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

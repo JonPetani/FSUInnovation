@@ -5,7 +5,8 @@
 		<title>Member Sign Up Page</title>
 		<link rel="icon" type="image/png" href="images/icon.png"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="member_page.css">
+		<link rel = "stylesheet" href = "index.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="member_page.css">-->
 		<!--<link href='intern.css' rel='stylesheet'/>-->
 	</head>
 	<body>
@@ -23,103 +24,41 @@
 		-->
 		<header style="margin-bottom:60px">
 			<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
-			<h1 align="center">Create New Member Account</h1>
+			<p class = 'new' align="center">Create New Member Account</p>
 		</header>
-		<div id="navMenu" align="center">
+		<!--<div id="navMenu" align="center">
 			<a href="Home.html"><button class="navButton">Home</button></a>
 			<a href=""><button class="navButton">Interns</button></a>
 			<a href=""><button class="navButton">Members</button></a>
 			<a href=""><button class="navButton">Discussion Boards</button></a>
 			<a href=""><button class="navButton">Newsfeed</button></a>
-		</div>
-		<div class="container">
+		</div>-->
+		<div class = 'content'>
 			<form action="MemberInsert.php" method="post">
-				<div class="row">
-					<div class="col-25">
+			<div class="boxcontainer">
 						<label for="ContactName">Contact Name: </label>
-					</div>
-					<div class="col-75">
 						<input type="text" name="ContactName" autocomplete="off" required autofocus>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-25">
 						<label for="CompanyName">Company Name: </label>
-					</div>
-					<div class="col-75">
 						<input type="text" name="CompanyName" autocomplete="off" required>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-25">
 						<label for="ContactEmail">Email Address: </label>
-					</div>
-					<div class="col-75">
 						<input type="email" name="ContactEmail" autocomplete="off" required>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-25">
 						<label for="Username">Username: </label>
-					</div>
-					<div class="col-75">
 						<input type="text" name="Username" autocomplete="off" required>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-25">
 						<label for="Password">Password: </label>
-					</div>
-					<div class="col-75">
 						<input style='width:100%;height:42.5px;' type="password" name="Password" autocomplete="off" required>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-25">
 						<label for="CompanyCity">Location (City): </label>
-					</div>
-					<div class="col-75">
 						<input type="text" name="CompanyCity" autocomplete="off" required>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-25">
 						<label for="CompanyState">Location (State): </label>
-					</div>
-					<div class="col-75">
 						<input type="text" name="CompanyState" autocomplete="off" required>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-25">
 						<label for="PhoneNumber">Phone: </label>
-					</div>
-					<div class="col-75">
 						<input type="tel" name="PhoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" autocomplete="off">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-25">
 						<label for="CompanyPicture">Profile Picture: </label>
-					</div>
-					<div class="col-75">
 						<input type="file" name="CompanyPicture" accept="image/*" required>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-25">
 						<label for="CompanyDescription">Company Description: </label>
-					</div>
-					<div class="col-75">
-						<textarea name="CompanyDescription" style="height:100px" autocomplete="off" required></textarea>
-					</div>
-				</div>
-				<div class="row">
-				<div class="col-25">
-				</div>
-				<div class="col-75">
-				<label style='float:left'>In order to create a account, you must agree to our terms of service <a href='terms.html' target="_blank">found here</a>: <input name='check' onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" type="checkbox" value="Agree" required></label>
-				<input id="submitButton" type="submit" value="Submit" style='float:left;'>
+						<textarea name="CompanyDescription" class="skills" autocomplete="off" required></textarea>
+				<label style='float:left;padding-bottom:30px;'>In order to create a account, you must agree to our terms of service <a href='terms.html' target="_blank">found here</a>: <input name='check' onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" type="checkbox" value="Agree" required></label>
+				<input id="submitButton" type="submit" value="Submit" style='float:left;background-color:#66ff99;width:21%;height:10%;'>
+				<br>
 				</div>
 				</div>
 				<br clear=both>

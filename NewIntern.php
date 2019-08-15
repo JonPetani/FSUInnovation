@@ -34,17 +34,17 @@
 					<label>Password:</label>
 					<input type = "password" name = "Password" autocomplete='off' required>
 
-					<!--<label>School/University:</label>
+					<label>School/University:</label>
 					<input type = "text" name = "School" autocomplete='off' required>
 
 					<label>Picture:</label>
-					<input type = "file" name = "InternPhoto" accept='image/*' autocomplete='off' required>
+					<input type = "file" name = "InternPhoto" accept='image/*' autocomplete='off'>
 
 					<label>Major:</label>
 					<input type = "text" name = "Major" autocomplete='off' required>
 
 					<label>GPA:</label>
-					<input type = "text" name = "GPA" autocomplete='off'> -->
+					<input type = "text" name = "GPA" autocomplete='off'>
 
 					<label>City:</label>
 					<input type = "text" name = "City" autocomplete='off' required>
@@ -52,23 +52,38 @@
 					<label>State:</label>
 					<input type = "text" name = "State" autocomplete='off' required>
 
-					<!--<label>Phone Number:</label>
+					<label>Phone Number:</label>
 					<input type="tel" name="PhoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" autocomplete="off">
 
 					<label>Resume:</label>
 					<input type="file" name="Resume" accept='application/octet-stream' autocomplete="off"><br>
 
 					<label>Skills and Experience you have (in lieu of Resume):</label><br>
-					<textarea class = "skills" autocomplete='off'></textarea>-->
+					<textarea name = 'SkillsAndExperience' class = "skills" autocomplete='off'></textarea>
 
-					<button type = "submit" value = 'Submit'>Submit</button>
-
+					<label style='float:left;padding-bottom:30px;'>In order to create a account, you must agree to our terms of service <a href='terms.html' target="_blank">found here</a>: <input name='check' onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" type="checkbox" value="Agree" required></label>
+				<input id="submitButton" type="submit" value="Submit" style='float:left;background-color:#66ff99;width:21%;height:10%;'>
+				<br>
 				</div>
-
+<br clear=both>
+				<script>
+					function checkForm(form)
+					{
+						...
+						if(!form.check.checked) {
+						  alert("You are required to read and accept the Terms of Service before creating a account.");
+						  form.check.focus();
+						  return false;
+						}
+						return true;
+					}
+				</script>
 			</form>
-
 		</div>
-		
+		<footer align="center">
+			<hr>
+			<address><strong>&copy;	Framingham State University Entrepreneur Innovation Center</strong></address>
+		</footer>	
 	</body>
 
 </html>
