@@ -145,3 +145,10 @@ h3#navh {
 	font-size:250%;
 	font-family:Segoe UI;
 }
+
+img.SkillImg {
+	width: 45%;
+	height: 45%;
+	float: left;
+	padding: 5px;
+}

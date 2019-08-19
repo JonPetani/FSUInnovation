@@ -37,7 +37,7 @@ if($_SESSION['UserType'] == "Intern")
 					<textarea name = 'JobDesc' class = "skills" autocomplete='off'></textarea>
 
 					<label>Select the Main Field(s) of Study/Category your job appeals to:</label>
-					<select name='JobType' autocomplete='off' multiple required>
+					<br><select name='JobType' autocomplete='off' multiple required>
 					<option value='CS'>Computer Science</option>
 					<option value='IT'>Information Technology</option>
 					<option value='SENG'>Software Engineering</option>
@@ -60,7 +60,7 @@ if($_SESSION['UserType'] == "Intern")
 					<option value='RE'>Research</option>
 					<option value='GD'>Graphic Design</option>
 					</select>
-
+                    <br>
 					<label>Enter a estimate number of Interns you need to work on your task:</label>
 					<input type = "number" name = "InternsNeeded" autocomplete='off' required>
 

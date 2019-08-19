@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 15, 2019 at 09:52 PM
+-- Generation Time: Aug 19, 2019 at 11:01 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -78,7 +78,7 @@ CREATE TABLE `jobs` (
   `JobName` varchar(255) NOT NULL COMMENT 'Name of Task',
   `JobDesc` text NOT NULL COMMENT 'Description of Task',
   `CompanyName` varchar(255) NOT NULL COMMENT 'Company the Task is needed for',
-  `JobType` enum('CS','IT','SENG','WEB','COMM','AD','NUT','BIOT','BIO','CHEM','ENG','ENGL','MED','MATH','FIN','MARK','AC','MAN','WRI','RE','GD') NOT NULL COMMENT 'Category/Field Study pertaining to',
+  `JobType` text NOT NULL COMMENT 'Category/Field Study pertaining to',
   `InternsNeeded` int(11) NOT NULL COMMENT 'Number of Interns the Contact needs to do the task',
   `JobRequirements` text NOT NULL COMMENT 'requirements/skills/experience intern will need to do the task correctly'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Listing of All Tasks needed for Members';
@@ -127,7 +127,16 @@ INSERT INTO `keywords` (`MatchId`, `CompanyName`, `Keyword`) VALUES
 (34, 'Entemanns', 'Food Science'),
 (35, 'Entemanns', 'Intern'),
 (36, 'Entemanns', 'Baking'),
-(37, 'Entemanns', 'Cooking');
+(37, 'Entemanns', 'Cooking'),
+(38, 'In Good Company', 'FSU'),
+(39, 'In Good Company', 'Web'),
+(40, 'In Good Company', 'Computer Science'),
+(41, 'In Good Company', 'IT'),
+(42, 'In Good Company', 'Communications'),
+(43, 'In Good Company', 'Social Media'),
+(44, 'In Good Company', 'Technology'),
+(45, 'In Good Company', 'Psychology'),
+(46, 'In Good Company', 'Internship');
 
 -- --------------------------------------------------------
 
@@ -214,13 +223,13 @@ ALTER TABLE `internstasks`
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `JobId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Job Id';
+  MODIFY `JobId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Job Id', AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `keywords`
 --
 ALTER TABLE `keywords`
-  MODIFY `MatchId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identifier for this Company/Keyword Match', AUTO_INCREMENT=38;
+  MODIFY `MatchId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identifier for this Company/Keyword Match', AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `member`
