@@ -11,11 +11,11 @@
 <?php
 session_start();
 $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
-$FName = explode(' ',trim($_SESSION['ContactName']));
+$FName = explode(' ',trim($_SESSION['InternName']));
 $Name = $FName[0];
 echo ("<h2>Welcome Back " . $Name . "!</h2>");
 header ("Content-typeL image/jpg");
-echo $_SESSION['CompanyPicture'];
+echo $_SESSION['InternPhoto'];
 ?>
 <h2>New User?</h2>
 <p>As a Intern, your main usage of this platform will be to find Members who are working on projects that both interest you and are related to your field of study/career.</p>

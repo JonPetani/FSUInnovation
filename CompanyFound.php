@@ -20,7 +20,8 @@
 	echo '<table align=center width="100%" height="150%">';
 	echo '<tr><td><h3>' . $CompanyName .'</h3></td></tr>';
 	echo '<tr><td>' . $results[0]['CompanyPicture'] . '</td><tr>';
-	echo "<tr><td>Click the Button Below to View More Information on the Company's Page<br><a href='CompanyPage.php?comp=\'$results[0][CompanyName]\''><img align=center src='images/ToPage.jpg' style='width:15%;height:15%;' alt='To Next Page'/></a></td></tr>";
+	$Company = $results[0]['CompanyName'];
+	echo "<tr><td>Click the Button Below to View More Information on the Company's Page<br><a href='CompanyPage.php?comp=" . $Company . "'><img align=center src='images/ToPage.jpg' style='width:15%;height:15%;' alt='To Next Page'/></a></td></tr>";
 	echo '</table>';
 ?>
 <br>

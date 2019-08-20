@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><?php echo $_GET['comp']; ?></title>
+<title><?php $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495'); echo $_GET['comp']; ?></title>
 <link rel="icon" type="image/png" href="images/icon.png"/>
 <link href='Intern.css' rel='stylesheet'/>
 </head>
@@ -13,34 +13,35 @@
 <h2>This Page Has All Information Pertaining to the Company named above</h2>
 <?php
 	$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
-	$CompanyName = $_GET['comp'];
-	$sql = $con -> query("SELECT * FROM member WHERE CompanyName = '$CompanyName'");
+	
+	$sql = $con -> query("SELECT * FROM member WHERE CompanyName = '$_GET[comp]'");
     $results = $sql -> fetchAll(PDO::FETCH_ASSOC);
+	echo $_GET['comp'];
 	echo "<h3>Contact Information</h3>";
-	echo "<div class='select>'"
+	echo "<div class='select>'";
 	echo "<dl>";
 	echo "<dt>Contact's Name</dt>";
-	echo "<dd>" . $results[0]['ContactName'] . "</dd>"
+	echo "<dd>" . $results[0]['ContactName'] . "</dd>";
 	echo "<dt>&#9990;:</dt>";
 	echo "<dd>" . $results[0]['PhoneNumber'] . "</dd>";
 	echo "<dt>&#9993;:</dt>";
-	echo "<dd>" . $results[0]['ContactEmail'] . "</dd>"
+	echo "<dd>" . $results[0]['ContactEmail'] . "</dd>";
 	echo "<dl></div><br>";
 	echo "<h3>Main Location</h3>";
-	echo "<div class='select>'"
+	echo "<div class='select>'";
 	echo "<dl>";
 	echo "<dt>City</dt>";
-	echo "<dd>" . $results[0]['CompanyCity'] . "</dd>"
+	echo "<dd>" . $results[0]['CompanyCity'] . "</dd>";
 	echo "<dt>State</dt>";
 	echo "<dd>" . $results[0]['CompanyState'] . "</dd>";
 	echo "<dl></div><br>";
-	echo "<h2>Jobs Listed for this Member</h2>"
+	echo "<h2>Jobs Listed for this Member</h2>";
 	echo "<div style='overflow-x:auto;overflow-y:auto;'>";
 	echo "<table align='center' width='150%' height='120%'>";
 	$SearchComp = $results[0]['CompanyName'];
 	$sql2 = $con -> query("SELECT * FROM jobs WHERE CompanyName = '$SearchComp'");
 	$results2 = $sql2 -> fetchall(PDO::FETCH_ASSOC);
-	echo"<tr><th>Job Name<th><th>Description<th>Related Skills/ Areas of Study<th>Number of Interns Still Needed<th>Requirements/Prerequisite Knowledge<th>Apply Here</tr>";
+	echo"<tr><th>Job Name<th>Description<th>Related Skills/Areas of Study<th>Number of Interns Still Needed<th>Requirements/Prerequisite Knowledge<th>Apply Here</tr>";
 	for($i=0; $i<sizeof($results2); $i++) {
 		echo'<tr>';
 		echo'<td>' . $results2[$i]['JobName'] . '</td>';
@@ -121,7 +122,7 @@
 		echo "<br clear=both></td>";
 		echo'<td>' . $results2[$i]['InternsNeeded'] . '</td>';
 		echo'<td>' . $results2[$i]['JobRequirements'] . '</td>';
-		echo'<td><a href="Apply.php?job=\'$results2[$i][JobId]\'"><img src="images/SignUp.jpg" class="TableImg" alt="To Next Page"/></a></td>';
+		echo'<td><a href="Apply.php?job=' . $results2[$i]['JobId'] . '"><img src="images/SignUp.png" class="TableImg" alt="To Next Page"/></a></td>';
 		echo'</tr>';
 		}
 		echo"</table>";

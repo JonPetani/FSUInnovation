@@ -9,13 +9,17 @@ if (!$con)
   die('Connection has failed: ' . mysql_error());
 
   }
-$JobType = implode(', ', $_POST['JobType']);
+
+$sql = $con -> query("SELECT * FROM jobs WHERE JobId = '$_GET[job]'");
+$results = $sql -> fetchall(PDO::FETCH_ASSOC);
+$_SESSION['InternName'];
+$_SESSION['InternId'];
 	
-$sql= $con -> query("INSERT INTO jobs (JobName, JobDesc, CompanyName, JobType, InternsNeeded, JobRequirements)
+$sql= $con -> query("INSERT INTO applications (CompanyName, InternId, JobId, StudentName)
 
 VALUES
 
-('$_POST[JobName]','$_POST[JobDesc]','$_SESSION[CompanyName]','$JobType','$_POST[InternsNeeded]','$_POST[JobRequirements]')");
+('$results[0][CompanyName]','$_SESSION[InternId]','$_GET[job]','$_SESSION[InternName]')");
 
  
 /*
@@ -27,7 +31,7 @@ if (!query($sql,$con))
 
   }
 */
-header("location: JobPosted.php");
+header("location: ApplSent.php");
 /*echo "*Success! Welcome to our website. Hope our services will serve you and your company well.";*/
 
  

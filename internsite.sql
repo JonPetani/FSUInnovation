@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 19, 2019 at 11:01 PM
+-- Generation Time: Aug 20, 2019 at 10:48 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -21,6 +21,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `internsite`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `applications`
+--
+
+CREATE TABLE `applications` (
+  `AppId` int(11) NOT NULL COMMENT 'Id for Application in Database',
+  `CompanyName` varchar(255) NOT NULL COMMENT 'The Company to be applied to and to decide on hiring the candidate',
+  `InternId` int(11) NOT NULL COMMENT 'Id of Applicant',
+  `JobId` int(11) NOT NULL COMMENT 'Id of Job',
+  `StudentName` varchar(255) NOT NULL COMMENT 'The Student applying for the Job'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Stores Applications pending (not denied or accepted)';
 
 -- --------------------------------------------------------
 
@@ -82,6 +96,13 @@ CREATE TABLE `jobs` (
   `InternsNeeded` int(11) NOT NULL COMMENT 'Number of Interns the Contact needs to do the task',
   `JobRequirements` text NOT NULL COMMENT 'requirements/skills/experience intern will need to do the task correctly'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Listing of All Tasks needed for Members';
+
+--
+-- Dumping data for table `jobs`
+--
+
+INSERT INTO `jobs` (`JobId`, `JobName`, `JobDesc`, `CompanyName`, `JobType`, `InternsNeeded`, `JobRequirements`) VALUES
+(3, 'Help Me', 'Seriously, Help me Dammit.', 'Entemanns', '', 7, 'Help Me, stop reading this txt and help me now!');
 
 -- --------------------------------------------------------
 
@@ -174,6 +195,12 @@ INSERT INTO `member` (`MemberId`, `ContactName`, `CompanyName`, `ContactEmail`, 
 --
 
 --
+-- Indexes for table `applications`
+--
+ALTER TABLE `applications`
+  ADD PRIMARY KEY (`AppId`);
+
+--
 -- Indexes for table `intern`
 --
 ALTER TABLE `intern`
@@ -208,6 +235,12 @@ ALTER TABLE `member`
 --
 
 --
+-- AUTO_INCREMENT for table `applications`
+--
+ALTER TABLE `applications`
+  MODIFY `AppId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for Application in Database';
+
+--
 -- AUTO_INCREMENT for table `intern`
 --
 ALTER TABLE `intern`
@@ -223,7 +256,7 @@ ALTER TABLE `internstasks`
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `JobId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Job Id', AUTO_INCREMENT=2;
+  MODIFY `JobId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Job Id', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `keywords`
