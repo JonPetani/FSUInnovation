@@ -16,7 +16,7 @@
 <h3 align=center>What to do next</h3>
 <ul type=none>
 <li style='margin-left:-8%;float:left;text-align:center;'><a href='CompanyFind.php'>Apply for another Job</a></li>
-<li style='margin-left:-8%;float:left;text-align:center;'><a href=''>See the Jobs I have Pending Applications on</a></li>
+<li style='margin-left:-8%;float:left;text-align:center;'><a href='MyJobs.php'>See the Jobs I have Pending Applications on</a></li>
 <li style='margin-left:-3%;float:left;text-align:center;'><a href='Home.html'>Otherwise, Return to Homepage</a></li>
 </ul>
 <br clear=both>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2019 at 10:48 PM
+-- Generation Time: Aug 21, 2019 at 09:19 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -33,7 +33,9 @@ CREATE TABLE `applications` (
   `CompanyName` varchar(255) NOT NULL COMMENT 'The Company to be applied to and to decide on hiring the candidate',
   `InternId` int(11) NOT NULL COMMENT 'Id of Applicant',
   `JobId` int(11) NOT NULL COMMENT 'Id of Job',
-  `StudentName` varchar(255) NOT NULL COMMENT 'The Student applying for the Job'
+  `StudentName` varchar(255) NOT NULL COMMENT 'The Student applying for the Job',
+  `InternApplication` longblob NOT NULL COMMENT 'The form the Intern filled out to apply',
+  `Permission` enum('Yes','No') NOT NULL COMMENT 'Permission to View Intern Account Info'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Stores Applications pending (not denied or accepted)';
 
 -- --------------------------------------------------------
@@ -78,7 +80,8 @@ CREATE TABLE `internstasks` (
   `InternName` varchar(255) NOT NULL COMMENT 'Intern working on the Task',
   `JobName` varchar(255) NOT NULL COMMENT 'Task the Intern is Working on',
   `JobId` int(11) NOT NULL COMMENT 'Id of Job',
-  `InternId` int(11) NOT NULL COMMENT 'Id of Intern'
+  `InternId` int(11) NOT NULL COMMENT 'Id of Intern',
+  `Status` enum('Accepted/Current','Denied','Pending','Past') NOT NULL COMMENT 'Status of Job in Intern''s list of tasks (currently being done, past done, or pending/denied.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tasks a Student is Working on';
 
 -- --------------------------------------------------------

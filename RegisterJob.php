@@ -6,7 +6,7 @@ $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','Si
 if($_SESSION['UserType'] == "")
 	header("location: MemberLogin.php");
 if($_SESSION['UserType'] == "Intern")
-	header("location: AccessDenied.html")
+	header("location: AccessDenied.html");
 ?>
 	<head>
 
