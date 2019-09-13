@@ -17,7 +17,7 @@ $heading = "Application for " . $results[0]['JobName'] . " task\n";
 fwrite($Application, $heading);
 $name = "Intern's Name: " . $_SESSION['InternName'] . "\n";
 fwrite($Application, $name);
-$heading2 = "Intern's Answers to the Questions\n"
+$heading2 = "Intern's Answers to the Questions\n";
 $break = "--------------------------------------\n";
 fwrite($Application, $heading2);
 fwrite($Application, $break);

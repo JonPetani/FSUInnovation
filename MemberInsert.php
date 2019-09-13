@@ -26,6 +26,9 @@ if (!query($sql,$con))
 
   }
 */
+$EmailVerify = "Hello " . $_POST['ContactName'] . ", this is just a simple message to confirm that you registered a account on the Framingham State Innovation Center Website. If you did not, you should contact us right away thank you. ";
+$EmailVerify = wordwrap($EmailVerify, 70);
+mail($_POST['ContactEmail'],"Your New Account with FSU Innovation Center",$EmailVerify); 
 header("location: Success.php")
 /*echo "*Success! Welcome to our website. Hope our services will serve you and your company well.";*/
 
