@@ -1,6 +1,6 @@
-# password: Toyota1999
-
 <?php
+
+/* password: Toyota1999 */
 
 $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
 
