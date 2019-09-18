@@ -12,6 +12,7 @@
 <h2 align=center>Current Projects</h2>
 <p>Below is all the Projects you have registered on this site. These projects are tasks you gave to the interns that signed up to help your business in some way. Review the interns assigned to each task below.</p>
 <?php
+    session_start();
 	$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
 	$sql = $con -> query("SELECT * FROM jobs WHERE CompanyName = '$_SESSION[CompanyName]'");
     $results = $sql -> fetchAll(PDO::FETCH_ASSOC);
