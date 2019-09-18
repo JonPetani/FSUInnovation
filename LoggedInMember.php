@@ -25,6 +25,8 @@ echo "<img src='data:image/jpeg;base64,<?php echo base64_encode($imagedata);?>' 
 <h3 align=center id='navh'>Options</h3>
 <ul type='none' id='nav'>
 <li><a href='RegisterJob.php'>Post a Job</a></li>
+<li><a href='AppListMember.php'>View Intern Applications for Projects</a></li>
+<li><a href='Projects.php'>View and Manage Projects listed</a>
 <li><a href='AddKeywords.php'>Create some keywords to make your Company easier to find</a></li>
 <li><a href='Nav.html'>View Services Available</a></li>
 <li><a href='Home.html'>Return Home</a></li>
