@@ -1,7 +1,7 @@
 /*Jonathan Petani's stylesheet*/
 
 body{
-	background-color:#F5F5F5;
+	/*background-color:#F5F5F5;*/
 	text-align:center;
 }
 
@@ -20,7 +20,8 @@ div.links a {
 
 div.select{
 	width:75%;
-	padding:10px;margin-left:12.5%;
+	padding:10px;
+	margin-left:12.5%;
 }
 
 div.select > ul > li > a{
@@ -31,11 +32,14 @@ div.select > ul > li > a{
 }
 
 div.select > ul > li > a:hover, div.select > a:hover{
-	padding:10px;
+	/*padding:10px;*/
+	border: solid;
 }
 
 div.select > ul > li > a:active, div.select > a:active, a:active{
-	font-size:145%
+	/*font-size:145%*/
+	background-color: #652F8E;
+	color: #ccccff;
 }
 
 div.select > a{
@@ -50,6 +54,7 @@ div.txt {
 	background-color:#C4C4C4;
 	text-align:left;
 	box-shadow: 5px 10px 4px 2px #878787;
+	border-radius: 20px;
 }
 
 footer {

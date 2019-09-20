@@ -5,7 +5,7 @@
 		<title>Member Sign Up Page</title>
 		<link rel="icon" type="image/png" href="images/icon.png"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel = "stylesheet" href = "index.css"/>
+		<link rel = "stylesheet" href = "css/index.css"/>
 		<!--<link rel="stylesheet" type="text/css" href="member_page.css">-->
 		<!--<link href='intern.css' rel='stylesheet'/>-->
 	</head>
@@ -57,7 +57,7 @@
 						<label for="CompanyDescription">Company Description: </label>
 						<textarea name="CompanyDescription" class="skills" autocomplete="off" required></textarea>
 				<label style='float:left;padding-bottom:30px;'>In order to create a account, you must agree to our terms of service <a href='terms.html' target="_blank">found here</a>: <input name='check' onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" type="checkbox" value="Agree" required></label>
-				<input id="submitButton" type="submit" value="Submit" style='float:left;background-color:#66ff99;width:21%;height:10%;'>
+				<input id="submitButton" type="submit" value="Submit" style='float:left;background-color:#66ff99;width:21%;height:10%;'><br><br>
 				<br>
 				</div>
 				</div>
