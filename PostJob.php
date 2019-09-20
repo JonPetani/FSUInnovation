@@ -9,6 +9,11 @@ if (!$con)
   die('Connection has failed: ' . mysql_error());
 
   }
+$session_time = $_SERVER['REQUEST_TIME'];
+$timeout_duration = 60;
+if(isset($_SESSION['LogTime']) && ($session_time - $_SESSION['LogTime']) > $timeout_duration)
+	header("location: SessionExpire.php");
+$_SESSION['TimeLog'] = $session_time;
 $JobType = implode(', ', $_POST['JobType']);
 	
 $sql= $con -> query("INSERT INTO jobs (JobName, JobDesc, CompanyName, JobType, InternsNeeded, JobRequirements)

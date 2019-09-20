@@ -9,7 +9,11 @@ if (!$con)
   die('Connection has failed: ' . mysql_error());
 
   }
-
+$session_time = $_SERVER['REQUEST_TIME'];
+$timeout_duration = 60;
+if(isset($_SESSION['LogTime']) && ($session_time - $_SESSION['LogTime']) > $timeout_duration)
+	header("location: SessionExpire.php");
+$_SESSION['TimeLog'] = $session_time;
 $sql = $con -> query("SELECT * FROM jobs WHERE JobId = '$_GET[job]'");
 $results = $sql -> fetchall(PDO::FETCH_ASSOC);
 $Application = fopen("StudentApp.txt", "w");
