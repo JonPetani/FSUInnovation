@@ -15,6 +15,11 @@
 <?php
 	session_start();
 	$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
+	$session_time = $_SERVER['REQUEST_TIME'];
+	$timeout_duration = 60;
+	if(isset($_SESSION['LogTime']) && ($session_time - $_SESSION['LogTime']) > $timeout_duration)
+		header("location: SessionExpire.php");
+	$_SESSION['TimeLog'] = $session_time;
 	$sql = $con -> query("SELECT * FROM internstasks WHERE InternId = '$_SESSION[InternId]'");
 	$results = $sql -> fetchall(PDO::FETCH_ASSOC);
 	echo "<table align='center' width='130%' height='110%'>";
