@@ -13,6 +13,11 @@
 <p>Below is all the Projects you have registered on this site. These projects are tasks you gave to the interns that signed up to help your business in some way. Review the interns assigned to each task below.</p>
 <?php
     session_start();
+	$session_time = $_SERVER['REQUEST_TIME'];
+$timeout_duration = 60;
+if(isset($_SESSION['LogTime']) && ($session_time - $_SESSION['LogTime']) > $timeout_duration)
+	header("location: SessionExpire.php");
+$_SESSION['TimeLog'] = $session_time;
 	$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
 	$sql = $con -> query("SELECT * FROM jobs WHERE CompanyName = '$_SESSION[CompanyName]'");
     $results = $sql -> fetchAll(PDO::FETCH_ASSOC);

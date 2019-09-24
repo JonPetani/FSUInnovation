@@ -1,7 +1,7 @@
-/* Developers: Jonathan Petani, Brian Perel */
-@charset "utf-8";
+/*Jonathan Petani's stylesheet*/
 
 body{
+	background-color:#F5F5F5;
 	text-align:center;
 }
 
@@ -10,67 +10,52 @@ div.links {
 	text-decoration: none;
 	text-align: left;
 	margin-left: 20px;
-}	
+	font-size: 100%;
+}
 
 div.links a {
 	text-decoration: none;
 	color: black;
 }
 
-div.links > a:hover {
-	text-decoration: none;
-	border-bottom: 2px solid grey;
-}
-
 div.select{
-	text-align:center;
+	width:75%;
+	padding:10px;margin-left:12.5%;
 }
 
 div.select > ul > li > a{
-	text-decoration:none;
-	font-family:"Lucida Console", Monaco, monospace;
-	font-size:150%;
+	text-decoration:none;font-family:"Lucida Console", Monaco, monospace;float:left;display:block;font-size:150%;
 	background-color:#ccccff;
+	/*margin-left:6.5%;*/
+	padding:15px;
+	border-radius:225%;
 }
 
 div.select > ul > li > a:hover, div.select > a:hover{
-	border: solid;
+	padding:10px;
 }
 
-div.select > ul > li > a:active, div.select > a:active{
-	/*background-color: #652F8E;*/
-	color: #ccccff;
+div.select > ul > li > a:active, div.select > a:active, a:active{
+	font-size:145%
 }
 
-div.select > a {
+div.select > a{
 	text-decoration:none;
-	font-family:"Lucida Console", Monaco, monospace;
-	display:inline;
-	font-size:150%;
-	background-color:#FFECA9;
-	color:black;
-	text-align:center;
-	padding:8px;
-	margin-right: 1%;
-	border-radius: 20px;
+	font-family:"Lucida Console", Monaco, monospace;display:block;font-size:150%;
+	background-color:#ccccff;float:left;margin-left:39%;padding:15px;border-radius:225%;
 }
 
 div.txt {
-	padding:1% 0% 2% 0%;
-	margin:1% 0% 2% 0%;
-	background-color:#C4C4C4;
+	background-color:#E5E5E5;
 	text-align:left;
-	box-shadow: 5px 10px 4px 2px #878787;
-	border-radius: 20px;
+	box-shadow: 5px 10px 4px 2px;
 }
 
 footer {
 	background-color:#B6B6B6;
-	height:5%;
-	margin-top:4%;
+	height:15%;
+	margin-top:2%;
 	padding-bottom:1%; 
-	position:absolute;
-	width:100%;
 }
 
 h1 {
@@ -95,25 +80,21 @@ p, address {
 }
 
 ul#nav, ul#Search{
+	padding:10px;
 	background-color:#cce6ff;
-	text-align:center;
 }
 
 ul#nav > li > a, ul#Search > li > a {
 	color:#993399;
-	text-decoration:none;
-	display:block;
-	font-size:250%;
+	text-decoration:none; display:block; font-size:250%;
 	font-family:Trebuchet MS;
-	text-align:center;
 }
 
 ul#nav > li > a:hover, ul#Search > li > a:hover {
 	background-color:#99ddff;
-	color:#862d86;
-	border:2px solid #862d86;
+	color:#862d86;border:2px solid #862d86;
+	border-radius:50px;
 	font-size:275%;
-	text-align:center;
 }
 
 ul#nav > li > a:active, ul#Search > li > a:active {
@@ -133,6 +114,7 @@ dd {
 
 dl, dl > dt, dl > dd {
 	background-color: #cce6ff;
+
 }
 
 dl {

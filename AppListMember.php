@@ -19,6 +19,11 @@ if($_SESSION['UserType'] == "")
 	header("location: MemberLogin.php");
 if($_SESSION['UserType'] == "Intern")
 	header("location: AccessDenied.html");
+$session_time = $_SERVER['REQUEST_TIME'];
+$timeout_duration = 60;
+if(isset($_SESSION['LogTime']) && ($session_time - $_SESSION['LogTime']) > $timeout_duration)
+	header("location: SessionExpire.php");
+$_SESSION['TimeLog'] = $session_time;
 $sql = $con -> query("SELECT * FROM applications WHERE CompanyName = '$_SESSION[CompanyName]'");
 $results = $sql -> fetchall(PDO::FETCH_ASSOC);
 echo"<table>";

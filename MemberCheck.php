@@ -60,6 +60,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         $_SESSION["Username"] = $username;
 						$_SESSION["Password"] = $hashed_password;
 						$_SESSION["CompanyPicture"] = $image;
+						$_SESSION["LogTime"] = time();
 						header("location: LoggedInMember.php");
                         }
                 } else{
