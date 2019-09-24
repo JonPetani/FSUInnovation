@@ -3,7 +3,7 @@
 <head>
 <title><?php $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495'); echo $_GET['comp']; ?></title>
 <link rel="icon" type="image/png" href="images/icon.png"/>
-<link href='Intern.css' rel='stylesheet'/>
+<link href='css/Intern.css' rel='stylesheet'/>
 </head>
 <body>
 <a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>

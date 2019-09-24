@@ -1,0 +1,190 @@
+/* Developers: Jonathan Petani, Brian Perel */
+@charset "utf-8";
+
+body{
+	text-align:center;
+}
+
+div.links {
+	display: block;
+	text-decoration: none;
+	text-align: right;
+	margin-right: 20px;
+}	
+
+div.links a {
+	text-decoration: none;
+	color: black;
+}
+
+div.links > a:hover {
+	text-decoration: none;
+	border-bottom: 2px solid grey;
+}
+
+div.select{
+	text-align:center;
+}
+
+div.select > ul > li > a{
+	text-decoration:none;
+	font-family:"Lucida Console", Monaco, monospace;
+	font-size:150%;
+	background-color:#ccccff;
+}
+
+div.select > ul > li > a:hover, div.select > a:hover{
+	border: solid;
+}
+
+div.select > ul > li > a:active, div.select > a:active{
+	/*background-color: #652F8E;*/
+	color: #ccccff;
+}
+
+div.select > a {
+	text-decoration:none;
+	font-family:"Lucida Console", Monaco, monospace;
+	display:inline;
+	font-size:150%;
+	background-color:#FFECA9;
+	color:black;
+	text-align:center;
+	padding:8px;
+	margin-right: 1%;
+	border-radius: 20px;
+}
+
+div.txt {
+	padding:1% 0% 2% 0%;
+	margin:1% 0% 2% 0%;
+	background-color:#C4C4C4;
+	text-align:left;
+	box-shadow: 5px 10px 4px 2px #878787;
+	border-radius: 20px;
+}
+
+footer {
+	background-color:#B6B6B6;
+	height:5%;
+	margin-top:4%;
+	padding-bottom:1%; 
+	position:absolute;
+	width:100%;
+}
+
+h1 {
+	font-size:300%; 
+	font-family:Arial;
+}
+
+h2 {
+	font-size:200%;
+	font-family:Arial;
+	font-style: italic;
+}
+
+h3 {
+	font-size:150%;
+	font-family:Arial;
+}
+
+p, address {
+	font-size:120%;
+	font-family:Tahoma;
+}
+
+ul#nav, ul#Search{
+	background-color:#cce6ff;
+	text-align:center;
+}
+
+ul#nav > li > a, ul#Search > li > a {
+	color:#993399;
+	text-decoration:none;
+	display:block;
+	font-size:250%;
+	font-family:Trebuchet MS;
+	text-align:center;
+}
+
+ul#nav > li > a:hover, ul#Search > li > a:hover {
+	background-color:#99ddff;
+	color:#862d86;
+	border:2px solid #862d86;
+	font-size:275%;
+	text-align:center;
+}
+
+ul#nav > li > a:active, ul#Search > li > a:active {
+	background-color:#3377ff;
+}
+
+dt {
+	font-size:200%;
+	font-family:Trebuchet MS;
+	font-weight:bold;
+}
+
+dd {
+	font-size: 150%;
+	font-family:Georgia;
+}
+
+dl, dl > dt, dl > dd {
+	background-color: #cce6ff;
+}
+
+dl {
+	border-radius: 5%;
+}
+
+div#error {
+	display:block;
+	padding: 5 10 5 10;
+}
+img.error {
+	width:3%;
+	height:3%;
+}
+
+table, td, th, tr {
+	border: black 2px solid;
+}
+th {
+	font-family: Courier;
+	padding:10px;
+	background-color: #ccccff;
+	text-align:center;
+	font-size:150%;
+}
+td {
+	text-align:center;
+	font-family: Sans-Serif;
+	padding:20px;
+	font-size:125%;
+	background-color:#e6e6ff;
+}
+tr {
+	background-color: #e6e6ff;
+}
+table {
+	background-color:#f2e6ff;
+}
+
+img.TableImg {
+	width:50%;
+	height:50%;
+}
+
+h3#navh {
+	font-size:250%;
+	font-family:Segoe UI;
+}
+
+img.SkillImg {
+	width: 45%;
+	height: 45%;
+	float: left;
+	padding: 5px;
+}

@@ -3,14 +3,14 @@
 	<head>
 		<title>Logged Out</title>
 		<link rel="icon" type="image/png" href="images/icon.png"/>
-		<link href='Intern.css' rel='stylesheet'/>
+		<link href='css/Intern.css' rel='stylesheet'/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="UTF-8">
 	</head>
 	
 	<body>
 		<div class='links'>
-			<a href='Login.html'>Sign In</a>
+			<a href='Login.php'>Sign In</a>
 			<a href='NewIntern.php' style="margin-left: 30px">Register student</a>
 			<a href='register_member.php' style="margin-left: 30px">Register employer</a>
 			<a href="https://www.framingham.edu" target="_blank" style="margin-left: 30px">Framingham.edu</a>

@@ -6,7 +6,7 @@
 <link rel="icon" type="image/png" href="images/icon.png"/>
 </head>
 <body>
-<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+<a href="css/Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 <h1>Login Successful</h1>
 <?php
 session_start();

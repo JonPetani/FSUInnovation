@@ -2,7 +2,7 @@
 	<head>
 	<title>Session Expired</title>
 	<link rel="icon" type="image/png" href="images/icon.png"/>
-	<link href='Intern.css' rel='stylesheet'/>
+	<link href='css/Intern.css' rel='stylesheet'/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
 	</head>

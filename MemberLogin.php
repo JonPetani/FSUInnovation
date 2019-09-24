@@ -5,8 +5,8 @@
 <head>
 <title>Member Login Page</title>
 <link rel="icon" type="image/png" href="images/icon.png"/>
-<link href='Intern.css' rel='stylesheet'/>
-<link href='member_page.css' rel='stylesheet'/>
+<link href='css/Intern.css' rel='stylesheet'/>
+<link href='css/member_page.css' rel='stylesheet'/>
 </head>
 <body>
 <?php

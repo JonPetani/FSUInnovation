@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Successful Login</title>
-<link href='intern.css' rel='stylesheet'/>
+<link href='css/Intern.css' rel='stylesheet'/>
 <link rel="icon" type="image/png" href="images/icon.png"/>
 </head>
 <body>

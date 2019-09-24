@@ -3,8 +3,8 @@
 <head>
 <title>Company Search</title>
 <link rel="icon" type="image/png" href="images/icon.png"/>
-<link href='member_page.css' rel='stylesheet'/>
-<link href='Intern.css' rel='stylesheet'/>
+<link href='css/member_page.css' rel='stylesheet'/>
+<link href='css/Intern.css' rel='stylesheet'/>
 </head>
 <body align=center>
 <a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>

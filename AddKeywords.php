@@ -19,7 +19,7 @@ if(isset($_SESSION['LogTime']) && ($session_time - $_SESSION['LogTime']) > $time
 	header("location: SessionExpire.php");
 $_SESSION['TimeLog'] = $session_time;
 ?>
-<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+<a href="css/Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 <h1>Keyword Creator</h1>
 <div class='select'>
 <h2 align=center>Create New Keywords Related to Your Company</h2>
