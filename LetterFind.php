@@ -6,7 +6,7 @@
 <link href='Intern.css' rel='stylesheet'/>
 </head>
 <body>
-<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 <h1>Results</h1>
 <div class='txt'>
 <h2 align=center>Companies found starting with the letter <?php echo $_GET['by'];?> are</h2>
@@ -41,7 +41,7 @@
 <h3 align=center>Didn't find what you were looking for?</h3>
 <ul type=none>
 <li style='float:left;text-align:center;'><a href='CompanyFind.php'>Try a different letter</a></li>
-<li style='margin-left:50%;float:left;text-align:center;'><a href='Home.html'>Return Home</a></li>
+<li style='margin-left:50%;float:left;text-align:center;'><a href='Home.php'>Return Home</a></li>
 </ul>
 <br clear=both>
 </div>

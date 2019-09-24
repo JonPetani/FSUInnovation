@@ -6,7 +6,7 @@
 <link href='Intern.css' rel='stylesheet'/>
 </head>
 <body>
-<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 <h1>FSU Innovation Internship Website</h1>
 <div class='txt'>
 <h2 align=center>Keywords Added</h2>
@@ -15,7 +15,7 @@
 <h3 align=center>Want to add some more keywords/phrases?</h3>
 <ul type=none>
 <li style='float:left;text-align:center;'><a href='AddKeywords.php'>Yes</a></li>
-<li style='margin-left:50%;float:left;text-align:center;'><a href='Home.html'>No, Return to Home</a></li>
+<li style='margin-left:50%;float:left;text-align:center;'><a href='Home.php'>No, Return to Home</a></li>
 </ul>
 <br clear=both>
 </div>

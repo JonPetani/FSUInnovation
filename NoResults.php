@@ -6,7 +6,7 @@
 <link href='Intern.css' rel='stylesheet'/>
 </head>
 <body>
-<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 <h1>FSU Innovation Internship Website</h1>
 <div class='txt'>
 <div id='error' align=center>
@@ -30,7 +30,7 @@
 <br clear=both>
 <h3>Otherwise, Return to Home Page</h3>
 <ul type=none>
-<li style='text-align:center;'><a href='Home.html'>Return Home</a></li>
+<li style='text-align:center;'><a href='Home.php'>Return Home</a></li>
 </ul>
 
 <br clear=both>

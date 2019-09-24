@@ -6,7 +6,7 @@
 <link href='Intern.css' rel='stylesheet'/>
 </head>
 <body>
-<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 <h1>Results</h1>
 <div class='txt'>
 <h2 align=center>Current Projects</h2>
@@ -43,7 +43,7 @@ $_SESSION['TimeLog'] = $session_time;
 <h3 align=center>Can't find a Job you thought you posted?</h3>
 <ul type=none>
 <li style='float:left;text-align:center;'><a href='RegisterJob.php'>Post the new Job here</a></li>
-<li style='margin-left:50%;float:left;text-align:center;'><a href='Home.html'>Return Home</a></li>
+<li style='margin-left:50%;float:left;text-align:center;'><a href='Home.php'>Return Home</a></li>
 </ul>
 <br clear=both>
 </div>

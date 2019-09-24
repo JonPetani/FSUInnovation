@@ -6,7 +6,7 @@
 		<link rel = "stylesheet" href = "css/index.css"/>
 		<title>Intern Sign Up Page</title>
 		<link rel="icon" type="image/png" href="images/icon.png"/>
-		<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+		<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 
 	</head>
 
@@ -17,7 +17,9 @@
 		</div>
 
 		<div class = "content">
+
 			<form action = "InternInsert.php" method = "post">
+
 				<div class = "boxcontainer">
 
 					<label>Full Name:</label>
@@ -77,12 +79,11 @@
 					}
 				</script>
 			</form>
-		</div><br/>
-		
-		<footer>
+		</div>
+		<footer align="center">
 			<hr>
-			<address><strong>&copy;	<script type="text/javascript">var current_year = new Date(); document.write(current_year.getFullYear());</script> Framingham State University Entreperenuer Innovation Center &bull; 860 Worcester Road, Framingham, MA, 01701</strong></address>
-		</footer>
+			<address><strong>&copy;	Framingham State University Entrepreneur Innovation Center</strong></address>
+		</footer>	
 	</body>
 
 </html>

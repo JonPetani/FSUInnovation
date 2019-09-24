@@ -17,15 +17,15 @@
 		</div>
 		<hr color="#FFC400">
 	
-		<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+		<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 		<h1>FSU Innovation Internship Website</h1>
 		<div class='txt'>
 			<h2 align=center>Logged Out Successfully</h2>
 			<div class='select'>
 				<h3 align=center>Would you like to login again?</h3>
 				<ul type=none>
-				<li style='margin-left:15%;float:left;text-align:center;'><a href='Login.html'>Yes, send me to login</a></li>
-				<li style='margin-left:1%;float:left;text-align:center;'><a href='Home.html'>No, return me to homepage</a></li>
+				<li style='margin-left:15%;float:left;text-align:center;'><a href='Login.php'>Yes, send me to login</a></li>
+				<li style='margin-left:1%;float:left;text-align:center;'><a href='Home.php'>No, return me to homepage</a></li>
 				</ul>
 				<br clear=both>
 			</div>

@@ -15,15 +15,14 @@ Co-Collaborators: Jessica Grady, Simone McHugh-->
 	<body>
 
 		<div class='links'>
-			<a href='Home.html'>Home</a>
-			<a href='Login.html' style="margin-left: 30px">Sign In</a>
-			<a href='NewIntern.php' style="margin-left: 30px">Register student</a>
-			<a href='register_member.php' style="margin-left: 30px">Register employer</a>
+			<a href='Home.php'>Home</a>
 			<a href="https://www.framingham.edu" target="_blank" style="margin-left: 30px">Framingham.edu</a>
+			<a href='Login.php' style="margin-right: 30px;float: right;">Sign In</a>
+			<a href='RegisterHub.php' style="margin-right: 30px;float: right;">Sign Up</a>
 		</div>
 
 		<hr color="#FFC400"><br/>
-		<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a><br/><br/>
+		<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a><br/><br/>
 		<h1>Login</h1>
 		<div class='select'>
 			<h2 align=center>Are you a Intern or a Member?</h2><br/>

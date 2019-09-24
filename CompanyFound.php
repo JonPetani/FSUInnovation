@@ -6,7 +6,7 @@
 <link href='Intern.css' rel='stylesheet'/>
 </head>
 <body>
-<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 <h1>The Company <?php echo substr($_GET['comp'], 1, strlen($_GET['comp']) - 2);?> Was Found</h1>
 <div class='txt'>
 <h2 align=center>These are the Details about this Company</h2>
@@ -29,7 +29,7 @@
 <h3 align=center>This isn't the Company you had in mind?</h3>
 <ul type=none>
 <li style='float:left;text-align:center;'><a href='CompanyFind.php'>Try Again</a></li>
-<li style='margin-left:50%;float:left;text-align:center;'><a href='Home.html'>Return Home</a></li>
+<li style='margin-left:50%;float:left;text-align:center;'><a href='Home.php'>Return Home</a></li>
 </ul>
 <br clear=both>
 </div>

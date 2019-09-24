@@ -6,7 +6,7 @@ $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','Si
 if($_SESSION['UserType'] == "")
 	header("location: MemberLogin.php");
 if($_SESSION['UserType'] == "Intern")
-	header("location: AccessDenied.html");
+	header("location: AccessDenied.php");
 $session_time = $_SERVER['REQUEST_TIME'];
 $timeout_duration = 1200;
 if(isset($_SESSION['LogTime']) && ($session_time - $_SESSION['LogTime']) > $timeout_duration)
@@ -19,7 +19,7 @@ $_SESSION['TimeLog'] = $session_time;
 		<link rel = "stylesheet" href = "index.css"/>
 		<title>Job Post Application</title>
 		<link rel="icon" type="image/png" href="images/icon.png"/>
-		<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+		<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 
 	</head>
 

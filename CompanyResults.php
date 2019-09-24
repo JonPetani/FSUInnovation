@@ -6,7 +6,7 @@
 <link href='Intern.css' rel='stylesheet'/>
 </head>
 <body>
-<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 <h1>Results</h1>
 <div class='txt'>
 <h2 align=center>The Search Query <?php echo $_POST['CompanyName'];?> Resulted In</h2>
@@ -60,7 +60,7 @@
 <h3 align=center>Is Possible This Company Has Not Set Up A Page Yet</h3>
 <ul type=none>
 <li style='float:left;text-align:center;'><a href='CompanyFind.php'>Try Another Company or Word(s)</a></li>
-<li style='margin-left:50%;float:left;text-align:center;'><a href='Home.html'>Return Home</a></li>
+<li style='margin-left:50%;float:left;text-align:center;'><a href='Home.php'>Return Home</a></li>
 </ul>
 <br clear=both>
 </div>

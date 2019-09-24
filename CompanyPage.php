@@ -6,7 +6,7 @@
 <link href='Intern.css' rel='stylesheet'/>
 </head>
 <body>
-<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 <h1><?php echo $_GET['comp']; ?></h1>
 <img src='data:image/jpeg;base64,<?php echo base64_encode($imagedata);?>' alt='profile image'/>
 <div class='txt'>
@@ -133,7 +133,7 @@
 <h3 align=center>Want to View Another Company's Page?</h3>
 <ul type=none>
 <li style='float:left;text-align:center;'><a href='CompanyFind.php'>Search for Another Company</a></li>
-<li style='margin-left:50%;float:left;text-align:center;'><a href='Home.html'>Return Home</a></li>
+<li style='margin-left:50%;float:left;text-align:center;'><a href='Home.php'>Return Home</a></li>
 </ul>
 <br clear=both>
 </div>

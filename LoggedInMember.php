@@ -6,7 +6,7 @@
 <link rel="icon" type="image/png" href="images/icon.png"/>
 </head>
 <body>
-<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 <h1>Login Successful</h1>
 <?php
 session_start();
@@ -33,8 +33,8 @@ echo "<img src='data:image/jpeg;base64,<?php echo base64_encode($imagedata);?>' 
 <li><a href='AppListMember.php'>View Intern Applications for Projects</a></li>
 <li><a href='Projects.php'>View and Manage Projects listed</a>
 <li><a href='AddKeywords.php'>Create some keywords to make your Company easier to find</a></li>
-<li><a href='Nav.html'>View Services Available</a></li>
-<li><a href='Home.html'>Return Home</a></li>
+<li><a href='Nav.php'>View Services Available</a></li>
+<li><a href='Home.php'>Return Home</a></li>
 <li><a href='LogOut.php'>Logout</a></li>
 </ul>
 </div>

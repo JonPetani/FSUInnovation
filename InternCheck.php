@@ -62,10 +62,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 						header("location: LoggedInIntern.php");
                     }
                 } else{
-                    header("location: FailedLoginIntern.html");
+                    header("location: FailedLoginIntern.php");
                 }
             } else{
-                header("location: FailedLoginIntern.html");
+                header("location: FailedLoginIntern.php");
             }
         }
         

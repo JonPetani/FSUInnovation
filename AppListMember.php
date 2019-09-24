@@ -6,7 +6,7 @@
 <link href='Intern.css' rel='stylesheet'/>
 </head>
 <body>
-<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 <h1>Intern Applications</h1>
 <div class='txt'>
 <h2 align=center>On this page you can view all Intern Applications for your various projects. You can choose to accept the intern on a team or deny them.</h2>
@@ -56,7 +56,7 @@ for ($i = 0; $i < sizeof($results); $i++) {
 <h3 align=center>What Now?</h3>
 <ul type=none>
 <li style='float:left;text-align:center;'><a href='LoggedInMember.php'>Return to Main Page</a></li>
-<li style='margin-left:50%;float:left;text-align:center;'><a href='Home.html'>Return Home</a></li>
+<li style='margin-left:50%;float:left;text-align:center;'><a href='Home.php'>Return Home</a></li>
 </ul>
 <br clear=both>
 </div>

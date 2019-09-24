@@ -7,7 +7,7 @@
 <link href='Intern.css' rel='stylesheet'/>
 </head>
 <body align=center>
-<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 <h1>Find a Member Company</h1>
 <p align=left>As Companies find how useful our site is to help connect them with good interns, the number of companies a student could be a intern at keeps growing. Or optionally search by letter or keywords.</p>
 <h2>Search for a Member Company in the Field Below</h2>

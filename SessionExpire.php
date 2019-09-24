@@ -14,7 +14,7 @@
 		$_SESSION['loggedin'] = false;
 		$_SESSION["UserType"] = "";
 	?>	
-		<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+		<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 		<h1><u style="text-decoration-color: gold">Login Expired</u></h1>
 		
 		<div class='txt'>

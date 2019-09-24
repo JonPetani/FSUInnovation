@@ -15,14 +15,14 @@
 
 		<p id="top"></p>
 		<div class='links'>
-			<a href='Home.html'>Home</a>
+			<a href='Home.php'>Home</a>
 			<a href="https://www.framingham.edu" target="_blank" style="margin-left: 30px">Framingham.edu</a>
-			<a href='Login.html' style="margin-right: 30px;float: right;">Sign In</a>
-			<a href='RegisterHub.html' style="margin-right: 30px;float: right;">Sign Up</a>
+			<a href='Login.php' style="margin-right: 30px;float: right;">Sign In</a>
+			<a href='RegisterHub.php' style="margin-right: 30px;float: right;">Sign Up</a>
 		</div>
 		<hr color="#FFC400">
 
-		<br><a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+		<br><a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 		<h1>Welcome to the FSU Innovation Internship Website &nbsp;<img src="images/Logo.jpg" height="60px" width="100px" style="border: solid; margin-top: 2%"></img></h1>
 
 		<br><div class='txt'>
@@ -50,7 +50,7 @@
 
 				<br clear=both>
 				<h3 align=center>Otherwise, Log in</h3>
-				<a href='Login.html'>Log In Here</a>
+				<a href='Login.php'>Log In Here</a>
 				<br clear=both>
 			</div>
 		</div>
@@ -64,7 +64,7 @@
 
 				<br clear=both><br>
 				<h3 align=center>We have a directory of all our services</h3>
-				<a href='Nav.html'>Go here to find all our services</a>
+				<a href='Nav.php'>Go here to find all our services</a>
 				<br clear=both>
 			</div>
 		</div><br>

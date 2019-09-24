@@ -64,10 +64,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 						header("location: LoggedInMember.php");
                         }
                 } else{
-                    header("location: FailedLoginMember.html");
+                    header("location: FailedLoginMember.php");
                 }
             } else{
-                header("location: FailedLoginMember.html");
+                header("location: FailedLoginMember.php");
             }
         }
         

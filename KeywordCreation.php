@@ -27,7 +27,7 @@ if (!query($sql,$con))
 
   }
 */
-header("location: KeywordsAdded.html");
+header("location: KeywordsAdded.php");
 /*echo "*Success! Welcome to our website. Hope our services will serve you and your company well.";*/
 
  

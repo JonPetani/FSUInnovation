@@ -6,7 +6,7 @@
 <link rel="icon" type="image/png" href="images/icon.png"/>
 </head>
 <body>
-<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 <h1>Profile View</h1>
 <h2>View Your Profile Details to see if you need to fix/add to it.</h2>
 <?php

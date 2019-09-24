@@ -6,7 +6,7 @@
 <link href='Intern.css' rel='stylesheet'/>
 </head>
 <body>
-<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 <h1>Results</h1>
 <div class='txt'>
 <h2 align=center>These are the results for the keyword <?php echo $_POST['Keyword'];?></h2>
@@ -17,7 +17,7 @@
 	$sql = $con -> query("SELECT * FROM keywords WHERE Keyword = '$_POST[Keyword]'");
     $results = $sql -> fetchAll(PDO::FETCH_ASSOC);
 	if ($results == 0) {
-		header("location: NoResults.html");
+		header("location: NoResults.php");
 	}
 	echo "<table align='center' width='150%' height='120%'>";
 	echo"<tr><th>Logo<th>Company Name<th>Member Name<th>Company Location<th>Contact Info<th>Link to Member's Page</tr>";
@@ -43,7 +43,7 @@
 <h3 align=center>Didn't find what you were looking for?</h3>
 <ul type=none>
 <li style='float:left;text-align:center;'><a href='CompanyFind.php'>Try Again</a></li>
-<li style='margin-left:50%;float:left;text-align:center;'><a href='Home.html'>Return Home</a></li>
+<li style='margin-left:50%;float:left;text-align:center;'><a href='Home.php'>Return Home</a></li>
 </ul>
 <br clear=both>
 </div>
