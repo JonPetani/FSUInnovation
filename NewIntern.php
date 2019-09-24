@@ -17,9 +17,7 @@
 		</div>
 
 		<div class = "content">
-
 			<form action = "InternInsert.php" method = "post">
-
 				<div class = "boxcontainer">
 
 					<label>Full Name:</label>
@@ -79,11 +77,12 @@
 					}
 				</script>
 			</form>
-		</div>
-		<footer align="center">
+		</div><br/>
+		
+		<footer>
 			<hr>
-			<address><strong>&copy;	Framingham State University Entrepreneur Innovation Center</strong></address>
-		</footer>	
+			<address><strong>&copy;	<script type="text/javascript">var current_year = new Date(); document.write(current_year.getFullYear());</script> Framingham State University Entreperenuer Innovation Center &bull; 860 Worcester Road, Framingham, MA, 01701</strong></address>
+		</footer>
 	</body>
 
 </html>
