@@ -6,6 +6,7 @@
 		<link rel="icon" type="image/png" href="images/icon.png"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel = "stylesheet" href = "css/index.css"/>
+		<link rel= "stylesheet" href="css/Intern1.css"/>
 		<!--<link rel="stylesheet" type="text/css" href="member_page.css">-->
 		<!--<link href='intern.css' rel='stylesheet'/>-->
 	</head>
