@@ -1,0 +1,177 @@
+/*Jonathan Petani's stylesheet*/
+
+body{
+	/*background-color:#F5F5F5;*/
+	text-align:center;
+}
+
+div.links {
+	display: block;
+	text-decoration: none;
+	text-align: left;
+	margin-left: 20px;
+	font-size: 100%;
+}	
+
+div.links a {
+	text-decoration: none;
+	color: black;
+}
+
+div.select{
+	width:75%;
+	padding:10px;
+	margin-left:12.5%;
+}
+
+div.select > ul > li > a{
+	text-decoration:none;font-family:"Lucida Console", Monaco, monospace;float:left;display:block;font-size:150%;
+	background-color:#ccccff;
+	padding:15px;
+	border-radius:225%;
+}
+
+div.select > ul > li > a:hover, div.select > a:hover{
+	/*padding:10px;*/
+	border: solid;
+}
+
+div.select > ul > li > a:active, div.select > a:active, a:active{
+	/*font-size:145%*/
+	background-color: #652F8E;
+	color: #ccccff;
+}
+
+div.select > a{
+	text-decoration:none;
+	font-family:"Lucida Console", Monaco, monospace;display:block;font-size:150%;
+	background-color:#ccccff;float:left;margin-left:39%;padding:15px;border-radius:225%;
+}
+
+div.txt {
+	padding:1% 0% 2% 0%;
+	margin:1% 0% 2% 0%;
+	background-color:#C4C4C4;
+	text-align:left;
+	box-shadow: 5px 10px 4px 2px #878787;
+	border-radius: 20px;
+}
+
+footer {
+	background-color:#B6B6B6;
+	height:15%;
+	margin-top:4%;
+	padding-bottom:1%; 
+}
+
+h1 {
+	font-size:300%; 
+	font-family:Arial;
+}
+
+h2 {
+	font-size:200%;
+	font-family:Arial;
+	font-style: italic;
+}
+
+h3 {
+	font-size:150%;
+	font-family:Arial;
+}
+
+p, address {
+	font-size:120%;
+	font-family:Tahoma;
+}
+
+ul#nav, ul#Search{
+	padding:10px;
+	background-color:#cce6ff;
+}
+
+ul#nav > li > a, ul#Search > li > a {
+	color:#993399;
+	text-decoration:none; display:block; font-size:250%;
+	font-family:Trebuchet MS;
+}
+
+ul#nav > li > a:hover, ul#Search > li > a:hover {
+	background-color:#99ddff;
+	color:#862d86;border:2px solid #862d86;
+	border-radius:50px;
+	font-size:275%;
+}
+
+ul#nav > li > a:active, ul#Search > li > a:active {
+	background-color:#3377ff;
+}
+
+dt {
+	font-size:200%;
+	font-family:Trebuchet MS;
+	font-weight:bold;
+}
+
+dd {
+	font-size: 150%;
+	font-family:Georgia;
+}
+
+dl, dl > dt, dl > dd {
+	background-color: #cce6ff;
+
+}
+
+dl {
+	border-radius: 5%;
+}
+
+div#error {
+	display:block;
+	padding: 5 10 5 10;
+}
+img.error {
+	width:10%;
+	height:auto;
+}
+table, td, th, tr {
+	border: black 2px solid;
+}
+th {
+	font-family: Courier;
+	padding:10px;
+	background-color: #ccccff;
+	text-align:center;
+	font-size:150%;
+}
+td {
+	text-align:center;
+	font-family: Sans-Serif;
+	padding:20px;
+	font-size:125%;
+	background-color:#e6e6ff;
+}
+tr {
+	background-color: #e6e6ff;
+}
+table {
+	background-color:#f2e6ff;
+}
+
+img.TableImg {
+	width:50%;
+	height:50%;
+}
+
+h3#navh {
+	font-size:250%;
+	font-family:Segoe UI;
+}
+
+img.SkillImg {
+	width: 45%;
+	height: 45%;
+	float: left;
+	padding: 5px;
+}
