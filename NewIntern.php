@@ -3,7 +3,7 @@
 	<head>
 
 		<meta charset = "UTF-8">
-		<link rel = "stylesheet" href = "index.css"/>
+		<link rel = "stylesheet" href = "css/index.css"/>
 		<title>Intern Sign Up Page</title>
 		<link rel="icon" type="image/png" href="images/icon.png"/>
 		<a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
@@ -17,12 +17,10 @@
 		</div>
 
 		<div class = "content">
-
 			<form action = "InternInsert.php" method = "post">
-
 				<div class = "boxcontainer">
 
-					<label>Name:</label>
+					<label>Full Name:</label>
 					<input type = "text" name = "InternName" autocomplete='off' required>
 
 					<label>Email:</label>
@@ -41,7 +39,7 @@
 					<input type = "file" name = "InternPhoto" accept='image/*' autocomplete='off'>
 
 					<label>Major:</label>
-					<input type = "text" name = "Major" autocomplete='off' required>
+					<input type = "text" name = "Major" autocomplete='off' required>					
 
 					<label>GPA:</label>
 					<input type = "text" name = "GPA" autocomplete='off'>
@@ -79,11 +77,12 @@
 					}
 				</script>
 			</form>
-		</div>
-		<footer align="center">
+		</div><br/>
+		
+		<footer>
 			<hr>
-			<address><strong>&copy;	Framingham State University Entrepreneur Innovation Center</strong></address>
-		</footer>	
+			<address><strong>&copy;	<script type="text/javascript">var current_year = new Date(); document.write(current_year.getFullYear());</script> Framingham State University Entreperenuer Innovation Center &bull; 860 Worcester Road, Framingham, MA, 01701</strong></address>
+		</footer>
 	</body>
 
 </html>
