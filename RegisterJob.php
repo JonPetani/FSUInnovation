@@ -8,7 +8,7 @@ if($_SESSION['UserType'] == "")
 if($_SESSION['UserType'] == "Intern")
 	header("location: AccessDenied.html");
 $session_time = $_SERVER['REQUEST_TIME'];
-$timeout_duration = 60;
+$timeout_duration = 1200;
 if(isset($_SESSION['LogTime']) && ($session_time - $_SESSION['LogTime']) > $timeout_duration)
 	header("location: SessionExpire.php");
 $_SESSION['TimeLog'] = $session_time;

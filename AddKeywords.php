@@ -11,9 +11,13 @@
 <body>
 <?php
 session_start();
-
 $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
 $con ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$session_time = $_SERVER['REQUEST_TIME'];
+$timeout_duration = 1200;
+if(isset($_SESSION['LogTime']) && ($session_time - $_SESSION['LogTime']) > $timeout_duration)
+	header("location: SessionExpire.php");
+$_SESSION['TimeLog'] = $session_time;
 ?>
 <a href="Home.html"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 <h1>Keyword Creator</h1>
