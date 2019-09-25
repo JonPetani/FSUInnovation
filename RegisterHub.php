@@ -14,7 +14,7 @@ Co-Collaborators: Jessica Grady, Simone McHugh-->
 
 	<body>
 
-		<div class='links'>
+		<div id='links'>
 			<a href='Home.php'>Home</a>
 			<a href="https://www.framingham.edu" target="_blank" style="margin-left: 30px">Framingham.edu</a>
 			<a href='Login.php' style="margin-right: 30px;float: right;">Sign In</a>
@@ -26,8 +26,8 @@ Co-Collaborators: Jessica Grady, Simone McHugh-->
 		<h1>Login</h1>
 		<div class='select'>
 			<h2 align=center>Are you a Intern or a Member?</h2><br/>
-			<a href='InternLogin.php'>Register as a Intern</a>
-			<a href='MemberLogin.php' style='margin-left: 2%'>Register as a Member</a>
+			<a href='NewIntern.php'>Register as a Intern</a>
+			<a href='register_member.php' style='margin-left: 2%'>Register as a Member</a>
 
 			<br clear=both>
 		</div>

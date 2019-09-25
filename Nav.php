@@ -9,7 +9,7 @@
 </head>
 <body align=center>
 <p id="top"></p>
-		<div class='links'>
+		<div id='links'>
 			<a href='Home.php'>Home</a>
 			<a href="https://www.framingham.edu" target="_blank" style="margin-left: 30px">Framingham.edu</a>
 			<a href='Login.php' style="margin-right: 30px;float: right;">Sign In</a>
