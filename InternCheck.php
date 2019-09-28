@@ -59,13 +59,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 						$_SESSION["Password"] = $hashed_password;
 						$_SESSION["InternPhoto"] = $image;
 						$_SESSION["LogTime"] = time();
-						header("location: LoggedInIntern.php");
+						$url = "";
+						if (isset($_GET['location']))
+							$url = urlencode($_GET['location']);
+							header("location: " . $url);
+                        }
+						else
+							header("location: LoggedInIntern.php");
                     }
                 } else{
-                    header("location: FailedLoginIntern.php");
+					if (isset($_GET['location']))
+						header("location: FailedLoginIntern.php?location=" . $_GET['location']);
+					else
+						header("location: FailedLoginIntern.php");
                 }
             } else{
-                header("location: FailedLoginIntern.php");
+                if (isset($_GET['location']))
+						header("location: FailedLoginIntern.php?location=" . $_GET['location']);
+				else
+						header("location: FailedLoginIntern.php");
             }
         }
         
@@ -75,5 +87,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     // Close connection
     unset($con);
-}
 ?>

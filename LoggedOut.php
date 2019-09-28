@@ -22,7 +22,7 @@
 		<div class='txt'>
 			<h2 align=center>Logged Out Successfully</h2>
 			<div class='select'>
-				<h3 align=center>Would you like to login again?</h3>
+				<h3 align=center>Would you like to login again using either the previous or another account?</h3>
 				<ul type=none>
 				<li style='margin-left:15%;float:left;text-align:center;'><a href='Login.php'>Yes, send me to login</a></li>
 				<li style='margin-left:1%;float:left;text-align:center;'><a href='Home.php'>No, return me to homepage</a></li>

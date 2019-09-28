@@ -2,7 +2,7 @@
 	<head>
 	<title>Session Expired</title>
 	<link rel="icon" type="image/png" href="images/icon.png"/>
-	<link href='css/Intern.css' rel='stylesheet'/>
+	<link href='css/Intern1.css' rel='stylesheet'/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
 	</head>
@@ -25,6 +25,8 @@
 </div>
 <div class='select'>
 <h3>Click the Link below to Login Again</h3>
-<li style='text-align:center;'><a href='MemberLogin.php'>Log in</a></li>
+<?php
+echo"<li style='text-align:center;'><a href='Login.php?location=" . htmlspecialchars($_GET['location']) . "'>Log in</a></li>";
+?>
 </div>
 </html>

@@ -214,3 +214,10 @@ img.SkillImg {
 .dropdown-content a:hover {background-color: #ddd}
 
 .show {display:block;}
+
+img.accounts {
+	width: 2.1%;
+	height: 2.1%;
+	float: right;
+	display: block;
+}

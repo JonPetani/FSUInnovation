@@ -5,7 +5,7 @@
 <head>
 <title>Navigation</title>
 <link rel="icon" type="image/png" href="images/icon.png"/>
-<link href='css/Intern.css' rel='stylesheet'/>
+<link href='css/Intern1.css' rel='stylesheet'/>
 </head>
 <body align=center>
 <p id="top"></p>

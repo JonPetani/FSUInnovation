@@ -1,10 +1,10 @@
 <!--Member Login Page, enter username + password>
-<!--Main Developer: Jonathan Petani, Co-Collaborators: Jessica Grady, Simone McHugh-->
+<!--Main Developer: Jonathan Petani, Brian Perel Co-Collaborators: Jessica Grady, Simone McHugh-->
 <!DOCTYPE html>
 <html>
 <head>
 <title>Member Login Page</title>
-<link href='css/Intern.css' rel='stylesheet'/>
+<link href='css/Intern1.css' rel='stylesheet'/>
 <link href='css/member_page.css' rel='stylesheet'/>
 <link rel="icon" type="image/png" href="images/icon.png"/>
 </head>
@@ -17,6 +17,11 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: LoggedInMember.php");
     exit;
     }
+	$page = "";
+	if (isset($_GET['location']))
+		$page = "InternCheck.php?location=" . htmlspecialchars($_GET['location']);
+	else 
+		$page = "InternCheck.php";
 	unset($con);
 ?>
 <a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
@@ -24,7 +29,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 <div class='select'>
 <h2 align=center>Log in as a Student Intern</h3>
 <div class="container">
-			<form action="InternCheck.php" method="post">
+			<form action="<?php echo $page; ?>" method="post">
 				<div class="row">
 					<div class="col-25">
 						<label for="Username">Username: </label>

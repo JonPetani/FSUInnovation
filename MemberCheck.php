@@ -61,13 +61,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 						$_SESSION["Password"] = $hashed_password;
 						$_SESSION["CompanyPicture"] = $image;
 						$_SESSION["LogTime"] = time();
-						header("location: LoggedInMember.php");
+						$url = "";
+						if (isset($_GET['location']))
+							$url = urlencode($_GET['location']);
+							header("location: " . $url);
                         }
+						else
+							header("location: LoggedInMember.php");
                 } else{
-                    header("location: FailedLoginMember.php");
+                    if (isset($_GET['location']))
+						header("location: FailedLoginMember.php?location=" . $_GET['location']);
+					else
+						header("location: FailedLoginMember.php");
                 }
             } else{
-                header("location: FailedLoginMember.php");
+                if (isset($_GET['location']))
+						header("location: FailedLoginMember.php?location=" . $_GET['location']);
+				else
+						header("location: FailedLoginMember.php");
             }
         }
         

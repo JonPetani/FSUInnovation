@@ -27,7 +27,7 @@
 				$session_time = $_SERVER['REQUEST_TIME'];
 				$timeout_duration = 1200;
 				if(isset($_SESSION['LogTime']) && ($session_time - $_SESSION['LogTime']) > $timeout_duration)
-					header("location: SessionExpire.php");
+					header("Location:SessionExpire.php?location=" . urlencode($_SERVER['REQUEST_URI']));
 				$_SESSION['TimeLog'] = $session_time;
 				if($_SESSION['UserType'] == "Member") {
 					echo "<script>";
@@ -36,6 +36,10 @@
 					echo "var child2 = document.getElementById('si');";
 					echo "parent.removeChild(child1);";
 					echo "parent.removeChild(child2);";
+					echo "var icon1 = document.createElement('img');";
+					echo "icon1.src = 'images/PowerOpen.png';";
+					echo "icon1.classList.add('accounts');";
+					echo "document.getElementById('links').appendChild(icon1);";
 					/*
 					echo "var SignIn = document.querySelector('si')";
 					echo "var Account = document.createElement('img')";
@@ -89,7 +93,7 @@
 		}
 		
 ?>
-		<hr color="#FFC400">
+		<hr color="#FFC400" clear=both>
 
 		<br><a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 		<h1>Welcome to the FSU Innovation Internship Website &nbsp;<img src="images/Logo.jpg" height="60px" width="100px" style="border: solid; margin-top: 2%"></img></h1>
