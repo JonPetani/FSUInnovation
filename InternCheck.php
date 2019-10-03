@@ -61,7 +61,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 						$_SESSION["LogTime"] = time();
 						$url = "";
 						if (isset($_GET['location']))
-							$url = urlencode($_GET['location']);
+							$url = $_GET['location'];
 							header("location: " . $url);
                         }
 						else

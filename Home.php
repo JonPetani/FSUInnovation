@@ -19,7 +19,6 @@
 			<a href="https://www.framingham.edu" target="_blank" style="margin-left: 30px">Framingham.edu</a>
 			<a href='Login.php' style="margin-right: 30px;float: right;" id = 'si'>Sign In</a>
 			<a href='RegisterHub.php' style="margin-right: 30px;float: right;"id = 'su'>Sign Up</a>
-		</div>
 		<?php
 		session_start();
 		if(isset($_SESSION['loggedin'])) {
@@ -36,30 +35,9 @@
 					echo "var child2 = document.getElementById('si');";
 					echo "parent.removeChild(child1);";
 					echo "parent.removeChild(child2);";
-					echo "var icon1 = document.createElement('img');";
-					echo "icon1.src = 'images/PowerOpen.png';";
-					echo "icon1.classList.add('accounts');";
-					echo "document.getElementById('links').appendChild(icon1);";
-					/*
-					echo "var SignIn = document.querySelector('si')";
-					echo "var Account = document.createElement('img')";
-					echo "var Drop = document.createElement('div')";
-					echo "var Item1 = document.createElement('a')";
-					echo "var Item2 = document.createElement('a')";
-					echo "var Item3 = document.createElement('a')";
-					echo "Account.src = 'images/PowerOpen.png'";
-					echo "Account.className = 'account'";
-					echo "Account.alt = 'Account Management Options'";
-					echo "SignIn.parentNode.replaceChild(Account, SignIn)";
-					echo "var SignUp = document.querySelector('su')";
-					echo "var PMs = document.createElement('img')";
-					echo "PMs.src = 'images/PMOpen.png'";
-					echo "PMs.className = 'account'";
-					echo "PMs.alt = 'Private Message Board'";
-					echo "PMs.innerHtml'" . $PM . "'";
-					echo "SignUp.parentNode.replaceChild(PMs, SignUp)";
-					*/
 					echo "</script>";
+					echo "<img src='images/PowerOpen.png' class='accounts' onmouseover='this.src=\"images/PowerPressed.png\";' onmouseout='this.src=\"images/PowerOpen.png\";' alt='Account Tab'/>";
+					echo "<a href='PrivateMessageBoard.php'><img src='images/PM.png' class='accounts' onmouseover='this.src=\"images/PMOpen.png\";' onmouseout='this.src=\"images/PM.png\";' alt='Private Messages'/></a>";
 					}
 				else if($_SESSION['UserType'] == "Intern") {
 					echo "<script>";
@@ -68,31 +46,15 @@
 					echo "var child2 = document.getElementById('si');";
 					echo "parent.removeChild(child1);";
 					echo "parent.removeChild(child2);";
-					/*
-					echo "var SignIn = document.querySelector('si')";
-					echo "var Account = document.createElement('img')";
-					echo "var Drop = document.createElement('div')";
-					echo "var Item1 = document.createElement('a')";
-					echo "var Item2 = document.createElement('a')";
-					echo "var Item3 = document.createElement('a')";
-					echo "Account.src = 'images/PowerOpen.png'";
-					echo "Account.className = 'account'";
-					echo "Account.alt = 'Account Management Options'";
-					echo "SignIn.parentNode.replaceChild(Account, SignIn)";
-					echo "var SignUp = document.querySelector('su')";
-					echo "var PMs = document.createElement('img')";
-					echo "PMs.src = 'images/PMOpen.png'";
-					echo "PMs.className = 'account'";
-					echo "PMs.alt = 'Private Message Board'";
-					echo "PMs.innerHtml'" . $PM . "'";
-					echo "SignUp.parentNode.replaceChild(PMs, SignUp)";
-					*/
 					echo "</script>";
+					echo "<img src='images/PowerOpen.png' class='accounts' onmouseover='this.src=\"images/PowerPressed.png\";' onmouseout='this.src=\"images/PowerOpen.png\";' alt='Account Tab'/>";
+					echo "<a href='PrivateMessageBoard.php'><img src='images/PM.png' class='accounts' onmouseover='this.src=\"images/PMOpen.png\";' onmouseout='this.src=\"images/PM.png\";' alt='Private Messages'/></a>";
 					}
 			}
 		}
 		
 ?>
+</div>
 		<hr color="#FFC400" clear=both>
 
 		<br><a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
