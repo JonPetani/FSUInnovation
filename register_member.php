@@ -6,9 +6,10 @@
 		<link rel="icon" type="image/png" href="images/icon.png"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel = "stylesheet" href = "css/index.css"/>
-		<link rel= "stylesheet" href="css/Intern1.css"/>
+		<!-- <link rel= "stylesheet" href="css/Intern1.css"/> -->
 		<!--<link rel="stylesheet" type="text/css" href="member_page.css">-->
 		<!--<link href='intern.css' rel='stylesheet'/>-->
+		
 	</head>
 	<body>
 		<!-- Needed for Member Page:
@@ -24,7 +25,7 @@
 				- have a separate page for the project/internships
 		-->
 		<header style="margin-bottom:60px">
-			<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+			<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo1.png" alt="FSU Logo"/></a>
 			<p class = 'new' align="center">Create New Member Account</p>
 		</header>
 		<!--<div id="navMenu" align="center">
@@ -55,10 +56,10 @@
 						<input type="tel" name="PhoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" autocomplete="off">
 						<label for="CompanyPicture">Profile Picture: </label>
 						<input type="file" name="CompanyPicture" accept="image/*" required>
-						<label for="CompanyDescription">Company Description: </label>
+						<label for="CompanyDescription">Company Description: </label><br/><br/>
 						<textarea name="CompanyDescription" class="skills" autocomplete="off" required></textarea>
-				<label style='float:left;padding-bottom:30px;'>In order to create a account, you must agree to our terms of service <a href='terms.html' target="_blank">found here</a>: <input name='check' onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" type="checkbox" value="Agree" required></label>
-				<input id="submitButton" type="submit" value="Submit" style='float:left;background-color:#66ff99;width:21%;height:10%;'><br><br>
+				<label style='float:left;padding-bottom:30px;margin-top: 10px;display:block'>In order to create a account, you must agree to our terms of service <a href='terms.html' target="_blank">found here</a>: <input name='check' onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" type="checkbox" value="Agree" required></label><br/>
+				<br clear="all"><input id="submitButton" type="submit" value="Submit" style='float:left;background-color:#66ff99;width:10%;height:12%;display:block'>
 				<br>
 				</div>
 				</div>
@@ -77,9 +78,10 @@
 				</script>
 			</form>
 		</div>
+		<br/>
 		<footer align="center">
 			<hr>
-			<address><strong>&copy;	Framingham State University Entrepreneur Innovation Center</strong></address>
+			<address><strong>&copy;	<script type="text/javascript">var current_year = new Date(); document.write(current_year.getFullYear());</script> Framingham State University Entreperenuer Innovation Center &bull; 860 Worcester Road, Framingham, MA, 01701</strong></address>
 		</footer>
 	</body>
 </html>

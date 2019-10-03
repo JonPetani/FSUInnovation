@@ -56,8 +56,8 @@
 					
 					echo "</script>";
 					
-					echo "<img src='images/PowerOpen.png' style='float:right' class='accounts' onmouseover='this.src=\"images/PowerPressed.png\";' onmouseout='this.src=\"images/PowerOpen.png\";' alt='Account Tab'/>";
-					echo "<a href='PrivateMessageBoard.php'><img src='images/PM.png' style='float:right; margin-left: 10px; width: 5px' class='accounts' onmouseover='this.src=\"images/PMOpen.PNG\";' onmouseout='this.src=\"images/PM.png\";'/></a>";
+					echo "<img src='images/PowerOpen.png' class='accounts' onmouseover='this.src=\"images/PowerPressed.png\";' onmouseout='this.src=\"images/PowerOpen.png\";' alt='Account Tab'/>";
+					echo "<a href='PrivateMessageBoard.php'><img src='images/PM.png' style='margin-right: 10px; class='accounts' onmouseover='this.src=\"images/PMOpen.png\";' onmouseout='this.src=\"images/PM.png\";'/></a>";
 					}
 			}
 		}

@@ -2,7 +2,7 @@
 <html>
 <?php
 session_start();
-$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
+$con = new PDO('mysql:host=sql208.byethost.com;dbname=b32_24537897_internsite;charset=utf8mb4','b32_24537897','Sayhello123');
 if($_SESSION['UserType'] == "")
 	header("location: InternLogin.php");
 if($_SESSION['UserType'] == "Member")

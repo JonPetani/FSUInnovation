@@ -23,6 +23,10 @@ div.select{
 	padding:10px;margin-left:12.5%;
 }
 
+div.fix > li {
+	color: black;
+}
+
 div.select > ul > li > a{
 	text-decoration:none;font-family:"Lucida Console", Monaco, monospace;float:left;display:block;font-size:150%;
 	background-color:#ccccff;
@@ -81,12 +85,11 @@ p, address {
 
 ul#nav, ul#Search{
 	padding:10px;
-	background-color:#cce6ff;
 }
 
 ul#nav > li > a, ul#Search > li > a {
-	color:#993399;
-	text-decoration:none; display:block; font-size:250%;
+	color:black;
+	text-decoration:none; display:block; font-size:200%;
 	font-family:Trebuchet MS;
 }
 

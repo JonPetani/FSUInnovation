@@ -1,7 +1,7 @@
 <?php
    ob_start();
    session_start();
-   $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
+   $con = new PDO('mysql:host=sql208.byethost.com;dbname=b32_24537897_internsite;charset=utf8mb4','b32_24537897','Sayhello123');
    $con ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: LoggedInMember.php");

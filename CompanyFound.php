@@ -13,7 +13,7 @@
 <p>Look at the information below to confirm that this is the company you searched for.
 <p>If it was, you can visit their page below to see available jobs and other related information.</p>
 <?php
-	$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
+	$con = new PDO('mysql:host=sql208.byethost.com;dbname=b32_24537897_internsite;charset=utf8mb4','b32_24537897','Sayhello123');
 	$CompanyName = substr($_GET['comp'], 1, strlen($_GET['comp']) - 2);
 	$sql = $con -> query("SELECT * FROM member WHERE CompanyName = '$CompanyName'");
     $results = $sql -> fetchAll(PDO::FETCH_ASSOC);

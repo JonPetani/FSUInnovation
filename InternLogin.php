@@ -11,15 +11,20 @@
 <body>
 <?php
 session_start();
-   $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
+   $con = new PDO('mysql:host=sql208.byethost.com;dbname=b32_24537897_internsite;charset=utf8mb4','b32_24537897','Sayhello123');
    $con ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: LoggedInMember.php");
     exit;
     }
+	$page = "";
+	if (isset($_GET['location']))
+		$page = "InternCheck.php?location=" . htmlspecialchars($_GET['location']);
+	else 
+		$page = "InternCheck.php";
 	unset($con);
 ?>
-<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo1.png" alt="FSU Logo"/></a>
 <h1>Login</h1>
 <div class='select'>
 <h2 align=center>Log in as a Student Intern</h3>
@@ -40,10 +45,10 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 					<div class="col-75">
 						<input style='width:100%;height:6.5%;'type="password" name="Password" autocomplete="off" required>
 					</div>
-					<div class="row">
-					<input id="submitButton" type="submit" value="Submit">
 				</div>
-				</div>
+				
+				<input id="submitButton" type="submit" value="Submit" style="float: left; margin-left: 80px; margin-top: 10px">
+
 <br clear=both>
 </div>
 <footer>

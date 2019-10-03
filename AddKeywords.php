@@ -10,12 +10,12 @@
 </head>
 <body>
 <?php
-session_start();
-$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
-$con ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$session_time = $_SERVER['REQUEST_TIME'];
+session_start(); // starts log on process 
+$con = new PDO('mysql:host=sql208.byethost.com;dbname=b32_24537897_internsite;charset=utf8mb4','b32_24537897','Sayhello123'); // function that connects you to the database 
+$con ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+$session_time = $_SERVER['REQUEST_TIME']; // returns the current time zone of the server, from the server computer 
 $timeout_duration = 1200;
-if(isset($_SESSION['LogTime']) && ($session_time - $_SESSION['LogTime']) > $timeout_duration)
+if(isset($_SESSION['LogTime']) && ($session_time - $_SESSION['LogTime']) > $timeout_duration) // if time expires, go to SessionExpire.php (error webpage)
 	header("location: SessionExpire.php");
 $_SESSION['TimeLog'] = $session_time;
 ?>

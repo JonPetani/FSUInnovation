@@ -13,7 +13,7 @@
 <p>To visit a Member's Page to find what kind of work their looking for, click a button to the right side of each row to visit it</p>
 <div style='overflow-x:auto;'>
 <?php
-	$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
+	$con = new PDO('mysql:host=sql208.byethost.com;dbname=b32_24537897_internsite;charset=utf8mb4','b32_24537897','Sayhello123');
 	$sql = $con -> query("SELECT * FROM keywords WHERE Keyword = '$_POST[Keyword]'");
     $results = $sql -> fetchAll(PDO::FETCH_ASSOC);
 	if ($results == 0) {

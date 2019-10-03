@@ -10,6 +10,7 @@ Co-Collaborators: Jessica Grady, Simone McHugh-->
 		<link href='css/Intern1.css' rel='stylesheet'/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="UTF-8">
+		
 	</head>
 
 	<body>
@@ -22,12 +23,12 @@ Co-Collaborators: Jessica Grady, Simone McHugh-->
 		</div>
 
 		<hr color="#FFC400"><br/>
-		<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a><br/><br/>
+		<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo1.png" alt="FSU Logo"/></a><br/><br/>
 		<h1>Login</h1>
 		<div class='select'>
 			<h2 align=center>Are you a Intern or a Member?</h2><br/>
-			<a href='InternLogin.php'>Register as a Intern</a>
-			<a href='MemberLogin.php' style='margin-left: 2%'>Register as a Member</a>
+			<a href='NewIntern.php'>Register as a Intern</a>
+			<a href='register_member.php' style='margin-left: 2%'>Register as a Member</a>
 
 			<br clear=both>
 		</div>

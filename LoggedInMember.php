@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Successful Login</title>
-<link href='css/intern.css' rel='stylesheet'/>
+<link href='css/intern1.css' rel='stylesheet'/>
 <link rel="icon" type="image/png" href="images/icon.png"/>
 </head>
 <body>
@@ -10,7 +10,7 @@
 <h1>Login Successful</h1>
 <?php
 session_start();
-$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
+$con = new PDO('mysql:host=sql208.byethost.com;dbname=b32_24537897_internsite;charset=utf8mb4','b32_24537897','Sayhello123');
 $session_time = $_SERVER['REQUEST_TIME'];
 $timeout_duration = 1200;
 if(isset($_SESSION['LogTime']) && ($session_time - $_SESSION['LogTime']) > $timeout_duration)

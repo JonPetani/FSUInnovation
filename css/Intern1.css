@@ -39,7 +39,6 @@ div.select > ul > li > a:hover, div.select > a:hover{
 }
 
 div.select > ul > li > a:active, div.select > a:active{
-	/*background-color: #652F8E;*/
 	color: #ccccff;
 }
 
@@ -118,22 +117,25 @@ ul#nav > li > a:hover, ul#Search > li > a:hover {
 }
 
 ul#nav > li > a:active, ul#Search > li > a:active {
-	background-color:#3377ff;
+	/* background-color:#3377ff; */
 }
 
 dt {
-	font-size:200%;
+	font-size:120%;
 	font-family:Trebuchet MS;
 	font-weight:bold;
+	margin-left: 30px;
+	margin-bottom: 10px;
 }
 
 dd {
-	font-size: 150%;
+	font-size: 140%;
 	font-family:Georgia;
+	margin-left: 80px;
+	margin-bottom: 30px;
 }
 
 dl, dl > dt, dl > dd {
-	background-color: #cce6ff;
 }
 
 dl {
@@ -188,4 +190,36 @@ img.SkillImg {
 	height: 45%;
 	float: left;
 	padding: 5px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd}
+
+.show {display:block;}
+
+img.accounts {
+	width: 1.75%;
+	height: 1.75%;
+	float: right;
+	display: block;
 }

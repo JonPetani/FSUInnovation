@@ -6,7 +6,7 @@
 		<link rel = "stylesheet" href = "css/index.css"/>
 		<title>Intern Sign Up Page</title>
 		<link rel="icon" type="image/png" href="images/icon.png"/>
-		<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+		<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo1.png" alt="FSU Logo"/></a>
 
 	</head>
 
@@ -59,13 +59,13 @@
 					<input type="file" name="Resume" accept='application/octet-stream' autocomplete="off"><br>
 
 					<label>Skills and Experience you have (in lieu of Resume):</label><br>
-					<textarea name = 'SkillsAndExperience' class = "skills" autocomplete='off'></textarea>
+					<textarea name = 'SkillsAndExperience' class = "skills" autocomplete='off' style='margin-top: 10px'></textarea>
 
-					<label style='float:left;padding-bottom:30px;'>In order to create a account, you must agree to our terms of service <a href='terms.html' target="_blank">found here</a>: <input name='check' onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" type="checkbox" value="Agree" required></label>
-				<input id="submitButton" type="submit" value="Submit" style='float:left;background-color:#66ff99;width:21%;height:10%;'>
+					<label style='float:left;padding-bottom:30px;margin-top: 10px;display:block'>In order to create a account, you must agree to our terms of service <a href='terms.html' target="_blank">found here</a>: <input name='check' onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" type="checkbox" value="Agree" required></label><br/>
+				<br clear="all"><input id="submitButton" type="submit" value="Submit" style='float:left;background-color:#66ff99;width:10%;height:12%;display:block'>
 				<br>
 				</div>
-<br clear=both>
+				<br clear=both>
 				<script>
 					function checkForm(form)
 					{
@@ -80,10 +80,11 @@
 				</script>
 			</form>
 		</div>
+		<br/>
 		<footer align="center">
 			<hr>
-			<address><strong>&copy;	Framingham State University Entrepreneur Innovation Center</strong></address>
-		</footer>	
+			<address><strong>&copy;	<script type="text/javascript">var current_year = new Date(); document.write(current_year.getFullYear());</script> Framingham State University Entreperenuer Innovation Center &bull; 860 Worcester Road, Framingham, MA, 01701</strong></address>
+		</footer>
 	</body>
 
 </html>
