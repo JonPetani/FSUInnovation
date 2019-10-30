@@ -12,12 +12,13 @@
 <a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 <h1>Login</h1>
 <div class='select'>
-<h2 align=center>Account Recovery</h3>
+<h2 align=center>Email Verification</h2>
+<p>We want to make sure you are not a bot.</p>
 <div class="container">
-			<form action="Send.php" method="post">
+			<form action="Verify.php" method="post">
 				<div class="row">
 					<div class="col-25">
-						<label for="Email">Enter the Email Address for the Account: </label>
+						<label for="Email">Enter the Email Address for the Account you wish to verify: </label>
 					</div>
 					<div class="col-75">
 						<input style='width:100%;height:6.5%;'type="email" name="Email" autocomplete="off" required>

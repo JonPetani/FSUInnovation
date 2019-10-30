@@ -10,6 +10,12 @@
       $username = $password = "";
 	  $username_err = $password_err = "";
  
+$VerifyTest = $con -> query("SELECT * FROM member WHERE Username = '$_POST[Username]'");
+$VResult = $VerifyTest -> fetchall(PDO::FETCH_ASSOC);
+if ($VResult[0]['AccountVerified'] == 0) {
+	header("location: FailedLoginMember.php");
+	die;
+}
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
