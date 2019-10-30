@@ -17,6 +17,8 @@
 			<a href='RegisterHub.php' style="margin-right: 30px;float: right;"id = 'su'>Sign Up</a>
 		<?php
 		session_start();
+		$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
+		//error_reporting(E_ALL ^ E_NOTICE);
 		if(isset($_SESSION['loggedin'])) {
 			if($_SESSION['loggedin'] == true) {
 				$session_time = $_SERVER['REQUEST_TIME'];
@@ -50,21 +52,36 @@
 		}
 	   $email = "";
 		if(isset($_SESSION['UserType'])) {
-			if ($_SESSION['UserType'] == "Intern")
+			if ($_SESSION['UserType'] == "Intern") {
 					$email = $_SESSION['EmailAddress'];
-			else if($_SESSION['UserType'] == "Member")
+			}
+			else if($_SESSION['UserType'] == "Member") {
 					$email = $_SESSION['ContactEmail'];
+			}
 		    else
 					header("Location: Login.php?location=" . urlencode($_SERVER['REQUEST_URI']));
 		}
-		$sql = query("SELECT * FROM privatemessageboards WHERE Email = $email AND Username = '$_SESSION[Username]'");
+		$count = $con -> query("SELECT * FROM privatemessageboards WHERE Email = '$email'");
+		if ($count->rowCount() == 0) {
+			if($_SESSION['UserType'] == "Intern") {
+				$sql2 = $con -> query("Insert INTO privatemessageboards (Username, Name, Email, Conversations, UserId)
+				VALUES
+				('$_SESSION[Username]','$_SESSION[InternName]','$_SESSION[EmailAddress]',0,'$_SESSION[InternId]')");
+			}
+			else if($_SESSION['UserType'] == "Member") {
+				$sql2 = $con -> query("Insert INTO privatemessageboards (Username, Name, Email, Conversations, UserId)
+				VALUES
+				('$_SESSION[Username]','$_SESSION[ContactName]','$_SESSION[ContactEmail]',0,'$_SESSION[MemberId]')");
+			}
+		}
+		$sql = $con -> query("SELECT * FROM privatemessageboards WHERE Email = '$email'");
 		$Board = $sql -> fetchall(PDO::FETCH_ASSOC);
-		$sql2 = query("SELECT * FROM privateconversationmembers WHERE PMMemberEmail = $email AND Username = '$results[0][UserName]'");
+		$sql2 = $con -> query("SELECT * FROM privateconversationmembers WHERE PMMemberEmail = '$email'");
 		$conversations = $sql2 -> fetchall(PDO::FETCH_ASSOC);
 ?>
 </div>
 		<hr color="#FFC400" clear=both>
-$conversations[$i]['ConversationName']
+<!--$conversations[$i]['ConversationName']-->
 		<br><a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 		<h1>Private Message Board &nbsp;<img src="images/Logo.jpg" height="60px" width="100px" style="border: solid; margin-top: 2%"></img></h1>
 		<div class='txt'>
@@ -78,7 +95,7 @@ $conversations[$i]['ConversationName']
 		</div>
 		<?php
 		echo "<div style='overflow-x:auto;overflow-y:auto;'>";
-		echo "<table id = 'MessageBoard'>"
+		echo "<table id = 'MessageBoard'>";
 		$pin = "";
 		for ($i = 0; $i < sizeof($conversations); $i++) {
 			echo "<tr>";
@@ -86,7 +103,7 @@ $conversations[$i]['ConversationName']
 				$pin = "<img src='images/Pin.png' class='pin' alt='pinned'/>";
 			else
 				$pin = "<img src='images/PinOff.png' class='pin' alt='not pinned'/>";
-			echo "<td>" . $pin . "<td><a href='PrivateMessage.php?pm=" . $conversations[$i]['ConversationName'] . "'" .  . "<br><h4>Posted by " . $conversations[$i]['CreatorName'] . " on " . $conversations[$i]['CreationTime'] . "</h4><td><h4>" . $conversations[$i]['Views'] . "Views</h4><td><img src='images/chat.jpg' class='pin' alt='messages:'/> " . $conversations[$i]['Messages'] . "<td>" . $conversations[$i]['LastMessanger'] . "<br>Message Sent " . $conversations[$i]['LastMessageSentTime'];
+			echo "<td>" . $pin . "<td><a href='PrivateMessage.php?pm=" . $conversations[$i]['ConversationName'] . "'" . "<br><h4>Posted by " . $conversations[$i]['CreatorName'] . " on " . $conversations[$i]['CreationTime'] . "</h4><td><h4>" . $conversations[$i]['Views'] . "Views</h4><td><img src='images/chat.jpg' class='pin' alt='messages:'/> " . $conversations[$i]['Messages'] . "<td>" . $conversations[$i]['LastMessanger'] . "<br>Message Sent " . $conversations[$i]['LastMessageSentTime'];
 		}
 		?>
 		</table>
@@ -94,28 +111,9 @@ $conversations[$i]['ConversationName']
 		<h2>Don't can't find a conversation? Create a New One Here</h2>
 		<form action="PrivateMessageCreate.php" id='TopicCreate' method='post'>
 		<label>Conversation Name: </label>
-		<input type='text' name='ConversationName' autocomplete='off' required />
-		<label>Add Users to Conversation (Sends Invites): </label>
-		<input type='text' id='User' autocomplete='off' />
-		<input type='button' value='Invite User' id='invite'/>
-		<input type='button' value='Create the Invite' id='send'/>
-		<script>
-		var Invites = array();
-		var Form = document.getElementById('TopicCreate');
-		document.getElementById("invite").onclick = function() {
-			var user = document.getElementById('User').value;
-			Invites.append(user);
-		}
-		document.getElementById("send").onclick = function() {
-			Invites.forEach(function (value) {
-				var hidden = document.createElement('input');
-				hidden.type = 'hidden'
-				hidden.name = 'Invitees[]'
-				hidden.value = value
-				Form.appendChild(hidden)
-			});
-		}
-		</script>
+		<input type='text' name='ConversationName' autocomplete='off' required /><br>
+		<label>Add Users to Conversation by Username (Invites will reach their inbox) </label>
+		<input type='text' name='Users' autocomplete='off' required /><br>
 		<input id="submitButton" type="submit" value="Submit" style='float:left;background-color:#66ff99;width:21%;height:10%;'>
 		</form>
 		</div>

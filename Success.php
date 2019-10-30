@@ -14,8 +14,8 @@
 <div class='select'>
 <h3 align=center>What to do next</h3>
 <ul type=none>
-<li style='margin-left:-8%;float:left;text-align:center;'><a href='Login.html'>Try Logging in to your new account</a></li>
-<li style='margin-left:-3%;float:left;text-align:center;'><a href='Home.html'>Otherwise, Return to Homepage</a></li>
+<li style='margin-left:-8%;float:left;text-align:center;'><a href='Login.php'>Try Logging in to your new account</a></li>
+<li style='margin-left:-3%;float:left;text-align:center;'><a href='Home.php'>Otherwise, Return to Homepage</a></li>
 </ul>
 <br clear=both>
 </div>

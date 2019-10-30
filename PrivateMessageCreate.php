@@ -8,20 +8,38 @@ if(isset($_SESSION['loggedin'])) {
 		if(isset($_SESSION['LogTime']) && ($session_time - $_SESSION['LogTime']) > $timeout_duration)
 			header("Location:SessionExpire.php?location=" . urlencode($_SERVER['REQUEST_URI']));
 		$_SESSION['TimeLog'] = $session_time;
-$Time = date('m/d/Y h:i:s a', time());
+	}
+}
+$Time = date('Y-m-d H:i:s', time());
 $sql = $con -> query("INSERT INTO privateconversations (ConversationName, CreatorName, CreationTime, Views, Messages, LastMessanger, LastMessageSentTime, Pinned)
 VALUES
-('$_POST[ConversationName]','$_SESSION[Username]',$Time,0,0,'$_SESSION[Username]'),$Time,1");
-$Members = $_POST['Invitees'];
+('$_POST[ConversationName]','$_SESSION[Username]',$Time,0,0,'$_SESSION[Username]'),$Time,'yes'");
+$Members = explode(' ', $_POST['Users']);
 for ($i = 0; $i < sizeof($Members); $i++) {
 	if($_SESSION["UserType"] == "Member") {
-		$M = $con ->  query("SELECT * FROM member WHERE Username = '$_POST[Invitees][$i]'");
+		echo $Members[$i];
+		$M = $con ->  query("SELECT * FROM member WHERE Username = '$Members[$i]'");
 		$Member = $M -> fetchall(PDO::FETCH_ASSOC);
-		$C = $con -> query("SELECT * FROM privateconversations WHERE ConversationName = '$_POST[ConversationName]' AND CreatorName = '$_SESSION[Username]'")
+		$num = $Member[0]['MemberId'];
+		$B = $con -> query("SELECT * FROM privatemessageboards WHERE UserId = $num");
+		$Board = $B -> fetchall(PDO::FETCH_ASSOC);
+		$C = $con -> query("SELECT * FROM privateconversations WHERE ConversationName = '$_POST[ConversationName]' AND CreatorName = '$_SESSION[Username]'");
+		$Conv = $C -> fetchall(PDO::FETCH_ASSOC);
 		$invite = $con -> query("INSERT INTO privateconversationmembers (PMAccountId, PMMemberName, PMMemberUsername, PMMemberImage, ConversationId, PMMemberEmail)
 		VALUES
-		()");
+		('$Board[0][BoardId]','$Member[0][ContactName]','$Member[0][Username]','$Member[0][CompanyPicture]','$Conv[0][ConversationId]','$Member[0][ContactEmail]')");
 	}
-	
+	else if($_SESSION["UserType"] == "Intern") {
+		$I = $con ->  query("SELECT * FROM intern WHERE Username = '$Members[$i]'");
+		$Intern = $I -> fetchall(PDO::FETCH_ASSOC);
+		$B = $con -> query("SELECT * FROM privatemessageboards WHERE UserId = '$Intern[0][InternId]'");
+		$Board = $B -> fetchall(PDO::FETCH_ASSOC);
+		$C = $con -> query("SELECT * FROM privateconversations WHERE ConversationName = '$_POST[ConversationName]' AND CreatorName = '$_SESSION[Username]'");
+		$Conv = $C -> fetchall(PDO::FETCH_ASSOC);
+		$invite = $con -> query("INSERT INTO privateconversationmembers (PMAccountId, PMMemberName, PMMemberUsername, PMMemberImage, ConversationId, PMMemberEmail)
+		VALUES
+		('$Board[0][BoardId]','$Intern[0][InternName]','$Intern[0][Username]','$Intern[0][InternPhoto]','$Conv[0][ConversationId]','$Intern[0][EmailAddress]')");
+	}
 }
+//header("location: PrivateMessage.php?pm=" . $Conv[0]['ConversationId']);
 ?>
