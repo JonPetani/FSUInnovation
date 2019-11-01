@@ -46,6 +46,9 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 						<input style='width:100%;height:6.5%;'type="password" name="Password" autocomplete="off" required>
 					</div>
 					<div class="row">
+					<div class="col-25">
+						<a href='EmailEntry.php'><label>I Forgot my Username/Password</label></a>
+					</div>
 					<input id="submitButton" type="submit" value="Submit">
 				</div>
 				</div>

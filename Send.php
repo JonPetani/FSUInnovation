@@ -542,7 +542,7 @@ $HTML_Message = '<!DOCTYPE html>
                         <br>
 						Do not Reply to this Email
                         <span style="font-family: Arial, sans-serif; font-size: 12px; color: #444444;">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                        <a href="localhost8080:/FSUInnovation/Verify.html" target="_blank" style="color: #666666; text-decoration: none;">View this email in your browser</a>
+                        <a href="localhost8080:/FSUInnovation/ForgottenPassword.php?Code=' . $RCode .'" target="_blank" style="color: #666666; text-decoration: none;">View this email in your browser</a>
                     </td>
                 </tr>
             </table>

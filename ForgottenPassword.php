@@ -110,7 +110,9 @@
 </style>
 </head>
 <body style="margin: 0 !important; padding: 0 !important;">
-
+<?php
+$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
+?>
 <!-- HIDDEN PREHEADER TEXT -->
 <div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
     FSU Innovation Website Account Retrieval
@@ -166,7 +168,7 @@
                                             <td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding">Simply Click the Link Below and Copy this Code</td>
                                         </tr>
 										<tr>
-                                            <td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding">Retrieval Code: </td>
+                                            <td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding">Retrieval Code: <?php echo $_GET['Code'];?></td>
                                         </tr>
                                         <tr>
                                             <td align="center" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding">You forgot your username and/or password which prevented you from logging in. Click the button below and enter that verification code to reset your username/password.</td>

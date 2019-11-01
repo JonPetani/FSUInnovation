@@ -34,7 +34,7 @@ if (!query($sql,$con))
   }
 */
 $Subject = "Verify Account For User " . $_POST['Username'];
-$To = $_POST['ContactEmail'];
+$To = $_POST['EmailAddress'];
 $Sender = "FSU Entrepreneur Innovation Center";
 $HTML_Message = '<!DOCTYPE html>
 
@@ -148,7 +148,8 @@ $HTML_Message = '<!DOCTYPE html>
 </style>
 </head>
 <body style="margin: 0 !important; padding: 0 !important;">
-
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0"></script>
 <!-- HIDDEN PREHEADER TEXT -->
 <div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
     A Welcome From The FSU Innovation Center
@@ -217,8 +218,14 @@ $HTML_Message = '<!DOCTYPE html>
                                             <td align="center" style="padding-top: 25px;" class="padding">
                                                 <table border="0" cellspacing="0" cellpadding="0" class="mobile-button-container">
                                                     <tr>
-                                                        <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="Verify.php" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Activate Your Account &rarr;</a></td>
+                                                        <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="localhost:8080/FSUInnovation/BotCheck.php" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Activate Your Account &rarr;</a></td>
                                                     </tr>
+													<tr>
+													     <td align="center" style="padding: 20px 0 0 0; font-size: 13px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding"><em>A small introduction about the Innovation Center from Mark Hardie, the director of the center about what sets us apart.</em></td>
+													</tr>	 
+														 <tr>
+														 <td align="center" style="border-radius: 3px;" ><div class="fb-video" data-href="https://www.facebook.com/FSUInnovation/videos/341933539687515/?t=0" data-width="500" data-show-text="false"><blockquote cite="https://developers.facebook.com/FSUInnovation/videos/341933539687515/" class="fb-xfbml-parse-ignore"><a href="https://developers.facebook.com/FSUInnovation/videos/341933539687515/">Entrepreneur Innovation Center</a><p>Learn about what makes us unique in a way that allows us to educate our student interns with valuable hands-on experience! And a thank you to Access Framingham for doing a story and getting video of the center!</p>Posted by <a href="https://www.facebook.com/FSUInnovation/">Entrepreneur Innovation Center</a> on Wednesday, October 24, 2018</blockquote></div></td>
+													     </tr>
                                                 </table>
                                             </td>
                                         </tr>
@@ -251,7 +258,7 @@ $HTML_Message = '<!DOCTYPE html>
                         <br>
 						Do not Reply to this Email
                         <span style="font-family: Arial, sans-serif; font-size: 12px; color: #444444;">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                        <a href="Verify.html" target="_blank" style="color: #666666; text-decoration: none;">View this email in your browser</a>
+                        <a href="localhost:8080/FSUInnovation/Verify.html" target="_blank" style="color: #666666; text-decoration: none;">View this email in your browser to see video</a>
                     </td>
                 </tr>
             </table>
