@@ -13,16 +13,18 @@ if (!$con)
 
 $emailcheck = substr($_POST['EmailAddress'], -14);
 $FSU = "framingham.edu";
-if ($emailcheck != $FSU) {
+$mailcomp = $con -> query("SELECT * FROM intern WHERE EmailAddress = '$_POST[EmailAddress]'");
+if ($emailcheck != $FSU or $mailcomp->rowCount() > 0) {
 	header("location: RegisterFailed.php"); 
 	die;
 }
 
+$UsernameFinal = str_replace(' ', '', $_POST['Username']);
 $sql= $con -> query("INSERT INTO intern (InternName, EmailAddress, Username, Password, School, InternPhoto, Major, GPA, City, State, PhoneNumber, Resume, SkillsAndExperience)
 
 VALUES
 
-('$_POST[InternName]','$_POST[EmailAddress]','$_POST[Username]','$_POST[Password]','$_POST[School]','$_POST[InternPhoto]','$_POST[Major]','$_POST[GPA]','$_POST[City]','$_POST[State]','$_POST[PhoneNumber]','$_POST[Resume]','$_POST[SkillsAndExperience]')");
+('$_POST[InternName]','$_POST[EmailAddress]','$UsernameFinal','$_POST[Password]','$_POST[School]','$_POST[InternPhoto]','$_POST[Major]','$_POST[GPA]','$_POST[City]','$_POST[State]','$_POST[PhoneNumber]','$_POST[Resume]','$_POST[SkillsAndExperience]')");
 
 /*
 if (!query($sql,$con))

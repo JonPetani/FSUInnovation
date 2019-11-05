@@ -39,7 +39,7 @@ else {
 						echo'<label for="Username">New Username: </label>';
 					echo'</div>';
 					echo'<div class="col-75">';
-						echo'<input type="text" name="Username" autocomplete="off" required autofocus>';
+						echo'<input type="text" name="Username" autocomplete="off"autofocus>';
 					echo'</div>';
 				echo'</div>';
 				echo'<div class="row">';
@@ -47,7 +47,7 @@ else {
 						echo'<label for="Password">New Password: </label>';
 					echo'</div>';
 					echo'<div class="col-75">';
-						echo'<input style="width:100%;height:6.5%;"type="password" name="Password" autocomplete="off" required>';
+						echo'<input style="width:100%;height:6.5%;"type="password" name="Password" autocomplete="off">';
 					echo'</div>';
 					echo'<div class="row">';
 					echo'<input id="submitButton" type="submit" value="Submit">';

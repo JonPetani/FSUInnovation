@@ -9,12 +9,17 @@ if (!$con)
   die('Connection has failed: ' . mysql_error());
 
   }
- 
+$mailcomp = $con -> query("SELECT * FROM member WHERE ContactEmail = '$_POST[ContactEmail]'");
+if ($mailcomp->rowCount() > 0) {
+	header("location: RegisterFailed.php"); 
+	die;
+}
+$UsernameFinal = str_replace(' ', '', $_POST['Username']);
 $sql= $con -> query("INSERT INTO member (ContactName, CompanyName, ContactEmail, Username, Password, CompanyCity, CompanyState, PhoneNumber, CompanyPicture, CompanyDescription, AccountVerified, AccessCode)
 
 VALUES
 
-('$_POST[ContactName]','$_POST[CompanyName]','$_POST[ContactEmail]','$_POST[Username]','$_POST[Password]','$_POST[CompanyCity]','$_POST[CompanyState]','$_POST[PhoneNumber]','$_POST[CompanyPicture]','$_POST[CompanyDescription]',false,null)");
+('$_POST[ContactName]','$_POST[CompanyName]','$_POST[ContactEmail]','$UsernameFinal','$_POST[Password]','$_POST[CompanyCity]','$_POST[CompanyState]','$_POST[PhoneNumber]','$_POST[CompanyPicture]','$_POST[CompanyDescription]',false,null)");
 
 
 /*
