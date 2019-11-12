@@ -26,7 +26,6 @@
     img{border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none;}
     table{border-collapse: collapse !important;}
     body{height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important;}
-
     /* iOS BLUE LINKS */
     a[x-apple-data-detectors] {
         color: inherit !important;
@@ -110,9 +109,7 @@
 </style>
 </head>
 <body style="margin: 0 !important; padding: 0 !important;">
-<?php
-$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
-?>
+
 <!-- HIDDEN PREHEADER TEXT -->
 <div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
     FSU Innovation Website Account Retrieval
@@ -157,7 +154,7 @@ $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','Si
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                                   <td class="padding" align="center">
-								  <a href='https://photos.google.com/share/AF1QipPoCfKd6DrVgi1oYSLefvXRZN2bAHLTKBEPymwJZ7KAVTOM3LAhiPCAPXnqUaG-xg?key=WGhpWTVhd1ppci1xbGEtRFJaTWt5QmgtVmpFYnln&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/03LXHySFycgqJvFIWT0qVhk0XA_ZRpYYJFtLo2XbYgnDFNJAdo_IfZ0__9dtSn-4Km4i7S9Yv7kTDFGLi6AV7x_woI3PBijfHAEecxm5O12eHwPt0AszhbVNp1W1EmBhP24cM54i3Q=s300-p-k' width="200" height="100" border="0" alt="Forgot Username/Password" style="display: block; padding: 0; color: #666666; text-decoration: none; font-family: Helvetica, arial, sans-serif; font-size: 16px;" class="img-max"/></a>
+								  <a href='https://photos.google.com/share/AF1QipPUS2Gy3J14JP-hR7qAVQk-njjH__UuD7c_3A9ggAmtaKHogOPKC1hPz1REdkjiOQ?key=WjdpUzBqUkN1MFBjMUNPX3NtNWhtanhVYWdYb0p3&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/sD9HkfutsgY3NfLwSr3I9IuQsuJQLsqfxi6mHMNEGT6RYd8bN85j437CE5wWChkPlGy56CuXN2C1GIyM8CuJnR12OZ3srXyf0azPFQLBgIacFcctlpxYYsBtzStMuTFNa1MLcxvZ7Q=w2400'  width="300" height="200" border="0" alt="Contact From Customer Icon" style="display: block; padding: 0; color: #666666; text-decoration: none; font-family: Helvetica, arial, sans-serif; font-size: 16px;" class="img-max"/></a>
                                 </td>
                             </tr>
                             <tr>
@@ -165,32 +162,18 @@ $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','Si
                                     <!-- COPY -->
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
-                                            <td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding">Simply Click the Link Below and Copy this Code</td>
+                                            <td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding">A Message Has Been Sent From </td>
                                         </tr>
 										<tr>
-                                            <td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding">Retrieval Code: <?php echo $_GET['Code'];?></td>
+                                            <td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding">They Sent the Following Message: </td>
                                         </tr>
                                         <tr>
-                                            <td align="center" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding">You forgot your username and/or password which prevented you from logging in. Click the button below and enter that verification code to reset your username/password.</td>
+                                            <td align="center" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding">Message: </td>
                                         </tr>
                                     </table>
                                 </td>
                             </tr>
                             <tr>
-                                <td align="center">
-                                    <!-- BULLETPROOF BUTTON -->
-                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                        <tr>
-                                            <td align="center" style="padding-top: 25px;" class="padding">
-                                                <table border="0" cellspacing="0" cellpadding="0" class="mobile-button-container">
-                                                    <tr>
-                                                        <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="localhost:8080/FSUInnovation/CodeEntry.php" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Reset Username/Password &rarr;</a></td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
                             </tr>
                         </table>
                     </td>
@@ -218,7 +201,7 @@ $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','Si
                         <br>
 						Do not Reply to this Email
                         <span style="font-family: Arial, sans-serif; font-size: 12px; color: #444444;">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                        <a href="localhost:8080/FSUInnovation/ForgottenPassword.php" target="_blank" style="color: #666666; text-decoration: none;">View this email in your browser</a>
+                        <a href="localhost:8080/FSUInnovation/ContactUsMessage.html" target="_blank" style="color: #666666; text-decoration: none;">View this email in your browser</a>
                     </td>
                 </tr>
             </table>

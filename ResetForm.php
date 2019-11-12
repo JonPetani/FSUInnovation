@@ -57,4 +57,5 @@ echo'<br clear=both>';
 echo'</div>';
 }
 ?>
+</body>
 </html>

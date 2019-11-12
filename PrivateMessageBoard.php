@@ -5,6 +5,7 @@
 		<link rel="icon" type="image/png" href="images/icon.png"/>
 		<!-- <link href='css/Intern.css' rel='stylesheet'/>  -->
 		<link href='css/Intern1.css' rel='stylesheet'/>
+		<link href='css/member_page.css' rel='stylesheet'/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="UTF-8">
 	</head>
@@ -50,18 +51,18 @@
 					}
 			}
 		}
-	   $email = "";
+	   $cid = 0;
 		if(isset($_SESSION['UserType'])) {
 			if ($_SESSION['UserType'] == "Intern") {
-					$email = $_SESSION['EmailAddress'];
+					$cid = $_SESSION['InternId'];
 			}
 			else if($_SESSION['UserType'] == "Member") {
-					$email = $_SESSION['ContactEmail'];
+					$cid = $_SESSION['MemberId'];
 			}
 		    else
 					header("Location: Login.php?location=" . urlencode($_SERVER['REQUEST_URI']));
 		}
-		$count = $con -> query("SELECT * FROM privatemessageboards WHERE Email = '$email'");
+		$count = $con -> query("SELECT * FROM privatemessageboards WHERE UserId = '$cid'");
 		if ($count->rowCount() == 0) {
 			if($_SESSION['UserType'] == "Intern") {
 				$sql2 = $con -> query("Insert INTO privatemessageboards (Username, Name, Email, Conversations, UserId)
@@ -74,9 +75,21 @@
 				('$_SESSION[Username]','$_SESSION[ContactName]','$_SESSION[ContactEmail]',0,'$_SESSION[MemberId]')");
 			}
 		}
-		$sql = $con -> query("SELECT * FROM privatemessageboards WHERE Email = '$email'");
+		$sql = $con -> query("SELECT * FROM privatemessageboards WHERE UserId = '$cid'");
 		$Board = $sql -> fetchall(PDO::FETCH_ASSOC);
-		$sql2 = $con -> query("SELECT * FROM privateconversationmembers WHERE PMMemberEmail = '$email'");
+		$Username = $_SESSION['Username'];
+		switch($_SESSION['UserType']) {
+				case "Intern":
+					$NewName = $con -> query("UPDATE privatemessageboards SET Username = '$_SESSION[Username]' WHERE UserId = '$_SESSION[InternId]'");
+					break;
+				case "Member":
+					$NewName = $con -> query("UPDATE privatemessageboards SET Username = '$_SESSION[Username]' WHERE UserId = '$_SESSION[MemberId]'");
+					break;
+				default:
+					header("Location: LogOut.php");
+					break;
+		}
+		$sql2 = $con -> query("SELECT * FROM usertopm WHERE UNumber = '$cid'");
 		$conversations = $sql2 -> fetchall(PDO::FETCH_ASSOC);
 ?>
 </div>
@@ -109,11 +122,27 @@
 		</table>
 		</div>
 		<h2>Don't can't find a conversation? Create a New One Here</h2>
-		<form action="PrivateMessageCreate.php" id='TopicCreate' method='post'>
-		<label>Conversation Name: </label>
-		<input type='text' name='ConversationName' autocomplete='off' required /><br>
-		<label>Add Users to Conversation by Username (Invites will reach their inbox) </label>
-		<input type='text' name='Users' autocomplete='off' required /><br>
-		<input id="submitButton" type="submit" value="Submit" style='float:left;background-color:#66ff99;width:21%;height:10%;'>
-		</form>
+		<hr>
+		
+		<div class="container">';
+			<form action="PrivateMessageCreate.php" method="post">
+				<div class="row">
+					<div class="col-25">
+						<label for="CName">Conversation Name: </label>
+					</div>
+					<div class="col-75">
+						<input type="text" name="CName" autocomplete="off"autofocus>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-25">
+						<label for="Invitees">Users to Invite to Conversation: </label>
+					</div>
+						<textarea name="Invitees" autocomplete="off"></textarea>
+					<div class="row">
+					<input id="submitButton" type="submit" value="Submit">
+				</div>
+				</div>
 		</div>
+		</body>
+		</html>

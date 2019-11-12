@@ -40,4 +40,5 @@ echo "<li style='margin-left:-3%;float:left;text-align:center;'><a href='Home.ph
 <br clear=both>
 </div>
 </div>
+</body>
 </html>

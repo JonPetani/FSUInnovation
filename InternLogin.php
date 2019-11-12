@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Member Login Page</title>
+<title>Intern Login Page</title>
 <link href='css/Intern1.css' rel='stylesheet'/>
 <link href='css/member_page.css' rel='stylesheet'/>
 <link rel="icon" type="image/png" href="images/icon.png"/>
@@ -14,7 +14,7 @@ session_start();
    $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
    $con ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: LoggedInMember.php");
+    header("location: LoggedInIntern.php");
     exit;
     }
 	$page = "";

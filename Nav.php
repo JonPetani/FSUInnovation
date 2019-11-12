@@ -27,6 +27,7 @@
 <li><a href='' onmouseover='dOver(this)' onmouseout='dOut(this)'>Discussion Board</a></li>
 <li><a href='' onmouseover='nOver(this)' onmouseout='nOut(this)'>NewsFeed</a></li>
 <li><a href='CompanyFind.php'>Find a Company</a></li>
+<li><a href='ContactUs.php'>Contact Us</a></li>
 </ul>
 <script language='Javascript'>
 function dOver(obj) {
