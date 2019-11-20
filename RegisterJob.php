@@ -40,35 +40,49 @@ $_SESSION['TimeLog'] = $session_time;
 
 					<label>Description of the Task needed:</label><br>
 					<textarea name = 'JobDesc' class = "skills" autocomplete='off'></textarea>
-
+                    
 					<label>Select the Main Field(s) of Study/Category your job appeals to:</label>
-					<br><select name='JobType' autocomplete='off' multiple="multiple" required>
-					<option value='CS'>Computer Science</option>
+					<br><select name='JobType' style='overflow-y:auto;overflow-x:hidden;' autocomplete='off' multiple="multiple" required>
+					<option value='Computer Science'>Computer Science</option>
 					<option value='IT'>Information Technology</option>
-					<option value='SENG'>Software Engineering</option>
-					<option value='WEB'>Web Development</option>
-					<option value='COMM'>Communications</option>
-					<option value='AD'>Advertising</option>
-					<option value='NUT'>Nutrition</option>
-					<option value='BIOT'>Biotechnology</option>
-					<option value='BIO'>Biology</option>
-					<option value='CHEM'>Chemistry</option>
-					<option value='ENG'>Engineering</option>
-					<option value='ENGL'>English</option>
-					<option value='MED'>Medicine</option>
-					<option value='MATH'>Mathematics</option>
-					<option value='FIN'>Finance</option>
-					<option value='MARK'>Marketing</option>
-					<option value='AC'>Accounting</option>
-					<option value='MAN'>Management</option>
-					<option value='WRI'>Writing</option>
-					<option value='RE'>Research</option>
-					<option value='GD'>Graphic Design</option>
+					<option value='Software Engineering'>Software Engineering</option>
+					<option value='Web Development'>Web Development</option>
+					<option value='Communications'>Communications</option>
+					<option value='Sociology'>Sociology</option>
+					<option value='Hospitality/Tourism'>Hospitality/Tourism</option>
+					<option value='Psychology'>Pyschology</option>
+					<option value='Geography'>Geography/GIS</option>
+					<option value='Nutrition'>Nutrition</option>
+					<option value='Astrology'>Astrology</option>
+					<option value='Biotech'>Biotechnology</option>
+					<option value='Biology'>Biology</option>
+					<option value='Chemistry'>Chemistry</option>
+					<option value='Engineering'>Engineering</option>
+					<option value='English'>English</option>
+					<option value='Foreign Language'>Foreign Language Arts</option>
+					<option value='History'>History</option>
+					<option value='Art'>Art/Art History</option>
+					<option value='Medicine'>Medicine</option>
+					<option value='Mathematics'>Mathematics</option>
+					<option value='Business'>Business</option>
+					<option value='Finance'>Finance</option>
+					<option value='Marketing'>Marketing</option>
+					<option value='Accounting'>Accounting</option>
+					<option value='Management'>Management</option>
+					<option value='Writing'>Writing</option>
+					<option value='Liberal Arts'>Liberal Arts</option>
+					<option value='Graphic Design'>Graphic Design</option>
 					</select>
                     <br>
-					<label>Enter a estimate number of Interns you need to work on your task:</label>
-					<input type = "number" name = "InternsNeeded" autocomplete='off' required><br>
-
+					<label>Enter the estimate number of Weeks you need the Intern(s) for:</label>
+					<select name = "TimeNeeded" autocomplete='off' required><br>
+					<option value='1'>1</option>
+					<option value='2'>2</option>
+					<option value='3'>3</option>
+					<option value='4'>4</option>
+					<option value='5'>5</option>
+					<option value='6'>6</option>
+					</select><br>
 					<label>Post any job requirements as well as prerequisite skills and expereince needed:</label><br>
 					<textarea name = 'JobRequirements' class = "skills" autocomplete='off'></textarea>
 

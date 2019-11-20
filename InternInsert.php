@@ -10,7 +10,6 @@ if (!$con)
   die('Connection has failed: ' . mysql_error());
 
   }
-
 $emailcheck = substr($_POST['EmailAddress'], -14);
 $FSU = "framingham.edu";
 $mailcomp = $con -> query("SELECT * FROM intern WHERE EmailAddress = '$_POST[EmailAddress]'");
@@ -18,13 +17,36 @@ if ($emailcheck != $FSU or $mailcomp->rowCount() > 0) {
 	header("location: RegisterFailed.php"); 
 	die;
 }
+try {
+$img = $_FILES['InternPhoto'];
+$filename = $img['tmp_name'];
+$openimg = fopen($filename, "r");
+$data = fread($openimg, filesize($filename));
+$pvars = array("image" => base64_encode($data));
+$timeout = 30;
+$icurl = curl_init();
+curl_setopt($icurl, CURLOPT_URL, 'https://api.imgbb.com/1/upload?key=83598d399901794c174deb5cfef74353');
+curl_setopt($icurl, CURLOPT_HEADER, false);
+curl_setopt($icurl, CURLOPT_TIMEOUT, $timeout);
+curl_setopt($icurl, CURLOPT_POST, true);
+curl_setopt($icurl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($icurl, CURLOPT_POSTFIELDS, $pvars);
+$upload = curl_exec($icurl);
+curl_close($icurl);
+echo $upload;
+$imgJSON = json_decode($upload);
+$imgLink = $imgJSON -> data -> display_url;
+}
+catch(Exception $e) {
+	echo $e -> getMessage();
+}
 
 $UsernameFinal = str_replace(' ', '', $_POST['Username']);
 $sql= $con -> query("INSERT INTO intern (InternName, EmailAddress, Username, Password, School, InternPhoto, Major, GPA, City, State, PhoneNumber, Resume, SkillsAndExperience)
 
 VALUES
 
-('$_POST[InternName]','$_POST[EmailAddress]','$UsernameFinal','$_POST[Password]','$_POST[School]','$_POST[InternPhoto]','$_POST[Major]','$_POST[GPA]','$_POST[City]','$_POST[State]','$_POST[PhoneNumber]','$_POST[Resume]','$_POST[SkillsAndExperience]')");
+('$_POST[InternName]','$_POST[EmailAddress]','$UsernameFinal','$_POST[Password]','$_POST[School]','$imgLink','$_POST[Major]','$_POST[GPA]','$_POST[City]','$_POST[State]','$_POST[PhoneNumber]','$_POST[Resume]','$_POST[SkillsAndExperience]')");
 
 /*
 if (!query($sql,$con))

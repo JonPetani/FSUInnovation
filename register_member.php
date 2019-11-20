@@ -35,7 +35,7 @@
 			<a href=""><button class="navButton">Newsfeed</button></a>
 		</div>-->
 		<div class = 'content'>
-			<form action="MemberInsert.php" method="post">
+			<form action="MemberInsert.php" enctype = "multipart/form-data" method="post">
 			<div class="boxcontainer">
 						<label for="ContactName">Contact Name: </label>
 						<input type="text" name="ContactName" autocomplete="off" required autofocus>
@@ -47,14 +47,14 @@
 						<input type="text" name="Username" autocomplete="off" required>
 						<label for="Password">Password: </label>
 						<input style='width:100%;height:42.5px;' type="password" name="Password" autocomplete="off" required>
+						<label for="CompanyPicture">Profile Picture: </label>
+						<input type = "file" name = "CompanyPicture" autocomplete='off' required>
 						<label for="CompanyCity">Location (City): </label>
 						<input type="text" name="CompanyCity" autocomplete="off" required>
 						<label for="CompanyState">Location (State): </label>
 						<input type="text" name="CompanyState" autocomplete="off" required>
 						<label for="PhoneNumber">Phone: </label>
 						<input type="tel" name="PhoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" autocomplete="off">
-						<label for="CompanyPicture">Profile Picture: </label>
-						<input type="file" name="CompanyPicture" accept="image/*" required>
 						<label for="CompanyDescription">Company Description: </label>
 						<textarea name="CompanyDescription" class="skills" autocomplete="off" required></textarea>
 				<label style='float:left;padding-bottom:30px;'>In order to create a account, you must agree to our terms of service <a href='terms.html' target="_blank">found here</a>: <input name='check' onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" type="checkbox" value="Agree" required></label>

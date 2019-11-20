@@ -10,8 +10,7 @@ $HTML_Message = '<!DOCTYPE html>
 <title></title>
 <!--
 
-    An email present from your friends at Litmus (@litmusapp)
-
+    An email present from your friends at Litmus (@litmusapp) 
     Email is surprisingly hard. While this has been thoroughly tested, your mileage may vary.
     It\'s highly recommended that you test using a service like Litmus (http://litmus.com) and your own devices.
 
@@ -250,7 +249,7 @@ try {
 	echo $sendMail;
 }
 catch(Exception $e){
-	//echo $e -> getMessage();
+	echo $e -> getMessage();
 }
 header("Location: SentContact.php");
 ?>

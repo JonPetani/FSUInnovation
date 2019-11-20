@@ -19,9 +19,8 @@ $_SESSION['TimeLog'] = $session_time;
 $FName = explode(' ',trim($_SESSION['ContactName']));
 $Name = $FName[0];
 echo ("<h2>Welcome Back " . $Name . "!</h2>");
-$imagedata = $_SESSION['CompanyPicture'];
-echo "<img src='data:image/jpeg;base64,<?php echo base64_encode($imagedata);?>' alt='profile image'/>"
 ?>
+<img src="<?php echo $_SESSION['CompanyPicture']?>" width='250' height='300' alt='profile picture'/>
 <h2>New User?</h2>
 <p>If you are new, we suggest you look around our site to familiarize yourself with how we help students find your positions.</p>
 <p>In general, the first thing you should do is start posting your jobs so that students can find what you have to offer and if it applies to their skill set.</p>
@@ -29,7 +28,7 @@ echo "<img src='data:image/jpeg;base64,<?php echo base64_encode($imagedata);?>' 
 <h2 align=center>What to do with your account</h2>
 <h3 align=center id='navh'>Options</h3>
 <ul type='none' id='nav'>
-<li><a href='RegisterJob.php'>Post a Job</a></li>
+<li><a href='RegisterJob.php'>Post a Project</a></li>
 <li><a href='AppListMember.php'>View Intern Applications for Projects</a></li>
 <li><a href='Projects.php'>View and Manage Projects listed</a>
 <li><a href='AddKeywords.php'>Create some keywords to make your Company easier to find</a></li>

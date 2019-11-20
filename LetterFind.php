@@ -24,7 +24,7 @@
 	echo"<tr><th>Logo<th>Company Name<th>Member Name<th>Company Location<th>Contact Info<th>Link to Member's Page</tr>";
 	for($i=0; $i<sizeof($results); $i++) {
 		echo'<tr>';
-		echo'<td>' . $results[$i]['CompanyPicture'] . '</td>';
+		echo'<td>' . '<img src="' . $results[$i]['CompanyPicture'] . '" class="TableImg" alt="profile picture"/></td>';
 		echo'<td>' . $results[$i]['CompanyName'] . '</td>';
 		echo'<td>' . $results[$i]['ContactName'] . '</td>';
 		echo'<td>' . $results[$i]['CompanyCity'] . ", " . $results[$i]['CompanyState'] . '</td>';

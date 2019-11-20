@@ -65,14 +65,14 @@
 		$count = $con -> query("SELECT * FROM privatemessageboards WHERE UserId = '$cid'");
 		if ($count->rowCount() == 0) {
 			if($_SESSION['UserType'] == "Intern") {
-				$sql2 = $con -> query("Insert INTO privatemessageboards (Username, Name, Email, Conversations, UserId)
+				$sql2 = $con -> query("Insert INTO privatemessageboards (Username, Name, Email, Conversations, UserId, ProfileImage)
 				VALUES
-				('$_SESSION[Username]','$_SESSION[InternName]','$_SESSION[EmailAddress]',0,'$_SESSION[InternId]')");
+				('$_SESSION[Username]','$_SESSION[InternName]','$_SESSION[EmailAddress]',0,'$_SESSION[InternId]','$_SESSION[InternPhoto]')");
 			}
 			else if($_SESSION['UserType'] == "Member") {
-				$sql2 = $con -> query("Insert INTO privatemessageboards (Username, Name, Email, Conversations, UserId)
+				$sql2 = $con -> query("Insert INTO privatemessageboards (Username, Name, Email, Conversations, UserId, ProfileImage)
 				VALUES
-				('$_SESSION[Username]','$_SESSION[ContactName]','$_SESSION[ContactEmail]',0,'$_SESSION[MemberId]')");
+				('$_SESSION[Username]','$_SESSION[ContactName]','$_SESSION[ContactEmail]',0,'$_SESSION[MemberId]','$_SESSION[CompanyPicture]')");
 			}
 		}
 		$sql = $con -> query("SELECT * FROM privatemessageboards WHERE UserId = '$cid'");

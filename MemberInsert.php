@@ -14,12 +14,35 @@ if ($mailcomp->rowCount() > 0) {
 	header("location: RegisterFailed.php"); 
 	die;
 }
+try {
+$img = $_FILES['CompanyPicture'];
+$filename = $img['tmp_name'];
+$openimg = fopen($filename, "r");
+$data = fread($openimg, filesize($filename));
+$pvars = array("image" => base64_encode($data));
+$timeout = 30;
+$icurl = curl_init();
+curl_setopt($icurl, CURLOPT_URL, 'https://api.imgbb.com/1/upload?key=83598d399901794c174deb5cfef74353');
+curl_setopt($icurl, CURLOPT_HEADER, false);
+curl_setopt($icurl, CURLOPT_TIMEOUT, $timeout);
+curl_setopt($icurl, CURLOPT_POST, true);
+curl_setopt($icurl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($icurl, CURLOPT_POSTFIELDS, $pvars);
+$upload = curl_exec($icurl);
+curl_close($icurl);
+echo $upload;
+$imgJSON = json_decode($upload);
+$imgLink = $imgJSON -> data -> display_url;
+}
+catch(Exception $e) {
+	echo $e -> getMessage();
+}
 $UsernameFinal = str_replace(' ', '', $_POST['Username']);
 $sql= $con -> query("INSERT INTO member (ContactName, CompanyName, ContactEmail, Username, Password, CompanyCity, CompanyState, PhoneNumber, CompanyPicture, CompanyDescription, AccountVerified, AccessCode)
 
 VALUES
 
-('$_POST[ContactName]','$_POST[CompanyName]','$_POST[ContactEmail]','$UsernameFinal','$_POST[Password]','$_POST[CompanyCity]','$_POST[CompanyState]','$_POST[PhoneNumber]','$_POST[CompanyPicture]','$_POST[CompanyDescription]',false,null)");
+('$_POST[ContactName]','$_POST[CompanyName]','$_POST[ContactEmail]','$UsernameFinal','$_POST[Password]','$_POST[CompanyCity]','$_POST[CompanyState]','$_POST[PhoneNumber]','$imgLink','$_POST[CompanyDescription]',false,null)");
 
 
 /*

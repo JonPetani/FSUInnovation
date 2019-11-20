@@ -24,7 +24,7 @@ if($sql->rowCount() == 0 and $sql2->rowCount() == 0) {
 	echo"<li style='margin-left:-3%;float:left;text-align:center;'><a href=''>Contact our Platform Support Team for Help</a></li>";
 }
 else {
-$Str_Size = rand(20, 30);
+$Str_Size = rand(8, 12);
 $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()-_+=[{}]\|<,>.?/:;`~';
 $RCode = "";
 for ($i = 0; $i < $Str_Size; $i++) { 

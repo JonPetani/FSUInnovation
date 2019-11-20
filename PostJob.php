@@ -14,13 +14,18 @@ $timeout_duration = 1200;
 if(isset($_SESSION['LogTime']) && ($session_time - $_SESSION['LogTime']) > $timeout_duration)
 	header("location: SessionExpire.php");
 $_SESSION['TimeLog'] = $session_time;
-$JobType = implode(', ', $_POST['JobType']);
-	
-$sql= $con -> query("INSERT INTO jobs (JobName, JobDesc, CompanyName, JobType, InternsNeeded, JobRequirements)
+echo $_SESSION['JobType'][0];
+echo $_SESSION['JobType'][1];
+die;
+printf(" %s\n", $_POST['JobType']);
+$Types = implode(" ", $_POST['JobType']);
+echo $Types;
+die;
+$sql= $con -> query("INSERT INTO jobs (JobName, JobDesc, CompanyName, JobType, TimeNeeded, JobRequirements)
 
 VALUES
 
-('$_POST[JobName]','$_POST[JobDesc]','$_SESSION[CompanyName]','$JobType','$_POST[InternsNeeded]','$_POST[JobRequirements]')");
+('$_POST[JobName]','$_POST[JobDesc]','$_SESSION[CompanyName]','$Types','$_POST[TimeNeeded]','$_POST[JobRequirements]')");
 
  
 /*

@@ -26,7 +26,7 @@
 		echo'<tr>';
 		$sql2 = $con -> query("SELECT * FROM member WHERE CompanyName = '$CompanyResult'");
 		$CompanyInfo = $sql2 -> fetchAll(PDO::FETCH_ASSOC);
-		echo'<td>' . $CompanyInfo[0]['CompanyPicture'] . '</td>';
+		echo'<td>' . '<img src="' . $CompanyInfo[$i]['CompanyPicture'] . '" class="TableImg" alt="profile picture"/></td>';
 		echo'<td>' . $CompanyInfo[0]['CompanyName'] . '</td>';
 		echo'<td>' . $CompanyInfo[0]['ContactName'] . '</td>';
 		echo'<td>' . $CompanyInfo[0]['CompanyCity'] . ", " . $CompanyInfo[0]['CompanyState'] . '</td>';

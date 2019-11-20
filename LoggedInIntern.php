@@ -19,9 +19,8 @@ $_SESSION['TimeLog'] = $session_time;
 $FName = explode(' ',trim($_SESSION['InternName']));
 $Name = $FName[0];
 echo ("<h2>Welcome Back " . $Name . "!</h2>");
-header ("Content-typeL image/jpg");
-echo $_SESSION['InternPhoto'];
 ?>
+<img src="<?php echo $_SESSION['InternPhoto']?>" width='250' height='300' alt='profile picture'/>
 <h2>New User?</h2>
 <p>As a Intern, your main usage of this platform will be to find Members who are working on projects that both interest you and are related to your field of study/career.</p>
 <p>To help you find the Members that best suite you, we offer a search service that lets you search for a given Member company based on key words that you input.</p>
@@ -30,7 +29,8 @@ echo $_SESSION['InternPhoto'];
 <h2 align=center>What to do with your account</h2>
 <h3 align=center id='navh'>Options</h3>
 <ul type='none' id='nav'>
-<li><a href='CompanyFind.php'>Search for Member Company to Work for</a></li>
+<li><a href='AllProjects.php'>Find Projects that Suit you at the Center</a></li>
+<li><a href='CompanyFind.php'>Search for Member Companies at the Center</a></li>
 <li><a href=''>View Members you are Currently Working for</a></li>
 <li><a href='Nav.php'>View Services Available</a></li>
 <li><a href='Home.php'>Return Home</a></li>
