@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2019 at 10:18 PM
+-- Generation Time: Nov 20, 2019 at 05:49 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -35,15 +35,8 @@ CREATE TABLE `applications` (
   `JobId` int(11) NOT NULL COMMENT 'Id of Job',
   `StudentName` varchar(255) NOT NULL COMMENT 'The Student applying for the Job',
   `InternApplication` longblob NOT NULL COMMENT 'The form the Intern filled out to apply',
-  `Permission` enum('Yes','No') NOT NULL COMMENT 'Permission to View Intern Account Info'
+  `Permission` tinyint(1) NOT NULL COMMENT 'Permission to View Intern Account Info'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Stores Applications pending (not denied or accepted)';
-
---
--- Dumping data for table `applications`
---
-
-INSERT INTO `applications` (`AppId`, `CompanyName`, `InternId`, `JobId`, `StudentName`, `InternApplication`, `Permission`) VALUES
-(1, 'Array[CompanyName]', 3, 1, 'Jonathan Petani', 0x5265736f75726365206964202336, 'Yes');
 
 -- --------------------------------------------------------
 
@@ -58,7 +51,7 @@ CREATE TABLE `intern` (
   `Username` varchar(255) NOT NULL COMMENT 'UserName for Student Intern account',
   `Password` varchar(255) NOT NULL COMMENT 'Password for Student Intern account',
   `School` varchar(255) NOT NULL COMMENT 'College/University attending',
-  `InternPhoto` longblob NOT NULL COMMENT 'Image of Intern',
+  `InternPhoto` text NOT NULL COMMENT 'Image of Intern',
   `Major` varchar(255) NOT NULL COMMENT 'Intern''s field of study',
   `GPA` decimal(3,2) DEFAULT NULL COMMENT 'Grade Point Average of Intern',
   `City` varchar(255) NOT NULL COMMENT 'Community the Intern comes from',
@@ -67,7 +60,7 @@ CREATE TABLE `intern` (
   `Resume` longblob COMMENT 'Intern''s Resume',
   `SkillsAndExperience` longtext COMMENT 'Past Jobs/Skills that Intern has',
   `AccountVerified` tinyint(1) NOT NULL COMMENT 'Determines if user has reviewed and replied to verification email at registration time.',
-  `AccessCode` varchar(40) DEFAULT NULL COMMENT 'Code that only exists when account reset is needed'
+  `AccessCode` varchar(13) DEFAULT NULL COMMENT 'Code that only exists when account reset is needed'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='This table is for applying interns.';
 
 --
@@ -75,14 +68,7 @@ CREATE TABLE `intern` (
 --
 
 INSERT INTO `intern` (`InternId`, `InternName`, `EmailAddress`, `Username`, `Password`, `School`, `InternPhoto`, `Major`, `GPA`, `City`, `State`, `PhoneNumber`, `Resume`, `SkillsAndExperience`, `AccountVerified`, `AccessCode`) VALUES
-(1, 'James Dean', 'Dean@student.framingham.edu', 'JDean', 'eaglerock32', 'Framingham State University', 0x686f6f706361742e676966, 'Liberal Arts', '3.40', 'Sudbury', 'Massachusetts', '234-332-1221', 0x4166726963616e5265776f726b732e727466, 'Reworking African civs', 1, NULL),
-(2, 'Alex Jones', 'AJ@student.framingham.edu', 'Ajones', 'jones123', 'Framingham State University', 0x506973746f6c65726f2e706e67, 'Wildlife Biology', '2.90', 'Wilmington', 'Massachusetts', '508-425-9302', '', '', 1, NULL),
-(3, 'Jonathan Petani', 'jpetani@student.framingham.edu', 'Jpetani', 'bloonpop1', 'Framingham State University', 0x746962732e504e47, 'Computer Science', '3.69', 'Hopkinton', 'Massachusetts', '508-435-2183', 0x526573756d652e68746d, '', 1, NULL),
-(4, 'jj', 'unstoppablestreletsy@gmail.com', 'jpp', 'poppop', 'Scranton State University', 0x627261696e2e6a7067, 'Math', '4.00', 'Newark', 'New Jersey', '766-556-5432', '', 'I can solve complex math problems and am a reasonable coder.', 1, 'Q)9qRR<<v`N3=X19e+$ClF$'),
-(5, 'jon johnson', 'jpetani@student.framingham.edu', 'jj', 'fioefj;wfafsiaaefr', 'Socialist University', 0x427261766550657275616e612e504e47, 'Law', '1.50', 'Seabrook', 'New Hampshire', '243-122-4532', '', 'I can write and research stuff. I am quick at changing a water tank.', 1, NULL),
-(6, 'iow3r3wiohiwoe', 'unstoppablestreletsy@gmail.com', 'hiohih', 'iohhio', 'ihoklklklklklklklklklkliohhji', 0x426174616b2e706e67, 'hikohi.ohh', '6.00', 'iuhiuhhiuhiihu', 'uhihuiiiiiiiiiiiiiiiiiiiiig', '332-344-2211', '', 'I can write and research stuff. I am quick at changing a water tank.', 1, 'Q)9qRR<<v`N3=X19e+$ClF$'),
-(48, 'suban krishnamoorthy', 'skrishna@framingham.edu', 'skrishna123', 'rrrtiriri545454945954', 'euewuewuweuweuew', 0x627261696e2e6a7067, '4.5', '2.30', 'erireireireoieroerio', 'sdioewioeioerioerioreio', '456-677-3335', '', 'eieerieierierururejrheeru', 1, NULL),
-(50, 'David Keil', 'DKeil@framingham.edu', 'Comrade Keil', 'bernieboy342', 'Framingham State College', 0x427261766550657275616e612e504e47, 'Theoretical Computation', '2.50', 'Boston', 'Massachusetts', '508-345-1232', '', 'I can turn a NFA into a DFA and like working with Kripke Structures and Recurrences.', 1, NULL);
+(3, 'Yoda', 'jpetani@student.framingham.edu', 'KrishnaMorty', 'jdkdjfkdfjkdfjk', 'FSU', 'https://i.ibb.co/23cd1DP/759e5aa1b827.png', 'Networking', '1.20', 'Shrewsbury', 'Ma', '456-778-5675', '', 'vjsd;gjasdlgjdlgjlo', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -98,13 +84,6 @@ CREATE TABLE `internstasks` (
   `InternId` int(11) NOT NULL COMMENT 'Id of Intern',
   `Status` enum('Accepted/Current','Denied','Pending','Past') NOT NULL COMMENT 'Status of Job in Intern''s list of tasks (currently being done, past done, or pending/denied.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tasks a Student is Working on';
-
---
--- Dumping data for table `internstasks`
---
-
-INSERT INTO `internstasks` (`TaskId`, `InternName`, `JobName`, `JobId`, `InternId`, `Status`) VALUES
-(1, '', 'Array[JobName]', 1, 3, 'Pending');
 
 -- --------------------------------------------------------
 
@@ -134,17 +113,10 @@ CREATE TABLE `jobs` (
   `JobDesc` text NOT NULL COMMENT 'Description of Task',
   `CompanyName` varchar(255) NOT NULL COMMENT 'Company the Task is needed for',
   `JobType` text NOT NULL COMMENT 'Category/Field Study pertaining to',
-  `InternsNeeded` int(11) NOT NULL COMMENT 'Number of Interns the Contact needs to do the task',
-  `JobRequirements` text NOT NULL COMMENT 'requirements/skills/experience intern will need to do the task correctly'
+  `TimeNeeded` int(6) NOT NULL COMMENT 'Number of Weeks you need a Intern(s) for',
+  `JobRequirements` text NOT NULL COMMENT 'requirements/skills/experience intern will need to do the task correctly',
+  `InternLimit` int(11) DEFAULT '1' COMMENT 'Linit of Intern Sign Ups (Is 1 Intern with some Exceptions)'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Listing of All Tasks needed for Members';
-
---
--- Dumping data for table `jobs`
---
-
-INSERT INTO `jobs` (`JobId`, `JobName`, `JobDesc`, `CompanyName`, `JobType`, `InternsNeeded`, `JobRequirements`) VALUES
-(1, 'Solar Search', 'I need some Interns to look into the latest Solar Panel tech available so that my company can find good options for our clients to invest in. As solar technology changes, we want to be ahead of our competitors as far as Solar Technology we work with is concerned.', 'Team Solar', '', 5, 'You should be able to research topics using the web effectively. Also, writing a good formal report will be preferred rather than a sloppy txt file with a list of items you found. You should be at least familiar with the concept of Solar Power to ensure that the technologies you find are viable for our needs.'),
-(2, 'Sports and Stuff', 'We need research into Sports that will help our young clients out the best. We have traditionally gone with Basketball, Football, and Soccer, but we want to expand our horizons.', 'Doc Wayne Youth Services', '', 5, 'You need to know how to use the internet to find out things. Also, knowing what a sport is helps too.');
 
 -- --------------------------------------------------------
 
@@ -169,7 +141,16 @@ INSERT INTO `keywords` (`MatchId`, `CompanyName`, `Keyword`) VALUES
 (50, 'Team Solar', 'Electricity'),
 (51, 'Team Solar', 'Energy'),
 (52, 'Team Solar', 'energy'),
-(53, 'Team Solar', 'environment');
+(53, 'Team Solar', 'environment'),
+(54, 'Northbridge House of Pizza', 'Food'),
+(55, 'Northbridge House of Pizza', 'Pizza'),
+(56, 'Northbridge House of Pizza', 'food'),
+(57, 'Northbridge House of Pizza', 'Cooking'),
+(58, 'Northbridge House of Pizza', 'Culinary'),
+(59, 'Northbridge House of Pizza', 'Service'),
+(60, 'Northbridge House of Pizza', 'Business'),
+(61, 'Northbridge House of Pizza', 'Marketing'),
+(62, 'Northbridge House of Pizza', 'Advertising');
 
 -- --------------------------------------------------------
 
@@ -187,7 +168,7 @@ CREATE TABLE `member` (
   `CompanyCity` varchar(255) NOT NULL COMMENT 'Company City',
   `CompanyState` varchar(255) NOT NULL COMMENT 'Company State',
   `PhoneNumber` varchar(20) DEFAULT NULL COMMENT 'Contact Phone Number',
-  `CompanyPicture` longblob NOT NULL COMMENT 'Company Photo/Logo',
+  `CompanyPicture` text NOT NULL COMMENT 'Company Photo/Logo',
   `CompanyDescription` longtext NOT NULL COMMENT 'Company Description',
   `AccountVerified` tinyint(1) NOT NULL COMMENT 'Determines if user has reviewed and replied to verification email at registration time.',
   `AccessCode` varchar(40) DEFAULT NULL COMMENT 'Code that only exists when account reset is needed'
@@ -198,36 +179,12 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`MemberId`, `ContactName`, `CompanyName`, `ContactEmail`, `Username`, `Password`, `CompanyCity`, `CompanyState`, `PhoneNumber`, `CompanyPicture`, `CompanyDescription`, `AccountVerified`, `AccessCode`) VALUES
-(11, 'David Cohen', 'Doc Wayne Youth Services', 'dcohen@docwayne.org', 'dwayne', '3rhuw7q3hu', 'Framingham', 'Massachusetts', '617-458-0315', 0x646f637761796e652d6c6f676f2d6d6f6e6f2d312e706e67, 'Doc Wayne is an award-winning non-profit reimagining therapy through the lens of sport. Our sport-based group therapy program, Chalk Talk®, supports students as they process and persevere through adversity. Over time, as individuals and in teams, youth learn to heal together, grow together, and win together.', 1, NULL),
-(12, 'James Neal', 'Team Solar', 'james@teamsolar.us', 'tsolar', 'fh2893f3', 'Framingham', 'Massachusetts', '774-217-3995', 0x5465616d536f6c61725f636f6c6f722d322e706e67, 'Team Solar is dedicated to helping non-profit organizations and small businesses receive the benefits of solar\r\n', 1, NULL),
-(13, 'Marina Andreazi', 'Xua Life', 'marina@xua.life', 'XLife', 'q8c 4t8o', 'Framingham', 'Massachusetts', '508-626-5721', 0x61665f7875615f636d796b2d30312e706e67, 'Craft Energy Drinks Powered By Amazonian Ingredients', 1, NULL),
-(15, 'Matthew McLean', 'Nubitt', 'matt@nubitt.com', 'mattbitt', 'nubitt45391', 'Boston', 'Massachusetts', '617-593-4260', 0x6e75626974742e6a7067, 'No Description', 1, NULL),
-(16, 'Murkin Martinez', 'Collaborative Solutions, LLC', 'murkin.martinez@gmail.com', 'mmartinez', 'sol123', 'Framingham', 'Massachusetts', '617-501-6138', 0x436f6c6c61625f4c6f676f2e77656270, 'Collaborative Solutions is a leading global Finance and HR Transformation consultancy that leverages world-class cloud solutions to help deliver successful outcomes for its customers.', 1, NULL),
-(17, 'JonLuckani', 'Halifaxer', 'unstoppablestreletsy@gmail.com', 'JohnLucktani345', 'jrherhjererreureuerui', 'dfkjdfjdrjdrjkerkjerkjerk', 'kldikdrierierrei', '567-667-5543', 0x31373070782d50726f645061636b2d48616d6275726765722d48656c7065722d4368656573654d61632d536d616c6c2e6a7067, 'oiceshfakgfhdsakugvhasdkugvuhaeuigfhasdkufuhaewuifhaweuife', 1, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `privateconversationmembers`
---
-
-CREATE TABLE `privateconversationmembers` (
-  `PMLinkId` int(11) NOT NULL COMMENT 'Conversation Link Id',
-  `PMAccountId` int(11) NOT NULL COMMENT 'PM Board Account #',
-  `PMMemberName` varchar(255) NOT NULL COMMENT 'PM Member''s Actual Name',
-  `PMMemberUsername` varchar(255) NOT NULL COMMENT 'Username of PM Member',
-  `PMMemberImage` longblob NOT NULL COMMENT 'Profile Image of User',
-  `ConversationId` int(11) NOT NULL COMMENT 'Id of Conversation User is part of',
-  `PMMemberEmail` varchar(255) NOT NULL COMMENT 'Email Address of PM Member'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='All User Connections to Private Conversations';
-
---
--- Dumping data for table `privateconversationmembers`
---
-
-INSERT INTO `privateconversationmembers` (`PMLinkId`, `PMAccountId`, `PMMemberName`, `PMMemberUsername`, `PMMemberImage`, `ConversationId`, `PMMemberEmail`) VALUES
-(14, 0, 'Array[ContactName]', 'Array[Username]', 0x41727261795b436f6d70616e79506963747572655d, 0, 'Array[ContactEmail]'),
-(15, 0, 'Array[ContactName]', 'Array[Username]', 0x41727261795b436f6d70616e79506963747572655d, 0, 'Array[ContactEmail]');
+(11, 'David Cohen', 'Doc Wayne Youth Services', 'dcohen@docwayne.org', 'dwayne', '3rhuw7q3hu', 'Framingham', 'Massachusetts', '617-458-0315', 'https://ibb.co/H75nscB', 'Doc Wayne is an award-winning non-profit reimagining therapy through the lens of sport. Our sport-based group therapy program, Chalk Talk®, supports students as they process and persevere through adversity. Over time, as individuals and in teams, youth learn to heal together, grow together, and win together.', 1, NULL),
+(12, 'James Neal', 'Team Solar', 'james@teamsolar.us', 'tsolar', 'fh2893f3', 'Framingham', 'Massachusetts', '774-217-3995', 'https://ibb.co/F61TMYk', 'Team Solar is dedicated to helping non-profit organizations and small businesses receive the benefits of solar\r\n', 1, NULL),
+(13, 'Marina Andreazi', 'Xua Life', 'marina@xua.life', 'XLife', 'q8c 4t8o', 'Framingham', 'Massachusetts', '508-626-5721', 'https://ibb.co/ZJgW8KJ', 'Craft Energy Drinks Powered By Amazonian Ingredients', 1, NULL),
+(15, 'Matthew McLean', 'Nubitt', 'matt@nubitt.com', 'mattbitt', 'nubitt45391', 'Boston', 'Massachusetts', '617-593-4260', 'https://ibb.co/1ZLxHLR', 'No Description', 1, NULL),
+(16, 'Murkin Martinez', 'Collaborative Solutions, LLC', 'murkin.martinez@gmail.com', 'mmartinez', 'sol123', 'Framingham', 'Massachusetts', '617-501-6138', 'https://ibb.co/NxbgTfH', 'Collaborative Solutions is a leading global Finance and HR Transformation consultancy that leverages world-class cloud solutions to help deliver successful outcomes for its customers.', 1, NULL),
+(22, 'Christos Giam', 'Northbridge House of Pizza', 'unstoppablestreletsy@gmail.com', 'ChristosPizza', 'sdjdsjdsdsjkdsjk', 'Grafton', 'MA', '455-566-4467', 'https://i.ibb.co/m0x0Wjr/b2e453ca2a8e.png', 'Hangover Pizza for those trying be sober again. Tasty too.', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -245,8 +202,16 @@ CREATE TABLE `privateconversations` (
   `Messages` int(11) NOT NULL COMMENT 'Number of Messages in Conversation',
   `LastMessanger` varchar(255) NOT NULL COMMENT 'Last Message Sender',
   `LastMessageSentTime` datetime NOT NULL COMMENT 'Time Last Message was Sent',
-  `Pinned` enum('yes','no') NOT NULL COMMENT 'Whether or Not User sees Conversation as Important'
+  `Pinned` tinyint(1) NOT NULL COMMENT 'Whether or Not User sees Conversation as Important'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Table of all Conversations';
+
+--
+-- Dumping data for table `privateconversations`
+--
+
+INSERT INTO `privateconversations` (`ConversationId`, `CreatorId`, `ConversationName`, `CreatorName`, `CreationTime`, `Views`, `Messages`, `LastMessanger`, `LastMessageSentTime`, `Pinned`) VALUES
+(19, 11, 'HarryKrishna', 'dwayne', '2019-11-12 18:17:29', 0, 0, 'dwayne', '2019-11-12 18:17:29', 1),
+(20, 11, 'Krishnut', 'dwayne', '2019-11-12 18:21:32', 0, 0, 'dwayne', '2019-11-12 18:21:32', 1);
 
 -- --------------------------------------------------------
 
@@ -260,21 +225,25 @@ CREATE TABLE `privatemessageboards` (
   `Name` varchar(255) NOT NULL COMMENT 'Name of Messanger',
   `Email` varchar(255) NOT NULL COMMENT 'Email Address of Messanger',
   `Conversations` int(11) NOT NULL COMMENT 'Number of Private Conversations Participating In',
-  `UserId` int(11) NOT NULL COMMENT 'Site Account Id'
+  `UserId` int(11) NOT NULL COMMENT 'Site Account Id',
+  `ProfileImage` text NOT NULL COMMENT 'Shows Up With Message'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Each user gets their own private message board';
 
 --
 -- Dumping data for table `privatemessageboards`
 --
 
-INSERT INTO `privatemessageboards` (`BoardId`, `Username`, `Name`, `Email`, `Conversations`, `UserId`) VALUES
-(1, 'Comrade Keil', 'David Keil', 'DKeil@framingham.edu', 0, 1),
-(15, 'dwayne', 'David Cohen', 'dcohen@docwayne.org', 0, 11),
-(17, 'XLife', 'Marina Andreazi', 'marina@xua.life', 0, 13),
-(19, 'tsolar', 'James Neal', 'james@teamsolar.us', 0, 12),
-(20, 'mattbitt', 'Matthew McLean', 'matt@nubitt.com', 0, 15),
-(22, 'mmartinez', 'Murkin Martinez', 'murkin.martinez@gmail.com', 0, 16),
-(23, 'johny', 'Jon P', 'UnstoppableStreletsy@gmail.com', 0, 25);
+INSERT INTO `privatemessageboards` (`BoardId`, `Username`, `Name`, `Email`, `Conversations`, `UserId`, `ProfileImage`) VALUES
+(1, 'Comrade Keil', 'David Keil', 'DKeil@framingham.edu', 0, 1, ''),
+(15, 'dwayne', 'David Cohen', 'dcohen@docwayne.org', 0, 11, ''),
+(17, 'XLife', 'Marina Andreazi', 'marina@xua.life', 0, 13, ''),
+(19, 'tsolar', 'James Neal', 'james@teamsolar.us', 0, 12, ''),
+(20, 'mattbitt', 'Matthew McLean', 'matt@nubitt.com', 0, 15, ''),
+(22, 'mmartinez', 'Murkin Martinez', 'murkin.martinez@gmail.com', 0, 16, ''),
+(24, 'AlanTuringisGay', 'mehe', 'unstoppablestreletsy@gmail.com', 0, 19, ''),
+(25, 'PumpMeLemmas', 'Jon Petni', 'jpetani@student.framingham.edu', 0, 55, ''),
+(26, 'dwayne', 'David Cohen', 'dcohen@docwayne.org', 0, 11, ''),
+(27, 'ChristosPizza', 'Christos Giam', 'unstoppablestreletsy@gmail.com', 0, 22, '');
 
 -- --------------------------------------------------------
 
@@ -338,12 +307,6 @@ ALTER TABLE `member`
   ADD PRIMARY KEY (`MemberId`);
 
 --
--- Indexes for table `privateconversationmembers`
---
-ALTER TABLE `privateconversationmembers`
-  ADD PRIMARY KEY (`PMLinkId`);
-
---
 -- Indexes for table `privateconversations`
 --
 ALTER TABLE `privateconversations`
@@ -369,19 +332,19 @@ ALTER TABLE `privatemessages`
 -- AUTO_INCREMENT for table `applications`
 --
 ALTER TABLE `applications`
-  MODIFY `AppId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for Application in Database', AUTO_INCREMENT=2;
+  MODIFY `AppId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for Application in Database';
 
 --
 -- AUTO_INCREMENT for table `intern`
 --
 ALTER TABLE `intern`
-  MODIFY `InternId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=51;
+  MODIFY `InternId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `internstasks`
 --
 ALTER TABLE `internstasks`
-  MODIFY `TaskId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id of Task for Intern', AUTO_INCREMENT=2;
+  MODIFY `TaskId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id of Task for Intern';
 
 --
 -- AUTO_INCREMENT for table `jobmemberlist`
@@ -393,37 +356,31 @@ ALTER TABLE `jobmemberlist`
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `JobId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Job Id', AUTO_INCREMENT=3;
+  MODIFY `JobId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Job Id';
 
 --
 -- AUTO_INCREMENT for table `keywords`
 --
 ALTER TABLE `keywords`
-  MODIFY `MatchId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identifier for this Company/Keyword Match', AUTO_INCREMENT=54;
+  MODIFY `MatchId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identifier for this Company/Keyword Match', AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `MemberId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=18;
-
---
--- AUTO_INCREMENT for table `privateconversationmembers`
---
-ALTER TABLE `privateconversationmembers`
-  MODIFY `PMLinkId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Conversation Link Id', AUTO_INCREMENT=16;
+  MODIFY `MemberId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `privateconversations`
 --
 ALTER TABLE `privateconversations`
-  MODIFY `ConversationId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Conversation Id';
+  MODIFY `ConversationId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Conversation Id', AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `privatemessageboards`
 --
 ALTER TABLE `privatemessageboards`
-  MODIFY `BoardId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id of User''s Message Board', AUTO_INCREMENT=24;
+  MODIFY `BoardId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id of User''s Message Board', AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `privatemessages`
