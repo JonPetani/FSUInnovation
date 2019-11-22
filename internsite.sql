@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2019 at 05:49 PM
+-- Generation Time: Nov 22, 2019 at 09:51 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -210,8 +210,9 @@ CREATE TABLE `privateconversations` (
 --
 
 INSERT INTO `privateconversations` (`ConversationId`, `CreatorId`, `ConversationName`, `CreatorName`, `CreationTime`, `Views`, `Messages`, `LastMessanger`, `LastMessageSentTime`, `Pinned`) VALUES
-(19, 11, 'HarryKrishna', 'dwayne', '2019-11-12 18:17:29', 0, 0, 'dwayne', '2019-11-12 18:17:29', 1),
-(20, 11, 'Krishnut', 'dwayne', '2019-11-12 18:21:32', 0, 0, 'dwayne', '2019-11-12 18:21:32', 1);
+(6, 22, 'Conv', 'ChristosPizza', '2019-11-22 20:33:54', 0, 0, 'ChristosPizza', '2019-11-22 20:33:54', 1),
+(7, 22, 'Conv2', 'ChristosPizza', '2019-11-22 20:34:23', 0, 0, 'ChristosPizza', '2019-11-22 20:34:23', 1),
+(8, 22, 'Pizza', 'ChristosPizza', '2019-11-22 20:34:52', 0, 0, 'ChristosPizza', '2019-11-22 20:34:52', 1);
 
 -- --------------------------------------------------------
 
@@ -226,24 +227,22 @@ CREATE TABLE `privatemessageboards` (
   `Email` varchar(255) NOT NULL COMMENT 'Email Address of Messanger',
   `Conversations` int(11) NOT NULL COMMENT 'Number of Private Conversations Participating In',
   `UserId` int(11) NOT NULL COMMENT 'Site Account Id',
-  `ProfileImage` text NOT NULL COMMENT 'Shows Up With Message'
+  `ProfileImage` text NOT NULL COMMENT 'Shows Up With Message',
+  `PMList` longtext COMMENT 'List of Private Conversations User is Part of',
+  `Signature` varchar(150) DEFAULT NULL COMMENT 'Optional Signature that appears below User''s post'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Each user gets their own private message board';
 
 --
 -- Dumping data for table `privatemessageboards`
 --
 
-INSERT INTO `privatemessageboards` (`BoardId`, `Username`, `Name`, `Email`, `Conversations`, `UserId`, `ProfileImage`) VALUES
-(1, 'Comrade Keil', 'David Keil', 'DKeil@framingham.edu', 0, 1, ''),
-(15, 'dwayne', 'David Cohen', 'dcohen@docwayne.org', 0, 11, ''),
-(17, 'XLife', 'Marina Andreazi', 'marina@xua.life', 0, 13, ''),
-(19, 'tsolar', 'James Neal', 'james@teamsolar.us', 0, 12, ''),
-(20, 'mattbitt', 'Matthew McLean', 'matt@nubitt.com', 0, 15, ''),
-(22, 'mmartinez', 'Murkin Martinez', 'murkin.martinez@gmail.com', 0, 16, ''),
-(24, 'AlanTuringisGay', 'mehe', 'unstoppablestreletsy@gmail.com', 0, 19, ''),
-(25, 'PumpMeLemmas', 'Jon Petni', 'jpetani@student.framingham.edu', 0, 55, ''),
-(26, 'dwayne', 'David Cohen', 'dcohen@docwayne.org', 0, 11, ''),
-(27, 'ChristosPizza', 'Christos Giam', 'unstoppablestreletsy@gmail.com', 0, 22, '');
+INSERT INTO `privatemessageboards` (`BoardId`, `Username`, `Name`, `Email`, `Conversations`, `UserId`, `ProfileImage`, `PMList`, `Signature`) VALUES
+(17, 'XLife', 'Marina Andreazi', 'marina@xua.life', 0, 13, '', '7 ', NULL),
+(19, 'tsolar', 'James Neal', 'james@teamsolar.us', 0, 12, '', NULL, NULL),
+(20, 'mattbitt', 'Matthew McLean', 'matt@nubitt.com', 0, 15, '', NULL, NULL),
+(22, 'mmartinez', 'Murkin Martinez', 'murkin.martinez@gmail.com', 0, 16, '', NULL, NULL),
+(26, 'dwayne', 'David Cohen', 'dcohen@docwayne.org', 0, 11, '', '6 ', NULL),
+(28, 'ChristosPizza', 'Christos Giam', 'unstoppablestreletsy@gmail.com', 0, 22, 'https://i.ibb.co/m0x0Wjr/b2e453ca2a8e.png', '8 ', NULL);
 
 -- --------------------------------------------------------
 
@@ -374,13 +373,13 @@ ALTER TABLE `member`
 -- AUTO_INCREMENT for table `privateconversations`
 --
 ALTER TABLE `privateconversations`
-  MODIFY `ConversationId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Conversation Id', AUTO_INCREMENT=21;
+  MODIFY `ConversationId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Conversation Id', AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `privatemessageboards`
 --
 ALTER TABLE `privatemessageboards`
-  MODIFY `BoardId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id of User''s Message Board', AUTO_INCREMENT=28;
+  MODIFY `BoardId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id of User''s Message Board', AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `privatemessages`

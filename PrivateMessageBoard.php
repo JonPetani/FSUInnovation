@@ -76,7 +76,7 @@
 			}
 		}
 		$sql = $con -> query("SELECT * FROM privatemessageboards WHERE UserId = '$cid'");
-		$Board = $sql -> fetchall(PDO::FETCH_ASSOC);
+		$Board = $sql -> fetch(PDO::FETCH_ASSOC);
 		$Username = $_SESSION['Username'];
 		switch($_SESSION['UserType']) {
 				case "Intern":
@@ -89,8 +89,7 @@
 					header("Location: LogOut.php");
 					break;
 		}
-		$sql2 = $con -> query("SELECT * FROM usertopm WHERE UNumber = '$cid'");
-		$conversations = $sql2 -> fetchall(PDO::FETCH_ASSOC);
+		$convList = explode(" ", $Board['PMList']);
 ?>
 </div>
 		<hr color="#FFC400" clear=both>
@@ -104,23 +103,32 @@
 		<h2>Below are all private messages you are a part of</h2>
 		<div id='ForumHeading'>
 		<h3 id='t'>Topic</h3>
-		<h3 id='c'><?php echo $Board[0]['Conversations']?> Conversations</h3>
+		<h3 id='c'><?php echo $Board['Conversations']?> Conversations</h3>
 		</div>
 		<?php
+		if(!empty($Board['PMList'])) {
 		echo "<div style='overflow-x:auto;overflow-y:auto;'>";
 		echo "<table id = 'MessageBoard'>";
 		$pin = "";
-		for ($i = 0; $i < sizeof($conversations); $i++) {
+		for ($i = 0; $i < sizeof($convList); $i++) {
+			echo $convList[$i];
+			foreach($convList as $num) 
+				echo $num . "<br>";
+			$conversationGet = $con -> query("SELECT * FROM privateconversations WHERE ConversationId = '$convList[$i]'");
+			$conversations = $conversationGet -> fetchall(PDO::FETCH_ASSOC);
 			echo "<tr>";
-			if ($conversations[$i]['Pinned'] == 0)
-				$pin = "<img src='images/Pin.png' class='pin' alt='pinned'/>";
+			if(isset($conversations['Pinned'])) {
+			if ($conversations['Pinned'] == 0)
+				$pin = "<img src='images/Pin.png' class='ForumList' alt='pinned'/>";
 			else
-				$pin = "<img src='images/PinOff.png' class='pin' alt='not pinned'/>";
-			echo "<td>" . $pin . "<td><a href='PrivateMessage.php?pm=" . $conversations[$i]['ConversationName'] . "'" . "<br><h4>Posted by " . $conversations[$i]['CreatorName'] . " on " . $conversations[$i]['CreationTime'] . "</h4><td><h4>" . $conversations[$i]['Views'] . "Views</h4><td><img src='images/chat.jpg' class='pin' alt='messages:'/> " . $conversations[$i]['Messages'] . "<td>" . $conversations[$i]['LastMessanger'] . "<br>Message Sent " . $conversations[$i]['LastMessageSentTime'];
+				$pin = "<img src='images/PinOff.png' class='ForumList' alt='not pinned'/>";
+			}
+			echo "<td>" . $pin . "<td><a href='PrivateMessage.php?pm=" . $conversations['ConversationName'] . "'" . "<br><h4>Posted by " . $conversations['CreatorName'] . " on " . $conversations['CreationTime'] . "</h4><td><h4>" . $conversations['Views'] . "Views</h4><td><img src='images/chat.jpg' class='ForumList' alt='messages:'/> " . $conversations['Messages'] . "<td>" . $conversations['LastMessanger'] . "<br>Message Sent " . $conversations['LastMessageSentTime'];
+		}
+		echo "</table>";
+		echo "</div>";
 		}
 		?>
-		</table>
-		</div>
 		<h2>Don't can't find a conversation? Create a New One Here</h2>
 		<hr>
 		
