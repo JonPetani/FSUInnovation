@@ -31,13 +31,12 @@ $add = $conv -> fetch(PDO::FETCH_ASSOC);
 $account = $con -> query("SELECT * FROM privatemessageboards WHERE Username = '$add[CreatorName]'");
 $acc = $account -> fetch(PDO::FETCH_ASSOC);
 $convList = $acc['PMList'] . $add['ConversationId'] . " ";
-$addCreator = $con -> query("UPDATE privatemessageboards SET ");
+$addCreator = $con -> query("UPDATE privatemessageboards SET PMList = '$convList' WHERE Username = '$acc[Username]'");
 for ($i = 0; $i < sizeof($Members); $i++) {
 	$account = $con -> query("SELECT * FROM privatemessageboards WHERE Username = '$Members[$i]'");
 	$acc = $account -> fetch(PDO::FETCH_ASSOC);
 	$convList = $acc['PMList'] . $add['ConversationId'] . " ";
 	$addTo = $con -> query("UPDATE privatemessageboards SET PMList = '$convList' WHERE Username = '$Members[$i]'");
 }
-die;
-header("location: PrivateMessage.php?pm=" . $Conv[0]['ConversationId']);
+header("location: PrivateMessage.php?pm=" . $conv['ConversationId']);
 ?>

@@ -10,6 +10,14 @@
 		<meta charset="UTF-8">
 	</head>
 		<body>
+		<script>
+		function PinOn(obj) {
+			document.obj.src = "images/Pin.png";
+		}
+		function PinOff(obj) {
+			document.obj.src = "images/PinOff.png";
+		}
+		</script>
 		<p id="top"></p>
 		<div id='links'>
 			<a href='Home.php'>Home</a>
@@ -110,20 +118,25 @@
 		echo "<div style='overflow-x:auto;overflow-y:auto;'>";
 		echo "<table id = 'MessageBoard'>";
 		$pin = "";
-		for ($i = 0; $i < sizeof($convList); $i++) {
-			echo $convList[$i];
-			foreach($convList as $num) 
-				echo $num . "<br>";
-			$conversationGet = $con -> query("SELECT * FROM privateconversations WHERE ConversationId = '$convList[$i]'");
-			$conversations = $conversationGet -> fetchall(PDO::FETCH_ASSOC);
+		$conversations = array();
+		foreach($convList as $converse) {
+			$conversationGet = $con -> query("SELECT * FROM privateconversations WHERE ConversationId = '$converse'");
+			$conversation = $conversationGet -> fetch(PDO::FETCH_ASSOC);
+			array_push($conversations, $conversation);
+		}
+		/*$conversations = usort($conversations, function($x, $y) {
+			$r = $x['Pinned'] <=> $y['Pinned'];
+			return $r;
+		});*/
+		for ($i = 0; $i < sizeof($convList) - 1; $i++) {
 			echo "<tr>";
 			if(isset($conversations['Pinned'])) {
-			if ($conversations['Pinned'] == 0)
-				$pin = "<img src='images/Pin.png' class='ForumList' alt='pinned'/>";
+			if ($conversations['Pinned'] == 1)
+				$pin = "<a href='Pinner.php'><img src='images/Pin.png' onmouseover='PinOff(this)' onmouseout='PinOn(this)' class='ForumList' alt='pinned'/></a>";
 			else
-				$pin = "<img src='images/PinOff.png' class='ForumList' alt='not pinned'/>";
+				$pin = "<a href='Pinner.php'><img src='images/PinOff.png' class='ForumList' onmouseover='PinOn(this)' onmouseout='PinOff(this)' alt='not pinned'/ ></a>";
 			}
-			echo "<td>" . $pin . "<td><a href='PrivateMessage.php?pm=" . $conversations['ConversationName'] . "'" . "<br><h4>Posted by " . $conversations['CreatorName'] . " on " . $conversations['CreationTime'] . "</h4><td><h4>" . $conversations['Views'] . "Views</h4><td><img src='images/chat.jpg' class='ForumList' alt='messages:'/> " . $conversations['Messages'] . "<td>" . $conversations['LastMessanger'] . "<br>Message Sent " . $conversations['LastMessageSentTime'];
+			echo "<td>" . $pin . "<td><a href='PrivateMessage.php?pm=" . $conversations[$i]['ConversationId'] . "'>" $conversations[$i]['ConversationName'] . "</a><td><a href='PrivateMessage.php?pm=" . $conversations[$i]['ConversationId'] . "'" . "<br><h4>Posted by " . $conversations[$i]['CreatorName'] . " on " . $conversations[$i]['CreationTime'] . "</h4><td><h4>" . $conversations[$i]['Views'] . " Views</h4><td><img src='images/chat.jpg' class='ForumList' alt='messages:'/> " . $conversations[$i]['Messages'] . "<td>" . $conversations[$i]['LastMessanger'] . "<br>Message Sent " . $conversations[$i]['LastMessageSentTime'];
 		}
 		echo "</table>";
 		echo "</div>";
