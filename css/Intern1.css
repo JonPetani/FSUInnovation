@@ -225,3 +225,37 @@ img.accounts {
 	float: right;
 	display: block;
 }
+
+div.messagePost {
+	background-color: #f5f5f5;
+	padding: 15px;
+	/*width: 80%;
+	height: 75%;*/
+	border: 2.5px #050733 solid;
+}
+
+div.messagePost > div.forumHeader {
+	width: 10%;
+	height: 100%;
+	float: left;
+	border-right: 2px #050733 solid;
+	display: block;
+}
+
+
+div.messagePost > div.forumHeader > img {
+	display:block;
+	width:30%;
+	height:30%;
+}
+
+div.messagePost > div.forumHeader > p {
+	font-size: 45%;
+}
+
+div.messagePost > div.forumBody {
+	width: 90%;
+	display: block;
+	height: 100%;
+	float:left;
+}

@@ -136,7 +136,7 @@
 			else
 				$pin = "<a href='Pinner.php'><img src='images/PinOff.png' class='ForumList' onmouseover='PinOn(this)' onmouseout='PinOff(this)' alt='not pinned'/ ></a>";
 			}
-			echo "<td>" . $pin . "<td><a href='PrivateMessage.php?pm=" . $conversations[$i]['ConversationId'] . "'>" $conversations[$i]['ConversationName'] . "</a><td><a href='PrivateMessage.php?pm=" . $conversations[$i]['ConversationId'] . "'" . "<br><h4>Posted by " . $conversations[$i]['CreatorName'] . " on " . $conversations[$i]['CreationTime'] . "</h4><td><h4>" . $conversations[$i]['Views'] . " Views</h4><td><img src='images/chat.jpg' class='ForumList' alt='messages:'/> " . $conversations[$i]['Messages'] . "<td>" . $conversations[$i]['LastMessanger'] . "<br>Message Sent " . $conversations[$i]['LastMessageSentTime'];
+			echo "<td>" . $pin . "<td><a href='PrivateMessage.php?pm=" . $conversations[$i]['ConversationId'] . "'>" . $conversations[$i]['ConversationName'] . "</a><td><a href='PrivateMessage.php?pm=" . $conversations[$i]['ConversationId'] . "'" . "<br><h4>Posted by " . $conversations[$i]['CreatorName'] . " on " . $conversations[$i]['CreationTime'] . "</h4><td><h4>" . $conversations[$i]['Views'] . " Views</h4><td><img src='images/chat.jpg' class='ForumList' alt='messages:'/> " . $conversations[$i]['Messages'] . "<td>" . $conversations[$i]['LastMessanger'] . "<br>Message Sent " . $conversations[$i]['LastMessageSentTime'];
 		}
 		echo "</table>";
 		echo "</div>";
