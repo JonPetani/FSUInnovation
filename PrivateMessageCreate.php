@@ -1,6 +1,6 @@
 <?php
 session_start();
-$con = new PDO('mysql:host=sql208.byethost.com;dbname=b32_24537897_internsite;charset=utf8mb4','b32_24537897','Sayhello123');
+$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
 if(isset($_SESSION['loggedin'])) {
 	if($_SESSION['loggedin'] == true) {
 		$session_time = $_SERVER['REQUEST_TIME'];
