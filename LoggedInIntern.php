@@ -25,6 +25,11 @@ echo ("<h2>Welcome Back " . $Name . "!</h2>");
 <p>As a Intern, your main usage of this platform will be to find Members who are working on projects that both interest you and are related to your field of study/career.</p>
 <p>To help you find the Members that best suite you, we offer a search service that lets you search for a given Member company based on key words that you input.</p>
 <p>Additionally, you should keep your information up to date such as updating your resume to the latest version where possible so the Members know what skills you have.</p>
+<?php
+if ($_SESSION['IsAdmin'] == true) {
+	echo "<p>This is an Admin Account. Therefore, you also have Admin Privileges.</p>";
+}
+?>
 <div style='background-color: #c6ecd9;'>
 <h2 align=center>What to do with your account</h2>
 <h3 align=center id='navh'>Options</h3>
@@ -32,9 +37,15 @@ echo ("<h2>Welcome Back " . $Name . "!</h2>");
 <li><a href='AllProjects.php'>Find Projects that Suit you at the Center</a></li>
 <li><a href='CompanyFind.php'>Search for Member Companies at the Center</a></li>
 <li><a href=''>View Members you are Currently Working for</a></li>
+<?php
+if ($_SESSION['IsAdmin'] == true) {
+	echo "<li><a href='MemberListUpdater.php'>Update Member List Data</a></li>";
+}
+?>
 <li><a href='Nav.php'>View Services Available</a></li>
 <li><a href='Home.php'>Return Home</a></li>
 <li><a href='LogOut.php'>Logout</a></li>
+
 </ul>
 </div>
 <br clear=both>

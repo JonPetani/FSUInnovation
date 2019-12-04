@@ -66,6 +66,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 						$_SESSION["InternPhoto"] = $image;
 						$_SESSION["LogTime"] = time();
 						$url = "";
+						$adminCheck = $con -> query("SELECT * FROM admin WHERE AdminCode = '$_SESSION[Password]'");
+						$_SESSION['IsAdmin'] = false;
+						if($adminCheck->rowCount() > 0) {
+							$adminInfo = $adminCheck -> fetch(PDO::FETCH_ASSOC);
+							$_SESSION['AdminCode'] = $adminInfo['AdminCode'];
+							$_SESSION['Role'] = $adminInfo['Role'];
+							$_SESSION['IsAdmin'] = true;
+						}
 						if (isset($_GET['location']))
 							$url = $_GET['location'];
 							header("location: " . $url);
