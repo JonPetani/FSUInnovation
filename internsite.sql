@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2019 at 09:51 PM
+-- Generation Time: Dec 04, 2019 at 05:05 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -21,6 +21,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `internsite`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `AdminId` int(11) NOT NULL COMMENT 'AdminAccountId',
+  `AdminCode` varchar(255) NOT NULL COMMENT 'Password',
+  `Role` varchar(255) NOT NULL COMMENT 'Role at Center to Have Admin Account for (Web Dev, Moderator, Director, etc)'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='All Admin Recognized Accounts (Links to another user)';
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`AdminId`, `AdminCode`, `Role`) VALUES
+(1, 'ru94er4o3ij', 'Student Intern PHP Web Developer For This Website');
 
 -- --------------------------------------------------------
 
@@ -68,7 +87,7 @@ CREATE TABLE `intern` (
 --
 
 INSERT INTO `intern` (`InternId`, `InternName`, `EmailAddress`, `Username`, `Password`, `School`, `InternPhoto`, `Major`, `GPA`, `City`, `State`, `PhoneNumber`, `Resume`, `SkillsAndExperience`, `AccountVerified`, `AccessCode`) VALUES
-(3, 'Yoda', 'jpetani@student.framingham.edu', 'KrishnaMorty', 'jdkdjfkdfjkdfjk', 'FSU', 'https://i.ibb.co/23cd1DP/759e5aa1b827.png', 'Networking', '1.20', 'Shrewsbury', 'Ma', '456-778-5675', '', 'vjsd;gjasdlgjdlgjlo', 1, NULL);
+(5, 'Jonathan Petani', 'jpetani@student.framingham.edu', 'Jpetani', 'ru94er4o3ij', 'FSU', 'https://i.ibb.co/TYmxJpL/e88be3e28bb7.png', 'CS - Software Eng.', '3.70', 'Hopkinton', 'Massachusetts', '508-435-3925', '', 'Good at Coding (especially web and backend)', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -184,7 +203,8 @@ INSERT INTO `member` (`MemberId`, `ContactName`, `CompanyName`, `ContactEmail`, 
 (13, 'Marina Andreazi', 'Xua Life', 'marina@xua.life', 'XLife', 'q8c 4t8o', 'Framingham', 'Massachusetts', '508-626-5721', 'https://ibb.co/ZJgW8KJ', 'Craft Energy Drinks Powered By Amazonian Ingredients', 1, NULL),
 (15, 'Matthew McLean', 'Nubitt', 'matt@nubitt.com', 'mattbitt', 'nubitt45391', 'Boston', 'Massachusetts', '617-593-4260', 'https://ibb.co/1ZLxHLR', 'No Description', 1, NULL),
 (16, 'Murkin Martinez', 'Collaborative Solutions, LLC', 'murkin.martinez@gmail.com', 'mmartinez', 'sol123', 'Framingham', 'Massachusetts', '617-501-6138', 'https://ibb.co/NxbgTfH', 'Collaborative Solutions is a leading global Finance and HR Transformation consultancy that leverages world-class cloud solutions to help deliver successful outcomes for its customers.', 1, NULL),
-(22, 'Christos Giam', 'Northbridge House of Pizza', 'unstoppablestreletsy@gmail.com', 'ChristosPizza', 'sdjdsjdsdsjkdsjk', 'Grafton', 'MA', '455-566-4467', 'https://i.ibb.co/m0x0Wjr/b2e453ca2a8e.png', 'Hangover Pizza for those trying be sober again. Tasty too.', 1, NULL);
+(23, 'Raghu Nandan', 'Soltrix Technology Solutions, Inc.', 'raghu.nandan@soltrixsolutions.com', 'RNandan', 'soltricks98', 'Framingham', 'Massachusetts', '774-293-1293', 'https://ibb.co/Z6R9Q4c', '\r\nSoltrix Technology Solutions, Inc. started in 2007 as a custom software development shop. All founders came from working in IT at large insurance companies and financial institutions. While working for these institutions we gained expertise in ITSM and Project Portfolio Management (responsible for implementation of CA Clarity -now CA PPM). \r\n\r\nSoltrix is privately owned, managed, and headquartered in Framingham, MA. Since 2007, we have successfully implemented over 50 project and portfolio management (Clarity)projects. In 2014, we started working on ServiceNow. Currently, our team of over 70 personnel, include solution architects, project managers, business analysts, implementation specialists and developers. We have ServiceNow certified system admins, developers and solutions architects. Soltrix is a approved ServiceNow implementation partner and a certified Minority Business Enterprise and HR solutions.', 1, NULL),
+(24, 'Kimberly Devane', 'Entrust Research & Recruiting', 'kim.devane@entrustrr.com', 'KDevane', 'entrustablepassword', 'Framingham', 'Massachusetts', '508-523-5294', 'https://ibb.co/cFjrGvV', 'Entrust Research & Recruiting, LLC provides the following Services:\r\nRecruiting participants for User Experience/Usability & Market Research studies in various contexts within the United States. ', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -210,9 +230,8 @@ CREATE TABLE `privateconversations` (
 --
 
 INSERT INTO `privateconversations` (`ConversationId`, `CreatorId`, `ConversationName`, `CreatorName`, `CreationTime`, `Views`, `Messages`, `LastMessanger`, `LastMessageSentTime`, `Pinned`) VALUES
-(6, 22, 'Conv', 'ChristosPizza', '2019-11-22 20:33:54', 0, 0, 'ChristosPizza', '2019-11-22 20:33:54', 1),
-(7, 22, 'Conv2', 'ChristosPizza', '2019-11-22 20:34:23', 0, 0, 'ChristosPizza', '2019-11-22 20:34:23', 1),
-(8, 22, 'Pizza', 'ChristosPizza', '2019-11-22 20:34:52', 0, 0, 'ChristosPizza', '2019-11-22 20:34:52', 1);
+(9, 22, 'FTP Project Krishna', 'ChristosPizza', '2019-11-26 00:16:55', 8, 0, 'ChristosPizza', '2019-11-26 00:16:55', 1),
+(10, 22, 'Pizza Marketing Strategies', 'ChristosPizza', '2019-11-26 00:20:19', 41, 0, 'ChristosPizza', '2019-11-26 00:20:19', 1);
 
 -- --------------------------------------------------------
 
@@ -237,12 +256,12 @@ CREATE TABLE `privatemessageboards` (
 --
 
 INSERT INTO `privatemessageboards` (`BoardId`, `Username`, `Name`, `Email`, `Conversations`, `UserId`, `ProfileImage`, `PMList`, `Signature`) VALUES
-(17, 'XLife', 'Marina Andreazi', 'marina@xua.life', 0, 13, '', '7 ', NULL),
+(17, 'XLife', 'Marina Andreazi', 'marina@xua.life', 0, 13, '', '10 ', NULL),
 (19, 'tsolar', 'James Neal', 'james@teamsolar.us', 0, 12, '', NULL, NULL),
-(20, 'mattbitt', 'Matthew McLean', 'matt@nubitt.com', 0, 15, '', NULL, NULL),
+(20, 'mattbitt', 'Matthew McLean', 'matt@nubitt.com', 0, 15, '', '10 ', NULL),
 (22, 'mmartinez', 'Murkin Martinez', 'murkin.martinez@gmail.com', 0, 16, '', NULL, NULL),
-(26, 'dwayne', 'David Cohen', 'dcohen@docwayne.org', 0, 11, '', '6 ', NULL),
-(28, 'ChristosPizza', 'Christos Giam', 'unstoppablestreletsy@gmail.com', 0, 22, 'https://i.ibb.co/m0x0Wjr/b2e453ca2a8e.png', '8 ', NULL);
+(26, 'dwayne', 'David Cohen', 'dcohen@docwayne.org', 0, 11, '', '10 ', NULL),
+(28, 'ChristosPizza', 'Christos Giam', 'unstoppablestreletsy@gmail.com', 0, 22, 'https://i.ibb.co/m0x0Wjr/b2e453ca2a8e.png', '9 10 ', NULL);
 
 -- --------------------------------------------------------
 
@@ -252,16 +271,33 @@ INSERT INTO `privatemessageboards` (`BoardId`, `Username`, `Name`, `Email`, `Con
 
 CREATE TABLE `privatemessages` (
   `MessageId` int(11) NOT NULL COMMENT 'Message Id for whole site',
+  `ConversationId` int(11) NOT NULL COMMENT 'Link to Conversation',
   `MessageSenderName` varchar(255) NOT NULL COMMENT 'Sender''s Username',
   `MessageSenderEmail` varchar(255) NOT NULL COMMENT 'Sender''s Email',
-  `MessageSenderPicture` longblob NOT NULL COMMENT 'Sender''s Picture',
+  `MessageSenderPicture` text NOT NULL COMMENT 'Sender''s Picture',
   `MessageBody` longtext NOT NULL COMMENT 'Message Body Containing special txt formatting',
-  `AttachedFile` longblob COMMENT 'Choice to Attach File to Message'
+  `AttachedFile` longblob COMMENT 'Choice to Attach File to Message',
+  `Signature` varchar(150) DEFAULT NULL COMMENT 'User Signature line for posts'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='All Private Messages Sent on Site';
+
+--
+-- Dumping data for table `privatemessages`
+--
+
+INSERT INTO `privatemessages` (`MessageId`, `ConversationId`, `MessageSenderName`, `MessageSenderEmail`, `MessageSenderPicture`, `MessageBody`, `AttachedFile`, `Signature`) VALUES
+(1, 10, 'ChristosPizza', 'unstoppablestreletsy@gmail.com', 'https://i.ibb.co/m0x0Wjr/b2e453ca2a8e.png', 'Okay People, We Need to Market Pizza Better. Who Ever is Against me is a Nimrod. Got it!!!', NULL, NULL),
+(2, 10, 'ChristosPizza', 'unstoppablestreletsy@gmail.com', 'https://i.ibb.co/m0x0Wjr/b2e453ca2a8e.png', 'Hi People, We need to get serious here.', NULL, NULL),
+(3, 10, 'ChristosPizza', 'unstoppablestreletsy@gmail.com', 'https://i.ibb.co/m0x0Wjr/b2e453ca2a8e.png', '<img src=\"https://miro.medium.com/fit/c/256/256/0*l9HuwVOo5adObSVt\"/>\r\nMr. Comrade M. Keil', NULL, NULL);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`AdminId`);
 
 --
 -- Indexes for table `applications`
@@ -328,6 +364,12 @@ ALTER TABLE `privatemessages`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `AdminId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'AdminAccountId', AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `applications`
 --
 ALTER TABLE `applications`
@@ -337,7 +379,7 @@ ALTER TABLE `applications`
 -- AUTO_INCREMENT for table `intern`
 --
 ALTER TABLE `intern`
-  MODIFY `InternId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=4;
+  MODIFY `InternId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `internstasks`
@@ -367,13 +409,13 @@ ALTER TABLE `keywords`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `MemberId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=23;
+  MODIFY `MemberId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=118;
 
 --
 -- AUTO_INCREMENT for table `privateconversations`
 --
 ALTER TABLE `privateconversations`
-  MODIFY `ConversationId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Conversation Id', AUTO_INCREMENT=9;
+  MODIFY `ConversationId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Conversation Id', AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `privatemessageboards`
@@ -385,7 +427,7 @@ ALTER TABLE `privatemessageboards`
 -- AUTO_INCREMENT for table `privatemessages`
 --
 ALTER TABLE `privatemessages`
-  MODIFY `MessageId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Message Id for whole site';
+  MODIFY `MessageId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Message Id for whole site', AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
