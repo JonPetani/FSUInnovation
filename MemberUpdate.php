@@ -1,12 +1,16 @@
 <?php
 session_start();
+if ($_SESSION['loggedin'] == false) {
+	header("location: AccessDenied.php");
+	die;
+}
 //include 'ExcelToCSV.php';
 $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
 $File = $_FILES['SpreadSheet'];
 $filename = $File['tmp_name'];
 $ExcelFile = fopen($filename, 'r');
+$row = 1;
 while(($MemberData = fgetcsv($ExcelFile)) !== false) {
-		echo "INFO{{{" .$MemberData[0] . " " . $MemberData[1] . $MemberData[2] . "}}}";
 		$MemberName = $MemberData[1];
 		echo "Name is " . $MemberName;
 		$Company = $MemberData[2];
@@ -18,7 +22,7 @@ while(($MemberData = fgetcsv($ExcelFile)) !== false) {
 		$State = "Massachusetts";
 		$Picture = "images/Gold-WithoutEars.jpg";
 		$NameArray = explode($MemberName, " ");
-		$Username = substr($NameArray[0] , 0) + $NameArray[1];
+		$Username = $MemberName[1] . (string)rand(2, 999);
 		$Str_Size = rand(15, 25);
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()-_+=[{}]\|<,>.?/:;`~';
 		$Password = "";
@@ -29,6 +33,10 @@ while(($MemberData = fgetcsv($ExcelFile)) !== false) {
 		$PhoneNum = "To be Updated by Member...";
 		$Description = "To be Updated by Member...";
 		$Verified = true;
+		if($row == 1) {
+			$row++;
+			continue;
+		}
 		$DupFinder = $con -> query("SELECT * FROM member WHERE ContactEmail = '$Email'");
 		if ($DupFinder->rowCount() > 0)
 			continue;
@@ -36,7 +44,7 @@ while(($MemberData = fgetcsv($ExcelFile)) !== false) {
 
 VALUES
 
-('$MemberName','$Company','$Username','$UsernameFinal','$Password','$City','$State','$PhoneNum','$Picture','$Description','$Verified',null)");
+('$MemberName','$Company','$Email','$Username','$Password','$City','$State','$PhoneNum','$Picture','$Description','$Verified',null)");
 		$Subject = $MemberName . ", you have a new account! (Testing Web Platform)";
 $To = $Email;
 $Sender = "FSU Entrepreneur Innovation Center";
@@ -475,7 +483,7 @@ $HTML_Message = '<!DOCTYPE html>
 $textMsg = "In a update through our spreadsheet, we were able to create accounts for the members who could not do it themselves. Your username is " . $Username . ", and the Password is " . $Password . "This login information is for the Member Company " . $Company . " and it's main Member " . $MemberName. "You can view the message fully by opening a browser.";
 //$url = "https://api.elasticemail.com/v2/email/send?apikey=a413a47a-66d3-416a-b3b6-ead3a85e3fb4&from=innovation@framingham.edu&subject=" . $Subject . "&from=innovation@framingham.edu&to=" . $To . "&htmlMessage=" . $HTML_Message . "&textMessage=" . $textMsg . "&fromName=" . $Sender . "&charset=utf-8";
 $url = "https://api.elasticemail.com/v2/email/send";
-try {
+/*try {
 	$info = array('from' => 'innovation@framingham.edu',
 				  'fromName' => 'FSU Entrepreneur Innovation Center',
 				  'apikey' => 'a413a47a-66d3-416a-b3b6-ead3a85e3fb4',
@@ -502,9 +510,8 @@ try {
 }
 catch(Exception $e){
 	echo $e -> getMessage();
+}*/
 }
 fclose($ExcelFile);
-die;
 header("location: MemberListUpdater.php");
-}
 ?>
