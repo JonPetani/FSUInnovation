@@ -38,5 +38,5 @@ for ($i = 0; $i < sizeof($Members); $i++) {
 	$convList = $acc['PMList'] . $add['ConversationId'] . " ";
 	$addTo = $con -> query("UPDATE privatemessageboards SET PMList = '$convList' WHERE Username = '$Members[$i]'");
 }
-header("location: PrivateMessage.php?pm=" . $conv['ConversationId']);
+header("location: PrivateMessage.php?pm=" . $add['ConversationId']);
 ?>

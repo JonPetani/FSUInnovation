@@ -1,15 +1,12 @@
 <?php
 session_start();
+//include 'ExcelToCSV.php';
 $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
 $File = $_FILES['SpreadSheet'];
 $filename = $File['tmp_name'];
 $ExcelFile = fopen($filename, 'r');
-$row = 0;
-while(($MemberData = fgetcsv($ExcelFile, 0, ',')) !== FALSE) {
-	if($row == 0) {
-		$row++;
-	}
-	else {
+while(($MemberData = fgetcsv($ExcelFile)) !== false) {
+		echo "INFO{{{" .$MemberData[0] . " " . $MemberData[1] . $MemberData[2] . "}}}";
 		$MemberName = $MemberData[1];
 		echo "Name is " . $MemberName;
 		$Company = $MemberData[2];
@@ -40,7 +37,7 @@ while(($MemberData = fgetcsv($ExcelFile, 0, ',')) !== FALSE) {
 VALUES
 
 ('$MemberName','$Company','$Username','$UsernameFinal','$Password','$City','$State','$PhoneNum','$Picture','$Description','$Verified',null)");
-		$Subject = $MemberName . ", you have a new account!";
+		$Subject = $MemberName . ", you have a new account! (Testing Web Platform)";
 $To = $Email;
 $Sender = "FSU Entrepreneur Innovation Center";
 $HTML_Message = '<!DOCTYPE html>
@@ -506,7 +503,6 @@ try {
 catch(Exception $e){
 	echo $e -> getMessage();
 }
-	}
 fclose($ExcelFile);
 die;
 header("location: MemberListUpdater.php");
