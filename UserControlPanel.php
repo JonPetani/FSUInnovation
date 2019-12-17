@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Navigation</title>
+<title>User Control Panel</title>
 <link rel="icon" type="image/png" href="images/icon.png"/>
 <link href='css/Intern1.css' rel='stylesheet'/>
 </head>
@@ -16,6 +16,7 @@
 			<a href='RegisterHub.php' style="margin-right: 30px;float: right;">Sign Up</a>
 <?php
 		session_start();
+		
 		if(isset($_SESSION['loggedin'])) {
 			if($_SESSION['loggedin'] == true) {
 				$session_time = $_SERVER['REQUEST_TIME'];
@@ -49,37 +50,50 @@
 					}
 			}
 		}
-		
+		$logged_in_page;
+		$photo;
+		$email;
+		$name;
+		if (!isset($_SESSION['UserType'])) {
+			header("Location: AccessDenied.php");
+		}
+		else {
+			if ($_SESSION['UserType'] == "Member") {
+				$logged_in_page = "LoggedInMember.php";
+				$photo = $_SESSION['CompanyPicture'];
+				$email = $_SESSION['ContactEmail'];
+				$name = $_SESSION['ContactName'];
+			}
+			else if ($_SESSION['UserType'] == "Intern") {
+				$logged_in_page = "LoggedInIntern.php";
+				$photo = $_SESSION['InternPhoto'];
+				$email = $_SESSION['EmailAddress'];
+				$name = $_SESSION['InternName'];
+			}
+		}
+		$username = $_SESSION['Username'];
 ?>
 		</div>
 		<hr color="#FFC400">
 <a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
-<h1>Navigation Page</h1>
-<p align=left>On this page, you can find helpful links to all pages on this website. Click a link below to reach the destination you are looking for.</p>
-<h2>Listing of Pages</h2>
+<h1>User Control Panel</h1>
+<div class='txt'>
+<h2 align=center >Account Overview</h2>
+<?php
+echo "<h3 align=center >" . $name . "</h3>";
+echo "<div align=center >";
+echo "<img src='" . $photo . "' alt='Comp Pic' />";
+echo "</div>";
+echo "<h3 align=center >" . $username . "</h3>";
+echo "<h3 align=center >" . $email . "</h3>";
+?>
+</div>
+<h2>Account Info</h2>
 <ul type=none id='nav'>
-<li><a href='Home.php'>Home</a></li>
-<li><a href='InternLogin.php'>Interns Login</a></li>
-<li><a href='MemberLogin.php'>Members Login</a></li>
-<li><a href='' onmouseover='dOver(this)' onmouseout='dOut(this)'>Discussion Board</a></li>
-<li><a href='' onmouseover='nOver(this)' onmouseout='nOut(this)'>NewsFeed</a></li>
-<li><a href='CompanyFind.php'>Find a Company</a></li>
-<li><a href='ContactUs.php'>Contact Us</a></li>
+<li><a href='<?php echo $logged_in_page; ?>'>User Page</a></li>
+<li><a href='EditProfile.php'>Edit Your Profile</a></li>
+<li><a href='Contacts.php'>View and Edit Contacts You Have Added</li>
 </ul>
-<script language='Javascript'>
-function dOver(obj) {
-obj.innerHTML = "&#9888; Discussion Board (coming soon) &#9888;"
-}
-function nOver(obj) {
-obj.innerHTML = "&#9888; NewsFeed (coming soon) &#9888;"
-}
-function dOut(obj) {
-obj.innerHTML = "Discussion Board"
-}
-function nOut(obj) {
-obj.innerHTML = "NewsFeed"
-}
-</script>
 <footer>
 <hr>
 <address><strong>&copy;	Framingham State University Entreperenuer Innovation Center</strong></address>

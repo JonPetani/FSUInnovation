@@ -11,6 +11,7 @@
 		<!--<link href='intern.css' rel='stylesheet'/>-->
 	</head>
 	<body>
+	<script src='https://www.google.com/recaptcha/api.js' async defer></script>
 		<!-- Needed for Member Page:
 				- name of contact person
 				- name of company
@@ -38,25 +39,26 @@
 			<form action="MemberInsert.php" enctype = "multipart/form-data" method="post">
 			<div class="boxcontainer">
 						<label for="ContactName">Contact Name: </label>
-						<input type="text" name="ContactName" autocomplete="off" required autofocus>
+						<input type="text" name="ContactName" placeholder="Your Actual Name. The Person Interns Will Be Talking With During a Project." autocomplete="off" required autofocus>
 						<label for="CompanyName">Company Name: </label>
-						<input type="text" name="CompanyName" autocomplete="off" required>
+						<input type="text" name="CompanyName" placeholder="Name of Your Company" autocomplete="off" required>
 						<label for="ContactEmail">Email Address: </label>
-						<input type="email" name="ContactEmail" autocomplete="off" required>
+						<input type="email" name="ContactEmail" placeholder="Your Email Address (Verification Email Will Be Sent)" autocomplete="off" required>
 						<label for="Username">Username: </label>
-						<input type="text" name="Username" autocomplete="off" required>
+						<input type="text" name="Username" placeholder="Username For Your Account" autocomplete="off" required>
 						<label for="Password">Password: </label>
-						<input style='width:100%;height:42.5px;' type="password" name="Password" autocomplete="off" required>
+						<input style='width:100%;height:42.5px;' type="password" placeholder="Password To Keep Your Account Safe" name="Password" autocomplete="off" required>
 						<label for="CompanyPicture">Profile Picture: </label>
 						<input type = "file" name = "CompanyPicture" autocomplete='off' required>
 						<label for="CompanyCity">Location (City): </label>
-						<input type="text" name="CompanyCity" autocomplete="off" required>
+						<input type="text" name="CompanyCity" placeholder="City/Town Your Company Is From" autocomplete="off" required>
 						<label for="CompanyState">Location (State): </label>
-						<input type="text" name="CompanyState" autocomplete="off" required>
+						<input type="text" name="CompanyState" autocomplete="off" placeholder="State Your Company Is From" required>
 						<label for="PhoneNumber">Phone: </label>
-						<input type="tel" name="PhoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" autocomplete="off">
+						<input type="tel" name="PhoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Contact Number For Your Company" autocomplete="off">
 						<label for="CompanyDescription">Company Description: </label>
-						<textarea name="CompanyDescription" class="skills" autocomplete="off" required></textarea>
+						<textarea name="CompanyDescription" class="skills" placeholder="Describe Your Company. What Does Your Company Do and What Should Interns Know About It Before Doing a Project With You." autocomplete="off" required></textarea>
+						<br><div align=center class="g-recaptcha" data-sitekey="6Le9NsgUAAAAAFvjCyl8yJ_npsTDpIEoumWFe5Zn"></div><br>
 				<label style='float:left;padding-bottom:30px;'>In order to create a account, you must agree to our terms of service <a href='terms.html' target="_blank">found here</a>: <input name='check' onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" type="checkbox" value="Agree" required></label>
 				<input id="submitButton" type="submit" value="Submit" style='float:left;background-color:#66ff99;width:21%;height:10%;'><br><br>
 				<br>

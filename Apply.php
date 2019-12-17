@@ -48,7 +48,7 @@ $_SESSION['TimeLog'] = $session_time;
 					<br><input type = "radio" name = "Share" value='No' autocomplete='off' required>I do not. In this case, I ensure that I will message the Company Contact privately to discuss my qualifications.<br>
 					
 					<label>How much time can you set aside in a given week to the task (Considering tasks for other members as well as Projects assigned to your Internship)</label>
-					<br><input type = "number" name = "Time" autocomplete='off' required>
+					<br><input type = "number" name = "Time" placeholder="Enter Estimate Hours You Can Put Into The Project" autocomplete='off' required>
 					
 					<br><label>On the Rating Scale below, how interesting does the project seem to you? If it isn't that interesting, this will help the Member to modify the description and/or task itself to cater to student's interests.</label>
 					<select name='Rate' autocomplete='off' required>
@@ -65,7 +65,7 @@ $_SESSION['TimeLog'] = $session_time;
 					</select>
 					
 					<br><label>What part of the project is of most interest to you?</label>
-					<input type = "text" name = "Interest" autocomplete='off' required>
+					<input type = "text" name = "Interest" placeholder="Enter The Parts of The Project That Either Interest You Or Seem The Most Informative" autocomplete='off' required>
 					<label style='float:left;padding-bottom:30px;'>In order to sign up for a job/task, you must agree to our terms of service <a href='terms.html' target="_blank">found here</a>: <input name='check' onchange="this.setCustomValidity(validity.valueMissing ? 'Verify that you comply with the terms of this site' : '');" type="checkbox" value="Agree" required></label>
 				<input id="submitButton" type="submit" value="Submit" style='float:left;background-color:#66ff99;width:21%;height:10%;'>
 				<br>

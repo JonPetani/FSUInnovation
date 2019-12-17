@@ -9,6 +9,12 @@
 <link href='css/member_page.css' rel='stylesheet'/>
 </head>
 <body>
+		<div id='links'>
+			<a href='Home.php'>Home</a>
+			<a href="https://www.framingham.edu" target="_blank" style="margin-left: 30px">Framingham.edu</a>
+			<a href='Login.php' style="margin-right: 30px;float: right;" id = 'si'>Sign In</a>
+			<a href='RegisterHub.php' style="margin-right: 30px;float: right;"id = 'su'>Sign Up</a>
+			</div>
 <?php
 session_start();
    $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
@@ -35,7 +41,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 						<label for="Username">Username: </label>
 					</div>
 					<div class="col-75">
-						<input type="text" name="Username" autocomplete="off" required autofocus>
+						<input type="text" name="Username" placeholder="Enter Username" autocomplete="off" required autofocus>
 					</div>
 				</div>
 				<div class="row">
@@ -43,7 +49,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 						<label for="Password">Password: </label>
 					</div>
 					<div class="col-75">
-						<input style='width:100%;height:6.5%;'type="password" name="Password" autocomplete="off" required>
+						<input style='width:100%;height:6.5%;'type="password" placeholder="Enter Password" name="Password" autocomplete="off" required>
 					</div>
 					<div class="row">
 					<div class="col-25">

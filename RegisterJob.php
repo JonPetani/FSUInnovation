@@ -35,8 +35,8 @@ $_SESSION['TimeLog'] = $session_time;
 
 				<div class = "boxcontainer">
 
-					<label>Name of Job:</label>
-					<input type = "text" name = "JobName" autocomplete='off' required>
+					<label>Name of Project:</label>
+					<input type = "text" name = "JobName" placeholder="A Name For Your Project" autocomplete='off' required>
 
 					<label>Description of the Task needed:</label><br>
 					<textarea name = 'JobDesc' class = "skills" autocomplete='off'></textarea>
@@ -84,7 +84,7 @@ $_SESSION['TimeLog'] = $session_time;
 					<option value='6'>6</option>
 					</select><br>
 					<label>Post any job requirements as well as prerequisite skills and expereince needed:</label><br>
-					<textarea name = 'JobRequirements' class = "skills" autocomplete='off'></textarea>
+					<textarea name = 'JobRequirements' placeholder="Define Here Skills Interns Should At Least Be Aware Of Before Starting." class = "skills" autocomplete='off'></textarea>
 
 					<label style='float:left;padding-bottom:30px;'>In order to post a job/task, you must agree to our terms of service <a href='terms.html' target="_blank">found here</a>: <input name='check' onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" type="checkbox" value="Agree" required></label>
 				<input id="submitButton" type="submit" value="Submit" style='float:left;background-color:#66ff99;width:21%;height:10%;'>

@@ -54,7 +54,7 @@
 					<div class="col-25">
 						<label for="PMPost">Toolbar: </label>
 					</div>
-						<textarea name="PMPost" autocomplete="off"></textarea>
+						<textarea name="PMPost" placeholder="Write Your Message Here. Use The ToolBar to Format The Message." autocomplete="off"></textarea>
 					<div class="row">
 					<input id="submitButton" type="submit" value="Submit">
 				</div>

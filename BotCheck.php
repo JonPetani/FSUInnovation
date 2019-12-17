@@ -9,6 +9,7 @@
 <link href='css/member_page.css' rel='stylesheet'/>
 </head>
 <body>
+<script src='https://www.google.com/recaptcha/api.js' async defer></script>
 <a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 <h1>Login</h1>
 <div class='select'>
@@ -21,7 +22,12 @@
 						<label for="Email">Enter the Email Address for the Account you wish to verify: </label>
 					</div>
 					<div class="col-75">
-						<input style='width:100%;height:6.5%;'type="email" name="Email" autocomplete="off" required>
+						<input style='width:100%;height:6.5%;'type="email" placeholder="Your Email Address The Message Was Sent To" name="Email" autocomplete="off" required>
+					</div>
+					<div class="row">
+						<div class="col-75">
+						<br><div class="g-recaptcha" data-sitekey="6Le9NsgUAAAAAFvjCyl8yJ_npsTDpIEoumWFe5Zn"></div><br>
+						</div>
 					</div>
 					<div class="row">
 					<input id="submitButton" type="submit" value="Submit">

@@ -20,7 +20,7 @@
 						<label for="Email">Enter the Email Address for the Account: </label>
 					</div>
 					<div class="col-75">
-						<input style='width:100%;height:6.5%;'type="email" name="Email" autocomplete="off" required>
+						<input style='width:100%;height:6.5%;'type="email" placeholder="Enter Recovery Email Address" name="Email" autocomplete="off" required>
 					</div>
 					<div class="row">
 					<input id="submitButton" type="submit" value="Submit">

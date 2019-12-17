@@ -36,8 +36,9 @@
 					echo "parent.removeChild(child1);";
 					echo "parent.removeChild(child2);";
 					echo "</script>";
-					echo "<img src='images/PowerOpen.png' class='accounts' onmouseover='this.src=\"images/PowerPressed.png\";' onmouseout='this.src=\"images/PowerOpen.png\";' alt='Account Tab'/>";
-					echo "<a href='PrivateMessageBoard.php'><img src='images/PM.png' class='accounts' onmouseover='this.src=\"images/PMOpen.png\";' onmouseout='this.src=\"images/PM.png\";' alt='Private Messages'/></a>";
+					echo "<a href='LogOut.php'><img src='images/PowerOpen.png' class='accounts' onmouseover='this.src=\"images/PowerPressed.png\";' onmouseout='this.src=\"images/PowerOpen.png\";' alt='Log Out Tab'/>";
+					echo "<a href='UserControlPanel.php'><img src='images/GearOff.png' class='accounts' onmouseover='this.src=\"images/GearOn.png\";' onmouseout='this.src=\"images/GearOff.png\";' alt='Account Tab'/>";
+					echo "<a href='PrivateMessageBoard.php'><img src='images/PM.png' class='accounts' onmouseover='this.src=\"images/PMOpen.png\";' onmouseout='this.src=\"images/PM.png\";' onclick='' alt='Private Messages'/></a>";
 					}
 				else if($_SESSION['UserType'] == "Intern") {
 					echo "<script>";
@@ -47,14 +48,16 @@
 					echo "parent.removeChild(child1);";
 					echo "parent.removeChild(child2);";
 					echo "</script>";
-					echo "<img src='images/PowerOpen.png' class='accounts' onmouseover='this.src=\"images/PowerPressed.png\";' onmouseout='this.src=\"images/PowerOpen.png\";' alt='Account Tab'/>";
-					echo "<a href='PrivateMessageBoard.php'><img src='images/PM.png' class='accounts' onmouseover='this.src=\"images/PMOpen.png\";' onmouseout='this.src=\"images/PM.png\";' alt='Private Messages'/></a>";
+					echo "<a href='LogOut.php'><img src='images/PowerOpen.png' class='accounts' onmouseover='this.src=\"images/PowerPressed.png\";' onmouseout='this.src=\"images/PowerOpen.png\";' alt='Log Out Tab'/>";
+					echo "<a href='UserControlPanel.php'><img src='images/GearOff.png' class='accounts' onmouseover='this.src=\"images/GearOn.png\";' onmouseout='this.src=\"images/GearOff.png\";' alt='Account Tab'/>";
+					echo "<a href='PrivateMessageBoard.php'><img src='images/PM.png' class='accounts' onmouseover='this.src=\"images/PMOpen.png\";' onmouseout='this.src=\"images/PM.png\";' onclick='' alt='Private Messages'/></a>";
 					}
 			}
 		}
 		
 ?>
 </div>
+<br>
 		<hr color="#FFC400" clear=both>
 
 		<br><a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>

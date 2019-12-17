@@ -483,7 +483,7 @@ $HTML_Message = '<!DOCTYPE html>
 $textMsg = "In a update through our spreadsheet, we were able to create accounts for the members who could not do it themselves. Your username is " . $Username . ", and the Password is " . $Password . "This login information is for the Member Company " . $Company . " and it's main Member " . $MemberName. "You can view the message fully by opening a browser.";
 //$url = "https://api.elasticemail.com/v2/email/send?apikey=a413a47a-66d3-416a-b3b6-ead3a85e3fb4&from=innovation@framingham.edu&subject=" . $Subject . "&from=innovation@framingham.edu&to=" . $To . "&htmlMessage=" . $HTML_Message . "&textMessage=" . $textMsg . "&fromName=" . $Sender . "&charset=utf-8";
 $url = "https://api.elasticemail.com/v2/email/send";
-/*try {
+try {
 	$info = array('from' => 'innovation@framingham.edu',
 				  'fromName' => 'FSU Entrepreneur Innovation Center',
 				  'apikey' => 'a413a47a-66d3-416a-b3b6-ead3a85e3fb4',
@@ -510,7 +510,7 @@ $url = "https://api.elasticemail.com/v2/email/send";
 }
 catch(Exception $e){
 	echo $e -> getMessage();
-}*/
+}
 }
 fclose($ExcelFile);
 header("location: MemberListUpdater.php");

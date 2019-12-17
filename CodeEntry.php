@@ -21,7 +21,7 @@
 						<label for="Code">Enter the Account Reset Code that was sent in the email. If you have not done, go back to it and copy it to your clipboard to paste it here: </label>
 					</div>
 					<div class="col-75">
-						<input style='width:100%;height:6.5%;'type="password" name="Code" autocomplete="off" required>
+						<input style='width:100%;height:6.5%;' placeholder="Paste The Recovery Code From the Email Here" type="password" name="Code" autocomplete="off" required>
 					</div>
 					<div class="row">
 					<input id="submitButton" type="submit" value="Submit">

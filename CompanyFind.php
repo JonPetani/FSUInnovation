@@ -14,12 +14,12 @@
 <div class="txt">
 <h3>Search for Company by Name</h3>
 <form method='post' action="CompanyResults.php" id='search'>
-<input type="text" name='CompanyName'>
+<input type="text" name='CompanyName' placeholder="Search For A Member Company Using By It's Name">
 <input type="submit" name="submit" value="Search">
 </form>
 <h3>Search by Keyword(s)</h3>
 <form method='post' action='Keywords.php' id='search'>
-<input type="text" name="Keyword">
+<input type="text" name="Keyword" placeholder="Enter A Keyword Or Two To Find Relevant Member Companies In That Area">
 <input type="submit" name="submit" value="Search">
 </form>
 <h3>Search by Letter</h3>
