@@ -13,8 +13,8 @@
 		<div id='links'>
 			<a href='Home.php'>Home</a>
 			<a href="https://www.framingham.edu" target="_blank" style="margin-left: 30px">Framingham.edu</a>
-			<a href='Login.php' style="margin-right: 30px;float: right;">Sign In</a>
-			<a href='RegisterHub.php' style="margin-right: 30px;float: right;">Sign Up</a>
+			<a href='Login.php' id="si" style="margin-right: 30px;float: right;">Sign In</a>
+			<a href='RegisterHub.php' id="su" style="margin-right: 30px;float: right;">Sign Up</a>
 			
 <?php
 		session_start();
@@ -99,7 +99,7 @@ $page = "UpdateAccount.php?atype=" . $_SESSION['UserType'];
 				$now = $sql -> fetch(PDO::FETCH_ASSOC);
 				echo "<h2>Edit Your Member Profile Here</h2>";
 					echo'<div class="container">';
-			echo'<form action="" method="post">';
+			echo'<form action="ChangeProfile.php" method="post">';
 				echo'<div class="row">';
 					echo'<div class="col-25">';
 						echo'<label for="Username">Update Username: </label>';
@@ -108,7 +108,7 @@ $page = "UpdateAccount.php?atype=" . $_SESSION['UserType'];
 						echo'<input type="text" name="Username" autocomplete="off" placeholder="Type a New Username" autofocus>';
 					echo'</div>';
 				echo'</div>';
-				echo'<div class="row">';
+				echo'<div class="row" id="p">';
 				echo'<h3>New Password (Requires Old One to Change):</h3>';
 					echo'<div class="col-25">';
 						echo'<label for="PasswordOld">Enter Old Password: </label>';
@@ -123,15 +123,26 @@ $page = "UpdateAccount.php?atype=" . $_SESSION['UserType'];
 					echo'</div>';
 					echo'<div class="col-75">';
 						echo'<input style="width:100%;height:6.5%;"type="password" name="PasswordNew" placeholder="Enter Your New Password" autocomplete="off">';
+					if(isset($_GET['error'])) {
+					if ($_GET['error'] == 'passcheck') {
+						echo"<h2 style='font-family:Perpetua;background-color:yellow;'>Error, you must enter the old password before you can modify it.</h2>";
+					   }
+				    }
 					echo'</div>';
 					echo'</div>';
+					
 					echo'<div class="row">';
-				    echo'<h3>Update Our Contact Email (Verification Email Will Be Sent):</h3>';
+				    echo'<h3>Update Your Contact Email (Verification Email Will Be Sent):</h3>';
 					echo'<div class="col-25">';
-						echo'<label for="Password">Enter New Email Address: </label>';
+						echo'<label for="ContactEmail">Enter New Email Address: </label>';
 					echo'</div>';
 					echo'<div class="col-75">';
 						echo'<input style="width:100%;height:6.5%;"type="email" name="ContactEmail" placeholder="Enter Your New Email Address" autocomplete="off">';
+					if(isset($_GET['error'])) {
+					if ($_GET['error'] == 'passcheck') {
+						echo"<h2 style='font-family:Perpetua;background-color:yellow;'>Error, A glitch prevented us from sending the required verification email. Please enter the address again. If there is still a issue, report it to a admin.</h2>";
+					   }
+				    }
 					echo'</div>';
 					echo'</div>';
 					echo'<div class="row">';
@@ -171,7 +182,7 @@ $page = "UpdateAccount.php?atype=" . $_SESSION['UserType'];
 						echo'<label for="CompanyDescription">Update Company Description: </label>';
 					echo'</div>';
 					echo'<div class="col-75">';
-						echo'<textarea name="CompanyDescription" class="skills" placeholder="Update Your Company\'s Description On The Site" autocomplete="off" required></textarea>';
+						echo'<textarea name="CompanyDescription" class="skills" placeholder="Update Your Company\'s Description On The Site" autocomplete="off"></textarea>';
 					echo'</div>';
 					echo'</div>';
 					echo'<div class="row">';
@@ -182,10 +193,144 @@ echo'<br clear=both>';
 echo'</div>';
 			}
 			else if ($_SESSION['UserType'] == "Intern") {
-				$logged_in_page = "LoggedInIntern.php";
-				$photo = $_SESSION['InternPhoto'];
-				$email = $_SESSION['EmailAddress'];
-				$name = $_SESSION['InternName'];
+				$sql = $con -> query("SELECT * FROM intern WHERE EmailAddress = '$_SESSION[EmailAddress]'");
+				$now = $sql -> fetch(PDO::FETCH_ASSOC);
+				echo "<h2>Edit Your Intern Profile Here</h2>";
+					echo'<div class="container">';
+			echo'<form action="ChangeProfile.php" method="post">';
+				echo'<div class="row">';
+					echo'<div class="col-25">';
+						echo'<label for="Username">Update Username: </label>';
+					echo'</div>';
+					echo'<div class="col-75">';
+						echo'<input type="text" name="Username" autocomplete="off" placeholder="Type a New Username" autofocus>';
+					echo'</div>';
+				echo'</div>';
+				echo'<div class="row">';
+				if(isset($_GET['error'])) {
+					if($_GET['error'] == 'passcheck') {
+				echo'<div class="entryerror">';
+				echo'<h3>New Password (Requires Old One to Change):</h3>';
+				echo'<h4>You Must Enter The Old Password Before A New One Can Be Used</4>';
+					echo'<div class="col-25">';
+						echo'<label for="PasswordOld">Enter Old Password: </label>';
+					echo'</div>';
+					echo'<div class="col-75">';
+						echo'<input style="width:100%;height:6.5%;"type="password" name="PasswordOld" placeholder="Enter Your Current Password" autocomplete="off">';
+					echo'</div>';
+					echo'</div>';
+					echo'<div class="row">';
+					echo'<div class="col-25">';
+						echo'<label for="PasswordNew">Enter New Password: </label>';
+					echo'</div>';
+					echo'<div class="col-75">';
+						echo'<input style="width:100%;height:6.5%;"type="password" name="PasswordNew" placeholder="Enter Your New Password" autocomplete="off">';
+					echo"</div>";
+					}
+				}
+				else {		
+				echo'<h3>New Password (Requires Old One to Change):</h3>';
+					echo'<div class="col-25">';
+						echo'<label for="PasswordOld">Enter Old Password: </label>';
+					echo'</div>';
+					echo'<div class="col-75">';
+						echo'<input style="width:100%;height:6.5%;"type="password" name="PasswordOld" placeholder="Enter Your Current Password" autocomplete="off">';
+					echo'</div>';
+					echo'</div>';
+					echo'<div class="row">';
+					echo'<div class="col-25">';
+						echo'<label for="PasswordNew">Enter New Password: </label>';
+					echo'</div>';
+					echo'<div class="col-75">';
+						echo'<input style="width:100%;height:6.5%;"type="password" name="PasswordNew" placeholder="Enter Your New Password" autocomplete="off">';
+				}
+					echo'</div>';
+					echo'</div>';
+					echo'<div class="row">';
+				    echo'<h3>Update Your Contact Email (Verification Email Will Be Sent):</h3>';
+					echo'<div class="col-25">';
+						echo'<label for="EmailAddress">Enter New Email Address: </label>';
+					echo'</div>';
+					echo'<div class="col-75">';
+						echo'<input style="width:100%;height:6.5%;"type="email" name="EmailAddress" placeholder="Enter Your New Email Address" autocomplete="off">';
+					echo'</div>';
+					echo'</div>';
+					echo'<div class="row">';
+					echo'<div class="col-25">';
+						echo'<label for="City">Update Your City/Town Location: </label>';
+					echo'</div>';
+					echo'<div class="col-75">';
+						echo'<input style="width:100%;height:6.5%;"type="text" name="City" placeholder="Enter The Town/City Your Company Operates Out Of" autocomplete="off">';
+					echo'</div>';
+					echo'</div>';
+					echo'<div class="row">';
+					echo'<div class="col-25">';
+						echo'<label for="State">Update State: </label>';
+					echo'</div>';
+					echo'<div class="col-75">';
+						echo'<input style="width:100%;height:6.5%;"type="text" name="State" placeholder="Enter The State Your Company Operates Out Of" autocomplete="off">';
+					echo'</div>';
+					echo'</div>';
+					echo'<div class="row">';
+					echo'<div class="col-25">';
+						echo'<label for="PhoneNumber">Update Contact Number: </label>';
+					echo'</div>';
+					echo'<div class="col-75">';
+						echo'<input style="width:100%;height:6.5%;"type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="PhoneNumber" placeholder="Enter The New Phone Number You Want To Be Reached At" autocomplete="off">';
+					echo'</div>';
+					echo'</div>';
+					echo'<div class="row">';
+					echo'<div class="col-25">';
+						echo'<label for="InternPhoto">Update Your Portrait / Account Image: </label>';
+					echo'</div>';
+					echo'<div class="col-75">';
+						echo'<input style="width:100%;height:6.5%;"type="file" name="InternPhoto" autocomplete="off">';
+					echo'</div>';
+					echo'</div>';
+					echo'<div class="row">';
+					echo'<div class="col-25">';
+						echo'<label for="School">Update School: </label>';
+					echo'</div>';
+					echo'<div class="col-75">';
+						echo'<input style="width:100%;height:6.5%;"type="text" name="School" placeholder="Change School If You Transfered To Another University Within Our Network" autocomplete="off">';
+					echo'</div>';
+					echo'</div>';
+					echo'<div class="row">';
+					echo'<div class="col-25">';
+						echo'<label for="Major">Update Major: </label>';
+					echo'</div>';
+					echo'<div class="col-75">';
+						echo'<input style="width:100%;height:6.5%;"type="text" name="Major" placeholder="If You Switched Majors Or Selected One Finally, Enter It Here To Find Proper Internships For Your Field Of Study" autocomplete="off">';
+					echo'</div>';
+					echo'</div>';
+					echo'<div class="row">';
+					echo'<div class="col-25">';
+						echo'<label for="GPA">Update GPA: </label>';
+					echo'</div>';
+					echo'<div class="col-75">';
+						echo'<input style="width:100%;height:6.5%;"type="number" name="GPA" placeholder="Enter Your New GPA If You Completed Any Additional Course Credits" autocomplete="off">';
+					echo'</div>';
+					echo'</div>';
+					echo'<div class="row">';
+					echo'<div class="col-25">';
+						echo'<label for="Resume">Update Your Resume: </label>';
+					echo'</div>';
+					echo'<div class="col-75">';
+						echo'<input style="width:100%;height:6.5%;"type="file" name="Resume" autocomplete="off">';
+					echo'</div>';
+					echo'</div>';
+					echo'<div class="row"/>';
+					echo'<div class="col-25"/>';
+						echo'<label for="SkillsAndExperience">Update Skills And/Or Experiences: </label>';
+					echo'</div>';
+					echo'<div class="col-75">';
+						echo'<textarea name="SkillsAndExperience" class="skills" placeholder="If There\'s Any New Skills You Acquired That Will Be Helpful For Members, Enter Them Here" autocomplete="off"></textarea>';
+					echo'</div>';
+					echo'</div>';
+					echo'<div class="row">';
+					echo'<input id="submitButton" type="submit" value="Submit">';
+				echo'</div>';
+				echo'</div>';
 			}
 ?>
 <footer>

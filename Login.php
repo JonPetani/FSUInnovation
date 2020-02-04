@@ -14,11 +14,11 @@ Co-Collaborators: Jessica Grady, Simone McHugh-->
 
 	<body>
 
-		<div class='links'>
+		<div id='links'>
 			<a href='Home.php'>Home</a>
 			<a href="https://www.framingham.edu" target="_blank" style="margin-left: 30px">Framingham.edu</a>
-			<a href='Login.php' style="margin-right: 30px;float: right;">Sign In</a>
-			<a href='RegisterHub.php' style="margin-right: 30px;float: right;">Sign Up</a>
+			<a href='Login.php' style="margin-right: 30px;float: right;" id = 'si'>Sign In</a>
+			<a href='RegisterHub.php' style="margin-right: 30px;float: right;"id = 'su'>Sign Up</a>
 		</div>
 		<?php
 		$pageMember = "";

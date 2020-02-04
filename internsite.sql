@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2019 at 07:24 PM
+-- Generation Time: Feb 04, 2020 at 11:59 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -56,6 +56,18 @@ CREATE TABLE `applications` (
   `InternApplication` longblob NOT NULL COMMENT 'The form the Intern filled out to apply',
   `Permission` tinyint(1) NOT NULL COMMENT 'Permission to View Intern Account Info'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Stores Applications pending (not denied or accepted)';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `emailtemp`
+--
+
+CREATE TABLE `emailtemp` (
+  `EmailId` int(11) NOT NULL COMMENT 'AddressId',
+  `EmailAddress` varchar(255) NOT NULL COMMENT 'Email To Store Before Verify Is Complete',
+  `OriginalEmail` varchar(255) NOT NULL COMMENT 'Original Email Address'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Store Email Address Changes For Email Verify';
 
 -- --------------------------------------------------------
 
@@ -198,7 +210,7 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`MemberId`, `ContactName`, `CompanyName`, `ContactEmail`, `Username`, `Password`, `CompanyCity`, `CompanyState`, `PhoneNumber`, `CompanyPicture`, `CompanyDescription`, `AccountVerified`, `AccessCode`) VALUES
-(11, 'David Cohen', 'Doc Wayne Youth Services', 'dcohen@docwayne.org', 'dwayne', '3rhuw7q3hu', 'Framingham', 'Massachusetts', '617-458-0315', 'https://ibb.co/H75nscB', 'Doc Wayne is an award-winning non-profit reimagining therapy through the lens of sport. Our sport-based group therapy program, Chalk Talk®, supports students as they process and persevere through adversity. Over time, as individuals and in teams, youth learn to heal together, grow together, and win together.', 1, NULL),
+(11, 'David Cohen', 'Doc Wayne Youth Services', 'dcohen@docwayne.org', 'dwayne', 'wildplanettuna', 'Framingham', 'Massachusetts', '617-458-0315', 'https://ibb.co/H75nscB', 'Doc Wayne is an award-winning non-profit reimagining therapy through the lens of sport. Our sport-based group therapy program, Chalk Talk®, supports students as they process and persevere through adversity. Over time, as individuals and in teams, youth learn to heal together, grow together, and win together.', 1, NULL),
 (12, 'James Neal', 'Team Solar', 'james@teamsolar.us', 'tsolar', 'fh2893f3', 'Framingham', 'Massachusetts', '774-217-3995', 'https://ibb.co/F61TMYk', 'Team Solar is dedicated to helping non-profit organizations and small businesses receive the benefits of solar\r\n', 1, NULL),
 (13, 'Marina Andreazi', 'Xua Life', 'marina@xua.life', 'XLife', 'q8c 4t8o', 'Framingham', 'Massachusetts', '508-626-5721', 'https://ibb.co/ZJgW8KJ', 'Craft Energy Drinks Powered By Amazonian Ingredients', 1, NULL),
 (15, 'Matthew McLean', 'Nubitt', 'matt@nubitt.com', 'mattbitt', 'nubitt45391', 'Boston', 'Massachusetts', '617-593-4260', 'https://ibb.co/1ZLxHLR', 'No Description', 1, NULL),
@@ -223,7 +235,8 @@ INSERT INTO `member` (`MemberId`, `ContactName`, `CompanyName`, `ContactEmail`, 
 (60, 'Mazi Gene', 'Ray Farmz LLC', 'mazzpmp@gmail.com', 'a183', '+(	N=.g<w:SNP8d)3_S', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
 (61, 'Harry Corcell', '', 'harry.corcell@lansa.com', 'a376', 'F=,t-LM~B:8t0.O1q_#:[w', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
 (62, 'ElizabethLison', 'Innovative Autism Connections, LLC', 'plison@innovativeautism.org', 'l568', ',&Lz*!t`b|gDfBCV+ed', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
-(63, 'Jonathan Petani', 'Business Men of America', 'Unstoppablestreletsy@gmail.com', 'o804', 'uL{Ia]1iHG?N#X-/-ji&bb', 'Florida', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL);
+(63, 'Jonathan Petani', 'Business Men of America', 'Unstoppablestreletsy@gmail.com', 'o804', 'uL{Ia]1iHG?N#X-/-ji&bb', 'Florida', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
+(64, 'Jon Johnson', 'None of Your Business', 'JonPetani@gmail.com', 'jjony', 'kjeewewiewi', 'Grafton', 'New Hampshire', '485-445-4555', 'https://i.ibb.co/xskxK06/01fd51d3c8ce.gif', 'Again, None of your business. Our Business is our business.', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -284,7 +297,8 @@ INSERT INTO `privatemessageboards` (`BoardId`, `Username`, `Name`, `Email`, `Con
 (20, 'mattbitt', 'Matthew McLean', 'matt@nubitt.com', 0, 15, '', '10 ', NULL),
 (22, 'mmartinez', 'Murkin Martinez', 'murkin.martinez@gmail.com', 0, 16, '', NULL, NULL),
 (26, 'dwayne', 'David Cohen', 'dcohen@docwayne.org', 0, 11, '', '10 11 12 12 12 ', NULL),
-(28, 'ChristosPizza', 'Christos Giam', 'unstoppablestreletsy@gmail.com', 0, 22, 'https://i.ibb.co/m0x0Wjr/b2e453ca2a8e.png', '9 10 ', NULL);
+(28, 'ChristosPizza', 'Christos Giam', 'unstoppablestreletsy@gmail.com', 0, 22, 'https://i.ibb.co/m0x0Wjr/b2e453ca2a8e.png', '9 10 ', NULL),
+(29, 'Jpetani', 'Jonathan Petani', 'jpetani@student.framingham.edu', 0, 5, 'https://i.ibb.co/TYmxJpL/e88be3e28bb7.png', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -333,6 +347,12 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `applications`
   ADD PRIMARY KEY (`AppId`);
+
+--
+-- Indexes for table `emailtemp`
+--
+ALTER TABLE `emailtemp`
+  ADD PRIMARY KEY (`EmailId`);
 
 --
 -- Indexes for table `intern`
@@ -405,6 +425,12 @@ ALTER TABLE `applications`
   MODIFY `AppId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for Application in Database';
 
 --
+-- AUTO_INCREMENT for table `emailtemp`
+--
+ALTER TABLE `emailtemp`
+  MODIFY `EmailId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'AddressId';
+
+--
 -- AUTO_INCREMENT for table `intern`
 --
 ALTER TABLE `intern`
@@ -438,7 +464,7 @@ ALTER TABLE `keywords`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `MemberId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=64;
+  MODIFY `MemberId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `privateconversations`
@@ -450,7 +476,7 @@ ALTER TABLE `privateconversations`
 -- AUTO_INCREMENT for table `privatemessageboards`
 --
 ALTER TABLE `privatemessageboards`
-  MODIFY `BoardId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id of User''s Message Board', AUTO_INCREMENT=29;
+  MODIFY `BoardId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id of User''s Message Board', AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `privatemessages`

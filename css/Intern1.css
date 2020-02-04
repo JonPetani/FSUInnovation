@@ -292,3 +292,12 @@ div.messagePost > div.forumBody {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+entry.entryerror {
+	border: 1px #66291e dashed;
+	background-color:#fa9684;
+}
+
+entry.entryerror > h4 {
+	font-family: Courier New;
+}

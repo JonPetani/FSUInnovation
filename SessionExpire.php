@@ -25,8 +25,10 @@
 </div>
 <div class='select'>
 <h3>Click the Link below to Login Again</h3>
+<ul type=none>
 <?php
 echo"<li style='text-align:center;'><a href='Login.php?location=" . htmlspecialchars($_GET['location']) . "'>Log in</a></li>";
 ?>
+</ul>
 </div>
 </html>
