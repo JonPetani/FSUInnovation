@@ -1,5 +1,7 @@
 <?php
-
+// dropbox api key => 4s9vxyownku3sp2
+// dropbox app secret => wdx61uh10w78ix9
+// dropbox authentication token => Xe6PaJwneZAAAAAAAAAAH67SSXlTCim-U5uEUmem1tuO2KUTSrA5YijAnk2rEddV
 
 $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
 
