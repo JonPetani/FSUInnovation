@@ -10,7 +10,7 @@
 <h1>FSU Innovation Internship Website</h1>
 <div class='txt'>
 <h2 align=center>Account Changes Succesful</h2>
-<p>There were no errors in the changes requested. If you changed your email address, a message was sent to the inbox for you to verify it as a valid address.</p>
+<p>There were no errors in the changes requested. If you changed your email address, a message was sent to the inbox for you to verify it as a valid address. Your email will remain the same until you verify the new address.</p>
 <div class='select'>
 <h3 align=center>What to do next</h3>
 <ul type=none>

@@ -19,11 +19,20 @@
 			<form action="VerifyNewAddress.php" method="post">
 				<div class="row">
 					<div class="col-25">
+						<label for="Email">Enter the Old Email Address Currently In Use: </label>
+					</div>
+					<div class="col-75">
+						<input style='width:100%;height:6.5%;'type="emailOld" placeholder="The Email Address Your Account Used Before" name="Email" autocomplete="off" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-25">
 						<label for="Email">Enter the New Email Address you wish to use for your account: </label>
 					</div>
 					<div class="col-75">
-						<input style='width:100%;height:6.5%;'type="email" placeholder="The New Email Address You Requested To Have Earlier" name="Email" autocomplete="off" required>
+						<input style='width:100%;height:6.5%;'type="emailNew" placeholder="The New Email Address You Requested To Have Earlier" name="Email" autocomplete="off" required>
 					</div>
+				</div>
 					<div class="row">
 						<div class="col-75">
 						<br><div class="g-recaptcha" data-sitekey="6Le9NsgUAAAAAFvjCyl8yJ_npsTDpIEoumWFe5Zn"></div><br>

@@ -12,7 +12,7 @@
 <?php
 $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
 if(isset($_POST['Email'])) {
-$sql = $con -> query("SELECT * FROM emailtemp WHERE EmailAddress = '$_POST[Email]'");
+$sql = $con -> query("SELECT * FROM emailtemp WHERE EmailAddress = '$_POST[EmailNew]' AND WHERE OriginalEmail = '$_POST[EmailOld]'");
 if($sql->rowCount() == 0) {
 	echo"<h2 align=center>Email Doesn't Match</h2>";
 	echo"<p>The email address provided does not match the one you requested. Make sure you wrote the email address of the account correctly before trying again.</p>";
@@ -23,14 +23,15 @@ if($sql->rowCount() == 0) {
 	echo"<li style='margin-left:-3%;float:left;text-align:center;'><a href=''>Contact our Platform Support Team for Help</a></li>";
 }
 else {	
-$sql3 = $con -> query("UPDATE intern SET AccountVerified = 1 WHERE EmailAddress = '$_POST[Email]'");
-$sql4 = $con -> query("UPDATE member SET AccountVerified = 1 WHERE ContactEmail = '$_POST[Email]'");
-echo "<h2 align=center>Registration Successful</h2>";
-echo "<p>Welcome to our Website. Now that you are now registered and verified, we hope you will find our site useful whether you are a intern or a representative of a company.</p>";
+$sql2 = $con -> query("UPDATE intern SET EmailAddress = '$_POST[EmailNew]' WHERE EmailAddress = '$_POST[EmailOld]'");
+$sql3 = $con -> query("UPDATE member SET ContactEmail = '$_POST[EmailNew]' WHERE ContactEmail = '$_POST[EmailOld]'");
+$sql4 = $con -> query("DELETE FROM emailtemp WHERE EmailAddress = '$_POST[EmailNew]'");
+echo "<h2 align=center>Email Address Change Successful</h2>";
+echo "<p>Your New Email Address is now Verified and is ready to use for communicating with Interns and Members.</p>";
 echo "<div class='select'>";
 echo "<h3 align=center>What to do next</h3>";
 echo "<ul type=none>";
-echo "<li style='margin-left:-8%;float:left;text-align:center;'><a href='Login.php'>Try Logging in to your new account</a></li>";
+echo "<li style='margin-left:-8%;float:left;text-align:center;'><a href='UserControlPanel.php'>Return to Your User Control Panel</a></li>";
 echo "<li style='margin-left:-3%;float:left;text-align:center;'><a href='Home.php'>Otherwise, Return to Homepage</a></li>";
 }
 }
