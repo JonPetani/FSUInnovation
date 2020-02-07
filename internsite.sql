@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 04, 2020 at 11:59 PM
+-- Generation Time: Feb 07, 2020 at 11:54 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -88,7 +88,7 @@ CREATE TABLE `intern` (
   `City` varchar(255) NOT NULL COMMENT 'Community the Intern comes from',
   `State` varchar(255) NOT NULL COMMENT 'State the Intern comes from',
   `PhoneNumber` varchar(20) DEFAULT NULL COMMENT 'Intern''s phone number',
-  `Resume` longblob COMMENT 'Intern''s Resume',
+  `Resume` text COMMENT 'Intern''s Resume',
   `SkillsAndExperience` longtext COMMENT 'Past Jobs/Skills that Intern has',
   `AccountVerified` tinyint(1) NOT NULL COMMENT 'Determines if user has reviewed and replied to verification email at registration time.',
   `AccessCode` varchar(13) DEFAULT NULL COMMENT 'Code that only exists when account reset is needed'

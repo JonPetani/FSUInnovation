@@ -42,7 +42,7 @@ for ($i = 0; $i < sizeof($results); $i++) {
 	else {
 		echo "<td><img src='images/Allowed.png' class='TableImg' alt='Access Denied to Information' title = 'Intern Denied you Access to View Profile Info (Send a pm to him/her if you have questions about them)'/></td>";
 	}
-	echo "<td>" . $InternInfo[0]['Resume'] . "</td>";
+	echo "<td><a href='" . $InternInfo[0]['Resume'] . "&prev=" . urlencode($_SERVER['REQUEST_URI']) . "'>Resume Link</a></td>";
 	echo "<td>" . $InternInfo[0]['SkillsAndExperience'] . "</td>";
 	echo "<td>" . $results[$i]['InternApplication'] . "</td>";
 	echo "<td cellspan='2'>" . '<a href="Accept.php?app=' . $results[$i]['AppId'] . '"><img src="images/Accept.jpg" class="SkillImg" alt="Accept Applicant"/></a>' . '<a href="Deny.php?app=' . $results[$i]['AppId'] . '"><img src="images/Delete.jpg" class="SkillImg" alt="Deny Applicant"/></a>';

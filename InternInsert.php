@@ -44,11 +44,48 @@ catch(Exception $e) {
 }
 
 $UsernameFinal = str_replace(' ', '', $_POST['Username']);
+if(isset($_FILES['Resume'])) {
+	if(!Empty($_FILES['Resume'])) {
+try {
+	$dropbox_url = "https//content.dropboxapi.com/2/files/upload";
+	$dropbox_token = "Xe6PaJwneZAAAAAAAAAAH67SSXlTCim-U5uEUmem1tuO2KUTSrA5YijAnk2rEddV";
+	$dropbox_api_headers = array('Authorization: Bearer ' . $dropbox_token,
+								 'Content-Type: application/octet-stream',
+								 'Dropbox-API-Arg: ' . json_encode(array(
+								 "path" => '/' . basename($_FILES['Resume']),
+								 "mode" => "add".
+								 "autorename" => true,
+								 "mute" => false,
+								 "strict_conflict" => false
+								 )));
+	$dir = $_FILES['Resume'];
+	$opendoc = fopen($dir, 'rb');
+	$docsize = filesize($dir);
+	
+	$d1curl = curl_init($dropbox_url);
+	curl_setopt($d1curl, CURLOPT_HEADER, $dropbox_api_headers);
+	curl_setopt($d1curl, CURLOPT_POST, true);
+	curl_setopt($d1curl, CURLOPT_POSTFIELDS, fread($opendoc, $docsize));
+	curl_setopt($d1curl, CURLOPT_RETURNTRANSFER, true);
+	$dropbox_upload = curl_exec(d1curl);
+	$http_request = curl_setopt($d1curl, CURLINFO_HTTP_CODE);
+	echo $dropbox_upload;
+	echo $http_request;
+	curl_close($d1curl);
+	fclose($opendoc);
+}	
+catch(Exception $e) {
+	echo $e -> getMessage();
+}
+$Download_Link = "Localhost:8080/FSUInnovation/DocumentDownload.php?filename=" . $_FILES['Resume']);
+}
+}
+
 $sql= $con -> query("INSERT INTO intern (InternName, EmailAddress, Username, Password, School, InternPhoto, Major, GPA, City, State, PhoneNumber, Resume, SkillsAndExperience)
 
 VALUES
 
-('$_POST[InternName]','$_POST[EmailAddress]','$UsernameFinal','$_POST[Password]','$_POST[School]','$imgLink','$_POST[Major]','$_POST[GPA]','$_POST[City]','$_POST[State]','$_POST[PhoneNumber]','$_POST[Resume]','$_POST[SkillsAndExperience]')");
+('$_POST[InternName]','$_POST[EmailAddress]','$UsernameFinal','$_POST[Password]','$_POST[School]','$imgLink','$_POST[Major]','$_POST[GPA]','$_POST[City]','$_POST[State]','$_POST[PhoneNumber]','$Download_Link','$_POST[SkillsAndExperience]')");
 
 /*
 if (!query($sql,$con))
