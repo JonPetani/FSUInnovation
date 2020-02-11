@@ -17,7 +17,7 @@
 <div class='txt'>
 <h3 style='clear:both;'>It looks like we were unable to create you a new account</h3>
 <p>There is several reasons why this was possible.</p>
-<p>At the time we are only accepting students from Framingham State University. Students will credentials unrelated to that institution will have to wait until we provide services to other schools</p>
+<p>At the time we are only accepting students from Framingham State University. Students with credentials unrelated to that institution will have to wait until we provide services to other schools</p>
 <p>It is possible that your information is the same as a banned account. If you are not this banned individual, <a href=''>contact us here</a> and we will try to get you in as soon as possible.</p>
 <p>Keep in Mind we only allow one account (determined by Email address) per student/organization. If you are part of a Member Company, ask the member of your company who gave you the account to provide you with the username/password. This is to prevent spam accounts.</p>
 </div>

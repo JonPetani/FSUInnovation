@@ -1,7 +1,7 @@
 <?php
 // dropbox api key => 4s9vxyownku3sp2
 // dropbox app secret => wdx61uh10w78ix9
-// dropbox authentication token => Xe6PaJwneZAAAAAAAAAAH67SSXlTCim-U5uEUmem1tuO2KUTSrA5YijAnk2rEddV
+// dropbox authentication token => Xe6PaJwneZAAAAAAAAAAIvv7I9nKb3W2tlq2NJUL0iLtBvtthT7429RYvU5hPkpL
 
 $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
 
@@ -47,28 +47,29 @@ $UsernameFinal = str_replace(' ', '', $_POST['Username']);
 if(isset($_FILES['Resume'])) {
 	if(!Empty($_FILES['Resume'])) {
 try {
-	$dropbox_url = "https//content.dropboxapi.com/2/files/upload";
+	$doc = $_FILES['Resume'];
+	$filename = $doc['tmp_name'];
+	$dropbox_url = "https://content.dropboxapi.com/2/files/upload?authorization=Xe6PaJwneZAAAAAAAAAAIvv7I9nKb3W2tlq2NJUL0iLtBvtthT7429RYvU5hPkpL";
 	$dropbox_token = "Xe6PaJwneZAAAAAAAAAAH67SSXlTCim-U5uEUmem1tuO2KUTSrA5YijAnk2rEddV";
-	$dropbox_api_headers = array('Authorization: Bearer ' . $dropbox_token,
+	$dropbox_api_headers = array('Authorization: ' . $dropbox_token,
 								 'Content-Type: application/octet-stream',
 								 'Dropbox-API-Arg: ' . json_encode(array(
-								 "path" => '/' . basename($_FILES['Resume']),
-								 "mode" => "add".
+								 "path" => '/' . basename($filename),
+								 "mode" => "add",
 								 "autorename" => true,
 								 "mute" => false,
 								 "strict_conflict" => false
 								 )));
-	$dir = $_FILES['Resume'];
-	$opendoc = fopen($dir, 'rb');
-	$docsize = filesize($dir);
+	$opendoc = fopen($filename, 'rb');
+	$docsize = $_FILES['Resume']['size'];
 	
 	$d1curl = curl_init($dropbox_url);
 	curl_setopt($d1curl, CURLOPT_HEADER, $dropbox_api_headers);
 	curl_setopt($d1curl, CURLOPT_POST, true);
 	curl_setopt($d1curl, CURLOPT_POSTFIELDS, fread($opendoc, $docsize));
 	curl_setopt($d1curl, CURLOPT_RETURNTRANSFER, true);
-	$dropbox_upload = curl_exec(d1curl);
-	$http_request = curl_setopt($d1curl, CURLINFO_HTTP_CODE);
+	$dropbox_upload = curl_exec($d1curl);
+	$http_request = curl_getinfo($d1curl, CURLINFO_HTTP_CODE);
 	echo $dropbox_upload;
 	echo $http_request;
 	curl_close($d1curl);
@@ -77,7 +78,7 @@ try {
 catch(Exception $e) {
 	echo $e -> getMessage();
 }
-$Download_Link = "Localhost:8080/FSUInnovation/DocumentDownload.php?filename=" . $_FILES['Resume']);
+$Download_Link = "Localhost:8080/FSUInnovation/DocumentDownload.php?filename=" . $_FILES['Resume']['name'];
 }
 }
 
@@ -367,6 +368,7 @@ try {
 catch(Exception $e){
 	echo $e -> getMessage();
 }
+die;
 header("location: Success.php");
 /*echo "*Success! Welcome to our website. Hope our services will serve you and your company well.";*/
 
