@@ -49,22 +49,36 @@ if(isset($_FILES['Resume'])) {
 try {
 	$doc = $_FILES['Resume'];
 	$filename = $doc['tmp_name'];
-	$dropbox_url = "https://content.dropboxapi.com/2/files/upload?authorization=Xe6PaJwneZAAAAAAAAAAIvv7I9nKb3W2tlq2NJUL0iLtBvtthT7429RYvU5hPkpL";
 	$dropbox_token = "Xe6PaJwneZAAAAAAAAAAH67SSXlTCim-U5uEUmem1tuO2KUTSrA5YijAnk2rEddV";
-	$dropbox_api_headers = array('Authorization: ' . $dropbox_token,
-								 'Content-Type: application/octet-stream',
-								 'Dropbox-API-Arg: ' . json_encode(array(
-								 "path" => '/' . basename($filename),
-								 "mode" => "add",
-								 "autorename" => true,
-								 "mute" => false,
-								 "strict_conflict" => false
-								 )));
+	$dropbox_url = "https://content.dropboxapi.com/2/files/upload";
+	/*$dropbox_api_headers = array('Authorization: Bearer '. $dropbox_token,
+            'Content-Type: application/octet-stream',
+            'Dropbox-API-Arg: '.
+            json_encode(
+                array(
+                    "path"=> '/'. basename($filename),
+                    "mode" => "add",
+                    "autorename" => true,
+                    "mute" => false
+                )
+            )
+
+        );*/
 	$opendoc = fopen($filename, 'rb');
 	$docsize = $_FILES['Resume']['size'];
-	
-	$d1curl = curl_init($dropbox_url);
-	curl_setopt($d1curl, CURLOPT_HEADER, $dropbox_api_headers);
+	$d1curl = curl_init();
+	curl_setopt($d1curl, CURLOPT_URL, $dropbox_url);
+	curl_setopt($d1curl, CURLOPT_HEADER, [
+		utf8_encode('Authorization: Bearer '. $dropbox_token),
+            utf8_encode('Content-Type: application/octet-stream'),
+            utf8_encode('Dropbox-API-Arg: '.
+            json_encode(
+                array(
+                    "path"=> '/'. basename($filename),
+                    "mode" => "add",
+                    "autorename" => true,
+                    "mute" => false
+	)))]);
 	curl_setopt($d1curl, CURLOPT_POST, true);
 	curl_setopt($d1curl, CURLOPT_POSTFIELDS, fread($opendoc, $docsize));
 	curl_setopt($d1curl, CURLOPT_RETURNTRANSFER, true);

@@ -610,6 +610,15 @@ catch(Exception $e){
 }
 $store = $con -> query("INSERT INTO emailtemp (EmailAddress, OriginalEmail) VALUES ('$_POST[EmailAddress]','$_SESSION[EmailAddress]')");
 	}
+	if(!Empty($_POST['Major'])) {
+		$userchange = $con -> query("UPDATE intern SET Major = '$_POST[Major]' WHERE InternName = '$_SESSION[InternName]'");
+	}
+	if(!Empty($_POST['School'])) {
+		$userchange = $con -> query("UPDATE intern SET School = '$_POST[School]' WHERE InternName = '$_SESSION[InternName]'");
+	}
+	if(!Empty($_POST['GPA'])) {
+		$userchange = $con -> query("UPDATE intern SET GPA = '$_POST[GPA]' WHERE InternName = '$_SESSION[InternName]'");
+	}
 	if(!Empty($_POST['City'])) {
 		$userchange = $con -> query("UPDATE intern SET City = '$_POST[City]' WHERE InternName = '$_SESSION[InternName]'");
 	}
