@@ -301,3 +301,8 @@ entry.entryerror {
 entry.entryerror > h4 {
 	font-family: Courier New;
 }
+
+img.intext {
+	width: 25%;
+	height: 25%;
+}

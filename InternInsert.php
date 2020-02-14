@@ -47,6 +47,13 @@ $UsernameFinal = str_replace(' ', '', $_POST['Username']);
 if(isset($_FILES['Resume'])) {
 	if(!Empty($_FILES['Resume'])) {
 try {
+	if(!isset($_GET['Auth'])) {
+		$_SESSION['apply-table'] = $_POST;;
+		header("Location: https://www.dropbox.com/1/oauth2/authorize?client_id=4s9vxyownku3sp2&response_type=token&redirect_uri=localhost:8080/FSUInnovation/InternInsert.php");
+		die;
+	}
+	echo $_GET['code'];
+	die;
 	$doc = $_FILES['Resume'];
 	$filename = $doc['tmp_name'];
 	$dropbox_token = "Xe6PaJwneZAAAAAAAAAAH67SSXlTCim-U5uEUmem1tuO2KUTSrA5YijAnk2rEddV";
@@ -67,9 +74,11 @@ try {
 	$opendoc = fopen($filename, 'rb');
 	$docsize = $_FILES['Resume']['size'];
 	$d1curl = curl_init();
+	$timeout = 50;
 	curl_setopt($d1curl, CURLOPT_URL, $dropbox_url);
+	curl_setopt($d1curl, CURLOPT_TIMEOUT, $timeout);
 	curl_setopt($d1curl, CURLOPT_HEADER, [
-		utf8_encode('Authorization: Bearer Xe6PaJwneZAAAAAAAAAAH67SSXlTCim-U5uEUmem1tuO2KUTSrA5YijAnk2rEddV'),
+		utf8_encode('Authorization: Bearer ' . $dropbox_token),
             utf8_encode('Content-Type: application/octet-stream'),
             utf8_encode('Dropbox-API-Arg: '.
             json_encode(
