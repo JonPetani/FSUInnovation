@@ -69,7 +69,7 @@ try {
 	$d1curl = curl_init();
 	curl_setopt($d1curl, CURLOPT_URL, $dropbox_url);
 	curl_setopt($d1curl, CURLOPT_HEADER, [
-		utf8_encode('Authorization: Bearer '. $dropbox_token),
+		utf8_encode('Authorization: Bearer Xe6PaJwneZAAAAAAAAAAH67SSXlTCim-U5uEUmem1tuO2KUTSrA5YijAnk2rEddV'),
             utf8_encode('Content-Type: application/octet-stream'),
             utf8_encode('Dropbox-API-Arg: '.
             json_encode(
