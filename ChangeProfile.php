@@ -610,6 +610,7 @@ catch(Exception $e){
 }
 $store = $con -> query("INSERT INTO emailtemp (EmailAddress, OriginalEmail) VALUES ('$_POST[EmailAddress]','$_SESSION[EmailAddress]')");
 	}
+//other fields
 	if(!Empty($_POST['Major'])) {
 		$userchange = $con -> query("UPDATE intern SET Major = '$_POST[Major]' WHERE InternName = '$_SESSION[InternName]'");
 	}
