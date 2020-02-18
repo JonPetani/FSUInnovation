@@ -18,7 +18,7 @@
 
 		<div class = "content">
 
-			<form action = "InternInsert.php" enctype = "multipart/form-data" method = "post">
+			<form action = "InternInsert.php?Auth=ok" enctype = "multipart/form-data" method = "post">
 
 				<div class = "boxcontainer">
 
@@ -57,7 +57,7 @@
 
 					<label>Resume:</label>
 					<input type="file" name="Resume" accept='application/octet-stream' autocomplete="off"><br>
-					<label style="font-size:80%;">We use <a href="www.dropbox.com"><img src="images/dropboxhero.jpg" class="intext"/></a> for file storage. In order to store your resume on the site, you need a account (<a href="https://www.dropbox.com/register">Sign up here</a>)</label>
+					<label style="font-size:80%;">We use <a href="https://www.dropbox.com"><img src="images/dropboxhero.jpg" style="width:5.5%;height:5.5%;"/></a> for file storage. In order to store your resume on the site, you need a account (<a href="https://www.dropbox.com/register">Sign up here</a>)</label><br><br>
 					
 					<label>Skills and Experience(in lieu of Resume):</label>
 					<textarea name="SkillsAndExperience" placeholder="If You Didn't Make A Resume Yet, Describe Yourself and Your Skills/Experiences You Have Particularly That Would Be Helpful For A Member To Know" class="skills" autocomplete="off"></textarea>

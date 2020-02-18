@@ -47,13 +47,12 @@ $UsernameFinal = str_replace(' ', '', $_POST['Username']);
 if(isset($_FILES['Resume'])) {
 	if(!Empty($_FILES['Resume'])) {
 try {
-	if(!isset($_GET['Auth'])) {
+	if(isset($_GET['Auth'])) {
 		$_SESSION['apply-table'] = $_POST;;
-		header("Location: https://www.dropbox.com/1/oauth2/authorize?client_id=4s9vxyownku3sp2&response_type=token&redirect_uri=localhost:8080/FSUInnovation/InternInsert.php");
+		header("Location: https://www.dropbox.com/2/oauth2/authorize?client_id=4s9vxyownku3sp2&response_type=token&redirect_uri=localhost:8080/FSUInnovation/InternInsert.php");
 		die;
 	}
 	echo $_GET['code'];
-	die;
 	$doc = $_FILES['Resume'];
 	$filename = $doc['tmp_name'];
 	$dropbox_token = "Xe6PaJwneZAAAAAAAAAAH67SSXlTCim-U5uEUmem1tuO2KUTSrA5YijAnk2rEddV";
@@ -391,7 +390,6 @@ try {
 catch(Exception $e){
 	echo $e -> getMessage();
 }
-die;
 header("location: Success.php");
 /*echo "*Success! Welcome to our website. Hope our services will serve you and your company well.";*/
 
