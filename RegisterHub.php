@@ -23,7 +23,7 @@ Co-Collaborators: Jessica Grady, Simone McHugh-->
 
 		<hr color="#FFC400"><br/>
 		<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a><br/><br/>
-		<h1>Login</h1>
+		<h1>Sign Up Today</h1>
 		<div class='select'>
 			<h2 align=center>Are you a Intern or a Member?</h2><br/>
 			<a href='NewIntern.php'>Register as a Intern</a>

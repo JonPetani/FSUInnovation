@@ -58,6 +58,11 @@
 						<input type="tel" name="PhoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Contact Number For Your Company" autocomplete="off">
 						<label for="CompanyDescription">Company Description: </label>
 						<textarea name="CompanyDescription" class="skills" placeholder="Describe Your Company. What Does Your Company Do and What Should Interns Know About It Before Doing a Project With You." autocomplete="off" required></textarea>
+						<label style="font-size:80%;">In addition, we want to notify you that file storage on our site is done by <a href="https://www.dropbox.com"><img src="images/dropboxhero.jpg" style="width:5.5%;height:5.5%;"/></a>. If you wish, we can set up your existing account with us now by selecting yes, or you can create a new dropbox account <a href="https://www.dropbox.com/register">here</a> prior to the next registration step. If you wish to do this later, simply select no.</label>
+						<label for="yes">
+						<input type="radio" name="Dropbox" id="yes" autocomplete="off">
+						<label for="no">
+						<input type="radio" name="Dropbox" id="no" autocomplete="off">
 						<br><div align=center class="g-recaptcha" data-sitekey="6Le9NsgUAAAAAFvjCyl8yJ_npsTDpIEoumWFe5Zn"></div><br>
 				<label style='float:left;padding-bottom:30px;'>In order to create a account, you must agree to our terms of service <a href='terms.html' target="_blank">found here</a>: <input name='check' onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" type="checkbox" value="Agree" required></label>
 				<input id="submitButton" type="submit" value="Submit" style='float:left;background-color:#66ff99;width:21%;height:10%;'><br><br>
