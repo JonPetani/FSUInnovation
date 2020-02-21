@@ -1,8 +1,5 @@
 <?php
-// dropbox api key => 4s9vxyownku3sp2
-// dropbox app secret => wdx61uh10w78ix9
-// dropbox authentication token => Xe6PaJwneZAAAAAAAAAAIvv7I9nKb3W2tlq2NJUL0iLtBvtthT7429RYvU5hPkpL
-session_start();
+
 $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
 
 if (!$con)
@@ -12,7 +9,6 @@ if (!$con)
   die('Connection has failed: ' . mysql_error());
 
   }
-if(isset($_POST['EmailAddress'])) {
 $emailcheck = substr($_POST['EmailAddress'], -14);
 $FSU = "framingham.edu";
 $mailcomp = $con -> query("SELECT * FROM intern WHERE EmailAddress = '$_POST[EmailAddress]'");
@@ -20,17 +16,6 @@ if ($emailcheck != $FSU or $mailcomp->rowCount() > 0) {
 	header("location: RegisterFailed.php"); 
 	die;
 }
-}
-else {
-$emailcheck = substr($_SESSION['apply_table']['EmailAddress'], -14);
-$FSU = "framingham.edu";
-$mailcomp = $con -> query("SELECT * FROM intern WHERE EmailAddress = '$_SESSION[apply_table][EmailAddress]'");
-if ($emailcheck != $FSU or $mailcomp->rowCount() > 0) {
-	header("location: RegisterFailed.php"); 
-	die;
-}	
-}
-if(isset($_FILES['InternPhoto'])) {
 try {
 $img = $_FILES['InternPhoto'];
 $filename = $img['tmp_name'];
@@ -54,81 +39,14 @@ $imgLink = $imgJSON -> data -> display_url;
 catch(Exception $e) {
 	echo $e -> getMessage();
 }
-}
-if(isset($_POST['Username'])) {
 $UsernameFinal = str_replace(' ', '', $_POST['Username']);
-}
-else {
-$UsernameFinal = str_replace(' ', '', $_SESSION['apply_table']['Username']);
-}
-if(isset($_FILES['Resume']) or isset($_SESSION['apply_table']['Resume'])) {
-	if(!Empty($_FILES['Resume'] or !Empty($_SESSION['apply_table']['Resume']))) {
-try {
-	if(isset($_GET['Auth'])) {
-		$_SESSION['apply_table'] = $_POST;
-		$_SESSION['image-url'] = $imgLink;
-		header("Location: https://www.dropbox.com/oauth2/authorize?client_id=4s9vxyownku3sp2&response_type=token&redirect_uri=http://localhost:8080/FSUInnovation/InternInsert.php");
-		die;
-	}
-	$dropbox_token = $_GET['access_token'];
-	if(isset($_FILES['Resume'])) {
-	$doc = $_FILES['Resume'];
-	}
-	else {
-	$doc = $_SESSION['apply_table']['Resume'];
-	}
-	$filename = $doc['tmp_name'];
-	$dropbox_url = "https://content.dropboxapi.com/2/files/upload";
-	$opendoc = fopen($filename, 'rb');
-	$docsize = $doc['size'];
-	$d1curl = curl_init();
-	$timeout = 50;
-	curl_setopt($d1curl, CURLOPT_URL, $dropbox_url);
-	curl_setopt($d1curl, CURLOPT_TIMEOUT, $timeout);
-	curl_setopt($d1curl, CURLOPT_HTTPHEADER, [
-		utf8_encode('Authorization: Bearer ' . $dropbox_token),
-            utf8_encode('Content-Type: application/octet-stream'),
-            utf8_encode('Dropbox-API-Arg: '.
-            json_encode(
-                array(
-                    "path"=> '/'. basename($filename),
-                    "mode" => "add",
-                    "autorename" => true,
-                    "mute" => false
-	)))]);
-	curl_setopt($d1curl, CURLOPT_POST, true);
-	curl_setopt($d1curl, CURLOPT_POSTFIELDS, fread($opendoc, $docsize));
-	curl_setopt($d1curl, CURLOPT_RETURNTRANSFER, true);
-	$dropbox_upload = curl_exec($d1curl);
-	$http_request = curl_getinfo($d1curl, CURLINFO_HTTP_CODE);
-	echo $dropbox_upload;
-	echo $http_request;
-	curl_close($d1curl);
-	fclose($opendoc);
-}	
-catch(Exception $e) {
-	echo $e -> getMessage();
-}
-$Download_Link = "Localhost:8080/FSUInnovation/DocumentDownload.php?filename=" . $_SESSION['apply_table']['Resume']['name'];
-}
-}
-if(!isset($dropbox_token)) {
-	$dropbox_token = "";
-}
-if(!isset($_SESSION['apply_table'])) {
-$sql= $con -> query("INSERT INTO intern (InternName, EmailAddress, Username, Password, School, InternPhoto, Major, GPA, City, State, PhoneNumber, Resume, SkillsAndExperience, DropboxToken)
+
+$sql= $con -> query("INSERT INTO intern (InternName, EmailAddress, Username, Password, School, InternPhoto, Major, GPA, City, State, PhoneNumber, SkillsAndExperience)
 
 VALUES
 
-('$_POST[InternName]','$_POST[EmailAddress]','$UsernameFinal','$_POST[Password]','$_POST[School]','$imgLink','$_POST[Major]','$_POST[GPA]','$_POST[City]','$_POST[State]','$_POST[PhoneNumber]','$Download_Link','$_POST[SkillsAndExperience]','$dropbox_token')");
-}
-else {
-$sql= $con -> query("INSERT INTO intern (InternName, EmailAddress, Username, Password, School, InternPhoto, Major, GPA, City, State, PhoneNumber, Resume, SkillsAndExperience, DropboxToken)
+('$_POST[InternName]','$_POST[EmailAddress]','$UsernameFinal','$_POST[Password]','$_POST[School]','$imgLink','$_POST[Major]','$_POST[GPA]','$_POST[City]','$_POST[State]','$_POST[PhoneNumber]','$_POST[SkillsAndExperience]')");
 
-VALUES
-
-('$_SESSION[apply_table][InternName]','$_SESSION[apply_table][EmailAddress]','$UsernameFinal','$_SESSION[apply_table][Password]','$_SESSION[apply_table][School]','$imgLink','$_SESSION[apply_table][Major]','$_SESSION[apply_table][GPA]','$_SESSION[apply_table][City]','$_SESSION[apply_table][State]','$_SESSION[apply_table][PhoneNumber]','$Download_Link','$_SESSION[apply_table][SkillsAndExperience]','$dropbox_token')");
-}
 /*
 if (!query($sql,$con))
 
@@ -138,18 +56,9 @@ if (!query($sql,$con))
 
   }
 */
-if(isset($_POST['Username'])) {
+
 $Subject = "Verify Account For User " . $_POST['Username'];
-}
-else {
-$Subject = "Verify Account For User " . $_SESSION['apply_table']['Username'];
-}
-if(isset($_POST['EmailAddress'])) {
 $To = $_POST['EmailAddress'];
-}
-else {
-$To = $_SESSION['apply_table']['EmailAddress'];	
-}
 $Sender = "FSU Entrepreneur Innovation Center";
 $HTML_Message = '<!DOCTYPE html>
 
@@ -419,7 +328,12 @@ try {
 catch(Exception $e){
 	echo $e -> getMessage();
 }
-session_destroy();
+if($_POST['Dropbox'] == 'yes') {
+		$_SESSION['Resume'] = $_FILES['Resume'];
+		$_SESSION['Identifier'] = $_POST['EmailAddress'];
+		header("Location: https://www.dropbox.com/oauth2/authorize?client_id=4s9vxyownku3sp2&response_type=token&redirect_uri=http://localhost:8080/FSUInnovation/TokenAndResumeUpload.php");
+		die;
+}
 header("location: Success.php");
 /*echo "*Success! Welcome to our website. Hope our services will serve you and your company well.";*/
 
