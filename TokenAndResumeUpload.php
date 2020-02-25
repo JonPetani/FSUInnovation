@@ -3,9 +3,11 @@ session_start();
 $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
 
 try {
-	if(!Empty($_GET['access_token'])) {
-		header("Location: Success.php?error=ResumeFail");
+	if(!isset($_SESSION['Resume'])) {
+		echo "Bugged";
 		die;
+		//header("Location: Success.php?error=ResumeFail");
+		//die;
 	}
 	$dropbox_token = $_GET['access_token'];
 	$doc = $_SESSION['Resume'];
@@ -42,7 +44,9 @@ catch(Exception $e) {
 	echo $e -> getMessage();
 }
 $Download_Link = "Localhost:8080/FSUInnovation/DocumentDownload.php?filename=" . $_SESSION['Resume']['name'];
-$sql = $con -> query("UPDATE intern SET Resume = '$Download_Link', DropboxToken = '$dropbox_token' WHERE EmailAddress = '$_SESSION[EmailAddress]'");
+$sql = $con -> query("UPDATE intern SET Resume = '$Download_Link', DropboxToken = '$dropbox_token' WHERE EmailAddress = '$_SESSION[Identifier]'");
 session_destroy();
+echo "bugged down here";
+die;
 header("Location: Success.php");
 ?>
