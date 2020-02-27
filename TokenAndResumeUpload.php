@@ -6,6 +6,9 @@ if(Empty($code)) {
     die;
 }
 $dropbox_url = "https://api.dropboxapi.com/oauth2/token";
+$timeout = 40;
+$d1curl = curl_init();
+curl_setopt();
 //curl for
 try {
 

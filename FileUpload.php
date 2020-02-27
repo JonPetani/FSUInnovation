@@ -4,10 +4,8 @@ $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','Si
 
 try {
 	if(!isset($_SESSION['Resume'])) {
-		echo "Bugged";
+		header("Location: Success.php?error=ResumeFail");
 		die;
-		//header("Location: Success.php?error=ResumeFail");
-		//die;
 	}
 	$dropbox_token = $_GET['access_token'];
 	$doc = $_SESSION['Resume'];
