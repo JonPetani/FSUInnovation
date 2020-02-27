@@ -329,12 +329,10 @@ catch(Exception $e){
 	echo $e -> getMessage();
 }
 if($_POST['Dropbox'] == 'yes') {
-		//$_SESSION['Resume'] = $_FILES['Resume'];
 		$_SESSION['Identifier'] = $_POST['EmailAddress'];
-		mkdir("File_Upload");
-		move_uploaded_file($_FILES['Resume']['tmp_name'], __DIR__ . '/File_Upload/' . $_FILES['Resume']['name']);
-		//header("Location: https://www.dropbox.com/oauth2/authorize?client_id=4s9vxyownku3sp2&response_type=code&redirect_uri=http://localhost:8080/FSUInnovation/TokenAndResumeUpload.php");
-		//die;
+		$_SESSION['NextKey'] = "OK";
+		header("Location: https://www.dropbox.com/oauth2/authorize?client_id=4s9vxyownku3sp2&response_type=code&redirect_uri=http://localhost:8080/FSUInnovation/TokenAndResumeUpload.php");
+		die;
 }
 header("location: Success.php");
 /*echo "*Success! Welcome to our website. Hope our services will serve you and your company well.";*/

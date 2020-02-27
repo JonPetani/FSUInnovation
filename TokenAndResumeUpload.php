@@ -1,52 +1,55 @@
 <?php
 session_start();
-$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
-
+$code = $_GET['Code'];
+if(Empty($code)) {
+	header("Location: Success.php?error=AuthFail");
+    die;
+}
+$dropbox_url = "https://api.dropboxapi.com/oauth2/token";
+//curl for
 try {
-	if(!isset($_SESSION['Resume'])) {
-		echo "Bugged";
-		die;
-		//header("Location: Success.php?error=ResumeFail");
-		//die;
-	}
-	$dropbox_token = $_GET['access_token'];
-	$doc = $_SESSION['Resume'];
-	$filename = $doc['tmp_name'];
-	$dropbox_url = "https://content.dropboxapi.com/2/files/upload";
-	$opendoc = fopen($filename, 'rb');
-	$docsize = $doc['size'];
-	$d1curl = curl_init();
-	$timeout = 50;
-	curl_setopt($d1curl, CURLOPT_URL, $dropbox_url);
-	curl_setopt($d1curl, CURLOPT_TIMEOUT, $timeout);
-	curl_setopt($d1curl, CURLOPT_HTTPHEADER, [
-		utf8_encode('Authorization: Bearer ' . $dropbox_token),
-            utf8_encode('Content-Type: application/octet-stream'),
-            utf8_encode('Dropbox-API-Arg: '.
-            json_encode(
-                array(
-                    "path"=> '/'. basename($filename),
-                    "mode" => "add",
-                    "autorename" => true,
-                    "mute" => false
-	)))]);
-	curl_setopt($d1curl, CURLOPT_POST, true);
-	curl_setopt($d1curl, CURLOPT_POSTFIELDS, fread($opendoc, $docsize));
-	curl_setopt($d1curl, CURLOPT_RETURNTRANSFER, true);
-	$dropbox_upload = curl_exec($d1curl);
-	$http_request = curl_getinfo($d1curl, CURLINFO_HTTP_CODE);
-	echo $dropbox_upload;
-	echo $http_request;
-	curl_close($d1curl);
-	fclose($opendoc);
-}	
+
+curl_close();
+}
 catch(Exception $e) {
 	echo $e -> getMessage();
 }
-$Download_Link = "Localhost:8080/FSUInnovation/DocumentDownload.php?filename=" . $_SESSION['Resume']['name'];
-$sql = $con -> query("UPDATE intern SET Resume = '$Download_Link', DropboxToken = '$dropbox_token' WHERE EmailAddress = '$_SESSION[Identifier]'");
-session_destroy();
-echo "bugged down here";
-die;
-header("Location: Success.php");
+$dropbox_token = $_GET['Token'];
+$sql = $sql = $con -> query("UPDATE intern SET DropboxToken = '$dropbox_token' WHERE EmailAddress = '$_SESSION[Identifier]'");
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Enter Your Email</title>
+<link rel="icon" type="image/png" href="images/icon.png"/>
+<link href='css/Intern1.css' rel='stylesheet'/>
+<link href='css/member_page.css' rel='stylesheet'/>
+</head>
+<body>
+<script src='https://www.google.com/recaptcha/api.js' async defer></script>
+<a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
+<h1>Login</h1>
+<div class='select'>
+<h2 align=center>Email Verification</h2>
+<p>We want to make sure you are not a bot.</p>
+<div class="container">
+			<form action="FileUpload.php" method="post" enctype="multipart/form-data">
+				<div class="row">
+					<div class="col-25">
+					<label>Resume:</label>
+					</div>
+					<div class="col-75">
+					<input type="file" name="UploadFile" accept='application/octet-stream' autocomplete="off"><br>					</div>
+					</div>
+					<div class="row">
+					<input id="submitButton" type="submit" value="Submit">
+				</div>
+				</div>
+<br clear=both>
+</div>
+<footer>
+<hr>
+<address><strong>&copy;	Framingham State University Entreperenuer Innovation Center</strong></address>
+</footer>
+</body>
+</html>

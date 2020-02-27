@@ -55,17 +55,17 @@
 					<label>Phone Number:</label>
 					<input type="tel" name="PhoneNumber" placeholder="Phone Number You Can Be Contacted From" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" autocomplete="off">
 
-					<label>Resume:</label>
-					<input type="file" name="Resume" accept='application/octet-stream' autocomplete="off"><br>
+					<!--<label>Resume:</label>
+					<input type="file" name="Resume" accept='application/octet-stream' autocomplete="off"><br>-->
+					<label>A good way to show your skills to us is with your resume. With your resume, we can find a better internship for you at the center that will further your career.</label>
 					<label style="font-size:80%;">We use <a href="https://www.dropbox.com"><img src="images/dropboxhero.jpg" style="width:5.5%;height:5.5%;"/></a> for file storage. In order to store your resume on the site, you need a account (<a href="https://www.dropbox.com/register">Sign up here</a>)</label><br><br>
-					
-					<label>Do you accept your Dropbox Account being linked to our platform? (If not, the above file will not be processed and you will need to upload your resume later if you change your mind):</label>
+					<label>Do you accept your Dropbox Account being linked to our platform? If not, you can authenticate later. If you choose not to authenticate now, you will not be prompted on the next page to upload your resume.</label>
 					<label for="Yes">Yes</label>
 				    <input type="radio" name="Dropbox" id="Yes" value="yes" autocomplete="off" checked></input>
 				    <label for="No">No</label>
 				    <input type="radio" name="Dropbox" id="No" value="no" autocomplete="off" ></input><br><br>
 					
-					<label>Skills and Experience(in lieu of Resume):</label>
+					<label>Skills and Experience(in lieu of or addition to your Resume):</label>
 					<textarea name="SkillsAndExperience" placeholder="If You Didn't Make A Resume Yet, Describe Yourself and Your Skills/Experiences You Have Particularly That Would Be Helpful For A Member To Know" class="skills" autocomplete="off"></textarea>
 
 					<br><div align=center class="g-recaptcha" data-sitekey="6Le9NsgUAAAAAFvjCyl8yJ_npsTDpIEoumWFe5Zn"></div><br>
