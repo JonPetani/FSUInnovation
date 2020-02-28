@@ -11,9 +11,9 @@
 <body>
 <script src='https://www.google.com/recaptcha/api.js' async defer></script>
 <a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
-<h1>Login</h1>
+<h1>Email Verification</h1>
 <div class='select'>
-<h2 align=center>Email Verification</h2>
+<h2 align=center>Test For Valid User</h2>
 <p>We want to make sure you are not a bot.</p>
 <div class="container">
 			<form action="Verify.php" method="post">

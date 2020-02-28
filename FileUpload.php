@@ -3,7 +3,7 @@ session_start();
 $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
 
 try {
-	if(!isset($_SESSION['Resume'])) {
+	if(!isset($_FILES['Resume'])) {
 		header("Location: Success.php?error=ResumeFail");
 		die;
 	}
