@@ -3,13 +3,13 @@ session_start();
 $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
 
 try {
-	if(!isset($_FILES['Resume'])) {
+	if(!isset($_FILES['UploadFile'])) {
 		header("Location: Success.php?error=ResumeFail");
 		die;
 	}
 	$dropbox_token = $_GET['access_token'];
-	$doc = $_SESSION['Resume'];
-	$filename = $doc['tmp_name'];
+	$doc = $_FILES['UploadFile'];
+	$filename = $doc['name'];
 	$dropbox_url = "https://content.dropboxapi.com/2/files/upload";
 	$opendoc = fopen($filename, 'rb');
 	$docsize = $doc['size'];
@@ -41,10 +41,9 @@ try {
 catch(Exception $e) {
 	echo $e -> getMessage();
 }
-$Download_Link = "Localhost:8080/FSUInnovation/DocumentDownload.php?filename=" . $_SESSION['Resume']['name'];
+$Download_Link = "Localhost:8080/FSUInnovation/DocumentDownload.php?filename=" . $_FILES['UploadFile']['name'];
 $sql = $con -> query("UPDATE intern SET Resume = '$Download_Link' WHERE EmailAddress = '$_SESSION[Identifier]'");
 session_destroy();
-echo "bugged down here";
 die;
 header("Location: Success.php");
 ?>

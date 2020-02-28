@@ -9,6 +9,33 @@
 <a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
 <h1>FSU Innovation Internship Website</h1>
 <div class='txt'>
+<?php
+if(isset($_GET['error'])) {
+	switch($_GET['error']) {
+		case "0AuthFail":
+		echo "<h2 align=center>Error</h2>";
+		echo "<p>Your Dropbox Authentication Failed, You Will Need to Verify Your Dropbox Account Again</p>";
+		echo "<a href='https://www.dropbox.com/oauth2/authorize?client_id=4s9vxyownku3sp2&response_type=code&redirect_uri=http://localhost:8080/FSUInnovation/TokenAndResumeUpload.php'>Click This Link To Try Again</a>";
+		break;
+		
+		case "TokenGetFail":
+		echo "<h2 align=center>Error</h2>";
+		echo "<p>Your Dropbox Authentication Was OK, but we were not able to get the needed code from them permitting you to actually send and recieve files</p>";
+		echo "<a href='ResumeUpload.php?fix=yes'>Go To This Link So We Can Resolve This</a>";
+		break;
+		
+		case "ResumeFail":
+		echo "<h2 align=center>Error</h2>";
+		echo "<p>For Some Reason The File You Uploaded Failed</p>"
+		break;
+		
+		default:
+		echo "<h2>Successful File Upload</h2>";
+		echo "<p>Dropbox Authentication and Resume Upload were a Success</p>";
+		break;
+	}
+}
+?>
 <h2 align=center>Registration Successful</h2>
 <p>There is just one more step to using your new account. A Email has been sent to your inbox to ensure that you are not a bot. Read the Email and follow the instructions provided.</p>
 <p>Until you do this, you will not be able to log into your account. If you do not complete this in the next 5 days, the account will be terminated to save on storage space.</p>
