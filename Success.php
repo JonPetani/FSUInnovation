@@ -13,27 +13,35 @@
 if(isset($_GET['error'])) {
 	switch($_GET['error']) {
 		case "0AuthFail":
+		echo "<div style='font-family:Perpetua;background-color:yellow;'";
 		echo "<h2 align=center>Error</h2>";
 		echo "<p>Your Dropbox Authentication Failed, You Will Need to Verify Your Dropbox Account Again</p>";
 		echo "<a href='https://www.dropbox.com/oauth2/authorize?client_id=4s9vxyownku3sp2&response_type=code&redirect_uri=http://localhost:8080/FSUInnovation/TokenAndResumeUpload.php'>Click This Link To Try Again</a>";
+		echo "</div>";
 		break;
 		
 		case "TokenGetFail":
+		echo "<div style='font-family:Perpetua;background-color:yellow;'>";
 		echo "<h2 align=center>Error</h2>";
 		echo "<p>Your Dropbox Authentication Was OK, but we were not able to get the needed code from them permitting you to actually send and recieve files</p>";
 		echo "<a href='ResumeUpload.php?fix=yes'>Go To This Link So We Can Resolve This</a>";
+		echo "</div>";
 		break;
 		
 		case "ResumeFail":
+		echo "<div style='font-family:Perpetua;background-color:yellow;'>";
 		echo "<h2 align=center>Error</h2>";
-		echo "<p>For Some Reason The File You Uploaded Failed</p>"
+		echo "<p>For Some Reason The File You Uploaded Failed</p>";
+		echo "</div>";
 		break;
 		
 		default:
+		echo "<div style='font-family:Perpetua;background-color:#9bf542;>'";
 		echo "<h2>Successful File Upload</h2>";
-		echo "<p>Dropbox Authentication and Resume Upload were a Success</p>";
+		echo "<p>Dropbox Authentication and/or Resume Upload were a Success</p>";
+		echo "</div>";
 		break;
-	}
+	}-
 }
 ?>
 <h2 align=center>Registration Successful</h2>

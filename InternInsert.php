@@ -22,7 +22,7 @@ $filename = $img['tmp_name'];
 $openimg = fopen($filename, "r");
 $data = fread($openimg, filesize($filename));
 $pvars = array("image" => base64_encode($data));
-$timeout = 30;
+$timeout = 60;
 $icurl = curl_init();
 curl_setopt($icurl, CURLOPT_URL, 'https://api.imgbb.com/1/upload?key=83598d399901794c174deb5cfef74353');
 curl_setopt($icurl, CURLOPT_HEADER, false);

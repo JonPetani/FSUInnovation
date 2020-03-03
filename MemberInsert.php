@@ -20,7 +20,7 @@ $filename = $img['tmp_name'];
 $openimg = fopen($filename, "r");
 $data = fread($openimg, filesize($filename));
 $pvars = array("image" => base64_encode($data));
-$timeout = 30;
+$timeout = 60;
 $icurl = curl_init();
 curl_setopt($icurl, CURLOPT_URL, 'https://api.imgbb.com/1/upload?key=83598d399901794c174deb5cfef74353');
 curl_setopt($icurl, CURLOPT_HEADER, false);
@@ -333,6 +333,12 @@ $configuration = new \ElasticEmailAPI\src\ElasticEmailClient\ApiConfiguration([
 $client = new \ElasticEmailAPI\src\ElasticEmailClient\ElasticClient($configuration);
 $clientData = $client->Account->Load();
 */
+if($_POST['Dropbox'] == 'yes') {
+		$_SESSION['Identifier'] = $_POST['EmailAddress'];
+		$_SESSION['NextKey'] = "OK";
+		header("Location: https://www.dropbox.com/oauth2/authorize?client_id=4s9vxyownku3sp2&response_type=code&redirect_uri=http://localhost:8080/FSUInnovation/MemberToken.php");
+		die;
+}
 header("location: Success.php");
 /*echo "*Success! Welcome to our website. Hope our services will serve you and your company well.";*/
 

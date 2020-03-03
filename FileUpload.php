@@ -45,5 +45,5 @@ $Download_Link = "Localhost:8080/FSUInnovation/DocumentDownload.php?filename=" .
 $sql = $con -> query("UPDATE intern SET Resume = '$Download_Link' WHERE EmailAddress = '$_SESSION[Identifier]'");
 session_destroy();
 die;
-header("Location: Success.php");
+header("Location: Success.php?error=ok");
 ?>
