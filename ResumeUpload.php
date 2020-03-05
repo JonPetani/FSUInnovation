@@ -1,18 +1,7 @@
-<?php
-session_start();
-$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
-$token_json = json_decode($_SESSION['token']);
-$dropbox_token = $token_json -> access_token;
-if(Empty($dropbox_token) or (isset($_GET['fix']) and $_GET['fix'] == 'yes')) {
-	header("Location: Success.php?error=TokenGetFail&code=" . $_GET['code']);
-    die;
-}
-$sql = $con -> query("UPDATE intern SET DropboxToken = '$dropbox_token' WHERE EmailAddress = '$_SESSION[Identifier]'");
-?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Enter Your Email</title>
+<title>Upload Your Resume</title>
 <link rel="icon" type="image/png" href="images/icon.png"/>
 <link href='css/Intern1.css' rel='stylesheet'/>
 <link href='css/member_page.css' rel='stylesheet'/>
@@ -25,7 +14,7 @@ $sql = $con -> query("UPDATE intern SET DropboxToken = '$dropbox_token' WHERE Em
 <h2 align=center>Successful Dropbox Verification</h2>
 <p>Your Dropbox Authorization process was a success. Now, you will be able to upload and download files from our dropbox app on our platform.</p>
 <div class="container">
-			<form action="FileUpload.php" method="post" enctype="multipart/form-data">
+			<form action="ResumeDropboxUpload.php" method="post" enctype = "multipart/form-data">
 				<div class="row">
 					<div class="col-25">
 					<label for="UploadFile">Now, Upload Your Resume File:</label>
