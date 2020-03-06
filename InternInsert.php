@@ -47,6 +47,11 @@ VALUES
 
 ('$_POST[InternName]','$_POST[EmailAddress]','$UsernameFinal','$_POST[Password]','$_POST[School]','$imgLink','$_POST[Major]','$_POST[GPA]','$_POST[City]','$_POST[State]','$_POST[PhoneNumber]','$_POST[SkillsAndExperience]')");
 
+$insert_check = $con -> query("SELECT * FROM intern WHERE InternName = '$_POST[InternName]'");
+if($insert_check->rowCount() < 0) {
+	header("Location RegisterFailed.php");
+	die;
+}
 /*
 if (!query($sql,$con))
 

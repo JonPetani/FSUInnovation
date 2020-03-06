@@ -312,12 +312,16 @@ echo'</div>';
 					echo'</div>';
 					echo'</div>';
 					echo'<div class="row">';
-					echo'<div class="col-25">';
-						echo'<label for="Resume">Update Your Resume: </label>';
-					echo'</div>';
-					echo'<div class="col-75">';
-						echo'<input style="width:100%;height:6.5%;"type="file" name="Resume" autocomplete="off">';
-					echo'</div>';
+					if(!Empty($now['DropboxToken'])) {
+						echo'<div class="col-75">';
+							echo'<label for="Resume">Update Your Resume <a href="ResumeUpload.php">Here</a> </label>';
+						echo'</div>';
+					}
+					else {
+						echo'<div class="col-75">';
+							echo'<label for="Resume">Upload a Resume Now as we do not have one yet from you: (Looks Like You Didn\'t authorize your Dropbox Account yet wiht our site. Go <a href="https://www.dropbox.com/oauth2/authorize?client_id=4s9vxyownku3sp2&response_type=code&redirect_uri=http://localhost:8080/FSUInnovation/TokenAndResumeUpload.php" target="_blank">Here</a> to get this fixed and get your Resume on our site)</label>';
+						echo'</div>';
+					}
 					echo'</div>';
 					echo'<div class="row"/>';
 					echo'<div class="col-25"/>';

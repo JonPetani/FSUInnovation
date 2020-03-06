@@ -43,7 +43,11 @@ $sql= $con -> query("INSERT INTO member (ContactName, CompanyName, ContactEmail,
 VALUES
 
 ('$_POST[ContactName]','$_POST[CompanyName]','$_POST[ContactEmail]','$UsernameFinal','$_POST[Password]','$_POST[CompanyCity]','$_POST[CompanyState]','$_POST[PhoneNumber]','$imgLink','$_POST[CompanyDescription]',false,null)");
-
+$member_check = $con -> query("SELECT * FROM member WHERE ContactName = '$_POST[InternName]'");
+if($member_check->rowCount() < 0) {
+	header("Location RegisterFailed.php");
+	die;
+}
 
 /*
 if (!query($sql,$con))
@@ -334,9 +338,9 @@ $client = new \ElasticEmailAPI\src\ElasticEmailClient\ElasticClient($configurati
 $clientData = $client->Account->Load();
 */
 if($_POST['Dropbox'] == 'yes') {
-		$_SESSION['Identifier'] = $_POST['EmailAddress'];
+		$_SESSION['Identifier'] = $_POST['ContactEmail'];
 		$_SESSION['NextKey'] = "OK";
-		header("Location: https://www.dropbox.com/oauth2/authorize?client_id=4s9vxyownku3sp2&response_type=code&redirect_uri=http://localhost:8080/FSUInnovation/MemberToken.php");
+		header("Location: https://www.dropbox.com/oauth2/authorize?client_id=4s9vxyownku3sp2&response_type=code&redirect_uri=http://localhost:8080/FSUInnovation/TokenAndResumeUpload.php");
 		die;
 }
 header("location: Success.php");

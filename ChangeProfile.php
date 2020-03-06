@@ -656,6 +656,7 @@ $store = $con -> query("INSERT INTO emailtemp (EmailAddress, OriginalEmail) VALU
 	if(!Empty($_POST['SkillsAndExperience'])) {
 		$userchange = $con -> query("UPDATE intern SET SkillsAndExperience = '$_POST[SkillsAndExperience] WHERE InternName = '$_SESSION[InternName]'");
 	}
+	
 }
 else {
 	header("location: AccessDenied.php");

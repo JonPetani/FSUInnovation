@@ -2,7 +2,6 @@
 session_start();
 if(isset($_SESSION['HasToken'])) {
 	if($_SESSION['HasToken'] == true) {
-		echo "Awesome!!!";
 		$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
 		$token_json = json_decode($_SESSION['token']);
 		$dropbox_token = $token_json -> access_token;
@@ -10,8 +9,27 @@ if(isset($_SESSION['HasToken'])) {
 			header("Location: Success.php?error=TokenGetFail&code=" . $_GET['code']);
 			die;
 		}
-		$sql = $con -> query("UPDATE intern SET DropboxToken = '$dropbox_token' WHERE EmailAddress = '$_SESSION[Identifier]'");
-		header("Location: ResumeUpload.php");
+		$account_type_intern = $con -> query("SELECT * FROM intern WHERE EmailAddress = '$_SESSION[Identifier]'");
+		$account_type_member = $con -> query("SELECT * FROM member WHERE ContactEmail = '$_SESSION[Identifier]'");
+		if($account_type_intern->rowCount() > 0 or isset($_SESSION['EmailAddress'])) {
+			if(isset($_SESSION['EmailAddress']))
+				$sql = $con -> query("UPDATE intern SET DropboxToken = '$dropbox_token' WHERE EmailAddress = '$_SESSION[EmailAddress]'");
+			else
+				$sql = $con -> query("UPDATE intern SET DropboxToken = '$dropbox_token' WHERE EmailAddress = '$_SESSION[Identifier]'");
+			header("Location: ResumeUpload.php");
+			die;
+		}
+		else if($account_type_member->rowCount() > 0 or isset($_SESSION['ContactEmail'])) {
+			session_destroy();
+			$sql = $con -> query("UPDATE member SET DropboxToken = '$dropbox_token' WHERE ContactEmail = '$_SESSION[Identifier]'");
+			header("Location: Success.php?error=ok");
+			die;
+		}
+		else {
+			session_destroy();
+			header("Location: RegisterFailed.php");
+			die;
+		}
 		die;
 	}
 	die;
