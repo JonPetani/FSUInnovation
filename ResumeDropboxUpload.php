@@ -57,6 +57,10 @@ try {
 		echo $http_request3;
 		echo $dropbox_delete;
 		curl_close($d3curl);
+		if(isset($_SESSION['EmailAddress']))
+			$nullres = $con -> query("UPDATE intern SET Resume = null WHERE EmailAddress = '$_SESSION[EmailAddress]'");
+		else
+			$nullres = $con -> query("UPDATE intern SET Resume = null WHERE EmailAddress = '$_SESSION[Identifier]'");
 	}
 	$filename = $doc['tmp_name'];
 	$dropbox_url_upload = "https://content.dropboxapi.com/2/files/upload";
@@ -107,11 +111,21 @@ catch(Exception $e) {
 }
 $upload_info = json_decode($dropbox_getlink);
 $Download_Link = $upload_info -> url;
-$sql = $con -> query("UPDATE intern SET Resume = '$Download_Link' WHERE EmailAddress = '$_SESSION[Identifier]'");
+if(isset($_SESSION['EmailAddress']))
+	$sql = $con -> query("UPDATE intern SET Resume = '$Download_Link' WHERE EmailAddress = '$_SESSION[EmailAddress]'");
+else
+	$sql = $con -> query("UPDATE intern SET Resume = '$Download_Link' WHERE EmailAddress = '$_SESSION[Identifier]'");
 if(isset($_SESSION['EmailAddress'])) {
 	unset($_SESSION['HasToken']);
 	unset($_SESSION['token']);
 	unset($_SESSION['code']);
+	echo"<html>";
+	echo"<body>";
+	echo"<script>";
+	echo"close();";
+	echo"</script>";
+	echo"</body>";
+	echo"</html>";
 }
 else {
 session_destroy();

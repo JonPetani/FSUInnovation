@@ -6,7 +6,7 @@ $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','Si
 if($_SESSION['UserType'] == "")
 	header("location: InternLogin.php");
 if($_SESSION['UserType'] == "Member")
-	header("location: AccessDenied.html")
+	header("location: AccessDenied.html");
 $session_time = $_SERVER['REQUEST_TIME'];
 $timeout_duration = 1200;
 if(isset($_SESSION['LogTime']) && ($session_time - $_SESSION['LogTime']) > $timeout_duration)

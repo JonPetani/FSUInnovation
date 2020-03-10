@@ -42,7 +42,7 @@ $_SESSION['TimeLog'] = $session_time;
 					<textarea name = 'JobDesc' class = "skills" autocomplete='off'></textarea>
                     
 					<label>Select the Main Field(s) of Study/Category your job appeals to:</label>
-					<br><select name='JobType' style='overflow-y:auto;overflow-x:hidden;' autocomplete='off' multiple="multiple" required>
+					<br><select name='JobType[]' style='overflow-y:auto;overflow-x:hidden;' autocomplete='off' multiple="multiple" required>
 					<option value='Computer Science'>Computer Science</option>
 					<option value='IT'>Information Technology</option>
 					<option value='Software Engineering'>Software Engineering</option>

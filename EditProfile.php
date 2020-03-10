@@ -308,7 +308,7 @@ echo'</div>';
 						echo'<label for="GPA">Update GPA: </label>';
 					echo'</div>';
 					echo'<div class="col-75">';
-						echo'<input style="width:100%;height:6.5%;"type="number" name="GPA" placeholder="Enter Your New GPA If You Completed Any Additional Course Credits" autocomplete="off">';
+						echo'<input style="width:100%;height:6.5%;"type="text" name="GPA" placeholder="Enter Your New GPA If You Completed Any Additional Course Credits" autocomplete="off">';
 					echo'</div>';
 					echo'</div>';
 					echo'<div class="row">';

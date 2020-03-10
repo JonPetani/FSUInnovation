@@ -297,7 +297,7 @@ $store = $con -> query("INSERT INTO emailtemp (EmailAddress, OriginalEmail) VALU
 		$userchange = $con -> query("UPDATE member SET PhoneNumber = '$_POST[PhoneNumber]' WHERE PhoneNumber = '$_SESSION[PhoneNumber]'");
 	}
 	if(isset($_FILES['CompanyPicture'])) {
-		if(!Empty($_FILES['CompanyPicture'])) {
+		if($_FILES['CompanyPicture']['name'] != "") {
 			$img = $_FILES['CompanyPicture'];
 			$filename = $img['tmp_name'];
 			$openimg = fopen($filename, "r");
@@ -316,12 +316,13 @@ $store = $con -> query("INSERT INTO emailtemp (EmailAddress, OriginalEmail) VALU
 			echo $upload;
 			$imgJSON = json_decode($upload);
 			$imgLink = $imgJSON -> data -> display_url;
-			$userchange = $con -> query("UDPATE member SET CompanyPicture = '$imgLink' WHERE CompanyPicture = '$_SESSION[CompanyPicture]'");
+		    $userchange = $con -> query("UPDATE member SET CompanyPicture = '$imgLink' WHERE ContactName = '$_SESSION[ContactName]'");
 		}
 	}
-	
-	if(!Empty($_POST['CompanyDescription'])) {
-		$userchange = $con -> query("UPDATE member SET CompanyDescription = '$_POST[CompanyDescription]'");
+	if(isset($_POST['CompanyDescription'])) {
+		if(!Empty($_POST['CompanyDescription'])) {
+			$userchange = $con -> query("UPDATE member SET CompanyDescription = '$_POST[CompanyDescription] WHERE ContactName = '$_SESSION[ContactName]'");
+		}
 	}
 }
 else if($_SESSION['UserType'] == "Intern"){
@@ -630,7 +631,7 @@ $store = $con -> query("INSERT INTO emailtemp (EmailAddress, OriginalEmail) VALU
 		$userchange = $con -> query("UPDATE intern SET PhoneNumber = '$_POST[PhoneNumber]' WHERE PhoneNumber = '$_SESSION[PhoneNumber]'");
 	}
 	if(isset($_FILES['InternPhoto'])) {
-		if(!Empty($_FILES['InternPhoto'])) {
+		if($_FILES['InternPhoto']['name'] != "") {
 			$img = $_FILES['InternPhoto'];
 			$filename = $img['tmp_name'];
 			$openimg = fopen($filename, "r");
@@ -649,12 +650,13 @@ $store = $con -> query("INSERT INTO emailtemp (EmailAddress, OriginalEmail) VALU
 			echo $upload;
 			$imgJSON = json_decode($upload);
 			$imgLink = $imgJSON -> data -> display_url;
-			$userchange = $con -> query("UDPATE intern SET InternPhoto = '$imgLink' WHERE InternPhoto = '$_SESSION[InternPhoto]'");
+		    $userchange = $con -> query("UPDATE intern SET InternPhoto = '$imgLink' WHERE InternName = '$_SESSION[InternName]'");
 		}
 	}
-	
-	if(!Empty($_POST['SkillsAndExperience'])) {
-		$userchange = $con -> query("UPDATE intern SET SkillsAndExperience = '$_POST[SkillsAndExperience] WHERE InternName = '$_SESSION[InternName]'");
+	if(isset($_POST['SkillsAndExperience'])) {
+		if(!Empty($_POST['SkillsAndExperience'])) {
+			$userchange = $con -> query("UPDATE intern SET SkillsAndExperience = '$_POST[SkillsAndExperience]' WHERE InternName = '$_SESSION[InternName]'");
+		}
 	}
 	
 }

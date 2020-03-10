@@ -1,31 +1,52 @@
 <?php
-if(isset($_GET['filename'])) {
-	if(!Empty($_GET['filename'])) {
-try {
-	$dropbox_url = "https//content.dropboxapi.com/2/files/download";
-	$dropbox_token = "Xe6PaJwneZAAAAAAAAAAH67SSXlTCim-U5uEUmem1tuO2KUTSrA5YijAnk2rEddV";
-	$dropbox_api_headers = array('Authorization: Bearer ' . $dropbox_token,
-								 'Dropbox-API-Arg: ' . json_encode(array(
-								 "path" => '/' . basename($_GET['filename'])
-								 )));
-	$d2curl = curl_init($dropbox_url);
-	$timeout = 50;
-	curl_setopt($d2curl, CURLOPT_HEADER, $dropbox_api_headers);
-	curl_setopt($d2curl, CURLOPT_POST, false);
-	curl_setopt($d2curl, CURLOPT_TIMEOUT, $timeout);
-	curl_setopt($d2curl, CURLOPT_RETURNTRANSFER, true);
-	$dropbox_download = curl_exec($d2curl);
-	$http_request = curl_setopt($d2curl, CURLINFO_HTTP_CODE);
-	echo $dropbox_download;
-	echo $http_request;
-	curl_close($d1curl);
-}	
-catch(Exception $e) {
-	echo $e -> getMessage();
+session_start();
+$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
+if(isset($_SESSION['loggedin'] and $_SESSION['UserType']))) {
+	if(isset($_GET['file'] and isset($_GET['inquiry']) and isset($_GET['current']) and $_SESSION['loggedin'] == true) {
+		$session_time = $_SERVER['REQUEST_TIME'];
+		$timeout_duration = 1200;
+		if(isset($_SESSION['LogTime']) && ($session_time - $_SESSION['LogTime']) > $timeout_duration)
+			header("Location:SessionExpire.php?location=" . urlencode($_SERVER['REQUEST_URI']));
+		$_SESSION['TimeLog'] = $session_time;
+		$file_type = $_GET['file'];
+		$pointer = $_GET['inquiry'];
+		if($_GET['file'] == 'Resume') {
+			if($_SESSION['UserType'] != "Member") {
+				header("Location: AccessDenied.php");
+				die;
+			}
+			try {
+				$timeout = 50;
+				$url = "https://content.dropboxapi.com/2/sharing/get_shared_link_file";
+				$sql = $con -> query("SELECT * FROM intern WHERE InternName = '$_GET[inquiry]'");
+				$resume = $sql -> fetch(PDO::FETCH_ASSOC);
+				$rcurl = curl_init();
+				$params = array(
+				utf8_encode("Authorization: Bearer " . $resume['DropboxToken']),
+				"Dropbox-API-Arg: " . json_encode(array(
+				"url" => $resume['Resume']
+				)));
+				curl_setopt($rcurl, CURLOPT_URL, $url);
+				curl_setopt($rcurl, CURLOPT_HTTPHEADER, $params);
+				curl_setopt($rcurl, CURLOPT_TIMEOUT, $timeout);
+				curl_setopt($rcurl, CURLOPT_POST, false);
+				curl_setopt($rcurl, CURLOPT_RETURNTRANSFER, true);
+				$download = curl_exec($rcurl);
+			}
+			catch(Exception $e) {
+				echo $e -> getMessage();
+			}
+		}
+	$backpage = $_GET['current'];
+	header("location: " . $backpage);
+	}
+	else {
+		header("Location: AccessDenied.php");
+		die;
+	}
 }
-
+else {
+	header("Location: AccessDenied.php");
+	die;
 }
-}
-$backpage = $_GET['prev'];
-header("location: " . $backpage);
 ?>

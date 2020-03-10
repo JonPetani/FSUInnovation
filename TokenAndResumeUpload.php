@@ -40,7 +40,7 @@ if(Empty($code)) {
     die;
 }
 $dropbox_url = "https://api.dropboxapi.com/oauth2/token";
-$timeout = 40;
+$timeout = 50;
 $app_key = "4s9vxyownku3sp2";
 $app_secret = "wdx61uh10w78ix9";
 try {
