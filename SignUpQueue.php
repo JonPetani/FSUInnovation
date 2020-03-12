@@ -1,6 +1,6 @@
 <?php
 session_start();
-$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
+$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495', array(PDO::ATTR_TIMEOUT => 30, PDO::ATTR_ERRMODE => ERRMODE_EXCEPTION));
 
 if (!$con)
 
@@ -14,10 +14,10 @@ $timeout_duration = 1200;
 if(isset($_SESSION['LogTime']) && ($session_time - $_SESSION['LogTime']) > $timeout_duration)
 	header("location: SessionExpire.php");
 $_SESSION['TimeLog'] = $session_time;
-$sql = $con -> query("SELECT * FROM jobs WHERE JobId = '$_GET[job]'");
-$results = $sql -> fetchall(PDO::FETCH_ASSOC);
+$sql = $con -> query("SELECT * FROM jobs WHERE JobName = '$_GET[job]'");
+$results = $sql -> fetch(PDO::FETCH_ASSOC);
 $Application = fopen("StudentApp.txt", "w");
-$heading = "Application for " . $results[0]['JobName'] . " task\n";
+$heading = "Application for " . $_GET['job'] . " task\n";
 fwrite($Application, $heading);
 $name = "Intern's Name: " . $_SESSION['InternName'] . "\n";
 fwrite($Application, $name);
@@ -47,7 +47,7 @@ $sql= $con -> query("INSERT INTO applications (CompanyName, InternId, JobId, Stu
 
 VALUES
 
-('$results[0][CompanyName]','$_SESSION[InternId]','$_GET[job]','$_SESSION[InternName]','$Application','$_POST[Share]')");
+('$results[CompanyName]','$_SESSION[InternId]','$_GET[job]','$_SESSION[InternName]','$Application','$_POST[Share]')");
 fclose($Application);
 $status = "Pending";
 $sql= $con -> query("INSERT INTO internstasks (InternName, JobName, JobId, InternId, Status)

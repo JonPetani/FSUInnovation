@@ -43,10 +43,10 @@ $_SESSION['TimeLog'] = $session_time;
                     
 					<label>Select the Main Field(s) of Study/Category your job appeals to:</label>
 					<br><select name='JobType[]' style='overflow-y:auto;overflow-x:hidden;' autocomplete='off' multiple="multiple" required>
-					<option value='Computer Science'>Computer Science</option>
+					<option value='Computer-Science'>Computer Science</option>
 					<option value='IT'>Information Technology</option>
-					<option value='Software Engineering'>Software Engineering</option>
-					<option value='Web Development'>Web Development</option>
+					<option value='Software-Engineering'>Software Engineering</option>
+					<option value='Web-Development'>Web Development</option>
 					<option value='Communications'>Communications</option>
 					<option value='Sociology'>Sociology</option>
 					<option value='Hospitality/Tourism'>Hospitality/Tourism</option>
@@ -59,7 +59,7 @@ $_SESSION['TimeLog'] = $session_time;
 					<option value='Chemistry'>Chemistry</option>
 					<option value='Engineering'>Engineering</option>
 					<option value='English'>English</option>
-					<option value='Foreign Language'>Foreign Language Arts</option>
+					<option value='Foreign-Language'>Foreign Language Arts</option>
 					<option value='History'>History</option>
 					<option value='Art'>Art/Art History</option>
 					<option value='Medicine'>Medicine</option>
@@ -70,8 +70,7 @@ $_SESSION['TimeLog'] = $session_time;
 					<option value='Accounting'>Accounting</option>
 					<option value='Management'>Management</option>
 					<option value='Writing'>Writing</option>
-					<option value='Liberal Arts'>Liberal Arts</option>
-					<option value='Graphic Design'>Graphic Design</option>
+					<option value='Graphic-Design'>Graphic Design</option>
 					</select>
                     <br>
 					<label>Enter the estimate number of Weeks you need the Intern(s) for:</label>

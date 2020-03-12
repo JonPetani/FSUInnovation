@@ -1,6 +1,6 @@
 <?php
 session_start();
-$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
+$con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495', array(PDO::ATTR_TIMEOUT => 30, PDO::ATTR_ERRMODE => ERRMODE_EXCEPTION));
 
 if (!$con)
 
