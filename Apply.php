@@ -26,7 +26,7 @@ $_SESSION['TimeLog'] = $session_time;
 	<body>
 
 		<div class = "header">
-			<p class = "new">Sign Up for Task with Member</p>
+			<p class = "new">Sign Up for a Project with one of our Members</p>
 		</div>
 
 		<div class = "content">
@@ -35,17 +35,17 @@ $_SESSION['TimeLog'] = $session_time;
 
 				<div class = "boxcontainer">
 
-					<label>Have you read the job requirements listed on the Company's Page ?:</label>
-					<br><input type = "radio" name = "Read" value='Yes' autocomplete='off' required>Yes
-					<br><input type = "radio" name = "Read" value='No' autocomplete='off' required>No<br>
+					<label>Have you read and understand the job requirements listed on the Company's Page ? If you answer no, the member can provide more information to help you:</label>
+					<br><input type = "radio" name = "Read" value='1' autocomplete='off' required>Yes
+					<br><input type = "radio" name = "Read" value='0' autocomplete='off' required>No<br>
 					
-					<label>Do you agree with the task's requirements and believe to the best of your ability that you will accomplish the task completely?</label>
-					<br><input type = "radio" name = "Able" value='Yes' autocomplete='off' required>Yes
-					<br><input type = "radio" name = "Able" value='No' autocomplete='off' required>No<br>
+					<label>Do you agree with the task's requirements and believe to the best of your ability that you will accomplish the task completely? This will help the member decide if you will need extra help learning certain concepts.</label>
+					<br><input type = "radio" name = "Able" value='1' autocomplete='off' required>Yes
+					<br><input type = "radio" name = "Able" value='0' autocomplete='off' required>No<br>
 					
 					<label>Are you alright with the Member having access to relevant information about your account as pertains to the job?</label>
-					<br><input type = "radio" name = "Share" value='Yes' autocomplete='off' required>Yes
-					<br><input type = "radio" name = "Share" value='No' autocomplete='off' required>I do not. In this case, I ensure that I will message the Company Contact privately to discuss my qualifications.<br>
+					<br><input type = "radio" name = "Share" value='1' autocomplete='off' required>Yes
+					<br><input type = "radio" name = "Share" value='0' autocomplete='off' required>I do not. In this case, I ensure that I will message the Company Contact privately to discuss my qualifications.<br>
 					
 					<label>How much time can you set aside in a given week to the task (Considering tasks for other members as well as Projects assigned to your Internship)</label>
 					<br><input type = "number" name = "Time" placeholder="Enter Estimate Hours You Can Put Into The Project" autocomplete='off' required>
@@ -65,8 +65,8 @@ $_SESSION['TimeLog'] = $session_time;
 					</select>
 					
 					<br><label>What part of the project is of most interest to you?</label>
-					<input type = "text" name = "Interest" placeholder="Enter The Parts of The Project That Either Interest You Or Seem The Most Informative" autocomplete='off' required>
-					<label style='float:left;padding-bottom:30px;'>In order to sign up for a job/task, you must agree to our terms of service <a href='terms.html' target="_blank">found here</a>: <input name='check' onchange="this.setCustomValidity(validity.valueMissing ? 'Verify that you comply with the terms of this site' : '');" type="checkbox" value="Agree" required></label>
+					<input type = "text" name = "Interest" placeholder="Enter The Parts of The Project That Either Interest You Or You Will Learn The Most From" autocomplete='off' required>
+					<label style='float:left;padding-bottom:30px;'>In order to sign up for a project/task, you must agree to our terms of service <a href='terms.html' target="_blank">found here</a>: <input name='check' onchange="this.setCustomValidity(validity.valueMissing ? 'Verify that you comply with the terms of this site' : '');" type="checkbox" value="Agree" required></label>
 				<input id="submitButton" type="submit" value="Submit" style='float:left;background-color:#66ff99;width:21%;height:10%;'>
 				<br>
 				</div>
@@ -76,7 +76,7 @@ $_SESSION['TimeLog'] = $session_time;
 					{
 						...
 						if(!form.check.checked) {
-						  alert("You are required to read and accept the Terms of Service before posting a job to ensure your task complies");
+						  alert("You are required to read and accept the Terms of Service before posting a project to ensure your task complies");
 						  form.check.focus();
 						  return false;
 						}

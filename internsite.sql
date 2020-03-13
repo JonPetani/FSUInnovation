@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2020 at 11:54 PM
+-- Generation Time: Mar 13, 2020 at 10:59 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -39,7 +39,29 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`AdminId`, `AdminCode`, `Role`) VALUES
-(1, 'ru94er4o3ij', 'Student Intern PHP Web Developer For This Website');
+(1, 'mypassword', 'Student Intern PHP Web Developer For This Website');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `applicants`
+--
+
+CREATE TABLE `applicants` (
+  `AppId` int(11) NOT NULL COMMENT 'Id for Application in Database',
+  `CompanyName` varchar(255) NOT NULL COMMENT 'The Company to be applied to and to decide on hiring the candidate',
+  `InternId` int(11) NOT NULL COMMENT 'Id of Applicant',
+  `JobId` int(11) NOT NULL COMMENT 'Id of Job',
+  `StudentName` varchar(255) NOT NULL COMMENT 'The Student applying for the Job',
+  `InternApplicationId` int(11) NOT NULL COMMENT 'Matches with the application id of the applications table'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Stores Applications pending (not denied or accepted)';
+
+--
+-- Dumping data for table `applicants`
+--
+
+INSERT INTO `applicants` (`AppId`, `CompanyName`, `InternId`, `JobId`, `StudentName`, `InternApplicationId`) VALUES
+(7, 'Team Solar', 5, 2, 'Jonathan Petani', 8);
 
 -- --------------------------------------------------------
 
@@ -48,14 +70,21 @@ INSERT INTO `admin` (`AdminId`, `AdminCode`, `Role`) VALUES
 --
 
 CREATE TABLE `applications` (
-  `AppId` int(11) NOT NULL COMMENT 'Id for Application in Database',
-  `CompanyName` varchar(255) NOT NULL COMMENT 'The Company to be applied to and to decide on hiring the candidate',
-  `InternId` int(11) NOT NULL COMMENT 'Id of Applicant',
-  `JobId` int(11) NOT NULL COMMENT 'Id of Job',
-  `StudentName` varchar(255) NOT NULL COMMENT 'The Student applying for the Job',
-  `InternApplication` longblob NOT NULL COMMENT 'The form the Intern filled out to apply',
-  `Permission` tinyint(1) NOT NULL COMMENT 'Permission to View Intern Account Info'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Stores Applications pending (not denied or accepted)';
+  `ApplicationId` int(11) NOT NULL COMMENT 'Project Application Id',
+  `ReadRequirements` tinyint(1) NOT NULL COMMENT 'Whether applicant understands the project 100%',
+  `Prereqs` tinyint(1) NOT NULL COMMENT 'Whether Intern Knows All the Prerequisite Skills',
+  `FullAccess` tinyint(1) NOT NULL COMMENT 'Whether Intern allows Member to view sensitive information like gpa and contact info',
+  `TimeAvailable` tinyint(4) NOT NULL COMMENT 'Time in a given week the intern estimates they can work on the project',
+  `Rating` tinyint(4) NOT NULL COMMENT 'Intern''s Rating Of Project Based on what was read',
+  `Interest` text NOT NULL COMMENT 'What parts of the project the intern is most interested in'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Contains Data Collected from The Member''s Project Form';
+
+--
+-- Dumping data for table `applications`
+--
+
+INSERT INTO `applications` (`ApplicationId`, `ReadRequirements`, `Prereqs`, `FullAccess`, `TimeAvailable`, `Rating`, `Interest`) VALUES
+(8, 1, 1, 1, 14, 1, 'isofjddidsodiodio');
 
 -- --------------------------------------------------------
 
@@ -91,15 +120,18 @@ CREATE TABLE `intern` (
   `Resume` text COMMENT 'Intern''s Resume',
   `SkillsAndExperience` longtext COMMENT 'Past Jobs/Skills that Intern has',
   `AccountVerified` tinyint(1) NOT NULL COMMENT 'Determines if user has reviewed and replied to verification email at registration time.',
-  `AccessCode` varchar(13) DEFAULT NULL COMMENT 'Code that only exists when account reset is needed'
+  `AccessCode` varchar(13) DEFAULT NULL COMMENT 'Code that only exists when account reset is needed',
+  `DropboxToken` varchar(300) DEFAULT NULL COMMENT 'User''s Dropbox Token To Upload/Download Files to the site'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='This table is for applying interns.';
 
 --
 -- Dumping data for table `intern`
 --
 
-INSERT INTO `intern` (`InternId`, `InternName`, `EmailAddress`, `Username`, `Password`, `School`, `InternPhoto`, `Major`, `GPA`, `City`, `State`, `PhoneNumber`, `Resume`, `SkillsAndExperience`, `AccountVerified`, `AccessCode`) VALUES
-(5, 'Jonathan Petani', 'jpetani@student.framingham.edu', 'Jpetani', 'ru94er4o3ij', 'FSU', 'https://i.ibb.co/TYmxJpL/e88be3e28bb7.png', 'CS - Software Eng.', '3.70', 'Hopkinton', 'Massachusetts', '508-435-3925', '', 'Good at Coding (especially web and backend)', 1, NULL);
+INSERT INTO `intern` (`InternId`, `InternName`, `EmailAddress`, `Username`, `Password`, `School`, `InternPhoto`, `Major`, `GPA`, `City`, `State`, `PhoneNumber`, `Resume`, `SkillsAndExperience`, `AccountVerified`, `AccessCode`, `DropboxToken`) VALUES
+(5, 'Jonathan Petani', 'jpetani@student.framingham.edu', 'JonathanPetroni', 'mypassword', 'Framingham State College', 'https://i.ibb.co/hCWKSVK/585fcaf9ae7a.png', 'Web Dev', '4.00', 'Worcester', 'Vermont', '508-435-3925', 'https://www.dropbox.com/s/oqzm2f3krpbgwmm/Beckwitt%20biol%20130%20syllabus%20sp%202018%281%29.docx?dl=0', 'Code Guy', 1, NULL, 'Xe6PaJwneZAAAAAAAAAAdf0W-w_0JWh83SesRCKsmsBq-fi1CY8GzHnc2A5VBQNV'),
+(13, 'William Onthank', 'WOnthank@framingham.edu', 'OnthankYou', 'dkkdssdkjkdj', 'Southboro Meadows', 'https://i.ibb.co/qBCj3Tb/2acd3dc43e69.png', 'Real Estate', '3.80', 'Fayville', 'Massachusetts', '566-455-4564', 'https://www.dropbox.com/s/bzsso6j2ftt4ijz/TOC-syllabus.pdf?dl=0', 'dhuskdhjfsuuhsfduihs', 0, NULL, 'Xe6PaJwneZAAAAAAAAAAamsmkFmBIaT-D6A70KOJ_KW6skJbxuD72EgUI1a4M-tG'),
+(14, 'Boris Hornyczech', 'BHornyczech@framingham.edu', 'BorntoHorn', 'jksddjskdsjkdsjk', 'School of Not So Fine Arts', 'https://i.ibb.co/pKvHRLx/4cdc567129b7.png', 'The Art of Horning', '3.70', 'Bellarussia', 'Ruskieville', '566-455-5653', 'https://www.dropbox.com/s/orxyiuwjes7luyo/Chapter%2013.ppt?dl=0', 'vdfhsrth556656y6ythr', 0, NULL, 'NxBvwB_ftMAAAAAAAAAAIsY1-kMSE_l9mFaNvtGsNudoRlXvH3Nfv_MwuxSoQMh4');
 
 -- --------------------------------------------------------
 
@@ -113,8 +145,15 @@ CREATE TABLE `internstasks` (
   `JobName` varchar(255) NOT NULL COMMENT 'Task the Intern is Working on',
   `JobId` int(11) NOT NULL COMMENT 'Id of Job',
   `InternId` int(11) NOT NULL COMMENT 'Id of Intern',
-  `Status` enum('Accepted/Current','Denied','Pending','Past') NOT NULL COMMENT 'Status of Job in Intern''s list of tasks (currently being done, past done, or pending/denied.'
+  `Status` varchar(30) NOT NULL COMMENT 'Status of Job in Intern''s list of tasks (currently being done, past done, or pending/denied.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Tasks a Student is Working on';
+
+--
+-- Dumping data for table `internstasks`
+--
+
+INSERT INTO `internstasks` (`TaskId`, `InternName`, `JobName`, `JobId`, `InternId`, `Status`) VALUES
+(9, 'Jonathan Petani', 'Sunshine', 2, 5, 'Pending');
 
 -- --------------------------------------------------------
 
@@ -148,6 +187,13 @@ CREATE TABLE `jobs` (
   `JobRequirements` text NOT NULL COMMENT 'requirements/skills/experience intern will need to do the task correctly',
   `InternLimit` int(11) DEFAULT '1' COMMENT 'Linit of Intern Sign Ups (Is 1 Intern with some Exceptions)'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Listing of All Tasks needed for Members';
+
+--
+-- Dumping data for table `jobs`
+--
+
+INSERT INTO `jobs` (`JobId`, `JobName`, `JobDesc`, `CompanyName`, `JobType`, `TimeNeeded`, `JobRequirements`, `InternLimit`) VALUES
+(2, 'Sunshine', 'I need some science students to help me engineer a handheld device that will be able to charge a laptop computer using the sun. I need the students to do some research, create a design, and build a prototype using equipment I will provide.', 'Team Solar', 'Biology Chemistry Engineering Graphic-Design Astrology Writing Biotech Geography Communications Software-Engineering', 5, 'Students should know about conducting research and basic principles of earth science that will make developing solar tech easier.', 1);
 
 -- --------------------------------------------------------
 
@@ -202,41 +248,46 @@ CREATE TABLE `member` (
   `CompanyPicture` text NOT NULL COMMENT 'Company Photo/Logo',
   `CompanyDescription` longtext NOT NULL COMMENT 'Company Description',
   `AccountVerified` tinyint(1) NOT NULL COMMENT 'Determines if user has reviewed and replied to verification email at registration time.',
-  `AccessCode` varchar(40) DEFAULT NULL COMMENT 'Code that only exists when account reset is needed'
+  `AccessCode` varchar(40) DEFAULT NULL COMMENT 'Code that only exists when account reset is needed',
+  `DropboxToken` varchar(300) DEFAULT NULL COMMENT 'Dropbox Token For Members. Will be needed if they must store files through the platform. Generated by dropbox''s oauth.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `member`
 --
 
-INSERT INTO `member` (`MemberId`, `ContactName`, `CompanyName`, `ContactEmail`, `Username`, `Password`, `CompanyCity`, `CompanyState`, `PhoneNumber`, `CompanyPicture`, `CompanyDescription`, `AccountVerified`, `AccessCode`) VALUES
-(11, 'David Cohen', 'Doc Wayne Youth Services', 'dcohen@docwayne.org', 'dwayne', 'wildplanettuna', 'Framingham', 'Massachusetts', '617-458-0315', 'https://ibb.co/H75nscB', 'Doc Wayne is an award-winning non-profit reimagining therapy through the lens of sport. Our sport-based group therapy program, Chalk Talk®, supports students as they process and persevere through adversity. Over time, as individuals and in teams, youth learn to heal together, grow together, and win together.', 1, NULL),
-(12, 'James Neal', 'Team Solar', 'james@teamsolar.us', 'tsolar', 'fh2893f3', 'Framingham', 'Massachusetts', '774-217-3995', 'https://ibb.co/F61TMYk', 'Team Solar is dedicated to helping non-profit organizations and small businesses receive the benefits of solar\r\n', 1, NULL),
-(13, 'Marina Andreazi', 'Xua Life', 'marina@xua.life', 'XLife', 'q8c 4t8o', 'Framingham', 'Massachusetts', '508-626-5721', 'https://ibb.co/ZJgW8KJ', 'Craft Energy Drinks Powered By Amazonian Ingredients', 1, NULL),
-(15, 'Matthew McLean', 'Nubitt', 'matt@nubitt.com', 'mattbitt', 'nubitt45391', 'Boston', 'Massachusetts', '617-593-4260', 'https://ibb.co/1ZLxHLR', 'No Description', 1, NULL),
-(16, 'Murkin Martinez', 'Collaborative Solutions, LLC', 'murkin.martinez@gmail.com', 'mmartinez', 'sol123', 'Framingham', 'Massachusetts', '617-501-6138', 'https://ibb.co/NxbgTfH', 'Collaborative Solutions is a leading global Finance and HR Transformation consultancy that leverages world-class cloud solutions to help deliver successful outcomes for its customers.', 1, NULL),
-(23, 'Raghu Nandan', 'Soltrix Technology Solutions, Inc.', 'raghu.nandan@soltrixsolutions.com', 'RNandan', 'soltricks98', 'Framingham', 'Massachusetts', '774-293-1293', 'https://ibb.co/Z6R9Q4c', '\r\nSoltrix Technology Solutions, Inc. started in 2007 as a custom software development shop. All founders came from working in IT at large insurance companies and financial institutions. While working for these institutions we gained expertise in ITSM and Project Portfolio Management (responsible for implementation of CA Clarity -now CA PPM). \r\n\r\nSoltrix is privately owned, managed, and headquartered in Framingham, MA. Since 2007, we have successfully implemented over 50 project and portfolio management (Clarity)projects. In 2014, we started working on ServiceNow. Currently, our team of over 70 personnel, include solution architects, project managers, business analysts, implementation specialists and developers. We have ServiceNow certified system admins, developers and solutions architects. Soltrix is a approved ServiceNow implementation partner and a certified Minority Business Enterprise and HR solutions.', 1, NULL),
-(24, 'Kimberly Devane', 'Entrust Research & Recruiting', 'kim.devane@entrustrr.com', 'KDevane', 'entrustablepassword', 'Framingham', 'Massachusetts', '508-523-5294', 'https://ibb.co/cFjrGvV', 'Entrust Research & Recruiting, LLC provides the following Services:\r\nRecruiting participants for User Experience/Usability & Market Research studies in various contexts within the United States. ', 1, NULL),
-(45, 'Leah Daniels', 'Appcast', 'leah.daniels@appcast.io', 'e468', 'w_DhZ&lYVm0p%+[c', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
-(46, 'Kenya Rutland', 'KJR Consulting, LLC', 'kenya@kjrconsulting.com', 'e212', ',$<%1+#Wu4SU.;Ajk', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
-(47, 'George Dawson', '', 'gdawson@recommerceadvisors.com', 'e645', 'cV_T&<B+T$~yp`2KZ~JMppQU', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
-(48, 'Suriah Resende', 'LUK, Inc', 'resende@luk.org', 'u103', 'rp-)$aFJ#H:mA1y}Fwv:Wv', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
-(49, 'Jody Comins', 'A Better Way; Divorce Mediation', 'jodylcomins@gmail.com', 'o370', 'LlTAQ?w_+R7oEdk|', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
-(50, 'Zara Massoud', 'Inspire', 'zaramassoud@gmail.com', 'a180', '<cD&N80lQsaM;OKJAOqU[fA', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
-(51, 'Stephanie Hirshon', '', 'stephanie@metrowest.org', 't499', ',96Hvz~z+y6,`&DCkuA', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
-(52, 'Kathryn Rose', 'WiseHer', 'kathryn@wiseher.com', 'a672', '51VhdokB;1/WQ?~p+_KJiKv=', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
-(53, 'Saad Thabit', 'DRF Engineering Services LLC', 'thabit@drfengineeringservices.com', 'a401', 'BRkfXe]ytj[m9RKLoTPAz2t', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
-(54, 'Jack Boyle', 'CleverMinds, Inc.', 'workbar@cleverminds.net', 'a748', 'n#C)p&VYU=0L]1yvR>sU0V', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
-(55, 'Hal Greenberger', '', 'halgbr@aol.com', 'a745', '5O$=u=*3Sq6;kUAz,Tzrn,lkT', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
-(56, 'Daniel McDonnell', 'The World Tour - Travel Adventure Club', 'daniel@theworldtour.org', 'a782', ':PlT1VV-dJilbR%W@n{<@', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
-(57, 'Luka Kurelja', 'Mill 2 Market', 'lukam2m@gmail.com', 'u978', './IBz]t&Lx<+iZe-9+', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
-(58, 'Eric Bonin', 'Pillars Yogurt LLC', 'ebonin@pillarsyogurt.com', 'r601', '<7=wgN41;dDi4^M', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
-(59, 'Jim Hulyk', '', 'jhulyk@hotmail.com', 'i641', 'nYnF8poTx`N?Sg0n?rE`do%2M', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
-(60, 'Mazi Gene', 'Ray Farmz LLC', 'mazzpmp@gmail.com', 'a183', '+(	N=.g<w:SNP8d)3_S', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
-(61, 'Harry Corcell', '', 'harry.corcell@lansa.com', 'a376', 'F=,t-LM~B:8t0.O1q_#:[w', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
-(62, 'ElizabethLison', 'Innovative Autism Connections, LLC', 'plison@innovativeautism.org', 'l568', ',&Lz*!t`b|gDfBCV+ed', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
-(63, 'Jonathan Petani', 'Business Men of America', 'Unstoppablestreletsy@gmail.com', 'o804', 'uL{Ia]1iHG?N#X-/-ji&bb', 'Florida', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL),
-(64, 'Jon Johnson', 'None of Your Business', 'JonPetani@gmail.com', 'jjony', 'kjeewewiewi', 'Grafton', 'New Hampshire', '485-445-4555', 'https://i.ibb.co/xskxK06/01fd51d3c8ce.gif', 'Again, None of your business. Our Business is our business.', 1, NULL);
+INSERT INTO `member` (`MemberId`, `ContactName`, `CompanyName`, `ContactEmail`, `Username`, `Password`, `CompanyCity`, `CompanyState`, `PhoneNumber`, `CompanyPicture`, `CompanyDescription`, `AccountVerified`, `AccessCode`, `DropboxToken`) VALUES
+(11, 'David Cohen', 'Doc Wayne Youth Services', 'dcohen@docwayne.org', 'dwayne', 'wildplanettuna', 'Framingham', 'Massachusetts', '617-458-0315', 'https://i.ibb.co/VxY4pgW/9e2bccf759df.png', 'Doc Wayne is an award-winning non-profit reimagining therapy through the lens of sport. Our sport-based group therapy program, Chalk Talk®, supports students as they process and persevere through adversity. Over time, as individuals and in teams, youth learn to heal together, grow together, and win together.', 1, NULL, NULL),
+(12, 'James Neal', 'Team Solar', 'james@teamsolar.us', 'tsolar', 'fh2893f3', 'Framingham', 'Massachusetts', '774-217-3995', 'https://ibb.co/F61TMYk', 'Team Solar is dedicated to helping non-profit organizations and small businesses receive the benefits of solar\r\n', 1, NULL, NULL),
+(13, 'Marina Andreazi', 'Xua Life', 'marina@xua.life', 'XLife', 'q8c 4t8o', 'Framingham', 'Massachusetts', '508-626-5721', 'https://ibb.co/ZJgW8KJ', 'Craft Energy Drinks Powered By Amazonian Ingredients', 1, NULL, NULL),
+(15, 'Matthew McLean', 'Nubitt', 'matt@nubitt.com', 'mattbitt', 'nubitt45391', 'Boston', 'Massachusetts', '617-593-4260', 'https://ibb.co/1ZLxHLR', 'No Description', 1, NULL, NULL),
+(16, 'Murkin Martinez', 'Collaborative Solutions, LLC', 'murkin.martinez@gmail.com', 'mmartinez', 'sol123', 'Framingham', 'Massachusetts', '617-501-6138', 'https://ibb.co/NxbgTfH', 'Collaborative Solutions is a leading global Finance and HR Transformation consultancy that leverages world-class cloud solutions to help deliver successful outcomes for its customers.', 1, NULL, NULL),
+(23, 'Raghu Nandan', 'Soltrix Technology Solutions, Inc.', 'raghu.nandan@soltrixsolutions.com', 'RNandan', 'soltricks98', 'Framingham', 'Massachusetts', '774-293-1293', 'https://ibb.co/Z6R9Q4c', '\r\nSoltrix Technology Solutions, Inc. started in 2007 as a custom software development shop. All founders came from working in IT at large insurance companies and financial institutions. While working for these institutions we gained expertise in ITSM and Project Portfolio Management (responsible for implementation of CA Clarity -now CA PPM). \r\n\r\nSoltrix is privately owned, managed, and headquartered in Framingham, MA. Since 2007, we have successfully implemented over 50 project and portfolio management (Clarity)projects. In 2014, we started working on ServiceNow. Currently, our team of over 70 personnel, include solution architects, project managers, business analysts, implementation specialists and developers. We have ServiceNow certified system admins, developers and solutions architects. Soltrix is a approved ServiceNow implementation partner and a certified Minority Business Enterprise and HR solutions.', 1, NULL, NULL),
+(24, 'Kimberly Devane', 'Entrust Research & Recruiting', 'kim.devane@entrustrr.com', 'KDevane', 'entrustablepassword', 'Framingham', 'Massachusetts', '508-523-5294', 'https://ibb.co/cFjrGvV', 'Entrust Research & Recruiting, LLC provides the following Services:\r\nRecruiting participants for User Experience/Usability & Market Research studies in various contexts within the United States. ', 1, NULL, NULL),
+(45, 'Leah Daniels', 'Appcast', 'leah.daniels@appcast.io', 'e468', 'w_DhZ&lYVm0p%+[c', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL, NULL),
+(46, 'Kenya Rutland', 'KJR Consulting, LLC', 'kenya@kjrconsulting.com', 'e212', ',$<%1+#Wu4SU.;Ajk', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL, NULL),
+(47, 'George Dawson', '', 'gdawson@recommerceadvisors.com', 'e645', 'cV_T&<B+T$~yp`2KZ~JMppQU', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL, NULL),
+(48, 'Suriah Resende', 'LUK, Inc', 'resende@luk.org', 'u103', 'rp-)$aFJ#H:mA1y}Fwv:Wv', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL, NULL),
+(49, 'Jody Comins', 'A Better Way; Divorce Mediation', 'jodylcomins@gmail.com', 'o370', 'LlTAQ?w_+R7oEdk|', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL, NULL),
+(50, 'Zara Massoud', 'Inspire', 'zaramassoud@gmail.com', 'a180', '<cD&N80lQsaM;OKJAOqU[fA', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL, NULL),
+(51, 'Stephanie Hirshon', '', 'stephanie@metrowest.org', 't499', ',96Hvz~z+y6,`&DCkuA', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL, NULL),
+(52, 'Kathryn Rose', 'WiseHer', 'kathryn@wiseher.com', 'a672', '51VhdokB;1/WQ?~p+_KJiKv=', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL, NULL),
+(53, 'Saad Thabit', 'DRF Engineering Services LLC', 'thabit@drfengineeringservices.com', 'a401', 'BRkfXe]ytj[m9RKLoTPAz2t', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL, NULL),
+(54, 'Jack Boyle', 'CleverMinds, Inc.', 'workbar@cleverminds.net', 'a748', 'n#C)p&VYU=0L]1yvR>sU0V', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL, NULL),
+(55, 'Hal Greenberger', '', 'halgbr@aol.com', 'a745', '5O$=u=*3Sq6;kUAz,Tzrn,lkT', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL, NULL),
+(56, 'Daniel McDonnell', 'The World Tour - Travel Adventure Club', 'daniel@theworldtour.org', 'a782', ':PlT1VV-dJilbR%W@n{<@', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL, NULL),
+(57, 'Luka Kurelja', 'Mill 2 Market', 'lukam2m@gmail.com', 'u978', './IBz]t&Lx<+iZe-9+', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL, NULL),
+(58, 'Eric Bonin', 'Pillars Yogurt LLC', 'ebonin@pillarsyogurt.com', 'r601', '<7=wgN41;dDi4^M', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL, NULL),
+(59, 'Jim Hulyk', '', 'jhulyk@hotmail.com', 'i641', 'nYnF8poTx`N?Sg0n?rE`do%2M', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL, NULL),
+(60, 'Mazi Gene', 'Ray Farmz LLC', 'mazzpmp@gmail.com', 'a183', '+(	N=.g<w:SNP8d)3_S', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL, NULL),
+(61, 'Harry Corcell', '', 'harry.corcell@lansa.com', 'a376', 'F=,t-LM~B:8t0.O1q_#:[w', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL, NULL),
+(62, 'ElizabethLison', 'Innovative Autism Connections, LLC', 'plison@innovativeautism.org', 'l568', ',&Lz*!t`b|gDfBCV+ed', 'Framingham', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL, NULL),
+(63, 'Jonathan Petani', 'Business Men of America', 'Unstoppablestreletsy@gmail.com', 'o804', 'uL{Ia]1iHG?N#X-/-ji&bb', 'Florida', 'Massachusetts', 'To be Updated by Mem', 'images/Gold-WithoutEars.jpg', 'To be Updated by Member...', 1, NULL, NULL),
+(64, 'Jon Johnson', 'None of Your Business', 'JonPetani@gmail.com', 'jjony', 'kjeewewiewi', 'Grafton', 'New Hampshire', '485-445-4555', 'https://i.ibb.co/xskxK06/01fd51d3c8ce.gif', 'Again, None of your business. Our Business is our business.', 1, NULL, NULL),
+(65, 'Paul Andrews', 'CompanyCompany', 'MyBigFatCompany@boston.comp', 'MyName', 'passme', 'Austin', 'Texas', '677-667-5564', 'https://i.ibb.co/ph7z6hY/03ee1429eb5b.png', 'We Made The Best Ribs This Side of Edgell Road.', 0, NULL, NULL),
+(66, 'Francis DuCaucus', 'Center of Learning Stuff', 'IowaCaucus@natickham.edu', 'Teachr', 'errerere', 'NatickHam', 'Framachusetts', '455-644-3453', 'https://i.ibb.co/6Rt5qSx/55d75f0da0f3.gif', 'Caucusing', 0, NULL, NULL),
+(67, 'Will Onthanks', 'Businessmen of America', 'WOnthankyou@google.com', '3h34j43hj34hj34', 'hjej4herhjehjerjh', 'dfkjdfjdfjkdfjkf', 'oeiorirdriodfio', '444-555-5564', 'https://i.ibb.co/f9yLjFn/64caf3fb6d0f.png', 'mlvrdfnbskjr.fnbvsrkj.fbnjvfdkjnvkgdfngjlxrjnjruhe', 0, NULL, NULL),
+(68, 'BusinessMan', 'Company', 'ThisBusiness@boston.edu', 'fhfhfh', 'kihhui', 'dsdsdsdsd', 'sdsddssdd', '455-987-7542', 'https://i.ibb.co/2hdky5w/81cdcc4dcc4c.png', 'ccvvcvvc', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -298,7 +349,7 @@ INSERT INTO `privatemessageboards` (`BoardId`, `Username`, `Name`, `Email`, `Con
 (22, 'mmartinez', 'Murkin Martinez', 'murkin.martinez@gmail.com', 0, 16, '', NULL, NULL),
 (26, 'dwayne', 'David Cohen', 'dcohen@docwayne.org', 0, 11, '', '10 11 12 12 12 ', NULL),
 (28, 'ChristosPizza', 'Christos Giam', 'unstoppablestreletsy@gmail.com', 0, 22, 'https://i.ibb.co/m0x0Wjr/b2e453ca2a8e.png', '9 10 ', NULL),
-(29, 'Jpetani', 'Jonathan Petani', 'jpetani@student.framingham.edu', 0, 5, 'https://i.ibb.co/TYmxJpL/e88be3e28bb7.png', NULL, NULL);
+(29, 'JonathanPetroni', 'Jonathan Petani', 'jpetani@student.framingham.edu', 0, 5, 'https://i.ibb.co/TYmxJpL/e88be3e28bb7.png', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -343,10 +394,16 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`AdminId`);
 
 --
+-- Indexes for table `applicants`
+--
+ALTER TABLE `applicants`
+  ADD PRIMARY KEY (`AppId`);
+
+--
 -- Indexes for table `applications`
 --
 ALTER TABLE `applications`
-  ADD PRIMARY KEY (`AppId`);
+  ADD PRIMARY KEY (`ApplicationId`);
 
 --
 -- Indexes for table `emailtemp`
@@ -419,10 +476,16 @@ ALTER TABLE `admin`
   MODIFY `AdminId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'AdminAccountId', AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `applicants`
+--
+ALTER TABLE `applicants`
+  MODIFY `AppId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for Application in Database', AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `applications`
 --
 ALTER TABLE `applications`
-  MODIFY `AppId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for Application in Database';
+  MODIFY `ApplicationId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Project Application Id', AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `emailtemp`
@@ -434,13 +497,13 @@ ALTER TABLE `emailtemp`
 -- AUTO_INCREMENT for table `intern`
 --
 ALTER TABLE `intern`
-  MODIFY `InternId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=6;
+  MODIFY `InternId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `internstasks`
 --
 ALTER TABLE `internstasks`
-  MODIFY `TaskId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id of Task for Intern';
+  MODIFY `TaskId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id of Task for Intern', AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `jobmemberlist`
@@ -452,7 +515,7 @@ ALTER TABLE `jobmemberlist`
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `JobId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Job Id';
+  MODIFY `JobId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Job Id', AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `keywords`
@@ -464,7 +527,7 @@ ALTER TABLE `keywords`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `MemberId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=65;
+  MODIFY `MemberId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Id for each entry', AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `privateconversations`

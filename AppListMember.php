@@ -24,7 +24,7 @@ $timeout_duration = 1200;
 if(isset($_SESSION['LogTime']) && ($session_time - $_SESSION['LogTime']) > $timeout_duration)
 	header("location: SessionExpire.php");
 $_SESSION['TimeLog'] = $session_time;
-$sql = $con -> query("SELECT * FROM applications WHERE CompanyName = '$_SESSION[CompanyName]'");
+$sql = $con -> query("SELECT * FROM applicants WHERE CompanyName = '$_SESSION[CompanyName]'");
 $results = $sql -> fetchall(PDO::FETCH_ASSOC);
 echo"<table>";
 echo"<tr><th>Job Name<th>Intern Applying<th>Profile Info, If Allowed by Applicant<th>Resume (if they have one)<th>Skills and Experience they have<th>Intern's Application<th cellspan='2'>Accept/Deny Applicant</tr>";

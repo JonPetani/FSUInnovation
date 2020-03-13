@@ -1,8 +1,8 @@
 <?php
 session_start();
 $con = new PDO('mysql:host=localhost:3306;dbname=internsite;charset=utf8mb4','SiteAdmin','fsuintern495');
-if(isset($_SESSION['loggedin'] and $_SESSION['UserType']))) {
-	if(isset($_GET['file'] and isset($_GET['inquiry']) and isset($_GET['current']) and $_SESSION['loggedin'] == true) {
+if(isset($_SESSION['loggedin']) and isset($_SESSION['UserType'])) {
+	if(isset($_GET['file']) and isset($_GET['inquiry']) and isset($_GET['current']) and $_SESSION['loggedin'] == true) {
 		$session_time = $_SERVER['REQUEST_TIME'];
 		$timeout_duration = 1200;
 		if(isset($_SESSION['LogTime']) && ($session_time - $_SESSION['LogTime']) > $timeout_duration)
