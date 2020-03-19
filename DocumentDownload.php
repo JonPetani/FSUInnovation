@@ -10,7 +10,7 @@ if(isset($_SESSION['loggedin']) and isset($_SESSION['UserType'])) {
 		$_SESSION['TimeLog'] = $session_time;
 		$file_type = $_GET['file'];
 		$pointer = $_GET['inquiry'];
-		if($_GET['file'] == 'Resume') {
+		if($file_type == 'Resume') {
 			if($_SESSION['UserType'] != "Member") {
 				header("Location: AccessDenied.php");
 				die;
@@ -18,8 +18,10 @@ if(isset($_SESSION['loggedin']) and isset($_SESSION['UserType'])) {
 			try {
 				$timeout = 50;
 				$url = "https://content.dropboxapi.com/2/sharing/get_shared_link_file";
-				$sql = $con -> query("SELECT * FROM intern WHERE InternName = '$_GET[inquiry]'");
+				$sql = $con -> query("SELECT * FROM intern WHERE InternName = '$pointer'");
 				$resume = $sql -> fetch(PDO::FETCH_ASSOC);
+				$filename = str_replace('%', '_', explode('?', basename($resume['Resume']))[0]);
+				$fp = fopen($filename , "w+");
 				$rcurl = curl_init();
 				$params = array(
 				utf8_encode("Authorization: Bearer " . $resume['DropboxToken']),
@@ -28,10 +30,28 @@ if(isset($_SESSION['loggedin']) and isset($_SESSION['UserType'])) {
 				)));
 				curl_setopt($rcurl, CURLOPT_URL, $url);
 				curl_setopt($rcurl, CURLOPT_HTTPHEADER, $params);
+				curl_setopt($rcurl, CURLOPT_FILE, $fp);
 				curl_setopt($rcurl, CURLOPT_TIMEOUT, $timeout);
 				curl_setopt($rcurl, CURLOPT_POST, false);
 				curl_setopt($rcurl, CURLOPT_RETURNTRANSFER, true);
 				$download = curl_exec($rcurl);
+				$http_request = curl_getinfo($rcurl, CURLINFO_HTTP_CODE);
+				echo $download;
+				echo $http_request;
+				if(file_exists($fp)) {
+					header("Content-Type: application/octet-stream");
+					$filestr = "'" . $filename . "'";
+					header("Content-Disposition: attachment; filename=" . $filestr);
+					header("Content-Transfer-Encoding: binary");
+					header("Content-length " . filesize($fp));
+					header("X-Pad: avoid browser bug");
+					header("Cache-Control: no-cache");
+					readfile($file);
+				}
+				else {
+					echo "File Failed To Download";
+				}
+				fclose($fp);
 			}
 			catch(Exception $e) {
 				echo $e -> getMessage();

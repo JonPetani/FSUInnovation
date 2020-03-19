@@ -25,27 +25,26 @@ if(isset($_SESSION['LogTime']) && ($session_time - $_SESSION['LogTime']) > $time
 	header("location: SessionExpire.php");
 $_SESSION['TimeLog'] = $session_time;
 $sql = $con -> query("SELECT * FROM applicants WHERE CompanyName = '$_SESSION[CompanyName]'");
-$results = $sql -> fetchall(PDO::FETCH_ASSOC);
+$applicants = $sql -> fetchall(PDO::FETCH_ASSOC);
 echo"<table>";
-echo"<tr><th>Job Name<th>Intern Applying<th>Profile Info, If Allowed by Applicant<th>Resume (if they have one)<th>Skills and Experience they have<th>Intern's Application<th cellspan='2'>Accept/Deny Applicant</tr>";
-for ($i = 0; $i < sizeof($results); $i++) {
-	$sql2 = $con -> query("SELECT * FROM intern WHERE InternName = '$results[$i][StudentName]'");
-	$sql3 = $con -> query("SELECT * FROM jobs WHERE JobId = '$results[$i][JobId]'");
+echo"<tr><th>Job Name<th>Intern Applying<th>Profile Info, If Allowed by Applicant<th>Resume (if they have one)<th>Intern's Application<th cellspan='2'>Accept/Deny Applicant</tr>";
+for ($i = 0; $i < sizeof($applicants); $i++) {
+	$sql2 = $con -> query("SELECT * FROM intern WHERE InternName = '$applicants[$i][StudentName]'");
+	$sql3 = $con -> query("SELECT * FROM jobs WHERE JobId = '$applicants[$i][JobId]'");
 	$InternInfo = $sql2 -> fetchall(PDO::FETCH_ASSOC);
 	$JobInfo = $sql3 -> fetchall(PDO::FETCH_ASSOC);
 	echo"<tr>";
 	echo "<td>" . $JobInfo[0]['JobName'] . "</td>";
-	echo "<td>" . $results[$i]['StudentName'] . "</td>";
+	echo "<td>" . $applicants[$i]['StudentName'] . "</td>";
 	if ($results[$i]['Permission'] == 'Yes') {
-		echo '<td><a href="InternProfileViewer.php?inquery=' . $results[$i]['StudentName'] . '"><img src="images/Allowed.png" class="TableImg" alt="To Intern Profile"/></a></td>';
+		echo '<td><a href="InternProfileViewer.php?name=' . $applicants[$i]['StudentName'] . '"><img src="images/clickhere.png" width="90%" height="90%" alt="To Intern Profile"/></a><br></td>';
 	}
 	else {
-		echo "<td><img src='images/Allowed.png' class='TableImg' alt='Access Denied to Information' title = 'Intern Denied you Access to View Profile Info (Send a pm to him/her if you have questions about them)'/></td>";
+		echo "<td><a href=\"InternProfileViewer.php?key='locked'\"><img src='images/Blocked.png' width='90%' height='90%' alt='Access Denied to Information' title = 'No Permission'/></a></td>";
 	}
-	echo "<td><a href='DocumentDownload.php?file=Resume&intern=" . $results[$i]['StudentName'] . "&current=AppListMember.php'>Resume Link</a></td>";
-	echo "<td>" . $InternInfo[0]['SkillsAndExperience'] . "</td>";
+	echo "<td><a href='DocumentDownload.php?file=Resume&inquiry=" . $applicants[$i]['StudentName'] . "&current=AppListMember.php'><img src='images/FileDownload.png' width='95%' height='95%' title='Download Intern's Resume Here' alt='Resume Link'/></a></td>";
 	echo "<td>" . $results[$i]['InternApplication'] . "</td>";
-	echo "<td cellspan='2'>" . '<a href="Accept.php?app=' . $results[$i]['AppId'] . '"><img src="images/Accept.jpg" class="SkillImg" alt="Accept Applicant"/></a>' . '<a href="Deny.php?app=' . $results[$i]['AppId'] . '"><img src="images/Delete.jpg" class="SkillImg" alt="Deny Applicant"/></a>';
+	echo "<td cellspan='2'>" . '<a href="Accept.php?app=' . $results[$i]['AppId'] . '"><img src="images/Accept.jpg" style="width:45%;height:45%;float:left;" alt="Accept Applicant"/></a>' . '<a href="Deny.php?app=' . $results[$i]['AppId'] . '"><img src="images/Delete.jpg" style="width:45%;height:45%;float:right;" alt="Deny Applicant"/></a><br clear=both>';
 	echo"</tr>";
 	echo"</table>";
 }
