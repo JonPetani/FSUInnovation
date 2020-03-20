@@ -3,7 +3,7 @@
 <head>
 <title>Retrieval Email Sent</title>
 <link rel="icon" type="image/png" href="images/icon.png"/>
-<link href='css/Intern.css' rel='stylesheet'/>
+<link href='css/Intern1.css' rel='stylesheet'/>
 </head>
 <body>
 <a href="Home.php"><img id="fsu_logo" src="images/fsu_logo.png" alt="FSU Logo"/></a>
